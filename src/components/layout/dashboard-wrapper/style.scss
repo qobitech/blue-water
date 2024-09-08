@@ -1,0 +1,31 @@
+@import '../../../assets/style/variables.scss';
+
+.main-wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.main-content-wrapper {
+  flex-basis: 100%;
+  padding-right: 20px;
+  width: 0;
+  &.islogged {
+    flex-basis: 80%;
+  }
+  @media (max-width: $lg-breakpoint) {
+    flex-basis: 80%;
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+.side-content-main-wrapper {
+  flex-basis: 20%;
+  @media (max-width: $lg-breakpoint) {
+    display: 'none';
+  }
+}

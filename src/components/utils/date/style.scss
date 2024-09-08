@@ -1,0 +1,28 @@
+@import '../../../assets/style/variables.scss';
+
+.type-text-input-date {
+  font-family: 'Outfit_Regular', 'Arial', 'sans-serif';
+  font-size: 16px;
+  outline: var(--primary-color);
+  border-radius: 3px;
+  max-width: 320px;
+  width: 100%;
+  color: #000;
+  height: 50px;
+  padding-left: 10px;
+  border: 1px solid var(--border-color);
+  background: none;
+  &:focus {
+    &.isview {
+      padding-left: 0;
+      border: 0;
+    }
+  }
+  &.iserror {
+    border: 1px solid red;
+  }
+  @media (max-width: $lg-breakpoint) {
+    font-size: 12px;
+    height: 43px;
+  }
+}

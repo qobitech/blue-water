@@ -1,0 +1,31 @@
+@import '../../../assets/style/variables.scss';
+
+.select-input {
+  font-family: 'Outfit_Regular';
+  font-size: 16px;
+  outline: #eb5640;
+  border-radius: 3px;
+  height: 50px;
+  padding-left: 10px;
+  padding-right: 38px;
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  background: none;
+  color: #000000;
+  &.iserror {
+    border: 1px solid red;
+  }
+  &:focus {
+    border: 1px solid var(--primary-color);
+    &.iserror {
+      border: 1px solid red;
+    }
+    @media (max-width: $md-breakpoint) {
+      height: 43px;
+      padding-left: 7px;
+      min-width: 90px;
+    }
+  }
+}

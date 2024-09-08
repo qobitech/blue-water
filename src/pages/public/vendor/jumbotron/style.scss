@@ -1,0 +1,113 @@
+@import '../../../../assets/style/variables.scss';
+
+.VendorBrandText {
+  color: #0a3d24;
+  font-family: 'Outfit_Regular';
+  font-size: 0.75rem;
+  font-style: 'normal';
+  line-height: 'normal';
+  letter-spacing: 0.2625rem;
+}
+
+.VendorHeaderText {
+  color: #f3fef4;
+  font-family: 'Outfit_Bold';
+  font-size: 3.75rem;
+  font-style: normal;
+  line-height: normal;
+  @media (max-width: $md-breakpoint) {
+    font-size: 2.1875rem;
+  }
+}
+
+.VendorTagline {
+  color: #c9ff96;
+  font-family: 'Outfit_Regular';
+  font-size: 1.5625rem;
+  font-style: normal;
+  line-height: 2.5rem;
+  max-width: 26.5rem;
+  width: 100%;
+  @media (max-width: $lg-breakpoint) {
+    margin: 0 auto;
+  }
+  @media (max-width: $md-breakpoint) {
+    font-size: 1rem;
+    line-height: 1.8125rem;
+  }
+}
+
+.VendorTextWrapper {
+  width: 100%;
+  display: block;
+  align-items: left;
+  margin-bottom: 30px;
+  @media (max-width: $lg-breakpoint) {
+    align-items: center;
+    padding-top: 80px;
+    margin-bottom: 20px;
+  }
+}
+
+.ImgWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @media (max-width: $lg-breakpoint) {
+    display: none;
+  }
+}
+
+.CTAWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 30px 0;
+  gap: 20px;
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+  }
+  @media (max-width: $md-breakpoint) {
+    gap: 10px;
+    @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.JumbotronContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: none;
+  position: relative;
+  padding: 120px 0;
+  height: auto;
+  overflow: hidden;
+  @media (max-width: $lg-breakpoint) {
+    background: #02835b;
+    padding: 10px 0 60px;
+  }
+}
+
+.JumbotronContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  @media (max-width: $lg-breakpoint) {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: auto;
+  }
+}

@@ -1,0 +1,20 @@
+.ContentWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.ImgContainer {
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.TxtContainer {
+  font-family: 'Outfit_Bold';
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 10px;
+}

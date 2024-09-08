@@ -1,0 +1,69 @@
+@import '../../../../assets/style/variables.scss';
+
+.CollaborateSectionWrapper {
+  background: #2d2837;
+  background-image: url('https://res.cloudinary.com/mytipster/image/upload/f_webp,q_auto:low/v1711380147/collaborate_tlpre4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 832px;
+  @media (max-width: $lg-breakpoint) {
+    padding: 60px 0;
+    height: auto;
+    background-image: none;
+  }
+}
+
+.Collaborate {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0;
+}
+
+.CollaborateTxtSection1 {
+  max-width: 47.6875rem;
+  width: 100%;
+  height: 17.875rem;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #342e40 0%, rgba(52, 46, 64, 0) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: $lg-breakpoint) {
+    background: none;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.CollaborateTxt1 {
+  color: #f3fef4;
+  font-family: 'Outfit_Regular';
+  font-size: 1.4rem;
+  font-style: normal;
+  line-height: 2.1875rem;
+  margin-bottom: 70px;
+  @media (max-width: $sm-breakpoint) {
+    font-size: 0.875rem;
+    line-height: 1.875rem;
+    margin-bottom: 40px;
+  }
+}
+
+.CollaborateTxt2 {
+  color: #eceefa;
+  text-align: center;
+  font-family: 'Outfit_Regular';
+  font-size: 1.8375rem;
+  font-style: normal;
+  line-height: 3.2rem;
+  width: 26.5rem;
+  @media (max-width: $sm-breakpoint) {
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+  }
+}

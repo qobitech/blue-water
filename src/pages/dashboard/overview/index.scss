@@ -1,0 +1,277 @@
+@import '../../../assets/style/variables.scss';
+
+.header-container {
+  display: flex;
+  align-items: center;
+  h1 {
+    font-family: 'Outfit_Regular', 'Arial', 'sans-serif';
+    text-transform: capitalize;
+    font-size: 22px;
+    margin: 0 0 20px;
+  }
+  @media (max-width: $md-breakpoint) {
+    justify-content: center;
+    h1 {
+      font-size: 18px;
+    }
+  }
+}
+
+.header-description {
+  display: flex;
+  @media (max-width: $md-breakpoint) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.next-action {
+  height: 300px;
+  background-position: center;
+  background-size: 100%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  .nav-wrapper {
+    right: 0;
+    top: 0;
+    height: 100%;
+    .nav-item {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &.identify-verification {
+    background: linear-gradient(to right, #d8ecf2, #ffffff);
+  }
+  &.community {
+    background: linear-gradient(to bottom, #d4f4d9, #fffdf0);
+  }
+  &.predict-n-win {
+    background: linear-gradient(to bottom, #a3d2f8, #e0f1ff);
+  }
+  &.bet-tips {
+    background: linear-gradient(to bottom right, #f5e0b3, #ffe2e2);
+  }
+  &.bet-channels {
+    background: linear-gradient(to bottom right, #f3e5ab, #e0e4cc);
+  }
+  &.leadership-board {
+    background: linear-gradient(to bottom, #e0c3fc, #8ec5fc);
+  }
+  &.achievements-rewards {
+    background: linear-gradient(to bottom right, #f4d3e0, #ffb3c1);
+  }
+  &.feed-back {
+    background: linear-gradient(to bottom right, #72e6e2, #b2e6e4, #e0f4f1);
+  }
+  @media (max-width: $lg-breakpoint) {
+    height: auto;
+    .action-item {
+      text-align: center;
+      .action-header-container {
+        justify-content: center;
+      }
+    }
+    .cta-btn-wrapper {
+      text-align: center;
+      justify-content: center;
+      padding-top: 90px !important;
+    }
+    .nav-wrapper {
+      left: 0;
+      top: 45%;
+      width: 100%;
+      height: max-content;
+      justify-content: center;
+    }
+  }
+}
+
+// sales
+
+.LandingPageWrapper {
+  min-height: 86vh;
+}
+
+.MainWrapper {
+  display: flex;
+  align-items: flex-start;
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.MainContentWrapper {
+  flex-basis: 100%;
+  max-width: 1024.81px;
+  width: 100%;
+  &.islogged {
+    flex-basis: 80%;
+  }
+  @media (max-width: $lg-breakpoint) {
+    flex-basis: '100%';
+  }
+}
+
+.WelcomeBanner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.SalesBanner {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: $lg-breakpoint) {
+    flex-basis: '100%';
+  }
+}
+
+.SalesBannerLeft {
+  flex-basis: 60%;
+  @media (max-width: $lg-breakpoint) {
+    flex-basis: 100%;
+  }
+}
+
+.SalesBannerRight {
+  display: block;
+  flex-basis: 40%;
+  @media (max-width: $lg-breakpoint) {
+    display: none;
+  }
+}
+
+.SalesBannerCTA {
+  display: flex;
+  width: 100%;
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.SideContentMainWrapper {
+  display: block;
+  margin-left: 30px;
+  @media (max-width: $lg-breakpoint) {
+    display: none;
+  }
+}
+
+.StatsSection {
+  display: grid;
+  grid-row: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-content: space-between;
+}
+
+.SideContent {
+  position: sticky;
+  top: 90px;
+  min-width: 241.19px;
+  max-width: 241.19px;
+  @media (max-width: $lg-breakpoint) {
+    width: 100%;
+  }
+}
+
+.SideContentWrapper {
+  flex-basis: 35%;
+  @media (max-width: $lg-breakpoint) {
+    flex-basis: 100%;
+  }
+}
+
+.cta-section {
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+    align-items: center;
+    .img-section {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+}
+
+.avatars-section {
+  height: 232.5px;
+  .avatar {
+    transition: 0.3s ease-in-out; // Smooth transition
+    width: 100%;
+    &.Squirrel {
+      background: linear-gradient(to left, #f7cc4f, #faf4ce);
+    }
+    &.Eagle {
+      background: linear-gradient(to left, #ec6337, #fef0ec);
+    }
+    &.Owl {
+      background: linear-gradient(to left, #5ab3f0, #e3f7fe);
+    }
+    &.Dolphin {
+      background: linear-gradient(to left, #f9b26d, #fffbf0);
+    }
+    svg {
+      transition: 0.3s ease;
+    }
+    p {
+      transition: 0.3s ease;
+    }
+    &:hover {
+      transform: scale(1.06);
+      p {
+        transform: translateY(3px);
+      }
+      svg {
+        transform: translateY(-3px);
+        transform: scale(1.4);
+      }
+    }
+  }
+  @media (max-width: $lg-breakpoint) {
+    overflow: auto;
+    .avatar {
+      flex-shrink: 0;
+      padding-bottom: 20px;
+      width: 85%;
+      max-width: 300px;
+    }
+  }
+}
+
+.avatar-profile-view {
+  .avatar-header {
+    display: flex;
+  }
+  svg {
+    width: 30px;
+  }
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+    padding: 30px 0;
+    svg {
+      height: 30px;
+    }
+    .avatar-header {
+      flex-direction: column;
+      display: flex;
+    }
+  }
+}
+
+.link-svg {
+  @media (max-width: $lg-breakpoint) {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

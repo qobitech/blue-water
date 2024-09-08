@@ -1,0 +1,66 @@
+@import '../../../assets/style/variables.scss';
+
+.accordion-header-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.accordion-section {
+  width: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.accordion-row {
+  width: 100%;
+  border-bottom: 1px solid #f1f1f1;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  &.no-border {
+    border-bottom: none;
+  }
+}
+
+.accordion-row-header {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion-row-body {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  padding: 5px 0px 5px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion-header-text {
+  font-family: 'Outfit_Regular', 'Arial', 'sans-serif';
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin: 0;
+  // color: #eb5640;
+}
+
+.accordion-header-icon {
+  font-size: 12px;
+  margin: 0;
+  color: #eb5640;
+  padding: 5px;
+  border-radius: 3px;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    background: #f1f1f1;
+  }
+}

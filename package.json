@@ -1,0 +1,103 @@
+{
+  "name": "result-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "@react-native-community/eslint-plugin": "^1.3.0",
+    "@tanstack/react-query": "^4.36.1",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "crypto-js": "^4.2.0",
+    "css-loader": "^6.7.1",
+    "framer-motion": "^11.2.10",
+    "fusioncharts": "^3.19.0",
+    "hoist-non-react-statics": "^3.3.2",
+    "i18next": "^23.11.5",
+    "i18next-resources-for-ts": "^1.5.0",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^3.1.2",
+    "jwt-encode": "^1.0.1",
+    "moment": "^2.29.4",
+    "query-string": "^7.1.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "^18.2.0",
+    "react-fusioncharts": "^4.0.0",
+    "react-helmet-async": "^1.3.0",
+    "react-hook-form": "^7.39.1",
+    "react-i18next": "^14.1.2",
+    "react-lottie": "^1.2.3",
+    "react-paginate": "^8.1.4",
+    "react-phone-input-2": "^2.15.1",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.4.3",
+    "sass": "^1.56.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "yup": "^0.32.11"
+  },
+  "engines": {
+    "node": ">=18.12.0",
+    "yarn": ">=1.22.15",
+    "npm": "please-use-yarn"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext ts,tsx --fix",
+    "prettier": "prettier --write .",
+    "prepare": "husky install",
+    "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx}\"",
+    "tsc:check": "tsc --noEmit",
+    "tsc:check-app": "tsc --noEmit --project \"./tsconfig.json\"",
+    "toc": "i18next-resources-for-ts toc -i ./locales/* -o ./@types/resources.ts"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "compression-webpack-plugin": "^11.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.1",
+    "lint": "^0.7.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "prettier": "^2.8.0",
+    "prettier-eslint-cli": "^7.1.0",
+    "react-scripts": "5.0.1",
+    "typescript": "5.5.4",
+    "web-vitals": "^2.1.0"
+  }
+}

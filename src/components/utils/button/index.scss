@@ -1,0 +1,130 @@
+@import '../../../assets/style/variables.scss';
+
+.type-small-button {
+  button {
+    display: inline-flex;
+    padding: 0.5rem 0.9rem;
+    width: max-content;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    color: #233f6c;
+    font-family: Manrope;
+    font-size: 0.775rem;
+    font-style: normal;
+    // font-weight: 500;
+    line-height: normal;
+    border: none;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: #edf5ff;
+    cursor: pointer;
+    &.bold {
+      background: var(--brand);
+      color: #fff;
+      font-weight: 600;
+    }
+    &.black {
+      background: #222222;
+      color: #fff;
+      font-weight: 600;
+    }
+    &.bold {
+      background: var(--brand);
+      color: #fff;
+      font-weight: 600;
+    }
+    &.disabled {
+      background: #8f9194;
+      cursor: not-allowed;
+      color: #bababa;
+    }
+    &.outlined {
+      background: none;
+      color: #485e82;
+      border: 1px solid #485e82;
+    }
+    &.danger {
+      background: #faf5f7;
+      color: #f56e9d;
+    }
+    &.active {
+      color: #0f9979;
+      background: #e8faf6;
+    }
+    &.status {
+      cursor: default;
+    }
+  }
+}
+
+.type-button {
+  height: 50px;
+  min-height: 50px;
+  font-size: 13px;
+  font-family: 'Outfit_Bold', 'Arial', 'sans-serif';
+  letter-spacing: 0.2px;
+  opacity: 1;
+  white-space: nowrap;
+  padding: 0 25px;
+  cursor: pointer;
+  border-radius: 25px;
+  background: #222222;
+  color: #fff;
+  border: 1px solid #222222;
+  &.large {
+    height: 65px;
+    min-height: 65px;
+    font-size: 16px;
+    border-radius: 40px;
+  }
+  &.small {
+    height: 28px;
+    min-height: 28px;
+    font-size: 12px;
+    padding: 0.06rem 0.6rem;
+  }
+  &.table-btn {
+    height: 50px;
+    min-height: 40px;
+    padding: 0 20px;
+  }
+  &.outlined {
+    background: #fff;
+    color: #222222;
+    border: 1px solid #dee2e6;
+  }
+  &.black {
+    background: #0067cd;
+    color: #fff;
+    border: 1px solid #0067cd;
+  }
+  &.disabled {
+    background: var(--disabled-color);
+    border: 1px solid var(--disabled-color);
+    color: var(--brand-light);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &.danger {
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-bg);
+    color: var(--danger-color);
+  }
+  &.square {
+    border-radius: 0;
+  }
+  // &.curve {
+  //   border-radius: 0.3125rem;
+  // }
+  @media (max-width: $md-breakpoint) {
+    height: 43px;
+    min-height: 43px;
+    padding: 0 20px;
+    &.small {
+      height: 28px;
+      min-height: 28px;
+      padding: 0 0.6rem;
+    }
+  }
+}

@@ -1,0 +1,143 @@
+@import '../../../../assets/style/variables.scss';
+
+.VDContainer {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  background: #fcfcfa;
+  padding: 9.31rem 0;
+  @media (max-width: $sm-breakpoint) {
+    padding: 4.44rem 0;
+  }
+}
+
+.VD {
+  position: relative;
+  @media (max-width: $lg-breakpoint) {
+    text-align: center;
+  }
+}
+
+.VDHeader {
+  color: #2d2837;
+  font-family: 'Outfit_Regular';
+  font-size: 1.375rem;
+  font-style: normal;
+  line-height: normal;
+  margin: 0 auto 3.19rem;
+  text-align: center;
+  @media (max-width: $sm-breakpoint) {
+    font-size: 1rem;
+    line-height: 2.1875rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.VDSectionHeader {
+  color: #4f3a7a;
+  font-family: 'Outfit_Bold';
+  font-size: 1.875rem;
+  font-style: normal;
+  line-height: 2.6875rem;
+  margin: 0;
+  margin-bottom: 0.81rem;
+  width: 100%;
+  @media (max-width: $sm-breakpoint) {
+    font-size: 1.375rem;
+    line-height: 2.125rem;
+    margin-bottom: 1.06rem;
+  }
+}
+
+.VDSectionDescription {
+  color: #39815e;
+  font-family: 'Outfit_Regular';
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: 2.6875rem;
+  width: 100%;
+  margin-bottom: 4.69rem;
+  @media (max-width: $sm-breakpoint) {
+    font-size: 0.875rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
+.DISection {
+  display: flex;
+  max-width: 69.375rem;
+  width: 100%;
+  margin: 0 auto 1.94rem;
+  padding: 4.88rem 4.94rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #d3d3d3;
+  text-align: left;
+  @media (max-width: $lg-breakpoint) {
+    text-align: center;
+  }
+  @media (max-width: $sm-breakpoint) {
+    padding: 2.75rem 2.44rem;
+  }
+}
+
+.DITabSection {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 2.69rem;
+}
+
+.DITabHeaderSection {
+  width: 100%;
+  height: 6.25rem;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  overflow: auto;
+}
+
+.DITabHeaderItem {
+  width: 11.3125rem;
+  height: 6.2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &.active {
+    border-bottom: 5px solid #39815e;
+    & p {
+      color: #39815e;
+      font-family: Outfit_Regular;
+    }
+  }
+}
+
+.DITabHeadertext {
+  color: #000;
+  font-family: Outfit_Regular;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 2.6875rem;
+  margin: 0;
+  @media (max-width: $sm-breakpoint) {
+    font-size: 0.9375rem;
+  }
+}
+
+.CTAWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.2375rem 0;
+  gap: 20px;
+  @media (max-width: $lg-breakpoint) {
+    flex-direction: column;
+  }
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

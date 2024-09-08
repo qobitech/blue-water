@@ -1,0 +1,15 @@
+.box-check {
+}
+
+.box-check-item {
+  border: 0.5px solid #d1d1d1;
+  padding: 0.8rem 0.7rem;
+  border-radius: 2px;
+  color: #222222;
+  cursor: pointer;
+  transition: 0.2s ease;
+  &.selected {
+    background: #222222;
+    color: #fff;
+  }
+}

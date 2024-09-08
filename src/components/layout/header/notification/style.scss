@@ -1,0 +1,33 @@
+@import '../../../../assets/style/variables.scss';
+
+.notify-indicator {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: red;
+  top: 19%;
+  right: 0;
+}
+
+.mobile-wrapper {
+  .all-notification-wrapper {
+    align-items: center;
+    height: 50px;
+    position: relative;
+  }
+  .mobile-notification {
+    display: none;
+  }
+  .desktop-notification {
+    display: flex;
+  }
+  @media (max-width: $md-breakpoint) {
+    .desktop-notification {
+      display: none;
+    }
+    .mobile-notification {
+      display: flex;
+    }
+  }
+}

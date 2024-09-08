@@ -1,0 +1,263 @@
+@import '../../../assets/style/variables.scss';
+
+.hamburger {
+  width: max-content;
+  height: max-content;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  color: #eb5640;
+  margin-left: 13px;
+  p {
+    margin: 0;
+    font-family: 'Outfit_Bold', 'Arial', 'sans-serif';
+    font-size: 18px;
+  }
+  @media (max-width: $lg-breakpoint) {
+    display: flex;
+  }
+  @media (max-width: $md-breakpoint) {
+    svg path {
+      fill: #fff;
+    }
+  }
+}
+
+.add_bt_container {
+  overflow: hidden;
+  width: 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  img {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+  }
+}
+
+.role-indentifier {
+  background: #fdece0;
+  width: max-content;
+  height: max-content;
+  text-transform: capitalize;
+  color: #e35e00;
+  border: 1px solid #e35e00;
+  letter-spacing: 1.2px;
+  font-size: 11px;
+}
+
+.nav-top-section {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 30px;
+  width: 100%;
+  list-style-type: none;
+  justify-content: space-evenly;
+  li {
+    font-size: 12px;
+    color: #aaaaaa;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+    &.active {
+      color: var(--brand);
+      cursor: default;
+    }
+    &:hover {
+      color: var(--brand);
+    }
+  }
+  @media (max-width: $md-breakpoint) {
+    display: none;
+  }
+}
+
+.header-container-wrapper {
+  z-index: 7;
+  background: #fff;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  padding: 0;
+  @media (max-width: $md-breakpoint) {
+    background: #222222;
+  }
+}
+
+.header-text-header {
+  font-family: 'Outfit_Regular', 'Arial', 'sans-serif';
+  font-size: 14px;
+  color: var(--primary-color);
+  margin: 0;
+  @media (max-width: $md-breakpoint) {
+    fontsize: 11px;
+  }
+  @media (max-width: $md-breakpoint) {
+    color: #fff;
+  }
+}
+
+.header-text {
+  font-family: 'Outfit_Regular', 'Arial', 'sans-serif';
+  font-size: 14px;
+  color: var(--primary-color);
+  margin: 0;
+  @media (max-width: $md-breakpoint) {
+    fontsize: 11px;
+  }
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  @media (max-width: $md-breakpoint) {
+    background: #222222;
+  }
+}
+
+.logo {
+  margin-right: 20px;
+  max-width: 150px;
+}
+
+.hamburger {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.nav-profile-container {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  @media (max-width: $md-breakpoint) {
+    display: none;
+  }
+}
+
+.profile-container-mobile {
+  padding: 0;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  @media (max-width: $md-breakpoint) {
+    display: flex;
+  }
+}
+
+.sdc {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: none;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-family: 'Outfit_Bold', 'Arial', 'sans-serif';
+  font-size: 14px;
+  margin: 0;
+  color: var(--primary-color);
+  @media (max-width: $md-breakpoint) {
+    font-size: 12px;
+    text-overflow: ellipsis;
+    max-width: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.profile-role {
+  font-family: 'Outfit_Bold', 'Arial', 'sans-serif';
+  font-size: 13px;
+  margin: 0;
+  color: var(--primary-color);
+  height: 24px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 35px;
+  @media (max-width: $md-breakpoint) {
+    font-size: 11px;
+  }
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+
+.profile-notification {
+  width: 20px;
+  height: 20px;
+  margin-right: 35px;
+  cursor: pointer;
+  @media (max-width: $md-breakpoint) {
+    display: none;
+  }
+}
+
+.profile-ellipsis-container {
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-ellipsis {
+  width: 15px;
+  height: 15px;
+}
+
+.drop-down-item {
+  font-family: 'Outfit_Regular', 'Arial', 'sans-serif';
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logo-container {
+  .desktop {
+    display: block;
+  }
+  .phone {
+    display: none;
+  }
+  @media (max-width: $lg-breakpoint) {
+    .desktop {
+      display: none;
+    }
+    .phone {
+      display: block;
+    }
+  }
+}
+
+.header-link-container {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  display: flex;
+  text-decoration: none;
+  p:hover {
+    text-decoration: underline;
+    color: #02835b !important;
+  }
+}

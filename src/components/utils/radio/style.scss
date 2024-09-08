@@ -1,0 +1,9 @@
+@import '../../../assets/style/variables.scss';
+
+.text-radio {
+  outline: var(--primary-color);
+  border-radius: 3px;
+  height: 14px;
+  width: 14px;
+  border: 1px solid var(--border-color);
+}
