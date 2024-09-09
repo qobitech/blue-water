@@ -105,7 +105,7 @@ const LandingPage = () => {
             <div className="content-text text-center">
               <LogoAnimated />
               <h1>
-                Capture Feedback that matters the most, Anytime, Anywhere.
+                Capture the Feedback that matters most, Anytime, Anywhere.
               </h1>
               <h2>Create a voice link for instant, effortless feedback.</h2>
             </div>
