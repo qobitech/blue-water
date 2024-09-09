@@ -8,6 +8,7 @@ import './index.scss'
 // import { gallery } from '../../../assets'
 import { HVC } from '../../utils/hvc'
 import { LogoSVG, LogoTextSVG } from '../../utils/svgs'
+import { _isMobile } from '../../utils/helper'
 
 interface IFooter {
   hideTopFooter?: boolean
@@ -64,6 +65,7 @@ const Footer = memo(
                     <TypeButton
                       buttonSize="large"
                       title="Start Collecting Feedback"
+                      className={_isMobile() ? 'hw-mx mx-auto' : ''}
                       onClick={() => setJoinWaitingList?.(true)}
                       buttonType="black"
                       icon={<LogoSVG color="#fff" />}
@@ -81,7 +83,7 @@ const Footer = memo(
           </HVC>
           <div className="pt-4 pb-5 footer border-label-top w-100">
             <div className="footer-left f-row-10 aic">
-              <LogoTextSVG width="65" />
+              <LogoSVG width="65" />
               <p className="m-0 text-little">
                 &#169; {new Date().getFullYear()}
               </p>

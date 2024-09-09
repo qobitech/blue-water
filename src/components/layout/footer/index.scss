@@ -11,6 +11,8 @@
   .footer-left {
     @media (max-width: $md-breakpoint) {
       text-align: center;
+      justify-content: center;
+      align-items: center;
     }
   }
   .footer-right {

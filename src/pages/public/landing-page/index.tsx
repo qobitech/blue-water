@@ -141,6 +141,7 @@ const LandingPage = () => {
                 aria-label="Proceed to Sign up oor Sign in"
                 onClick={() => navigate(pageurl.REGISTER)}
                 icon={<LogoSVG color="#fff" />}
+                className="hw-mx mx-auto"
               />
             </div>
           </Reveal>

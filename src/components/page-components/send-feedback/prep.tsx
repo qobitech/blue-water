@@ -1,5 +1,6 @@
 import { OverViewHeader } from '../../../pages/dashboard/bet-channel/by-id/data'
 import { TypeButton } from '../../utils/button'
+import { _isMobile } from '../../utils/helper'
 import { useCountDown } from '../../utils/hooks'
 import { LogoSVG } from '../../utils/svgs'
 import TermsAndConditions from '../../utils/tandc'
@@ -16,7 +17,7 @@ const Prep = ({
   const timeLeft = useCountDown(10)
 
   return (
-    <div className="f-column-43">
+    <div className={_isMobile() ? 'f-column-33' : 'f-column-43'}>
       <div className="border-label rounded-23 p-4">
         <ul className="f-column-13 m-0 py-3">
           <li>Make sure there&apos;s no noise in the background.</li>
@@ -34,7 +35,9 @@ const Prep = ({
         </ul>
       </div>
       <div className="text-center">
-        <h1 className="font-77 m-0">{timeLeft}</h1>
+        <h1 className={_isMobile() ? 'font-37 m-0' : 'font-77 m-0'}>
+          {timeLeft}
+        </h1>
       </div>
       <div className="f-column-33">
         <div className="f-column-33 border-label rounded-23 p-4 d-none">

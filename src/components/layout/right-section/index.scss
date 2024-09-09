@@ -48,7 +48,7 @@
   .rs-body {
     height: 90vh;
     overflow: auto;
-    padding: 1.12rem 0 1rem;
+    padding: 1.12rem 0 0rem;
     display: flex;
     flex-direction: column;
   }
@@ -56,6 +56,9 @@
     width: -webkit-fill-available;
   }
   @media (max-width: $md-breakpoint) {
-    padding: 1.56rem 1.5625rem 3.56rem;
+    padding: 1.56rem 1.5625rem 0rem;
+    .rs-body {
+      margin-bottom: 150px;
+    }
   }
 }

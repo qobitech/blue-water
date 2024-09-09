@@ -189,7 +189,7 @@ export const CardItems = ({
             <p className="text-medium m-0">{value}</p>
           ) : (
             <p
-              className="text-medium cursor-pointer m-0"
+              className={`text-medium cursor-pointer m-0`}
               onClick={() => {
                 onUrlClick?.()
                 window.open(valueToURL(), '_blank')

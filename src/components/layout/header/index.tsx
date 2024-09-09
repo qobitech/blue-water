@@ -117,11 +117,13 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
               actions={actions}
               buttonType="outlined"
             /> */}
-            <TypeButton
-              title="Start Collecting Feedback"
+            {/* <TypeButton
+              title=""
               buttonType="black"
               onClick={() => setSubscribe?.(true)}
-            />
+              icon={<LogoSVG color="#fff" />}
+              iconPosition="left"
+            /> */}
           </div>
         </HVC>
       </div>

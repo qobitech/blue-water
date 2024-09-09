@@ -1,0 +1,33 @@
+@import '../../../assets/style/variables.scss';
+
+.question-feedback {
+  @media (max-width: $lg-breakpoint) {
+    text-align: center;
+  }
+}
+
+.context-feedback {
+  @media (max-width: $lg-breakpoint) {
+    p {
+      font-size: 14px;
+      line-height: 2rem;
+    }
+  }
+}
+
+.number-of-feedbacks {
+  @media (max-width: $lg-breakpoint) {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.controls-feedback {
+  @media (max-width: $lg-breakpoint) {
+    .control-item {
+      p {
+        display: none;
+      }
+    }
+  }
+}
