@@ -35,16 +35,16 @@ const Footer = memo(
               </div>
               <div className="div-wrapper">
                 <div className="div-left f-column-10">
-                  <h6 className="h5-footer-class">
-                    Discover how easy it is to keep your finger on the pulse of
-                    your audience. Because every voice matters, and every
-                    opinion counts.
-                  </h6>
                   <p className="p-footer-class">
-                    Tevotea makes it simple for you to stay connected with and
-                    understand your audience&apos;s thoughts, preferences, and
-                    feedback, promoting a sense of value and connection between
-                    you and the audience.
+                    Tevotea lets you capture authentic feedback from your
+                    audience, making it easy to stay connected and truly
+                    understand their thoughts, preferences, and opinions.
+                  </p>
+                  <p className="p-footer-class">
+                    Whether you&apos;re collecting insights, gathering
+                    on-the-ground statements, or seeking product feedback,
+                    Tevotea simplifies the process, ensuring that you never miss
+                    a beat.
                   </p>
                 </div>
                 <div className="div-right f-column-15">
@@ -52,14 +52,15 @@ const Footer = memo(
                     style={{ lineHeight: '30px', fontSize: '1.15rem' }}
                     className="ff-bold m-0"
                   >
-                    Great content deserves great engagement?
+                    Great content deserves great engagement
                   </h6>
                   <p
                     style={{ fontFamily: 'Outfit_Regular', lineHeight: '25px' }}
                   >
                     Join the growing list of brands that are transforming their
-                    audience engagement. From radio stations to TV networks,
-                    we&apos;re helping you hear what matters.
+                    audience engagement. Tevotea helps you connect with your
+                    audience in a meaningful way and capture the feedback that
+                    matters most.
                   </p>
                   <div className="cta-wrapper">
                     <TypeButton
@@ -67,7 +68,7 @@ const Footer = memo(
                       title="Start Collecting Feedback"
                       className={_isMobile() ? 'hw-mx mx-auto' : ''}
                       onClick={() => setJoinWaitingList?.(true)}
-                      buttonType="black"
+                      buttonType="bold"
                       icon={<LogoNoWaveSVG color="#fff" />}
                     />
                     {/* <TypeButton

@@ -32,44 +32,18 @@ import { content, faqdata, IFeedBack } from './data'
 import { LogoAnimated } from '../../../components/utils/hooks'
 
 const LandingPage = () => {
-  // how it works tabs and lists starts
-  const tabs: { [key: string]: any } = {
-    USERS: 'HOW TO FIND BET TIPS',
-    TIPSTERS: 'HOW TO PROVIDE BET TIPS'
-    // SUBSCRIBERS: 'HOW TO SUBSCRIBE FOR BET TIPS'
-  }
-  const { tabProps, isTab } = useTabSection(tabs.USERS, tabs)
-
   const { setJoinWaitingList, rsProps } = useGlobalContext()
 
   const handleSubscription = () => {
     setJoinWaitingList?.(true)
   }
 
-  const users = [
-    'Sign up in a few seconds.',
-    'Access pro tips across various sports.',
-    'Use pro tips to place bets.'
+  const howItWorksList = [
+    'Create a Voice Link',
+    `Share with Your Audience`,
+    `Receive Authentic Responses`,
+    `Analyze and Act`
   ]
-  const tipsters = [
-    'Sign up in a few seconds.',
-    'Share your well-researched betting tips.',
-    'Offer your tips for free or a nominal fee.',
-    'Gain followers and positive reviews.'
-  ]
-  const subscribers = [
-    `Click the button "Subscribe for $2/Month".`,
-    `Provide your email address.`,
-    `Select your preferred sports and bookmakers.`,
-    `Make payment and complete the subscription process.`,
-    `Start receiving tips directly in your inbox.`
-  ]
-  const obj: { [key: string]: string[] } = {
-    USERS: users,
-    TIPSTERS: tipsters,
-    SUBSCRIBERS: subscribers
-  }
-  const howItWorksList = obj[Object.keys(tabs).filter((i) => isTab(tabs[i]))[0]]
   // how it works tabs and lists ends
 
   const navigate = useNavigate()
@@ -130,10 +104,10 @@ const LandingPage = () => {
             {/* lottie */}
             <div className="content-text text-center">
               <LogoAnimated />
-              <h1>Easily Collect Feedback from Anyone, Anywhere.</h1>
-              <h2>
-                Create a voice recording link for instant, effortless feedback.
-              </h2>
+              <h1>
+                Capture Feedback that matters the most, Anytime, Anywhere.
+              </h1>
+              <h2>Create a voice link for instant, effortless feedback.</h2>
             </div>
             {/* button */}
             <div className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
@@ -237,29 +211,19 @@ const LandingPage = () => {
       </section>
       {/* how it works */}
       <section
-        className="three-section how-it-works pt-0 mt-0 d-none"
+        className="three-section how-it-works pt-0 mt-0"
         ref={howitworksRef}
       >
         <div className="f-column-30 m-0">
           {/* text and tab section */}
-          <div className="section-text text-center f-column-40 container">
-            <div className="lottie-ball mx-auto">
-              <Lottie options={mobileOptions} />
-            </div>
+          <div className="section-text text-center f-column-40 container header-text-content">
+            <LogoAnimated />
             {/* text */}
-            <h2>
-              Here&apos;s how Mytipster.pro <br />
-              works
-            </h2>
-            {/* tab */}
-            <div className="border-label rounded-20">
-              <TabSection
-                tabProps={tabProps}
-                position="center"
-                type="block"
-                tabGap="10"
-              />
-            </div>
+            <h2>How It Works</h2>
+            <p>
+              Tevotea simplifies feedback collection, letting you hear directly
+              from your audience—anytime, anywhere.
+            </p>
           </div>
           {/* list-media */}
           <div className="list-media container">
@@ -271,22 +235,14 @@ const LandingPage = () => {
                 ))}
               </ol>
               <div className="f-row-20 flex-wrap cta-wrapper pb-4">
-                {!isTab(tabs.SUBSCRIBERS) ? (
-                  <TypeButton
-                    buttonSize="large"
-                    title="Signup now"
-                    aria-label="Proceed to Sign up or Sign in"
-                    onClick={() => navigate(pageurl.REGISTER)}
-                  />
-                ) : (
-                  <TypeButton
-                    buttonSize="large"
-                    buttonType="black"
-                    title="Subscribe for $2/Month"
-                    aria-label="Subscribe for $2/Month"
-                    onClick={handleSubscription}
-                  />
-                )}
+                <TypeButton
+                  buttonSize="large"
+                  buttonType="bold"
+                  title="Start Collecting Feedback"
+                  icon={<LogoNoWaveSVG color="#fff" />}
+                  aria-label="Subscribe for $2/Month"
+                  onClick={handleSubscription}
+                />
               </div>
             </div>
           </div>
