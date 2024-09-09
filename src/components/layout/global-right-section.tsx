@@ -43,6 +43,7 @@ import FundWallet from '../../pages/dashboard/my-account/wallet/fund-wallet'
 import FeedbackRS from './feed-back/rs'
 import BetCodeFilter from '../../pages/dashboard/bet-codes/filter'
 import BetStatsInstruction from '../../pages/dashboard/bet-channel/stats/instruction'
+import SendFeedback from '../page-components/send-feedback'
 
 const GlobalRightSection = () => {
   const globalContext = useGlobalContext()
@@ -97,6 +98,8 @@ const GlobalRightSection = () => {
         {rsProps.isView('view', 'order-summary') ? <OrderSummary /> : null}
 
         {rsProps.isView('view', 'share') ? <Share /> : null}
+
+        {rsProps.isView('view', 'send-feedback') ? <SendFeedback /> : null}
 
         {rsProps.isView('view', 'bet-stats') ? <BetStats /> : null}
 

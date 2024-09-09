@@ -96,6 +96,11 @@
     -webkit-line-clamp: $i; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
+
+  // FONT
+  .font-#{$i} {
+    font-size: #{$i}px;
+  }
 }
 
 // SINGLE ELLIPSIS

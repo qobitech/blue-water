@@ -87,6 +87,8 @@ export type actionComponent =
   | 'avatars'
   | 'bet-code-filter'
   | 'bet-stats-instruction'
+  | 'send-feedback'
+  | 'record-feedback'
   | null
 export type actionId = string | null
 
@@ -218,7 +220,7 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     setData((prev) => (data ? (data as unknown as K) : prev))
     setSlug((prev) => slug || prev)
     setStatus(status || false)
-    setMax(max || false)
+    setMax((prev) => max || prev)
     setAdditionalAmountNeeded((prev) => additionalAmountNeeded || prev)
     setPaymentStatus(paymentStatus || null)
     setOnRefresh((prev) => onRefresh || prev)

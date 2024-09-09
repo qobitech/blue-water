@@ -16,7 +16,7 @@ export interface IFeedBack {
   createdAt: string
   company: string
   totalFeedback: number
-  feedbacklink?: string
+  slug?: string
   onFeedback?: () => void
   onCompany?: () => void
 }
@@ -28,7 +28,7 @@ export const content: IFeedBack[] = [
     title: 'Content Creator',
     company: 'Tevotea',
     createdAt: '1 day ago',
-    feedbacklink: '',
+    slug: 'wsng',
     totalFeedback: 3465
   },
   {
@@ -38,7 +38,7 @@ export const content: IFeedBack[] = [
     title: 'Content Creator',
     company: 'Creative Pulse Media',
     createdAt: '2 days ago',
-    feedbacklink: '',
+    slug: 'wtwyl',
     totalFeedback: 3465
   },
   {
@@ -47,7 +47,7 @@ export const content: IFeedBack[] = [
     title: 'Educator',
     company: 'Bright Minds Academy',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'hcwiov',
     totalFeedback: 30465
   },
   {
@@ -56,7 +56,7 @@ export const content: IFeedBack[] = [
     title: 'Market Research Analyst',
     company: 'Insightful Analytics',
     createdAt: '2 days ago',
-    feedbacklink: '',
+    slug: 'waytool',
     totalFeedback: 1465
   },
   {
@@ -65,7 +65,7 @@ export const content: IFeedBack[] = [
     title: 'HR Manager',
     company: 'Horizon Tech',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'hcwmow',
     totalFeedback: 10465
   },
   {
@@ -74,7 +74,7 @@ export const content: IFeedBack[] = [
     title: 'Customer Service Lead',
     company: 'Stellar Support',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'hyriwoc',
     totalFeedback: 3215
   },
   {
@@ -83,7 +83,7 @@ export const content: IFeedBack[] = [
     title: 'Event Organizer',
     company: 'Elite Events Co.',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'wdytool',
     totalFeedback: 109465
   },
   {
@@ -92,7 +92,7 @@ export const content: IFeedBack[] = [
     title: 'Product Manager',
     company: 'Innovate Apps',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'wfwylts',
     totalFeedback: 22265
   },
   {
@@ -102,7 +102,7 @@ export const content: IFeedBack[] = [
     title: 'Fitness Coach',
     company: 'Peak Performance Gym',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'wcwdtmyfj',
     totalFeedback: 65
   },
   {
@@ -111,7 +111,7 @@ export const content: IFeedBack[] = [
     title: 'Consultant',
     company: 'Strategy Solutions Inc.',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'hsaywtcs',
     totalFeedback: 5
   },
   {
@@ -120,7 +120,7 @@ export const content: IFeedBack[] = [
     title: 'Corporate Trainer',
     company: 'GrowthPath Learning',
     createdAt: '1 week ago',
-    feedbacklink: '',
+    slug: 'waytoorts',
     totalFeedback: 105
   }
 ]

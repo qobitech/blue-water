@@ -35,7 +35,7 @@ const LandingPage = () => {
   }
   const { tabProps, isTab } = useTabSection(tabs.USERS, tabs)
 
-  const { setJoinWaitingList } = useGlobalContext()
+  const { setJoinWaitingList, rsProps } = useGlobalContext()
 
   const handleSubscription = () => {
     setJoinWaitingList?.(true)
@@ -104,6 +104,17 @@ const LandingPage = () => {
   }
 
   const tipChannelTabs = useTabSection(enums.BETTIPS, enums)
+
+  const onFeedback = (slug: string | undefined) => () => {
+    if (!slug) return
+    rsProps?.callSection({
+      action: 'view',
+      component: 'send-feedback',
+      title: 'Send Feedback',
+      slug,
+      max: true
+    })
+  }
 
   return (
     <div className="landing-page-wrapper bg-white">
@@ -179,6 +190,7 @@ const LandingPage = () => {
             key={index}
             createdAt={i.createdAt}
             totalFeedback={i.totalFeedback}
+            onFeedback={onFeedback(i.slug)}
           />
         ))}
       </section>

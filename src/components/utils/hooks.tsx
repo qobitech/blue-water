@@ -23,14 +23,20 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import Lottie from 'react-lottie'
-import soccer from '../../assets/animation/141711-dribbling-soccer.json'
-import { gallery } from '../../assets'
+import soccer from '../../assets/animation/audio.json'
+
 import axios from 'axios'
 import { HVC, HVCLoad } from './hvc'
 import TabToggler, { IUseTabToggler } from './tab-toggler'
 import { isAdmin } from '../../constants/pageurl'
 import { SeparatorComponent } from './reusable'
-import { PreviewSVG, RefreshSVG, RemoveSVG, UploadSVG } from './svgs'
+import {
+  LogoTextSVG,
+  PreviewSVG,
+  RefreshSVG,
+  RemoveSVG,
+  UploadSVG
+} from './svgs'
 import { formatBytes } from './helper'
 import { TypeButton } from './button'
 import TextPrompt from './text-prompt'
@@ -178,11 +184,7 @@ export const Loader = ({ loader }: { loader: boolean }) => {
           >
             <Lottie options={defaultOptions} />
             <div className="f-row aic">
-              <img
-                src={gallery.logo.src}
-                alt="mytipster.pro logo"
-                style={{ height: '35px' }}
-              />
+              <LogoTextSVG />
             </div>
           </div>
         </div>
@@ -776,13 +778,24 @@ export const isGamePast = (gameDate: string) => {
   return time.includes('ago')
 }
 
-// export const Reload = ({
-//   load,
-//   isNoData
-// }: {
-//   load?: boolean
-//   isNoData: boolean
-// }) => {
-//   if (load && isNoData) return <PulseSVG />
-//   if (isNoData) return <p>Reload page</p>
-// }
+export const useCountDown = (startTime?: number): number => {
+  const [timeLeft, setTimeLeft] = useState<number>(startTime || 10)
+
+  const calculateTimeLeft = () => {
+    if (timeLeft > 0) {
+      return timeLeft - 1
+    }
+
+    return timeLeft
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  })
+
+  return timeLeft
+}
