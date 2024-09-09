@@ -178,7 +178,7 @@
         // font-size: 70px;
         font-size: clamp(2.2625rem, -0.875rem + 8.333vw, 4.375rem);
         font-weight: bolder;
-        line-height: clamp(2.2625rem, -0.875rem + 8.333vw, 4.775rem);
+        line-height: clamp(2.7625rem, -0.875rem + 8.333vw, 4.775rem);
         margin-bottom: 30px;
       }
       h2 {
@@ -593,6 +593,17 @@
 }
 
 .three-section .list-media .media {
+  @media (max-width: $lg-breakpoint) {
+    width: 100%;
+  }
+}
+
+.header-text-content {
+  max-width: 600px;
+  margin: 0 auto;
+  p {
+    line-height: 1.7rem;
+  }
   @media (max-width: $lg-breakpoint) {
     width: 100%;
   }

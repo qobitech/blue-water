@@ -17,7 +17,11 @@ import { pageurl } from '../../../constants/pageurl'
 import Testimonials from './testimonial'
 // import { CheckSquareSVG } from '../../../components/utils/svgs/f-awesome'
 import { BUTTON_PRIMARY } from '../../../constants/global'
-import { FeedbackMGSVG, LogoSVG } from '../../../components/utils/svgs'
+import {
+  FeedbackMGSVG,
+  LogoNoWaveSVG,
+  LogoSVG
+} from '../../../components/utils/svgs'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
@@ -25,6 +29,7 @@ import CustomizedSearch from '../customized-search'
 import { HVC } from '../../../components/utils/hvc'
 import Channel from '../channel'
 import { content, faqdata, IFeedBack } from './data'
+import { LogoAnimated } from '../../../components/utils/hooks'
 
 const LandingPage = () => {
   // how it works tabs and lists starts
@@ -93,9 +98,9 @@ const LandingPage = () => {
   // }
 
   const benefits = [
-    `Easy process for broad and diverse participation.`,
-    `Simplified feedback collection process.`,
-    `Connect with a diverse, worldwide audience.`
+    `Authentic and Unfiltered Feedback.`,
+    `Simplified Process for Collectors and Respondents.`,
+    `Real-Time Feedback Collection.`
   ]
 
   const enums = {
@@ -121,16 +126,13 @@ const LandingPage = () => {
       {/* jumbotron */}
       <section className="video-background">
         <div className="content container">
-          <Reveal className="f-column-70">
-            {/* text */}
+          <Reveal className="f-column-53">
+            {/* lottie */}
             <div className="content-text text-center">
-              {/* lottie */}
-              <div className="lottie-ball mx-auto">
-                <Lottie options={mobileOptions} />
-              </div>
-              <h1>Easily Collect Feedback from Your Audience, Anywhere.</h1>
+              <LogoAnimated />
+              <h1>Easily Collect Feedback from Anyone, Anywhere.</h1>
               <h2>
-                Create voice recording links for instant, effortless feedback.
+                Create a voice recording link for instant, effortless feedback.
               </h2>
             </div>
             {/* button */}
@@ -140,15 +142,39 @@ const LandingPage = () => {
                 buttonSize="large"
                 aria-label="Proceed to Sign up oor Sign in"
                 onClick={() => navigate(pageurl.REGISTER)}
-                icon={<LogoSVG color="#fff" />}
+                icon={<LogoNoWaveSVG color="#fff" />}
                 className="hw-mx mx-auto"
               />
             </div>
           </Reveal>
         </div>
       </section>
+      {/* feedback cards */}
+      <section className="container f-row-23 py-5" style={{ overflow: 'auto' }}>
+        {content.map((i, index) => (
+          <FeedBackCard
+            subject={i.subject}
+            requester={i.requester}
+            title={i.title}
+            company={i.company}
+            key={index}
+            createdAt={i.createdAt}
+            totalFeedback={i.totalFeedback}
+            onFeedback={onFeedback(i.slug)}
+          />
+        ))}
+      </section>
       {/* solution */}
-      <section className="py-5 f-column-53 px-3 d-none">
+      <section className="py-5 f-column-53 px-3">
+        <div className="section-text text-center f-column-20 header-text-content">
+          <LogoAnimated />
+          <h2>The Unstructured Voice Feedback</h2>
+          <p>
+            Tevotea champions the idea of free speech feedback, where
+            individuals can articulate their thoughts and experiences without
+            being boxed into traditional survey formats.
+          </p>
+        </div>
         <SubReveal
           className="container grid-wrapper-30 gap-43 p-5 mt-5 rounded-25 bg-lighter-blue"
           hidden={{ opacity: 0, x: '-50%' }}
@@ -179,21 +205,6 @@ const LandingPage = () => {
             onClick={() => navigate(pageurl.BETTICKETS)}
           />
         </Reveal> */}
-      </section>
-      {/* feedback cards */}
-      <section className="container f-row-23 py-5" style={{ overflow: 'auto' }}>
-        {content.map((i, index) => (
-          <FeedBackCard
-            subject={i.subject}
-            requester={i.requester}
-            title={i.title}
-            company={i.company}
-            key={index}
-            createdAt={i.createdAt}
-            totalFeedback={i.totalFeedback}
-            onFeedback={onFeedback(i.slug)}
-          />
-        ))}
       </section>
       <section className="container d-none">
         <div className="border-label rounded-20">
@@ -285,9 +296,7 @@ const LandingPage = () => {
       <section className="faq section-text" ref={faqRef}>
         <div className="container f-column-40">
           <div className="container text-center">
-            <div className="lottie-ball mx-auto">
-              <Lottie options={mobileOptions} />
-            </div>
+            <LogoAnimated />
             <h2>
               Frequently asked <br />
               questions

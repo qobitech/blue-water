@@ -23,7 +23,7 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import Lottie from 'react-lottie'
-import soccer from '../../assets/animation/audio.json'
+import wave from '../../assets/animation/audio.json'
 
 import axios from 'axios'
 import { HVC, HVCLoad } from './hvc'
@@ -31,7 +31,7 @@ import TabToggler, { IUseTabToggler } from './tab-toggler'
 import { isAdmin } from '../../constants/pageurl'
 import { SeparatorComponent } from './reusable'
 import {
-  LogoTextSVG,
+  LogoNoWaveSVG,
   PreviewSVG,
   RefreshSVG,
   RemoveSVG,
@@ -154,15 +154,6 @@ export const useFormHook = <T extends {}>(objSchema: {}): [
 }
 
 export const Loader = ({ loader }: { loader: boolean }) => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: soccer,
-    backgroundColor: 'transparent',
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
   return (
     <>
       {loader && (
@@ -182,14 +173,32 @@ export const Loader = ({ loader }: { loader: boolean }) => {
             style={{ maxWidth: '150px', width: '90%' }}
             className="mx-auto text-center f-column aic"
           >
-            <Lottie options={defaultOptions} />
-            <div className="f-row aic">
-              <LogoTextSVG />
-            </div>
+            <LogoAnimated />
           </div>
         </div>
       )}
     </>
+  )
+}
+
+export const LogoAnimated = () => {
+  const mobileOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: wave,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
+  return (
+    <div className="lottie-ball-container mx-auto text-center">
+      <div className="lottie-ball mx-auto text-center">
+        <Lottie options={mobileOptions} />
+      </div>
+      <div className="svg-wrapper hw-mx">
+        <LogoNoWaveSVG />
+      </div>
+    </div>
   )
 }
 

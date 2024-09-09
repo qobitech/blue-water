@@ -7,7 +7,7 @@ import { content } from '../../../pages/public/landing-page/data'
 import { useGlobalContext } from '../../layout/context'
 import { TypeButton } from '../../utils/button'
 import { HVC } from '../../utils/hvc'
-import { BinSVG, LogoSVG, PauseSVG, StopSVG } from '../../utils/svgs'
+import { BinSVG, LogoNoWaveSVG, PauseSVG, StopSVG } from '../../utils/svgs'
 import { useAudioRecorder } from './audio-record'
 import Prep from './prep'
 import './style.scss'
@@ -81,7 +81,7 @@ const SendFeedback = () => {
             <TypeButton
               onClick={onPrompt}
               title="Give Feedback"
-              icon={<LogoSVG color="#fff" />}
+              icon={<LogoNoWaveSVG color="#fff" />}
               buttonSize="large"
               className={_isMobile() ? 'hw-mx mx-auto' : 'w-100'}
             />
