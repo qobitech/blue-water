@@ -7,8 +7,10 @@ import {
   routeType
 } from '../../../constants/global'
 import {
+  ActionComponent,
   // ActionComponent,
   DropDownMenu,
+  IOptionAction,
   // IOptionAction,
   SeparatorComponent
 } from '../../utils/reusable'
@@ -18,9 +20,8 @@ import { useLogout } from '../../../api/logout'
 import HeaderBrand from './brand'
 import Profile from './profile'
 import { HVC } from '../../utils/hvc'
-import { TypeButton } from '../../utils/button'
-import { LogoSVG } from '../../utils/svgs'
-// import { TypeButton } from '../../utils/button'
+import { useNavigate } from 'react-router-dom'
+import { HamburgerSVG } from '../../utils/svgs'
 
 interface IHeader {
   setMenu: () => void
@@ -30,7 +31,7 @@ interface IHeader {
 }
 
 const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const membership = useMemo(
     () =>
@@ -62,20 +63,20 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
     [getIsOnboarding()]
   )
 
-  // const actions: IOptionAction[] = [
-  //   {
-  //     label: 'Create Account',
-  //     action: () => {
-  //       navigate(pageurl.REGISTER)
-  //     }
-  //   },
-  //   {
-  //     label: 'Login',
-  //     action: () => {
-  //       navigate(pageurl.LOGIN)
-  //     }
-  //   }
-  // ]
+  const actions: IOptionAction[] = [
+    {
+      label: 'Create Account',
+      action: () => {
+        navigate(pageurl.REGISTER)
+      }
+    },
+    {
+      label: 'Login',
+      action: () => {
+        navigate(pageurl.LOGIN)
+      }
+    }
+  ]
 
   const isDashboard = route !== 'public' && route !== 'auth'
 
@@ -99,31 +100,16 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
         </HVC>
         <HVC view={!isDashboard} removeDOM className="w-100">
           <div className="nav-profile-container gap-20 mr-4">
-            {/* <ActionComponent
+            <ActionComponent
               title="Get Started"
               actions={actions}
               buttonType="outlined"
-            /> */}
-            <TypeButton
-              title="Start Collecting Feedback"
-              buttonType="black"
-              onClick={() => setSubscribe?.(true)}
-              icon={<LogoSVG color="#fff" />}
             />
           </div>
           <div className="profile-container-mobile gap-20">
-            {/* <ActionComponent
-              title="Get Started"
-              actions={actions}
-              buttonType="outlined"
-            /> */}
-            {/* <TypeButton
-              title=""
-              buttonType="black"
-              onClick={() => setSubscribe?.(true)}
-              icon={<LogoSVG color="#fff" />}
-              iconPosition="left"
-            /> */}
+            <div className="cursor-pointer hw-mx">
+              <HamburgerSVG color="#fff" />
+            </div>
           </div>
         </HVC>
       </div>

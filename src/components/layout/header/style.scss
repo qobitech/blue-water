@@ -143,17 +143,6 @@
   }
 }
 
-.profile-container-mobile {
-  padding: 0;
-  display: none;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
-  @media (max-width: $md-breakpoint) {
-    display: flex;
-  }
-}
-
 .sdc {
   display: flex;
   align-items: center;
@@ -262,5 +251,16 @@
   p:hover {
     text-decoration: underline;
     color: #02835b !important;
+  }
+}
+
+.profile-container-mobile {
+  padding: 0;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  @media (max-width: $md-breakpoint) {
+    display: flex;
   }
 }
