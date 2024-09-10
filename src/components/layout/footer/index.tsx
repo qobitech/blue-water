@@ -36,9 +36,9 @@ const Footer = memo(
               <div className="div-wrapper">
                 <div className="div-left f-column-10">
                   <p className="p-footer-class">
-                    Tevotea lets you capture authentic feedback from your
-                    audience, making it easy to stay connected and truly
-                    understand their thoughts, preferences, and opinions.
+                    Capture authentic feedback from your audience, stay
+                    connected and truly understand their thoughts, preferences,
+                    and opinions.
                   </p>
                   <p className="p-footer-class">
                     Whether you&apos;re collecting insights, gathering
