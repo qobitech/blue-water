@@ -57,9 +57,8 @@ const Footer = memo(
                   <p
                     style={{ fontFamily: 'Outfit_Regular', lineHeight: '25px' }}
                   >
-                    Join the growing list of brands that are transforming their
-                    audience engagement. Tevotea helps you connect with your
-                    audience in a meaningful way and capture the feedback that
+                    Join us and transform your audience engagement, connect with
+                    them in a meaningful way and capture the feedback that
                     matters most.
                   </p>
                   <div className="cta-wrapper">

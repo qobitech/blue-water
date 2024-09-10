@@ -64,10 +64,7 @@ const SendFeedback = () => {
             <h4 className="m-0">{feedbackContent.subject}</h4>
           </div>
           <div className="context-feedback">
-            <CardItems
-              title="Purpose"
-              value={`In her inquiry into how to improve quality of life for older people, the British social designer Hilary Cottam found a key determining factor was “being socially connected and not having to worry about minor things like changing light bulbs.”`}
-            />
+            <CardItems title="Purpose" value={feedbackContent.purpose} />
           </div>
           <div className="pt-3 f-row aic jcsb number-of-feedbacks">
             <p className="m-0 text-tiny color-label">

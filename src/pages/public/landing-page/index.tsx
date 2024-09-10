@@ -104,10 +104,12 @@ const LandingPage = () => {
             {/* lottie */}
             <div className="content-text text-center">
               <LogoAnimated />
-              <h1>
-                Capture the Feedback that matters most, Anytime, Anywhere.
-              </h1>
-              <h2>Create a voice link for instant, effortless feedback.</h2>
+              <h1>Capture the Feedback that matters most</h1>
+              <h2>
+                Create a voice link. Share with Your Audience. Receive Authentic
+                Responses. <br />
+                Anytime, Anywhere
+              </h2>
             </div>
             {/* button */}
             <div className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
@@ -124,7 +126,10 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="container f-row-23 py-5" style={{ overflow: 'auto' }}>
+      <section
+        className="container f-row-23 ais py-5"
+        style={{ overflow: 'auto' }}
+      >
         {content.map((i, index) => (
           <FeedBackCard
             subject={i.subject}
@@ -135,6 +140,9 @@ const LandingPage = () => {
             createdAt={i.createdAt}
             totalFeedback={i.totalFeedback}
             onFeedback={onFeedback(i.slug)}
+            location={i.location}
+            purpose={i.purpose}
+            category={i.category}
           />
         ))}
       </section>
@@ -144,9 +152,9 @@ const LandingPage = () => {
           <LogoAnimated />
           <h2>The Unstructured Voice Feedback</h2>
           <p>
-            Tevotea champions the idea of free speech feedback, where
-            individuals can articulate their thoughts and experiences without
-            being boxed into traditional survey formats.
+            We believe in empowering your audience to speak freely, sharing
+            their genuine thoughts and experiences without the constraints of
+            traditional surveys.
           </p>
         </div>
         <SubReveal
@@ -219,10 +227,13 @@ const LandingPage = () => {
           <div className="section-text text-center f-column-40 container header-text-content">
             <LogoAnimated />
             {/* text */}
-            <h2>How It Works</h2>
+            <h2>
+              Hear directly from your audience in their own words, anytime,
+              anywhere.
+            </h2>
             <p>
-              Tevotea simplifies feedback collection, letting you hear directly
-              from your audience—anytime, anywhere.
+              Hear directly from your audience in their own words, anytime,
+              anywhere.
             </p>
           </div>
           {/* list-media */}
@@ -324,11 +335,12 @@ const FeedBackCard = ({
   subject,
   requester,
   company,
-  createdAt,
+  category,
   title,
   totalFeedback,
   onCompany,
-  onFeedback
+  onFeedback,
+  location
 }: IFeedBack) => {
   return (
     <div
@@ -336,12 +348,15 @@ const FeedBackCard = ({
       style={{ maxWidth: '350px', flexShrink: 0 }}
     >
       <div className="f-column-23">
+        <h5 className="m-0 font-19" onClick={onFeedback}>
+          {subject}
+        </h5>
         <div className="f-column">
           <div className="f-row-20 aic pb-1 jcsb">
-            <p className="m-0 text-tiny">{requester}</p>
-            <p className="m-0 text-tiniest color-label">{createdAt}</p>
+            <p className="m-0 text-small">{requester}</p>
+            <p className="m-0 text-tiniest color-label">{category}</p>
           </div>
-          <p className="text-tiniest color-label m-0">
+          <p className="text-tiny color-label m-0">
             {title} at{' '}
             <span
               className="text-decoration-underline cursor-pointer"
@@ -351,7 +366,6 @@ const FeedBackCard = ({
             </span>
           </p>
         </div>
-        <h5 className="m-0 multiline-ellipsis-3">{subject}</h5>
       </div>
       <div className="f-row-10 aic jcsb border-label-top pt-3 mt-auto">
         <p className="m-0 color-label text-tiny">
@@ -365,3 +379,49 @@ const FeedBackCard = ({
     </div>
   )
 }
+
+// const FeedBackCardLegacy = ({
+//   subject,
+//   requester,
+//   company,
+//   createdAt,
+//   title,
+//   totalFeedback,
+//   onCompany,
+//   onFeedback
+// }: IFeedBack) => {
+//   return (
+//     <div
+//       className="border-label rounded-23 p-4 f-column-33"
+//       style={{ maxWidth: '350px', flexShrink: 0 }}
+//     >
+//       <div className="f-column-23">
+//         <div className="f-column">
+//           <div className="f-row-20 aic pb-1 jcsb">
+//             <p className="m-0 text-tiny">{requester}</p>
+//             <p className="m-0 text-tiniest color-label">{createdAt}</p>
+//           </div>
+//           <p className="text-tiniest color-label m-0">
+//             {title} at{' '}
+//             <span
+//               className="text-decoration-underline cursor-pointer"
+//               onClick={onCompany}
+//             >
+//               {company}
+//             </span>
+//           </p>
+//         </div>
+//         <h5 className="m-0 multiline-ellipsis-3">{subject}</h5>
+//       </div>
+//       <div className="f-row-10 aic jcsb border-label-top pt-3 mt-auto">
+//         <p className="m-0 color-label text-tiny">
+//           {totalFeedback.toLocaleString()} feedback
+//           {totalFeedback > 1 ? 's' : ''}
+//         </p>
+//         <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
+//           <LogoSVG />
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
