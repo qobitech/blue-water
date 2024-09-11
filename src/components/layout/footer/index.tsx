@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import './index.scss'
 // import { gallery } from '../../../assets'
 import { HVC } from '../../utils/hvc'
-import { LogoNoWaveSVG, LogoTextSVG } from '../../utils/svgs'
+import { LogoTextSVG } from '../../utils/svgs'
 import { _isMobile } from '../../utils/helper'
 
 interface IFooter {
@@ -68,14 +68,7 @@ const Footer = memo(
                       className={_isMobile() ? 'hw-mx mx-auto' : ''}
                       onClick={() => setJoinWaitingList?.(true)}
                       buttonType="bold"
-                      icon={<LogoNoWaveSVG color="#fff" />}
                     />
-                    {/* <TypeButton
-                      buttonSize="large"
-                      title="Get Started for Free"
-                      buttonType="outlined"
-                      onClick={() => navigate(pageurl.REGISTER)}
-                    /> */}
                   </div>
                 </div>
               </div>
@@ -83,9 +76,8 @@ const Footer = memo(
           </HVC>
           <div className="pt-4 pb-5 footer border-label-top w-100">
             <div className="footer-left f-row-10 aic">
-              <LogoNoWaveSVG width="65" />
               <p className="m-0 text-little">
-                &#169; {new Date().getFullYear()}
+                &#169; Tevotea, {new Date().getFullYear()}
               </p>
             </div>
             <div className="footer-right">

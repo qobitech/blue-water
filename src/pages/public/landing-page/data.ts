@@ -30,7 +30,7 @@ export interface IFeedBack {
 
 export const content: IFeedBack[] = [
   {
-    subject: `Can you tell me about a recent challenge you faced while using our mobile app? Maybe something that made your day a bit more complicated or didn't work as you expected. How did it affect your routine?`,
+    subject: `Can you tell me about a recent challenge you faced while using our mobile app?`,
     purpose: `We really want to understand the little bumps in your experience so we can smooth them out and make the app work better for you.`,
     requester: 'Maria Santos',
     title: 'Product Manager',

@@ -8,19 +8,17 @@ import { motion, useAnimation, useInView } from 'framer-motion'
 // lottie
 import Lottie from 'react-lottie'
 import wave from '../../../assets/animation/audio.json'
-// import stadium from '../../../assets/animation/stadium.json'
 
 // tab hook
 import { TabSection, useTabSection } from '../../../components/utils/reusable'
 import { useNavigate } from 'react-router-dom'
 import { pageurl } from '../../../constants/pageurl'
 import Testimonials from './testimonial'
-// import { CheckSquareSVG } from '../../../components/utils/svgs/f-awesome'
 import { BUTTON_PRIMARY } from '../../../constants/global'
 import {
   FeedbackMGSVG,
-  LogoNoWaveSVG,
-  LogoSVG
+  LogoSVG,
+  RecordSVG
 } from '../../../components/utils/svgs'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
@@ -41,8 +39,7 @@ const LandingPage = () => {
   const howItWorksList = [
     'Create a Voice Link',
     `Share with Your Audience`,
-    `Receive Authentic Responses`,
-    `Analyze and Act`
+    `Receive Responses (Feedback)`
   ]
   // how it works tabs and lists ends
 
@@ -72,9 +69,9 @@ const LandingPage = () => {
   // }
 
   const benefits = [
-    `Authentic and Unfiltered Feedback.`,
-    `Simplified Process for Collectors and Respondents.`,
-    `Real-Time Feedback Collection.`
+    `Authentic and Unfiltered Audio Feedback.`,
+    `Simplified Process for Collecting Audio Feedback.`,
+    `Real-Time Audio Feedback Collection.`
   ]
 
   const enums = {
@@ -104,11 +101,10 @@ const LandingPage = () => {
             {/* lottie */}
             <div className="content-text text-center">
               <LogoAnimated />
-              <h1>Capture the Feedback that matters most</h1>
+              <h1>Hear What Your Audience Has to Say</h1>
               <h2>
-                Create a voice link. Share with Your Audience. Receive Authentic
-                Responses. <br />
-                Anytime, Anywhere
+                Easily gather audio feedback from your audience, anytime,
+                anywhere.
               </h2>
             </div>
             {/* button */}
@@ -118,7 +114,6 @@ const LandingPage = () => {
                 buttonSize="large"
                 aria-label="Proceed to Sign up oor Sign in"
                 onClick={() => navigate(pageurl.REGISTER)}
-                icon={<LogoNoWaveSVG color="#fff" />}
                 className="hw-mx mx-auto"
               />
             </div>
@@ -150,11 +145,10 @@ const LandingPage = () => {
       <section className="py-5 f-column-53 px-3">
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
-          <h2>The Unstructured Voice Feedback</h2>
+          <h2>Listen to Genuine Voices</h2>
           <p>
-            We believe in empowering your audience to speak freely, sharing
-            their genuine thoughts and experiences without the constraints of
-            traditional surveys.
+            Capture honest feedback and true experiences, straight from the
+            people who matter most.
           </p>
         </div>
         <SubReveal
@@ -231,10 +225,7 @@ const LandingPage = () => {
               Hear directly from your audience in their own words, anytime,
               anywhere.
             </h2>
-            <p>
-              Hear directly from your audience in their own words, anytime,
-              anywhere.
-            </p>
+            <p>How It Works</p>
           </div>
           {/* list-media */}
           <div className="list-media container">
@@ -250,7 +241,6 @@ const LandingPage = () => {
                   buttonSize="large"
                   buttonType="bold"
                   title="Start Collecting Feedback"
-                  icon={<LogoNoWaveSVG color="#fff" />}
                   aria-label="Subscribe for $2/Month"
                   onClick={handleSubscription}
                 />
@@ -348,9 +338,6 @@ const FeedBackCard = ({
       style={{ maxWidth: '350px', flexShrink: 0 }}
     >
       <div className="f-column-23">
-        <h5 className="m-0 font-19" onClick={onFeedback}>
-          {subject}
-        </h5>
         <div className="f-column">
           <div className="f-row-20 aic pb-1 jcsb">
             <p className="m-0 text-small">{requester}</p>
@@ -366,14 +353,14 @@ const FeedBackCard = ({
             </span>
           </p>
         </div>
+        <h5 className="m-0 font-19" onClick={onFeedback}>
+          {subject}
+        </h5>
       </div>
-      <div className="f-row-10 aic jcsb border-label-top pt-3 mt-auto">
-        <p className="m-0 color-label text-tiny">
-          {totalFeedback.toLocaleString()} feedback
-          {totalFeedback > 1 ? 's' : ''}
-        </p>
+      <div className="f-row-10 aic jcc border-label-top pt-3 mt-auto">
         <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
-          <LogoSVG />
+          <RecordSVG />
+          <p className="m-0 color-label text-little">Record feedback</p>
         </div>
       </div>
     </div>
