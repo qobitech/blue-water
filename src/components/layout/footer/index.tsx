@@ -2,8 +2,8 @@ import { Dispatch, memo, SetStateAction } from 'react'
 import { PageContainer } from '../../utils/reusable'
 import { TypeButton, TypeSmallButton } from '../../utils/button'
 // import { ISBETA } from '../../../constants/global'
-import { pageurl } from '../../../constants/pageurl'
-import { useNavigate } from 'react-router-dom'
+// import { pageurl } from '../../../constants/pageurl'
+// import { useNavigate } from 'react-router-dom'
 import './index.scss'
 // import { gallery } from '../../../assets'
 import { HVC } from '../../utils/hvc'
@@ -24,7 +24,7 @@ const Footer = memo(
     setSubscribe,
     setJoinWaitingList
   }: IFooter) => {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     return (
       <div className="footer-container">
         <PageContainer>
@@ -66,7 +66,7 @@ const Footer = memo(
                       buttonSize="large"
                       title="Start Collecting Feedback"
                       className={_isMobile() ? 'hw-mx mx-auto' : ''}
-                      onClick={() => setJoinWaitingList?.(true)}
+                      // onClick={() => setJoinWaitingList?.(true)}
                       buttonType="bold"
                     />
                   </div>
@@ -171,7 +171,7 @@ const Footer = memo(
                       background: 'none',
                       textDecoration: 'underline'
                     }}
-                    onClick={() => navigate(pageurl.TC)}
+                    // onClick={() => navigate(pageurl.TC)}
                   />
                 </li>
                 <li
@@ -186,7 +186,7 @@ const Footer = memo(
                       background: 'none',
                       textDecoration: 'underline'
                     }}
-                    onClick={() => navigate(pageurl.PP)}
+                    // onClick={() => navigate(pageurl.PP)}
                   />
                 </li>
               </ul>
