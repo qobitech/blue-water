@@ -45,7 +45,7 @@ const SendFeedback = () => {
           <div className="f-column">
             <div className="f-row-20 aic pb-1 jcsb">
               <p className="m-0 text-medium">{feedbackContent.requester}</p>
-              <p className="m-0 text-tiny color-label">
+              <p className="m-0 font-11 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
                 {feedbackContent.category}
               </p>
             </div>

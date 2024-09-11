@@ -55,15 +55,6 @@ const LandingPage = () => {
     }
   }
 
-  // const desktopOptions = {
-  //   loop: false,
-  //   autoplay: true,
-  //   animationData: stadium,
-  //   rendererSettings: {
-  //     preserveAspectRatio: 'xMidYMid slice'
-  //   }
-  // }
-
   const benefits = [
     `Authentic and Unfiltered Audio Feedback.`,
     `Simplified Process for Collecting Audio Feedback.`,
@@ -87,6 +78,25 @@ const LandingPage = () => {
       max: true
     })
   }
+
+  const specialization = [
+    {
+      title: 'Brands & Companies',
+      body: `Understand your customers' genuine thoughts.`
+    },
+    {
+      title: 'Journalists & Media Outlets',
+      body: `Get real-time statements from the field.`
+    },
+    {
+      title: 'Event Organizers & Community Leaders',
+      body: `Engage with your audience on a deeper level.`
+    },
+    {
+      title: 'Researchers & Analysts',
+      body: `Collect unstructured feedback for richer insights.`
+    }
+  ]
 
   return (
     <div className="landing-page-wrapper bg-white">
@@ -136,8 +146,52 @@ const LandingPage = () => {
           />
         ))}
       </section>
+      {/* specialization */}
+      <section className="py-5 f-column-33 px-3">
+        <div className="section-text text-center f-column-20 header-text-content">
+          <LogoAnimated />
+          <h2>Designed for You</h2>
+          <p>
+            Tevotea is perfect for anyone looking to capture the true voice of
+            their audience. Whether you’re a brand, journalist, or community
+            organizer, hear what really matters.
+          </p>
+        </div>
+        <SubReveal
+          className="container grid-wrapper-40 gap-43 p-5 mt-5 rounded-25 bg-lighter-blue"
+          hidden={{ opacity: 0, x: '-50%' }}
+          visible={{ opacity: 1, x: 0 }}
+        >
+          {specialization.map((i, index) => (
+            <div className="f-row-23 ais py-2" key={index}>
+              <div
+                style={{
+                  width: '20px',
+                  minWidth: '20px',
+                  height: '20px',
+                  minHeight: '20px'
+                }}
+              >
+                <LogoSVG color={BUTTON_PRIMARY} />
+              </div>
+              <div className="f-column-7">
+                <h4 className="m-0 ff-bold">{i.title}</h4>
+                <p>{i.body}</p>
+              </div>
+            </div>
+          ))}
+        </SubReveal>
+        <Reveal className="cta-wrapper container jcc">
+          <TypeButton
+            buttonSize="large"
+            buttonType="bold"
+            title="Start Collecting Feedback"
+            aria-label="Collect Audio Feedback"
+          />
+        </Reveal>
+      </section>
       {/* solution */}
-      <section className="py-5 f-column-53 px-3">
+      <section className="py-5 f-column-53 px-3 d-none">
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
           <h2>Listen to Genuine Voices</h2>
@@ -208,7 +262,7 @@ const LandingPage = () => {
       </section>
       {/* how it works */}
       <section
-        className="three-section how-it-works pt-0 mt-0"
+        className="three-section how-it-works py-5 mt-0"
         ref={howitworksRef}
       >
         <div className="f-column-30 m-0">
@@ -321,10 +375,8 @@ const FeedBackCard = ({
   company,
   category,
   title,
-  totalFeedback,
   onCompany,
-  onFeedback,
-  location
+  onFeedback
 }: IFeedBack) => {
   return (
     <div
@@ -335,7 +387,7 @@ const FeedBackCard = ({
         <div className="f-column">
           <div className="f-row-20 aic pb-1 jcsb">
             <p className="m-0 text-small">{requester}</p>
-            <p className="m-0 font-10 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
+            <p className="m-0 font-9 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
               {category}
             </p>
           </div>
