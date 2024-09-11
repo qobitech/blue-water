@@ -153,8 +153,8 @@ const LandingPage = () => {
           <h2>Designed for You</h2>
           <p>
             Tevotea is perfect for anyone looking to capture the true voice of
-            their audience. Whether you’re a brand, journalist, or community
-            organizer, hear what really matters.
+            their audience. Whether you&apos;re a brand, journalist, or
+            community organizer, hear what really matters.
           </p>
         </div>
         <SubReveal
