@@ -335,7 +335,9 @@ const FeedBackCard = ({
         <div className="f-column">
           <div className="f-row-20 aic pb-1 jcsb">
             <p className="m-0 text-small">{requester}</p>
-            <p className="m-0 text-tiniest color-label">{category}</p>
+            <p className="m-0 font-10 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
+              {category}
+            </p>
           </div>
           <p className="text-tiny color-label m-0">
             {title} at{' '}

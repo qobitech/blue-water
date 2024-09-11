@@ -762,3 +762,11 @@ input::file-selector-button {
 .s-p-wrapper {
   min-height: 86vh;
 }
+
+.txt-brand {
+  color: var(--primary-color);
+}
+
+.bg-brand {
+  background: #fff4f2;
+}

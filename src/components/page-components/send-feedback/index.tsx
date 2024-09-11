@@ -7,7 +7,7 @@ import { content } from '../../../pages/public/landing-page/data'
 import { useGlobalContext } from '../../layout/context'
 import { TypeButton } from '../../utils/button'
 import { HVC } from '../../utils/hvc'
-import { BinSVG, LogoNoWaveSVG, PauseSVG, StopSVG } from '../../utils/svgs'
+import { BinSVG, PauseSVG, RecordSVG, StopSVG } from '../../utils/svgs'
 import { useAudioRecorder } from './audio-record'
 import Prep from './prep'
 import './style.scss'
@@ -45,8 +45,8 @@ const SendFeedback = () => {
           <div className="f-column">
             <div className="f-row-20 aic pb-1 jcsb">
               <p className="m-0 text-medium">{feedbackContent.requester}</p>
-              <p className="m-0 text-tiniest color-label">
-                {feedbackContent.createdAt}
+              <p className="m-0 text-tiny color-label">
+                {feedbackContent.category}
               </p>
             </div>
             <p className="text-tiny color-label m-0">
@@ -77,8 +77,8 @@ const SendFeedback = () => {
           {!recording ? (
             <TypeButton
               onClick={onPrompt}
-              title="Give Feedback"
-              icon={<LogoNoWaveSVG color="#fff" />}
+              title="Record Feedback"
+              icon={<RecordSVG color="#fff" />}
               buttonSize="large"
               className={_isMobile() ? 'hw-mx mx-auto' : 'w-100'}
             />
