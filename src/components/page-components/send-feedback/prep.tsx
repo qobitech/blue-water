@@ -24,10 +24,10 @@ const Prep = ({
           <li>
             Remember to introduce yourself. <i>eg: My name is ...</i>
           </li>
-          <li>
-            For authenticity, also say where you&apos;re calling from.{' '}
+          {/* <li>
+            For authenticity, also say where you&apos;re rec from.{' '}
             <i>eg: I&apos;m calling from...</i>
-          </li>
+          </li> */}
           <li>
             Ensure to speak clearly so that your feedback is easily understood.
           </li>

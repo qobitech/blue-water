@@ -103,7 +103,7 @@ const LandingPage = () => {
       {/* jumbotron */}
       <section className="video-background">
         <div className="content container">
-          <Reveal className="f-column-53">
+          <Reveal className="f-column-53 text-center">
             {/* lottie */}
             <div className="content-text text-center">
               <LogoAnimated />
@@ -122,6 +122,9 @@ const LandingPage = () => {
                 className="hw-mx mx-auto"
               />
             </div>
+            <p className="m-0 color-label font-16">
+              It&apos;s free and takes less than a minute
+            </p>
           </Reveal>
         </div>
       </section>
