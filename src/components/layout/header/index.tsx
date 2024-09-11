@@ -16,7 +16,7 @@ import {
 } from '../../utils/reusable'
 // import { useNavigate } from 'react-router-dom'
 import NotificationWidget from './notification'
-import { useLogout } from '../../../api/logout'
+// import { useLogout } from '../../../api/logout'
 import HeaderBrand from './brand'
 import Profile from './profile'
 import { HVC } from '../../utils/hvc'
@@ -41,20 +41,20 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
     [getUserData()]
   )
 
-  const { logout } = useLogout()
+  // const { logout } = useLogout()
 
   const dropDownItems = useMemo(
     () => [
       {
         action: () => {
-          window.open(pageurl.MYACCOUNTPROFILE, '_self')
+          // window.open(pageurl.MYACCOUNTPROFILE, '_self')
         },
         title: 'My Account',
         disabled: !getIsOnboarding()
       },
       {
         action: () => {
-          logout()
+          // logout()
         },
         title: 'Log out',
         disabled: false
