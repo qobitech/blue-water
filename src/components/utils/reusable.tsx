@@ -761,6 +761,7 @@ interface IActionComponent extends React.ComponentPropsWithoutRef<'button'> {
   actions?: IOptionAction[]
   load?: boolean
   buttonType?: btnType
+  icon?: JSX.Element
 }
 
 export const ActionComponent = ({
@@ -768,15 +769,17 @@ export const ActionComponent = ({
   title,
   load,
   buttonType,
+  className,
+  icon,
   ...props
 }: IActionComponent) => {
   return (
     <div className="dropdown cta-section">
       <button
         title="Action"
-        className={`dropdown-toggle f-row-10 aic action-type-button ${
+        className={`dropdown-toggle f-row-10 aic jcc action-type-button ${
           buttonType || ''
-        }`}
+        } ${className}`}
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"
@@ -784,6 +787,7 @@ export const ActionComponent = ({
         aria-expanded="false"
         {...props}
       >
+        {icon}
         {title || 'Action'}
         {load ? (
           <>

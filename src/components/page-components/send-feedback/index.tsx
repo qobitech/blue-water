@@ -5,15 +5,18 @@ import {
 } from '../../../pages/dashboard/bet-channel/by-id/data'
 import { content } from '../../../pages/public/landing-page/data'
 import { useGlobalContext } from '../../layout/context'
-import { TypeButton } from '../../utils/button'
 import { HVC } from '../../utils/hvc'
 import { BinSVG, PauseSVG, RecordSVG, StopSVG } from '../../utils/svgs'
 import { useAudioRecorder } from './audio-record'
 import Prep from './prep'
 import './style.scss'
 import { _isMobile } from '../../utils/helper'
+import { useScreenAudioRecorder } from './screen-audio-record'
+import { ActionComponent, IOptionAction } from '../../utils/reusable'
 
 type views = 'main page' | 'prep'
+
+type optionType = 'audio' | 'screen' | undefined
 
 const SendFeedback = () => {
   const { rsProps } = useGlobalContext()
@@ -30,13 +33,54 @@ const SendFeedback = () => {
     setStage('prep')
   }
 
-  const { recording, handleStartRecording, handleStopRecording } =
-    useAudioRecorder()
+  const audioProps = useAudioRecorder()
+
+  const screenProps = useScreenAudioRecorder()
+
+  const [options, setOptions] = useState<optionType>()
+
+  const actions: IOptionAction[] = [
+    {
+      label: 'Audio Record',
+      action: () => {
+        onPrompt()
+        setOptions('audio')
+      }
+    },
+    {
+      label: 'Screen + Audio Record',
+      action: () => {
+        onPrompt()
+        setOptions('screen')
+      }
+    }
+  ]
 
   const onRecord = () => {
-    handleStartRecording()
+    if (options === 'audio') {
+      audioProps.handleStartRecording()
+    }
+    if (options === 'screen') {
+      screenProps.startRecording()
+    }
     setStage('main page')
   }
+
+  const onStopRecord = () => {
+    if (options === 'audio') {
+      audioProps.handleStopRecording()
+    }
+    if (options === 'screen') {
+      screenProps.stopRecording()
+    }
+    setStage('main page')
+  }
+
+  const isRecording = !options
+    ? false
+    : options === 'audio'
+    ? audioProps.recording
+    : screenProps.recording
 
   return (
     <div>
@@ -74,13 +118,13 @@ const SendFeedback = () => {
           </div>
         </div>
         <div className="w-100 f-column">
-          {!recording ? (
-            <TypeButton
-              onClick={onPrompt}
+          {!isRecording ? (
+            <ActionComponent
               title="Record Feedback"
+              buttonType="bold"
+              actions={actions}
               icon={<RecordSVG color="#fff" />}
-              buttonSize="large"
-              className={_isMobile() ? 'hw-mx mx-auto' : 'w-100'}
+              className={'hw-mx mx-auto'}
             />
           ) : (
             <div className={_isMobile() ? 'f-column-27' : 'f-column-13'}>
@@ -95,26 +139,20 @@ const SendFeedback = () => {
                 </div>
                 <div
                   className="f-row-12 aic hw-mx cursor-pointer control-item"
-                  onClick={handleStopRecording}
+                  onClick={onStopRecord}
                 >
                   <p className="m-0">Stop Recording</p>
                   <StopSVG />
                 </div>
                 <div
                   className="f-row-12 aic hw-mx cursor-pointer control-item"
-                  onClick={handleStopRecording}
+                  onClick={onStopRecord}
                 >
-                  {/* <p className="m-0">Delete Recording</p> */}
                   <BinSVG />
                 </div>
               </div>
             </div>
           )}
-          {/* {audioURL && (
-        <div>
-        <audio controls src={audioURL} />
-        </div>
-        )} */}
         </div>
       </HVC>
       <HVC removeDOM view={stage === 'prep'}>

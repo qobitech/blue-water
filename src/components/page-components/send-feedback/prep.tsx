@@ -2,7 +2,7 @@ import { OverViewHeader } from '../../../pages/dashboard/bet-channel/by-id/data'
 import { TypeButton } from '../../utils/button'
 import { _isMobile } from '../../utils/helper'
 import { useCountDown } from '../../utils/hooks'
-import { LogoNoWaveSVG } from '../../utils/svgs'
+import { RecordSVG } from '../../utils/svgs'
 import TermsAndConditions from '../../utils/tandc'
 
 const Prep = ({
@@ -80,7 +80,7 @@ const Prep = ({
           buttonSize="large"
           buttonType={timeLeft === 0 ? 'black' : 'disabled'}
           disabled={timeLeft !== 0}
-          icon={<LogoNoWaveSVG color="#fff" />}
+          icon={<RecordSVG color="#fff" />}
           className="w-100"
           onClick={onRecord}
         />
