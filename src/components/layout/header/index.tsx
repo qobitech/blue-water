@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
 import './style.scss'
-import { pageurl } from '../../../constants/pageurl'
+// import { pageurl } from '../../../constants/pageurl'
 import {
   getIsOnboarding,
   getUserData,
@@ -20,7 +20,7 @@ import NotificationWidget from './notification'
 import HeaderBrand from './brand'
 import Profile from './profile'
 import { HVC } from '../../utils/hvc'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { HamburgerSVG } from '../../utils/svgs'
 
 interface IHeader {
@@ -31,7 +31,7 @@ interface IHeader {
 }
 
 const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const membership = useMemo(
     () =>
@@ -67,13 +67,13 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
     {
       label: 'Create Account',
       action: () => {
-        navigate(pageurl.REGISTER)
+        // navigate(pageurl.REGISTER)
       }
     },
     {
       label: 'Login',
       action: () => {
-        navigate(pageurl.LOGIN)
+        // navigate(pageurl.LOGIN)
       }
     }
   ]
