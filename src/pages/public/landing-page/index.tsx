@@ -11,8 +11,6 @@ import wave from '../../../assets/animation/audio.json'
 
 // tab hook
 import { TabSection, useTabSection } from '../../../components/utils/reusable'
-import { useNavigate } from 'react-router-dom'
-import { pageurl } from '../../../constants/pageurl'
 import Testimonials from './testimonial'
 import { BUTTON_PRIMARY } from '../../../constants/global'
 import {
@@ -42,8 +40,6 @@ const LandingPage = () => {
     `Receive Responses (Feedback)`
   ]
   // how it works tabs and lists ends
-
-  const navigate = useNavigate()
 
   const howitworksRef = useRef(null)
   const faqRef = useRef(null)
@@ -113,7 +109,6 @@ const LandingPage = () => {
                 title="Start Collecting Feedback"
                 buttonSize="large"
                 aria-label="Proceed to Sign up oor Sign in"
-                onClick={() => navigate(pageurl.REGISTER)}
                 className="hw-mx mx-auto"
               />
             </div>
@@ -242,7 +237,6 @@ const LandingPage = () => {
                   buttonType="bold"
                   title="Start Collecting Feedback"
                   aria-label="Subscribe for $2/Month"
-                  onClick={handleSubscription}
                 />
               </div>
             </div>
