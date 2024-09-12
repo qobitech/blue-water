@@ -107,11 +107,8 @@ const LandingPage = () => {
             {/* lottie */}
             <div className="content-text text-center">
               <LogoAnimated />
-              <h1>Hear What Your Audience Has to Say</h1>
-              <h2>
-                Easily gather audio feedback from your audience, anytime,
-                anywhere.
-              </h2>
+              <h1>Get Real Feedback Straight from Your Audience</h1>
+              <h2>Audio feedback tool made simple</h2>
             </div>
             {/* button */}
             <div className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
