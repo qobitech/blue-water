@@ -107,7 +107,7 @@ const LandingPage = () => {
             {/* lottie */}
             <div className="content-text text-center">
               <LogoAnimated />
-              <h1>Get Real Feedback Straight from Your Audience</h1>
+              <h1>Get Real Feedback From Anyone, Anywhere</h1>
               <h2>Audio feedback tool made simple</h2>
             </div>
             {/* button */}
