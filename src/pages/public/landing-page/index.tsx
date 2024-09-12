@@ -119,9 +119,7 @@ const LandingPage = () => {
                 className="hw-mx mx-auto"
               />
             </div>
-            <p className="m-0 color-label font-16">
-              It&apos;s free and takes less than a minute
-            </p>
+            <p className="m-0 color-label font-16">It&apos;s free</p>
           </Reveal>
         </div>
       </section>
