@@ -1,38 +1,18 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import './style.scss'
 import { TypeButton } from '../../../components/utils/button'
-
 // framer motion
 import { motion, useAnimation, useInView } from 'framer-motion'
-
-// lottie
-import Lottie from 'react-lottie'
-import wave from '../../../assets/animation/audio.json'
-
-// tab hook
-import { TabSection, useTabSection } from '../../../components/utils/reusable'
-import Testimonials from './testimonial'
 import { BUTTON_PRIMARY } from '../../../constants/global'
-import {
-  FeedbackMGSVG,
-  LogoSVG,
-  RecordSVG
-} from '../../../components/utils/svgs'
+import { LogoSVG, RecordSVG } from '../../../components/utils/svgs'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
-import CustomizedSearch from '../customized-search'
-import { HVC } from '../../../components/utils/hvc'
-import Channel from '../channel'
 import { content, faqdata, IFeedBack } from './data'
 import { LogoAnimated } from '../../../components/utils/hooks'
 
 const LandingPage = () => {
-  const { setJoinWaitingList, rsProps } = useGlobalContext()
-
-  const handleSubscription = () => {
-    setJoinWaitingList?.(true)
-  }
+  const { rsProps } = useGlobalContext()
 
   const howItWorksList = [
     'Create a Voice Link',
@@ -45,28 +25,6 @@ const LandingPage = () => {
   const faqRef = useRef(null)
 
   const [openAccordion, setOpenAccordion] = useState(0)
-
-  const mobileOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: wave,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
-
-  const benefits = [
-    `Authentic and Unfiltered Audio Feedback.`,
-    `Simplified Process for Collecting Audio Feedback.`,
-    `Real-Time Audio Feedback Collection.`
-  ]
-
-  const enums = {
-    BETTIPS: 'FREE PREDICTIONS',
-    CHANNELS: 'CHANNELS'
-  }
-
-  const tipChannelTabs = useTabSection(enums.BETTIPS, enums)
 
   const onFeedback = (slug: string | undefined) => () => {
     if (!slug) return
@@ -187,76 +145,6 @@ const LandingPage = () => {
             aria-label="Collect Audio Feedback"
           />
         </Reveal>
-      </section>
-      {/* solution */}
-      <section className="py-5 f-column-53 px-3 d-none">
-        <div className="section-text text-center f-column-20 header-text-content">
-          <LogoAnimated />
-          <h2>Listen to Genuine Voices</h2>
-          <p>
-            Capture honest feedback and true experiences, straight from the
-            people who matter most.
-          </p>
-        </div>
-        <SubReveal
-          className="container grid-wrapper-30 gap-43 p-5 mt-5 rounded-25 bg-lighter-blue"
-          hidden={{ opacity: 0, x: '-50%' }}
-          visible={{ opacity: 1, x: 0 }}
-        >
-          {benefits.map((i, index) => (
-            <div className="f-row-23 ais py-2" key={index}>
-              <div
-                style={{
-                  width: '20px',
-                  minWidth: '20px',
-                  height: '20px',
-                  minHeight: '20px'
-                }}
-              >
-                <LogoSVG color={BUTTON_PRIMARY} />
-              </div>
-              <h4 className="m-0 ff-bold">{i}</h4>
-            </div>
-          ))}
-        </SubReveal>
-        {/* <Reveal className="cta-wrapper container jcc">
-          <TypeButton
-            buttonSize="large"
-            buttonType="outlined"
-            title="Explore free bet tips"
-            aria-label="Navigate to free bet tips page"
-            onClick={() => navigate(pageurl.BETTICKETS)}
-          />
-        </Reveal> */}
-      </section>
-      <section className="container d-none">
-        <div className="border-label rounded-20">
-          <TabSection
-            tabProps={tipChannelTabs.tabProps}
-            position="center"
-            tabGap="10"
-            type="block"
-          />
-        </div>
-        <HVC removeDOM view={tipChannelTabs.isTab(enums.BETTIPS)}>
-          <CustomizedSearch />
-        </HVC>
-        <HVC removeDOM view={tipChannelTabs.isTab(enums.CHANNELS)}>
-          <Channel />
-        </HVC>
-      </section>
-      {/* testimonial */}
-      <section className="one-section testimonial d-none">
-        <div className="lottie-ball mx-auto">
-          <Lottie options={mobileOptions} />
-        </div>
-        <div className="section-text text-center f-column-20">
-          <h2>What customers are saying</h2>
-          <p>
-            <FeedbackMGSVG /> &nbsp;Leave a feedback and get featured
-          </p>
-        </div>
-        <Testimonials handleSubscription={handleSubscription} />
       </section>
       {/* how it works */}
       <section

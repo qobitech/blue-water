@@ -1,6 +1,5 @@
 import { useFormHook } from '../../../components/utils/hooks'
 import { dropBasicInfoSchema, IBasicInfoSchema } from '../data'
-import CreateBetChannel from '../../dashboard/bet-channel/create-bet-channel'
 import { IUserResponse } from '../../../interface/IUser'
 import BasicInfoForm from '../basic-info'
 import { getUserData } from '../../../constants/global'
@@ -63,21 +62,6 @@ const SellerOnboarding: React.FC<ISO> = ({ setNotificationStatus }) => {
             handleState={userActionProps.handleBasicInfo}
             load={userActionProps.isLoading}
           />
-        </div>
-      )}
-      {getUserData().user.stage === 'onboarding2' && (
-        <div className="f-column-20">
-          <div className="FormHeaderWrapper">
-            <p>User Onboarding - 2 of 3</p>
-            <h3>
-              <b>Create a Channel</b>
-            </h3>
-          </div>
-          <div className="p-4 bg-white h-100">
-            <CreateBetChannel
-              updateUserAction={userActionProps.updateUserAction}
-            />
-          </div>
         </div>
       )}
     </>

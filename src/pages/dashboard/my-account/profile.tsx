@@ -1,10 +1,10 @@
-import { CardItems } from '../../../pages/dashboard/bet-channel/by-id/data'
 import { GETISSELLER, getCountry, getUserData } from '../../../constants/global'
 import moment from 'moment'
 import { TabSection, useTabSection } from '../../../components/utils/reusable'
 import { HVC } from '../../../components/utils/hvc'
 import { TypeButton } from '../../../components/utils/button'
 import { useGlobalContext } from '../../../components/layout/context'
+import { CardItems } from '../../../components/utils/card-items'
 
 const tabs = {
   USER: 'USER PROFILE',

@@ -635,3 +635,12 @@ export const getTimeline = (startDate: string, endDate: string) => {
   if (sd === ed) return sd
   return `${sd} - ${ed}`
 }
+
+// Utility function to format time as mm:ss
+export const formatTime = (time: number) => {
+  const minutes = Math.floor(time / 60)
+  const seconds = Math.floor(time % 60)
+    .toString()
+    .padStart(2, '0')
+  return `${minutes.toString().padStart(2, '0')} : ${seconds}`
+}

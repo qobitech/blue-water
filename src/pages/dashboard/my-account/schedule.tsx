@@ -17,7 +17,6 @@ import {
   IPayPerTipSchedule
 } from '../../../interface/IOther'
 import { IBetCodeServiceRequest } from '../../../interface/IService'
-import { CardItems } from '../../../pages/dashboard/bet-channel/by-id/data'
 import {
   getNextDay,
   getNumberOfTickets,
@@ -31,6 +30,7 @@ import DefaultTable from '../../../components/table/default'
 import { TypeSelect } from '../../../components/utils/select'
 import { ITableRecord } from '../../../components/table/utils'
 import { SubHeader } from './wallet/data'
+import { CardItems } from '../../../components/utils/card-items'
 
 const SchedulesPage = () => {
   const [selectedMonth, setSelectedMonth] = useState<string>('')

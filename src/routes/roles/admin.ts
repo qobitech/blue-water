@@ -25,13 +25,6 @@ const HandleReport = lazy(
 const AdminOverview = lazy(
   async () => await import('../../pages/admin/overview')
 )
-const CommunityForumPage = lazy(
-  async () => await import('../../pages/dashboard/community-forum/page')
-)
-
-const VerificationPage = lazy(
-  async () => await import('../../pages/admin/verification-request')
-)
 const FeedbackPage = lazy(
   async () => await import('../../pages/admin/feedback')
 )
@@ -75,14 +68,6 @@ export const adminsPage: IPageRoutes[] = [
   {
     page: AdminOverview,
     url: pageurl.ADMINDASHBOARD
-  },
-  {
-    page: CommunityForumPage,
-    url: `${pageurl.ADMINCOMMUNITYFORUM}/:tab?`
-  },
-  {
-    page: VerificationPage,
-    url: pageurl.ADMINVERIFICATIONREQUEST
   },
   {
     page: FeedbackPage,

@@ -1,5 +1,5 @@
-import { OverViewHeader } from '../../../pages/dashboard/bet-channel/by-id/data'
 import { TypeButton } from '../../utils/button'
+import { OverViewHeader } from '../../utils/card-items'
 import { _isMobile } from '../../utils/helper'
 import { useCountDown } from '../../utils/hooks'
 import { RecordSVG } from '../../utils/svgs'
@@ -18,8 +18,14 @@ const Prep = ({
 
   return (
     <div className={_isMobile() ? 'f-column-33' : 'f-column-43'}>
-      <div className="border-label rounded-23 p-4">
-        <ul className="f-column-13 m-0 py-3">
+      <div className="p-4 f-column">
+        <ul
+          className="f-column-13 m-0 py-3 mx-auto"
+          style={{ maxWidth: '600px' }}
+        >
+          <div>
+            <p className="color-label">INSTRUCTION</p>
+          </div>
           <li>Make sure there&apos;s no noise in the background.</li>
           <li>
             Remember to introduce yourself. <i>eg: My name is ...</i>
@@ -39,7 +45,7 @@ const Prep = ({
           {timeLeft}
         </h1>
       </div>
-      <div className="f-column-33">
+      <div className="f-column-33 mx-auto" style={{ maxWidth: '500px' }}>
         <div className="f-column-33 border-label rounded-23 p-4 d-none">
           <div>
             <OverViewHeader title="Permission to Record and Store" />

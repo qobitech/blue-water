@@ -1,18 +1,17 @@
 import { useState } from 'react'
-import {
-  CardItems,
-  OverViewHeader
-} from '../../../pages/dashboard/bet-channel/by-id/data'
 import { content } from '../../../pages/public/landing-page/data'
 import { useGlobalContext } from '../../layout/context'
 import { HVC } from '../../utils/hvc'
-import { BinSVG, PauseSVG, RecordSVG, StopSVG } from '../../utils/svgs'
+import { RecordSVG } from '../../utils/svgs'
 import { useAudioRecorder } from './audio-record'
 import Prep from './prep'
 import './style.scss'
-import { _isMobile } from '../../utils/helper'
+// import { _isMobile } from '../../utils/helper'
 import { useScreenAudioRecorder } from './screen-audio-record'
 import { ActionComponent, IOptionAction } from '../../utils/reusable'
+import { CardItems, OverViewHeader } from '../../utils/card-items'
+import CustomAudioPlayer from './custom-audio-player'
+import AudioRecordSection from './audio-record-section'
 
 type views = 'main page' | 'prep'
 
@@ -66,21 +65,21 @@ const SendFeedback = () => {
     setStage('main page')
   }
 
-  const onStopRecord = () => {
-    if (options === 'audio') {
-      audioProps.handleStopRecording()
-    }
-    if (options === 'screen') {
-      screenProps.stopRecording()
-    }
-    setStage('main page')
-  }
+  // const onStopRecord = () => {
+  //   if (options === 'audio') {
+  //     audioProps.handleStopRecording()
+  //   }
+  //   if (options === 'screen') {
+  //     screenProps.stopRecording()
+  //   }
+  //   setStage('main page')
+  // }
 
-  const isRecording = !options
-    ? false
-    : options === 'audio'
-    ? audioProps.recording
-    : screenProps.recording
+  // const isRecording = !options
+  //   ? false
+  //   : options === 'audio'
+  //   ? audioProps.recording
+  //   : screenProps.recording
 
   return (
     <div>
@@ -117,8 +116,12 @@ const SendFeedback = () => {
             </p>
           </div>
         </div>
-        <div className="w-100 f-column">
-          {!isRecording ? (
+        <div className="w-100 f-column-33">
+          {!!audioProps.audioURL && !audioProps.recording && (
+            <CustomAudioPlayer audioProps={audioProps} />
+          )}
+
+          {!options ? (
             <ActionComponent
               title="Record Feedback"
               buttonType="bold"
@@ -127,31 +130,7 @@ const SendFeedback = () => {
               className={'hw-mx mx-auto'}
             />
           ) : (
-            <div className={_isMobile() ? 'f-column-27' : 'f-column-13'}>
-              <div className="border-label rounded-43 p-4 f-row-33 aic jcc controls-feedback">
-                <div className="f-row-17 aic">
-                  <p className="m-0 color-label">Recording</p>
-                  <p className="m-0">00 : 00</p>
-                </div>
-                <div className="f-row-12 aic hw-mx cursor-pointer control-item">
-                  <p className="m-0">Pause</p>
-                  <PauseSVG />
-                </div>
-                <div
-                  className="f-row-12 aic hw-mx cursor-pointer control-item"
-                  onClick={onStopRecord}
-                >
-                  <p className="m-0">Stop Recording</p>
-                  <StopSVG />
-                </div>
-                <div
-                  className="f-row-12 aic hw-mx cursor-pointer control-item"
-                  onClick={onStopRecord}
-                >
-                  <BinSVG />
-                </div>
-              </div>
-            </div>
+            <AudioRecordSection audioProps={audioProps} />
           )}
         </div>
       </HVC>

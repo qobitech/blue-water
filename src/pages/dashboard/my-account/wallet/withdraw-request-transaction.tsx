@@ -10,7 +10,7 @@ import {
 } from '../../../../constants/global'
 import { HVC, HVCLoad } from '../../../../components/utils/hvc'
 import { NoticeComponent } from '../../../../components/utils/reusable'
-import { CardItems } from '../../bet-channel/by-id/data'
+import { CardItems } from '../../../../components/utils/card-items'
 
 const defaultData: IUsers = {
   ...defaultGETDataTemplate,

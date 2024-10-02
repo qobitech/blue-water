@@ -1,7 +1,7 @@
 import { IGlobalRightSection } from '../../../components/layout/right-section'
 import { IUser } from '../../../interface/IUser'
 import { getCountry, getUserRole, typeRoleId } from '../../../constants/global'
-import { CardItems } from '../../dashboard/bet-channel/by-id/data'
+import { CardItems } from '../../../components/utils/card-items'
 
 const ViewUser = ({ globalContext }: IGlobalRightSection) => {
   if (!globalContext) return <>no data</>

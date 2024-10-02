@@ -4,7 +4,7 @@ import { IWalletTransactionStats } from '../../../../interface/ITransaction'
 import { GETISSELLER, showAmount } from '../../../../constants/global'
 import { TypeButton } from '../../../../components/utils/button'
 import { RefreshComponent } from '../../../../components/utils/reusable'
-import { OverViewHeader } from '../../bet-channel/by-id/data'
+import { OverViewHeader } from '../../../../components/utils/card-items'
 
 export const LIMIT = 10
 

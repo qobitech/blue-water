@@ -3,10 +3,6 @@ import { IGlobalRightSection } from '../../../components/layout/right-section'
 import { getCountry, getUserRole, typeRoleId } from '../../../constants/global'
 import moment from 'moment'
 import {
-  CardItems,
-  OverViewHeader
-} from '../../dashboard/bet-channel/by-id/data'
-import {
   ActionComponent,
   IOptionAction
 } from '../../../components/utils/reusable'
@@ -18,6 +14,7 @@ import { HVC } from '../../../components/utils/hvc'
 import { feedbackStatusEnum, IGetFeedback } from '../../../interface/IFeedback'
 import { useUpdateFeedbackStatus } from '../../../api/feedback'
 import Rating from '../../../components/utils/rating'
+import { CardItems, OverViewHeader } from '../../../components/utils/card-items'
 
 const ViewFeedback = ({ globalContext }: IGlobalRightSection) => {
   if (!globalContext) return <>reload page</>
