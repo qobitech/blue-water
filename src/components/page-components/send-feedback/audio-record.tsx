@@ -28,7 +28,6 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
     if (!isConfirmDelete) return
 
     try {
-      // Check if getUserMedia is supported by the browser
       if (!navigator.mediaDevices?.getUserMedia) {
         alert('Your browser does not support audio recording.')
         return
@@ -37,12 +36,11 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
       // Add a small delay to avoid issues with permissions on mobile browsers
       setTimeout(async () => {
         try {
-          // Access the microphone with specific mobile-friendly constraints
           const stream = await navigator.mediaDevices.getUserMedia({
             audio: {
-              echoCancellation: true, // Mobile-friendly constraint to reduce noise
-              noiseSuppression: true, // Helps in noisy environments
-              sampleRate: 16000 // Lower sample rate for mobile compatibility
+              echoCancellation: true,
+              noiseSuppression: true,
+              sampleRate: 16000
             }
           })
 
@@ -87,9 +85,24 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
           }
         } catch (err) {
           console.error('Error accessing microphone:', err)
-          alert(
-            'There was an error accessing the microphone. Please check your permissions.'
-          )
+
+          // Check if it's a permission error
+          if (
+            err.name === 'NotAllowedError' ||
+            err.name === 'PermissionDeniedError'
+          ) {
+            alert(
+              'Microphone access was denied. Please enable microphone permissions in your browser settings.'
+            )
+          } else if (err.name === 'NotFoundError') {
+            alert(
+              'No microphone found. Please ensure a microphone is connected and accessible.'
+            )
+          } else {
+            alert(
+              'There was an error accessing the microphone. Please check your permissions or device settings.'
+            )
+          }
         }
       }, 500) // Add a 500ms delay for mobile browsers
     } catch (err) {
