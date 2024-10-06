@@ -83,7 +83,7 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
               }
             }, 1000) // Update every second
           }
-        } catch (err) {
+        } catch (err: any) {
           console.error('Error accessing microphone:', err)
 
           // Check if it's a permission error
