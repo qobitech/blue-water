@@ -16,6 +16,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src/**/*", ".d.ts", "global.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "src/**/*",
+    ".d.ts",
+    "global.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "public/my-audio-processor.js"
+  ],
   "exclude": ["node_modules"]
 }

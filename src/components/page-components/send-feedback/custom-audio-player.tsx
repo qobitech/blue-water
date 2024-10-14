@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { BinSVG, PauseSVG, PlaySVG, StopSVG } from '../../utils/svgs'
 import { _isMobile, formatTime } from '../../utils/helper'
 import { IUseAudioRecorderProps } from './audio-record'
@@ -16,29 +16,6 @@ const CustomAudioPlayer = ({
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioTime, setAudioTime] = useState(defaultTime)
   const [audioDuration, setAudioDuration] = useState(defaultTime)
-
-  useEffect(() => {
-    const audioElement = audioRef.current
-    if (audioElement) {
-      // Update the duration when the audio loads
-      audioElement.onloadedmetadata = () => {
-        const duration = formatTime(recordingTime)
-        setAudioDuration(duration)
-      }
-
-      // Update current time during playback
-      audioElement.ontimeupdate = () => {
-        const currentTime = formatTime(audioRef.current?.currentTime || 0)
-        setAudioTime(currentTime)
-      }
-
-      audioElement.addEventListener('ended', stopAudio)
-    }
-
-    return () => {
-      audioElement?.removeEventListener('ended', stopAudio)
-    }
-  }, [audioURL])
 
   // Handle play/pause toggle
   const togglePlayPause = () => {
@@ -66,7 +43,23 @@ const CustomAudioPlayer = ({
     <div className={_isMobile() ? 'f-column-27' : 'f-column-13'}>
       {/* {audioURL && ( */}
       <div className="custom-audio-player">
-        {audioURL && <audio ref={audioRef} src={audioURL} hidden />}
+        {audioURL && (
+          <audio
+            ref={audioRef}
+            id="audioPlayer"
+            src={audioURL}
+            hidden
+            onLoadedMetadata={() => {
+              const duration = formatTime(recordingTime)
+              setAudioDuration(duration)
+            }}
+            onTimeUpdate={(e) => {
+              const currentTime = formatTime(e.currentTarget?.currentTime || 0)
+              setAudioTime(currentTime)
+            }}
+            onEnded={stopAudio}
+          />
+        )}
         <div
           className="controls-feedback border rounded-43 p-4 f-row-33 aic jcc hw-mx mx-auto"
           style={{ background: '#f7f7f7' }}
