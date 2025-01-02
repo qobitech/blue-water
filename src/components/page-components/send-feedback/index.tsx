@@ -12,7 +12,8 @@ import { CardItems, OverViewHeader } from '../../utils/card-items'
 import CustomAudioPlayer from './custom-audio-player'
 import AudioRecordSection from './audio-record-section'
 // import Mp3Recorder from 'react-mp3-recorder'
-import AudioRecorder from './audio-recorder'
+// import AudioRecorder from './audio-recorder'
+import { AudioRecorder } from 'react-audio-voice-recorder'
 
 type views = 'main page' | 'prep'
 
@@ -78,6 +79,14 @@ const SendFeedback = () => {
   //   console.error('Error while recording:', err)
   // }
 
+  const addAudioElement = (blob: Blob) => {
+    const url = URL.createObjectURL(blob)
+    const audio = document.createElement('audio')
+    audio.src = url
+    audio.controls = true
+    document.body.appendChild(audio)
+  }
+
   return (
     <div>
       <HVC removeDOM view={stage === 'main page'} className="f-column-33">
@@ -113,7 +122,26 @@ const SendFeedback = () => {
             </p>
           </div>
         </div>
-        <AudioRecorder />
+        <AudioRecorder
+          onRecordingComplete={addAudioElement}
+          audioTrackConstraints={{
+            noiseSuppression: true,
+            echoCancellation: true
+            // autoGainControl,
+            // channelCount,
+            // deviceId,
+            // groupId,
+            // sampleRate,
+            // sampleSize,
+          }}
+          onNotAllowedOrFound={(err) => console.table(err)}
+          downloadOnSavePress={true}
+          downloadFileExtension="webm"
+          mediaRecorderOptions={{
+            audioBitsPerSecond: 128000
+          }}
+          // showVisualizer={true}
+        />
         {/* <Mp3Recorder
           onRecordingComplete={handleRecordingComplete}
           onRecordingError={handleRecordingError}
