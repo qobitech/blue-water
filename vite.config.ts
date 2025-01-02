@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => {
         prev[`process.env.${key}`] = JSON.stringify(env[key])
         return prev
       }, {})
+    },
+    build: {
+      outDir: 'build' // Specify the desired output directory
     }
   }
 })
