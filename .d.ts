@@ -12,6 +12,7 @@ declare module 'react-simple-maps'
 declare module 'anychart'
 // declare module 'yup'
 declare module 'lamejs'
+declare module 'react-mp3-recorder'
 
 declare module '*.mp4' {
   const src: string

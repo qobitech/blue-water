@@ -11,7 +11,8 @@ import { ActionComponent, IOptionAction } from '../../utils/reusable'
 import { CardItems, OverViewHeader } from '../../utils/card-items'
 import CustomAudioPlayer from './custom-audio-player'
 import AudioRecordSection from './audio-record-section'
-import { ReactMediaRecorder } from 'react-media-recorder'
+// import Mp3Recorder from 'react-mp3-recorder'
+import AudioRecorder from './audio-recorder'
 
 type views = 'main page' | 'prep'
 
@@ -66,6 +67,17 @@ const SendFeedback = () => {
     setStage('main page')
   }
 
+  // const [audioURL, setAudioURL] = useState<string>('')
+
+  // const handleRecordingComplete = (blob: any) => {
+  //   const url = URL.createObjectURL(blob)
+  //   setAudioURL(url)
+  // }
+
+  // const handleRecordingError = (err: any) => {
+  //   console.error('Error while recording:', err)
+  // }
+
   return (
     <div>
       <HVC removeDOM view={stage === 'main page'} className="f-column-33">
@@ -101,7 +113,13 @@ const SendFeedback = () => {
             </p>
           </div>
         </div>
-        <ReactMediaRecorder
+        <AudioRecorder />
+        {/* <Mp3Recorder
+          onRecordingComplete={handleRecordingComplete}
+          onRecordingError={handleRecordingError}
+        />
+        {audioURL && <audio controls src={audioURL} />} */}
+        {/* <ReactMediaRecorder
           audio
           render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
             <div>
@@ -111,7 +129,7 @@ const SendFeedback = () => {
               {mediaBlobUrl && <audio src={mediaBlobUrl} controls />}
             </div>
           )}
-        />
+        /> */}
         <div className="w-100 f-column-33 d-none">
           {!!audioProps.audioURL && !audioProps.recording && (
             <CustomAudioPlayer audioProps={audioProps} />
