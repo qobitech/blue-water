@@ -349,7 +349,6 @@ const RightSection = <T extends {}>({
         } ${rsProps.max ? 'max' : ''}`}
       >
         <div className="rs-header">
-          {isTitleString ? <h3>{rsProps.title}</h3> : rsProps.title}
           <div className="ctas">
             <TypeButton
               title=""
@@ -360,6 +359,7 @@ const RightSection = <T extends {}>({
               onClick={rsProps.closeSection}
             />
           </div>
+          {isTitleString ? <h3>{rsProps.title}</h3> : rsProps.title}
         </div>
         {rsProps.isSectionHistory ? (
           <div

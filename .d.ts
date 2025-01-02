@@ -11,6 +11,7 @@ declare module 'react-phone-input-2'
 declare module 'react-simple-maps'
 declare module 'anychart'
 // declare module 'yup'
+declare module 'lamejs'
 
 declare module '*.mp4' {
   const src: string

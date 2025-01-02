@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { BinSVG, PauseSVG, PlaySVG, StopSVG } from '../../utils/svgs'
 import { _isMobile, formatTime } from '../../utils/helper'
-import { IUseAudioRecorderProps } from './audio-record'
+import { IUseAudioRecorderProps } from './audio-record-legacy-2'
 
 interface CustomAudioPlayerProps {
   audioProps: IUseAudioRecorderProps

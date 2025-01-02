@@ -1,5 +1,5 @@
 import { formatTime } from '../../utils/helper'
-import { IUseAudioRecorderProps } from './audio-record'
+import { IUseAudioRecorderProps } from './audio-record-legacy-2'
 import AudioWaveVisualizer from './audio-wave-visualizer'
 
 interface ARSProps {

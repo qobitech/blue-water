@@ -18,6 +18,7 @@
     "js-cookie": "^3.0.5",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
+    "lamejs": "^1.2.1",
     "moment": "^2.29.4",
     "query-string": "^7.1.1",
     "react": "^18.2.0",
@@ -33,7 +34,6 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.4.3",
     "sass": "^1.56.0",
-    "terser-webpack-plugin": "^5.3.10",
     "yup": "^0.32.11"
   },
   "engines": {
@@ -42,9 +42,11 @@
     "npm": "please-use-yarn"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext ts,tsx --fix",
     "prettier": "prettier --write .",
@@ -78,13 +80,15 @@
     "@commitlint/config-conventional": "^17.2.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "compression-webpack-plugin": "^11.1.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^2.1.8",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.29.1",
@@ -98,6 +102,8 @@
     "prettier-eslint-cli": "^7.1.0",
     "react-scripts": "5.0.1",
     "typescript": "5.5.4",
+    "vite": "^5.0.8",
+    "vitest": "^2.1.8",
     "web-vitals": "^2.1.0"
   }
 }
