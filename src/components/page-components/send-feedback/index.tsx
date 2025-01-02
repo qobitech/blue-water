@@ -6,12 +6,12 @@ import { RecordSVG } from '../../utils/svgs'
 import { useAudioRecorder } from './audio-record-legacy-2'
 import Prep from './prep'
 import './style.scss'
-// import { _isMobile } from '../../utils/helper'
 import { useScreenAudioRecorder } from './screen-audio-record'
 import { ActionComponent, IOptionAction } from '../../utils/reusable'
 import { CardItems, OverViewHeader } from '../../utils/card-items'
 import CustomAudioPlayer from './custom-audio-player'
 import AudioRecordSection from './audio-record-section'
+import { ReactMediaRecorder } from 'react-media-recorder'
 
 type views = 'main page' | 'prep'
 
@@ -49,9 +49,10 @@ const SendFeedback = () => {
     {
       label: 'Screen + Audio Record',
       action: () => {
-        onPrompt()
-        setOptions('screen')
-      }
+        // onPrompt()
+        // setOptions('screen')
+      },
+      disabled: true
     }
   ]
 
@@ -64,22 +65,6 @@ const SendFeedback = () => {
     }
     setStage('main page')
   }
-
-  // const onStopRecord = () => {
-  //   if (options === 'audio') {
-  //     audioProps.handleStopRecording()
-  //   }
-  //   if (options === 'screen') {
-  //     screenProps.stopRecording()
-  //   }
-  //   setStage('main page')
-  // }
-
-  // const isRecording = !options
-  //   ? false
-  //   : options === 'audio'
-  //   ? audioProps.recording
-  //   : screenProps.recording
 
   return (
     <div>
@@ -116,7 +101,18 @@ const SendFeedback = () => {
             </p>
           </div>
         </div>
-        <div className="w-100 f-column-33">
+        <ReactMediaRecorder
+          audio
+          render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
+            <div>
+              <p>Status: {status}</p>
+              <button onClick={startRecording}>Start Recording</button>
+              <button onClick={stopRecording}>Stop Recording</button>
+              {mediaBlobUrl && <audio src={mediaBlobUrl} controls />}
+            </div>
+          )}
+        />
+        <div className="w-100 f-column-33 d-none">
           {!!audioProps.audioURL && !audioProps.recording && (
             <CustomAudioPlayer audioProps={audioProps} />
           )}
