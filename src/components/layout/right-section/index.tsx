@@ -417,7 +417,7 @@ const RightSection = <T extends {}>({
           <div className="rs-body position-relative">
             {matchChild}
             <div
-              className="position-fixed bg-white border-label-top shadow w-100 py-3 justify-content-between align-items-center px-4"
+              className="position-fixed bg-white border-label-top shadow w-100 py-4 justify-content-between align-items-center px-4"
               style={{
                 bottom: 0,
                 left: 0,
