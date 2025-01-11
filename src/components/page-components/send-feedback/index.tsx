@@ -57,7 +57,7 @@ const SendFeedback = () => {
     <div>
       <HVC removeDOM view={stage === 'main page'} className="f-column-33">
         <div
-          className="border-label rounded-33 p-4 f-column-33"
+          className="rounded-33 p-4 f-column-33 shadow-sm"
           style={{ background: feedbackContent.color }}
         >
           <div className="f-column">
