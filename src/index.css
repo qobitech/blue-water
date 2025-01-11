@@ -397,7 +397,6 @@ code {
 
 canvas {
   width: 100% !important;
-  height: auto !important;
 }
 
 .react-pdf__Page__annotations {
