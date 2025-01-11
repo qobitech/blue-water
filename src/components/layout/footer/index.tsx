@@ -36,15 +36,14 @@ const Footer = memo(
               <div className="div-wrapper">
                 <div className="div-left f-column-10">
                   <p className="p-footer-class">
-                    Capture authentic feedback from your audience, stay
-                    connected and truly understand their thoughts, preferences,
-                    and opinions.
+                    Collect authentic feedback from your users effortlessly.
+                    Whether you&apos;re refining features, validating ideas, or
+                    understanding user pain points, Tevotea empowers you to stay
+                    connected with your audience and deliver what they truly
+                    need.
                   </p>
                   <p className="p-footer-class">
-                    Whether you&apos;re collecting insights, gathering
-                    on-the-ground statements, or seeking product feedback,
-                    Tevotea simplifies the process, ensuring that you never miss
-                    a beat.
+                    <b>Stop guessing, start building products users love.</b>
                   </p>
                 </div>
                 <div className="div-right f-column-15">
@@ -52,14 +51,14 @@ const Footer = memo(
                     style={{ lineHeight: '30px', fontSize: '1.15rem' }}
                     className="ff-bold m-0"
                   >
-                    Great content deserves great engagement
+                    Build Better Products with Real Engagement
                   </h6>
                   <p
                     style={{ fontFamily: 'Outfit_Regular', lineHeight: '25px' }}
                   >
-                    Join us and transform your audience engagement, connect with
-                    them in a meaningful way and capture the feedback that
-                    matters most.
+                    Transform how you connect with your users. Engage them
+                    meaningfully and capture the feedback that drives impactful
+                    product decisions.
                   </p>
                   <div className="cta-wrapper">
                     <TypeButton

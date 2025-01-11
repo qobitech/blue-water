@@ -108,35 +108,37 @@ const LandingPage = () => {
           <LogoAnimated />
           <h2>Designed for You</h2>
           <p>
-            Tevotea is perfect for anyone looking to capture the true voice of
-            their audience. Whether you&apos;re a brand, journalist, or
-            community organizer, hear what really matters.
+            Tevotea is built for Product Managers who need actionable insights
+            to refine their products. Capture the authentic voice of your users
+            and make data-driven decisions with confidence.
           </p>
         </div>
-        <SubReveal
-          className="container grid-wrapper-40 gap-43 p-5 mt-5 rounded-25 bg-lighter-blue"
-          hidden={{ opacity: 0, x: '-50%' }}
-          visible={{ opacity: 1, x: 0 }}
-        >
-          {specialization.map((i, index) => (
-            <div className="f-row-23 ais py-2" key={index}>
-              <div
-                style={{
-                  width: '20px',
-                  minWidth: '20px',
-                  height: '20px',
-                  minHeight: '20px'
-                }}
-              >
-                <LogoSVG color={BUTTON_PRIMARY} />
+        <div className="d-none">
+          <SubReveal
+            className="container grid-wrapper-40 gap-43 p-5 mt-5 rounded-25 bg-lighter-blue"
+            hidden={{ opacity: 0, x: '-50%' }}
+            visible={{ opacity: 1, x: 0 }}
+          >
+            {specialization.map((i, index) => (
+              <div className="f-row-23 ais py-2" key={index}>
+                <div
+                  style={{
+                    width: '20px',
+                    minWidth: '20px',
+                    height: '20px',
+                    minHeight: '20px'
+                  }}
+                >
+                  <LogoSVG color={BUTTON_PRIMARY} />
+                </div>
+                <div className="f-column-7">
+                  <h4 className="m-0 ff-bold">{i.title}</h4>
+                  <p>{i.body}</p>
+                </div>
               </div>
-              <div className="f-column-7">
-                <h4 className="m-0 ff-bold">{i.title}</h4>
-                <p>{i.body}</p>
-              </div>
-            </div>
-          ))}
-        </SubReveal>
+            ))}
+          </SubReveal>
+        </div>
         <Reveal className="cta-wrapper container jcc">
           <TypeButton
             buttonSize="large"
@@ -156,11 +158,11 @@ const LandingPage = () => {
           <div className="section-text text-center f-column-40 container header-text-content">
             <LogoAnimated />
             {/* text */}
-            <h2>
+            <h2>How It Works</h2>
+            {/* <p>
               Hear directly from your audience in their own words, anytime,
               anywhere.
-            </h2>
-            <p>How It Works</p>
+            </p> */}
           </div>
           {/* list-media */}
           <div className="list-media container">
