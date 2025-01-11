@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react'
-import lamejs from 'lamejs'
 
 export interface IUseAudioRecorderProps {
   recording: boolean
