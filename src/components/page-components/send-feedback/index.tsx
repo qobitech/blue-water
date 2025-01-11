@@ -56,7 +56,10 @@ const SendFeedback = () => {
   return (
     <div>
       <HVC removeDOM view={stage === 'main page'} className="f-column-33">
-        <div className="border-label rounded-33 p-4 f-column-33">
+        <div
+          className="border-label rounded-33 p-4 f-column-33"
+          style={{ background: feedbackContent.color }}
+        >
           <div className="f-column">
             <div className="f-row-20 aic pb-1 jcsb">
               <p className="m-0 text-medium">{feedbackContent.requester}</p>
