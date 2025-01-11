@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react'
+import { Dispatch, SetStateAction, useRef, useState } from 'react'
+import { optionType } from '.'
 
 export interface IUseAudioRecorderProps {
   recording: boolean
@@ -6,13 +7,20 @@ export interface IUseAudioRecorderProps {
   handleStartRecording: () => Promise<void>
   handleStopRecording: () => void
   handleDeleteRecording: () => void
+  handleSubmit: () => void
   recordingTime: number
+  setOptions: Dispatch<SetStateAction<optionType>>
+  options: optionType
+  setRecordSection: Dispatch<SetStateAction<boolean>>
+  recordSection: boolean
 }
 
 export const useAudioRecorder = (): IUseAudioRecorderProps => {
   const [recording, setRecording] = useState(false)
   const [audioURL, setAudioURL] = useState<string | null>(null)
   const [elapsedTime, setElapsedTime] = useState<number>(0)
+  const [options, setOptions] = useState<optionType>()
+  const [recordSection, setRecordSection] = useState<boolean>(false)
   // const [audioDataBuffer, setAudioDataBuffer] = useState<BlobPart[]>([])
   const localChunks = useRef<Blob[]>([]) // Use a ref for storing chunks locally
   const startTimeRef = useRef<number | null>(null)
@@ -261,12 +269,19 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
     }
   }
 
+  const handleSubmit = () => {}
+
   return {
     recording,
     audioURL,
     handleStartRecording,
     handleStopRecording,
     recordingTime: elapsedTime,
-    handleDeleteRecording
+    handleDeleteRecording,
+    setOptions,
+    options,
+    setRecordSection,
+    recordSection,
+    handleSubmit
   }
 }

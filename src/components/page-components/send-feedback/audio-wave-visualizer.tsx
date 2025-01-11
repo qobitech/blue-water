@@ -85,8 +85,8 @@ const AudioVisualizerBars = () => {
       <canvas
         ref={canvasRef}
         width="800"
-        height="50"
-        style={{ background: '#000', borderRadius: '10px' }}
+        height="60"
+        style={{ background: '#000', borderRadius: '10px', height: '60px' }}
       />
     </div>
   )

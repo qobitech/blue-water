@@ -824,10 +824,12 @@ export const ActionComponent = ({
 
 export const RefreshComponent = ({
   load,
-  onRefresh
+  onRefresh,
+  text
 }: {
   load?: boolean
   onRefresh?: () => void
+  text?: string
 }) => {
   return (
     <HVCLoad
@@ -839,6 +841,7 @@ export const RefreshComponent = ({
       style={{ width: '25px' }}
     >
       <RefreshSVG />
+      {text ? <p className="m-0 text-little color-label">{text}</p> : null}
     </HVCLoad>
   )
 }

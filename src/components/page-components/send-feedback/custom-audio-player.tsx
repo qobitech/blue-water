@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { BinSVG, PauseSVG, PlaySVG, StopSVG } from '../../utils/svgs'
+import { BinSVG, PauseSVG, PlaySVG, StopSVG, SubmitSVG } from '../../utils/svgs'
 import { _isMobile, formatTime } from '../../utils/helper'
 import { IUseAudioRecorderProps } from './audio-record-legacy-2'
+import { TypeButton } from '../../utils/button'
 
 interface CustomAudioPlayerProps {
   audioProps: IUseAudioRecorderProps
@@ -10,7 +11,7 @@ interface CustomAudioPlayerProps {
 const defaultTime = '00 : 00'
 
 const CustomAudioPlayer = ({
-  audioProps: { audioURL, recordingTime, handleDeleteRecording }
+  audioProps: { audioURL, recordingTime, handleDeleteRecording, handleSubmit }
 }: CustomAudioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -61,8 +62,8 @@ const CustomAudioPlayer = ({
           />
         )}
         <div
-          className="controls-feedback border rounded-43 p-4 f-row-33 aic jcc hw-mx mx-auto"
-          style={{ background: '#f7f7f7' }}
+          className="controls-feedback border-label rounded-48 p-4 f-row-33 aic jcc hw-mx mx-auto bg-light"
+          // style={{ background: '#f7f7f7' }}
         >
           <div className="f-row-17 aic">
             <p className="m-0 color-label">
@@ -96,9 +97,29 @@ const CustomAudioPlayer = ({
               className="f-row-12 aic hw-mx cursor-pointer control-item"
               onClick={handleDeleteRecording}
             >
-              {/* <p className="m-0">Delete</p> */}
               <BinSVG />
             </div>
+          ) : null}
+
+          {/* Submit Button */}
+          {!isPlaying ? (
+            <>
+              {_isMobile() ? (
+                <div
+                  className="f-row-12 aic hw-mx cursor-pointer control-item"
+                  onClick={handleSubmit}
+                >
+                  <SubmitSVG />
+                </div>
+              ) : (
+                <TypeButton
+                  title="Submit"
+                  icon={<SubmitSVG />}
+                  buttonType="outlined"
+                  onClick={handleSubmit}
+                />
+              )}
+            </>
           ) : null}
         </div>
       </div>

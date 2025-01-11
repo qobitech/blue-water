@@ -1,27 +1,33 @@
-import { TypeButton } from '../../utils/button'
+import { IRightSection } from '../../layout/right-section'
+// import { TypeButton } from '../../utils/button'
 import { OverViewHeader } from '../../utils/card-items'
 import { _isMobile } from '../../utils/helper'
 import { useCountDown } from '../../utils/hooks'
-import { RecordSVG } from '../../utils/svgs'
+// import { RecordSVG } from '../../utils/svgs'
 import TermsAndConditions from '../../utils/tandc'
+import { usePrepSectionCTA } from './hooks'
 
 const Prep = ({
   onRecord,
   purpose,
-  company
+  company,
+  rsProps
 }: {
   onRecord: () => void
   purpose: string
   company: string
+  rsProps: IRightSection<{}> | undefined
 }) => {
   const timeLeft = useCountDown(10)
 
+  usePrepSectionCTA(rsProps, onRecord, timeLeft)
+
   return (
     <div className={_isMobile() ? 'f-column-33' : 'f-column-43'}>
-      <div className="p-4 f-column">
+      <div className="f-column">
         <ul
-          className="f-column-13 m-0 py-3 mx-auto"
-          style={{ maxWidth: '600px' }}
+          className="f-column-13 m-0 p-5 mx-auto w-100 border rounded"
+          // style={{ maxWidth: '600px' }}
         >
           <div>
             <p className="color-label">INSTRUCTION</p>
@@ -80,7 +86,7 @@ const Prep = ({
             />
           </div>
         </div>
-        <TermsAndConditions />
+        {/* <TermsAndConditions />
         <TypeButton
           title="Record"
           buttonSize="large"
@@ -89,7 +95,7 @@ const Prep = ({
           icon={<RecordSVG color="#fff" />}
           className="w-100"
           onClick={onRecord}
-        />
+        /> */}
       </div>
     </div>
   )

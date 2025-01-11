@@ -13,6 +13,13 @@ import { LeftAngleSVG } from '../../utils/svgs/f-awesome'
 import { IGlobalContext } from '../../layout/context'
 import { IconWrapper } from '../../utils/info-txt'
 import { SNART_XER } from '../../page-components/payment/payment-status'
+import { btnType } from '../../tables/public-bet-channel'
+import {
+  ActionComponent,
+  IOptionAction,
+  RefreshComponent
+} from '../../utils/reusable'
+import { AudioRecordController } from '../../page-components/send-feedback/audio-record-controller'
 
 export type actionType = 'create' | 'view' | 'update' | 'delete' | null
 export type actionComponent =
@@ -119,6 +126,17 @@ export interface ICallSection<T> {
   additionalAmountNeeded?: string
 }
 
+export interface IRsPropsCTA {
+  title: string
+  buttonType: btnType
+  action?: () => void
+  load?: boolean
+  loadText?: string
+  actionType?: 'single' | 'multiple'
+  icon?: JSX.Element
+  actionOptions?: IOptionAction[]
+}
+
 export interface IRightSection<K> {
   closeSection: () => void
   openSection: boolean
@@ -150,6 +168,10 @@ export interface IRightSection<K> {
   additionalAmountNeeded: string
   setAdditionalAmountNeeded: React.Dispatch<React.SetStateAction<string>>
   onRefresh?: () => void
+  cta: IRsPropsCTA[]
+  setCTA: (value: React.SetStateAction<IRsPropsCTA[]>) => void
+  audioProps: boolean
+  setAudioProps: (value: React.SetStateAction<boolean>) => void
 }
 
 export const clearTransRef = () => {
@@ -191,6 +213,8 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
   })
   const [data, setData] = useState<K | null | undefined>(null)
   const [dataById, setDataById] = useState<any>(null)
+  const [cta, setCTA] = useState<IRsPropsCTA[]>([])
+  const [audioProps, setAudioProps] = useState<boolean>(false)
 
   function updateData(data: K | null) {
     setData(data)
@@ -280,6 +304,8 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     setAdditionalAmountNeeded('')
     setPaymentStatus(null)
     setOnRefresh(undefined)
+    setCTA([])
+    setAudioProps(false)
   }
 
   return {
@@ -310,7 +336,11 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     setAdditionalAmountNeeded,
     additionalAmountNeeded,
     paymentStatus,
-    onRefresh
+    onRefresh,
+    audioProps,
+    setAudioProps,
+    cta,
+    setCTA
   }
 }
 
@@ -337,6 +367,16 @@ const RightSection = <T extends {}>({
   })
 
   const isTitleString = typeof rsProps.title === 'string'
+
+  const ctaLoad = rsProps.cta.reduce<{ status: boolean; text: string }>(
+    (t, i) => {
+      if (i.load) t = { status: true, text: i?.loadText || '' }
+      return t
+    },
+    { status: false, text: '' }
+  )
+
+  const isCTASectIon = !!rsProps.cta.length || rsProps.audioProps
 
   return (
     <>
@@ -374,7 +414,45 @@ const RightSection = <T extends {}>({
           </div>
         ) : null}
         {rsProps.title ? (
-          <div className="rs-body">{matchChild}</div>
+          <div className="rs-body position-relative">
+            {matchChild}
+            <div
+              className="position-fixed bg-white border-label-top shadow w-100 py-3 justify-content-between align-items-center px-4"
+              style={{
+                bottom: 0,
+                left: 0,
+                display: isCTASectIon ? 'flex' : 'none',
+                zIndex: 50
+              }}
+            >
+              <div className="mx-auto f-row-17" style={{ width: '94%' }}>
+                {rsProps?.cta?.map((i, index) => (
+                  <>
+                    {i.actionType !== 'multiple' ? (
+                      <TypeButton
+                        title={i.title}
+                        buttonType={ctaLoad.status ? 'disabled' : i.buttonType}
+                        onClick={i.action}
+                        key={index}
+                        icon={i.icon}
+                      />
+                    ) : (
+                      <ActionComponent
+                        title={i.title}
+                        actions={i.actionOptions}
+                        buttonType={i.buttonType}
+                        icon={i.icon}
+                      />
+                    )}
+                  </>
+                ))}
+                {rsProps?.audioProps ? <AudioRecordController /> : null}
+              </div>
+              <div>
+                <RefreshComponent load={ctaLoad.status} text={ctaLoad.text} />
+              </div>
+            </div>
+          </div>
         ) : (
           <div>
             {rsProps.data !== null && !rsProps.data ? (

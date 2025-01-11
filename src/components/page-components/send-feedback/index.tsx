@@ -2,22 +2,15 @@ import { useState } from 'react'
 import { content } from '../../../pages/public/landing-page/data'
 import { useGlobalContext } from '../../layout/context'
 import { HVC } from '../../utils/hvc'
-import { RecordSVG } from '../../utils/svgs'
-import { useAudioRecorder } from './audio-record-legacy-2'
 import Prep from './prep'
 import './style.scss'
 import { useScreenAudioRecorder } from './screen-audio-record'
-import { ActionComponent, IOptionAction } from '../../utils/reusable'
 import { CardItems, OverViewHeader } from '../../utils/card-items'
-import CustomAudioPlayer from './custom-audio-player'
-import AudioRecordSection from './audio-record-section'
-// import Mp3Recorder from 'react-mp3-recorder'
-// import AudioRecorder from './audio-recorder'
-// import { AudioRecorder } from 'react-audio-voice-recorder'
+import { useRecordSectionCTA } from './hooks'
 
-type views = 'main page' | 'prep'
+export type views = 'main page' | 'prep'
 
-type optionType = 'audio' | 'screen' | undefined
+export type optionType = 'audio' | 'screen' | undefined
 
 const SendFeedback = () => {
   const { rsProps } = useGlobalContext()
@@ -34,33 +27,13 @@ const SendFeedback = () => {
     setStage('prep')
   }
 
-  const audioProps = useAudioRecorder()
-
   const screenProps = useScreenAudioRecorder()
 
   const [options, setOptions] = useState<optionType>()
 
-  const actions: IOptionAction[] = [
-    {
-      label: 'Just Record',
-      action: () => {
-        onPrompt()
-        setOptions('audio')
-      }
-    },
-    {
-      label: 'View Product while recording',
-      action: () => {
-        // onPrompt()
-        // setOptions('screen')
-      },
-      disabled: true
-    }
-  ]
-
   const onRecord = () => {
     if (options === 'audio') {
-      audioProps.handleStartRecording()
+      rsProps?.setAudioProps(true)
     }
     if (options === 'screen') {
       screenProps.startRecording()
@@ -68,24 +41,17 @@ const SendFeedback = () => {
     setStage('main page')
   }
 
-  // const [audioURL, setAudioURL] = useState<string>('')
-
-  // const handleRecordingComplete = (blob: any) => {
-  //   const url = URL.createObjectURL(blob)
-  //   setAudioURL(url)
-  // }
-
-  // const handleRecordingError = (err: any) => {
-  //   console.error('Error while recording:', err)
-  // }
-
-  // const addAudioElement = (blob: Blob) => {
-  //   const url = URL.createObjectURL(blob)
-  //   const audio = document.createElement('audio')
-  //   audio.src = url
-  //   audio.controls = true
-  //   document.body.appendChild(audio)
-  // }
+  useRecordSectionCTA(
+    rsProps,
+    () => {
+      onPrompt()
+      setOptions('audio')
+    },
+    () => {
+      onPrompt()
+      setOptions('screen')
+    }
+  )
 
   return (
     <div>
@@ -122,62 +88,14 @@ const SendFeedback = () => {
             </p>
           </div>
         </div>
-        {/* <AudioRecorder
-          onRecordingComplete={addAudioElement}
-          audioTrackConstraints={{
-            noiseSuppression: true,
-            echoCancellation: true
-            // autoGainControl,
-            // channelCount,
-            // deviceId,
-            // groupId,
-            // sampleRate,
-            // sampleSize,
-          }}
-          onNotAllowedOrFound={(err) => console.table(err)}
-          downloadOnSavePress={true}
-          downloadFileExtension="webm"
-          mediaRecorderOptions={{
-            audioBitsPerSecond: 128000
-          }}
-          // showVisualizer={true}
-        /> */}
-        {/* <Mp3Recorder
-          onRecordingComplete={handleRecordingComplete}
-          onRecordingError={handleRecordingError}
-        />
-        {audioURL && <audio controls src={audioURL} />} */}
-        {/* <ReactMediaRecorder
-          audio
-          render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
-            <div>
-              <p>Status: {status}</p>
-              <button onClick={startRecording}>Start Recording</button>
-              <button onClick={stopRecording}>Stop Recording</button>
-              {mediaBlobUrl && <audio src={mediaBlobUrl} controls />}
-            </div>
-          )}
-        /> */}
-        <div className="w-100 f-column-33">
-          {!!audioProps.audioURL && !audioProps.recording && (
-            <CustomAudioPlayer audioProps={audioProps} />
-          )}
-
-          {!options ? (
-            <ActionComponent
-              title="Record Feedback"
-              buttonType="bold"
-              actions={actions}
-              icon={<RecordSVG color="#fff" />}
-              className={'hw-mx mx-auto'}
-            />
-          ) : (
-            <AudioRecordSection audioProps={audioProps} />
-          )}
-        </div>
       </HVC>
       <HVC removeDOM view={stage === 'prep'}>
-        <Prep onRecord={onRecord} purpose="interview" company="" />
+        <Prep
+          onRecord={onRecord}
+          purpose="interview"
+          company=""
+          rsProps={rsProps}
+        />
       </HVC>
     </div>
   )

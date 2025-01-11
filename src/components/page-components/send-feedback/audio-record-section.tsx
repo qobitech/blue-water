@@ -37,8 +37,8 @@ const AudioRecordSection = ({
           <div
             style={{
               borderRadius: '50%',
-              width: '80px',
-              height: '80px',
+              width: '50px',
+              height: '50px',
               border: '1px solid #cacaca'
             }}
             className="f-row jcc aic"
@@ -47,8 +47,8 @@ const AudioRecordSection = ({
               <div
                 style={{
                   borderRadius: '50%',
-                  width: '50px',
-                  height: '50px',
+                  width: '30px',
+                  height: '30px',
                   background: 'red'
                 }}
                 onClick={handleStartRecording}
@@ -56,9 +56,9 @@ const AudioRecordSection = ({
             ) : (
               <div
                 style={{
-                  borderRadius: '5px',
-                  width: '40px',
-                  height: '40px',
+                  borderRadius: '3px',
+                  width: '20px',
+                  height: '20px',
                   background: 'red'
                 }}
                 onClick={handleStopRecording}
