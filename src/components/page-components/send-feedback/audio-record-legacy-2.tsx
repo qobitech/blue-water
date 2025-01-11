@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-// import lamejs from 'lamejs'
+import lamejs from 'lamejs'
 
 export interface IUseAudioRecorderProps {
   recording: boolean
@@ -104,7 +104,7 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
         // Make blob out of our blobs, and open it.
         if (localChunks.current.length > 0) {
           const audioBlob = new Blob(localChunks.current, {
-            type: 'audio/webm'
+            type: 'audio/aac'
           })
           const audioUrl = URL.createObjectURL(audioBlob)
           setAudioURL(audioUrl)
