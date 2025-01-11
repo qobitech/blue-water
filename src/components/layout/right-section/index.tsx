@@ -16,8 +16,8 @@ import { SNART_XER } from '../../page-components/payment/payment-status'
 import { btnType } from '../../tables/public-bet-channel'
 import {
   ActionComponent,
-  IOptionAction,
-  RefreshComponent
+  IOptionAction
+  // RefreshComponent
 } from '../../utils/reusable'
 import { AudioRecordController } from '../../page-components/send-feedback/audio-record-controller'
 
@@ -448,9 +448,9 @@ const RightSection = <T extends {}>({
                 ))}
                 {rsProps?.audioProps ? <AudioRecordController /> : null}
               </div>
-              <div>
+              {/* <div>
                 <RefreshComponent load={ctaLoad.status} text={ctaLoad.text} />
-              </div>
+              </div> */}
             </div>
           </div>
         ) : (
