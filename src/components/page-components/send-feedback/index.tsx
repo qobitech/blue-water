@@ -7,6 +7,7 @@ import './style.scss'
 import { useScreenAudioRecorder } from './screen-audio-record'
 import { CardItems, OverViewHeader } from '../../utils/card-items'
 import { useRecordSectionCTA } from './hooks'
+import { _isMobile } from '../../utils/helper'
 
 export type views = 'main page' | 'prep'
 
@@ -57,7 +58,9 @@ const SendFeedback = () => {
     <div>
       <HVC removeDOM view={stage === 'main page'} className="f-column-33">
         <div
-          className="rounded-33 p-4 f-column-33 shadow-sm"
+          className={`rounded-33 ${
+            _isMobile() ? 'p-4' : 'p-5'
+          } f-column-33 shadow-sm`}
           style={{ background: feedbackContent.color }}
         >
           <div className="f-column">
