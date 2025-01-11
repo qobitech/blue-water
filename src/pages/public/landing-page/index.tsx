@@ -3,13 +3,14 @@ import './style.scss'
 import { TypeButton } from '../../../components/utils/button'
 // framer motion
 import { motion, useAnimation, useInView } from 'framer-motion'
-import { BUTTON_PRIMARY } from '../../../constants/global'
-import { LogoSVG, RecordSVG } from '../../../components/utils/svgs'
+// import { BUTTON_PRIMARY } from '../../../constants/global'
+import { RecordSVG } from '../../../components/utils/svgs'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
 import { content, faqdata, IFeedBack } from './data'
 import { LogoAnimated } from '../../../components/utils/hooks'
+import designedforyou from '../../../assets/images/designed-for-you.jpg'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
@@ -37,24 +38,24 @@ const LandingPage = () => {
     })
   }
 
-  const specialization = [
-    {
-      title: 'Brands & Companies',
-      body: `Understand your customers' genuine thoughts.`
-    },
-    {
-      title: 'Journalists & Media Outlets',
-      body: `Get real-time statements from the field.`
-    },
-    {
-      title: 'Event Organizers & Community Leaders',
-      body: `Engage with your audience on a deeper level.`
-    },
-    {
-      title: 'Researchers & Analysts',
-      body: `Collect unstructured feedback for richer insights.`
-    }
-  ]
+  // const specialization = [
+  //   {
+  //     title: 'Brands & Companies',
+  //     body: `Understand your customers' genuine thoughts.`
+  //   },
+  //   {
+  //     title: 'Journalists & Media Outlets',
+  //     body: `Get real-time statements from the field.`
+  //   },
+  //   {
+  //     title: 'Event Organizers & Community Leaders',
+  //     body: `Engage with your audience on a deeper level.`
+  //   },
+  //   {
+  //     title: 'Researchers & Analysts',
+  //     body: `Collect unstructured feedback for richer insights.`
+  //   }
+  // ]
 
   return (
     <div className="landing-page-wrapper bg-white">
@@ -99,6 +100,7 @@ const LandingPage = () => {
             location={i.location}
             purpose={i.purpose}
             category={i.category}
+            color={i.color}
           />
         ))}
       </section>
@@ -107,19 +109,13 @@ const LandingPage = () => {
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
           <h2>Designed for You</h2>
-          <p>
-            Tevotea is built for Product Managers who need actionable insights
-            to refine their products. Capture the authentic voice of your users
-            and make data-driven decisions with confidence.
-          </p>
         </div>
-        <div className="d-none">
-          <SubReveal
-            className="container grid-wrapper-40 gap-43 p-5 mt-5 rounded-25 bg-lighter-blue"
-            hidden={{ opacity: 0, x: '-50%' }}
-            visible={{ opacity: 1, x: 0 }}
-          >
-            {specialization.map((i, index) => (
+        <SubReveal
+          className="container grid-wrapper-40 gap-33 p-5 mt-3 rounded-25 bg-lighter-blue"
+          hidden={{ opacity: 0, x: '-50%' }}
+          visible={{ opacity: 1, x: 0 }}
+        >
+          {/* {specialization.map((i, index) => (
               <div className="f-row-23 ais py-2" key={index}>
                 <div
                   style={{
@@ -136,17 +132,28 @@ const LandingPage = () => {
                   <p>{i.body}</p>
                 </div>
               </div>
-            ))}
-          </SubReveal>
-        </div>
-        <Reveal className="cta-wrapper container jcc">
-          <TypeButton
-            buttonSize="large"
-            buttonType="bold"
-            title="Start Collecting Feedback"
-            aria-label="Collect Audio Feedback"
+            ))} */}
+          <img
+            src={designedforyou}
+            alt="Designed for you"
+            style={{ width: '100%', borderRadius: '20px' }}
           />
-        </Reveal>
+          <div className="f-column-43 pt-4">
+            <h2 style={{ lineHeight: '3rem' }}>
+              Tevotea is built for Product Managers who need actionable insights
+              to refine their products. Capture the authentic voice of your
+              users and make data-driven decisions with confidence.
+            </h2>
+            <Reveal className="cta-wrapper container jcs">
+              <TypeButton
+                buttonSize="large"
+                buttonType="bold"
+                title="Start Collecting Feedback"
+                aria-label="Collect Audio Feedback"
+              />
+            </Reveal>
+          </div>
+        </SubReveal>
       </section>
       {/* how it works */}
       <section
@@ -264,12 +271,13 @@ const FeedBackCard = ({
   category,
   title,
   onCompany,
-  onFeedback
+  onFeedback,
+  color
 }: IFeedBack) => {
   return (
     <div
-      className="border-label rounded-23 p-4 f-column-33"
-      style={{ maxWidth: '350px', flexShrink: 0 }}
+      className="shadow-sm rounded-23 p-4 f-column-33"
+      style={{ maxWidth: '350px', flexShrink: 0, background: color }}
     >
       <div className="f-column-23">
         <div className="f-column">
@@ -293,7 +301,7 @@ const FeedBackCard = ({
           {subject}
         </h5>
       </div>
-      <div className="f-row-10 aic jcc border-label-top pt-3 mt-auto">
+      <div className="f-row-10 aic jcc pt-3 mt-auto">
         <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
           <RecordSVG />
           <p className="m-0 color-label text-little">Record feedback</p>

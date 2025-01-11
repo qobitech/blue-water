@@ -26,6 +26,7 @@ export interface IFeedBack {
   location: string
   purpose: string
   category: string
+  color: string
 }
 
 export const content: IFeedBack[] = [
@@ -41,7 +42,8 @@ export const content: IFeedBack[] = [
     createdAt: '1 day ago',
     slug: 'wsng',
     totalFeedback: 3465,
-    category: 'Product Improvement'
+    category: 'Product Improvement',
+    color: '#F2FBFE'
   },
   {
     subject:
@@ -55,7 +57,8 @@ export const content: IFeedBack[] = [
     createdAt: '2 days ago',
     slug: 'waytool',
     totalFeedback: 1465,
-    category: 'User Experience'
+    category: 'User Experience',
+    color: '#FDF3F0'
   },
   {
     subject:
@@ -69,7 +72,8 @@ export const content: IFeedBack[] = [
     createdAt: '1 week ago',
     slug: 'waytoorts',
     totalFeedback: 105,
-    category: 'Feature Feedback'
+    category: 'Feature Feedback',
+    color: '#FCF1FE'
   },
   {
     subject:
@@ -83,7 +87,8 @@ export const content: IFeedBack[] = [
     createdAt: '1 week ago',
     slug: 'hyriwoc',
     totalFeedback: 3215,
-    category: 'Workflow Optimization'
+    category: 'Workflow Optimization',
+    color: '#F2FBFE'
   },
   {
     subject:
@@ -97,7 +102,8 @@ export const content: IFeedBack[] = [
     createdAt: '1 week ago',
     slug: 'hcwmow',
     totalFeedback: 10465,
-    category: 'Integration Feedback'
+    category: 'Integration Feedback',
+    color: '#FDF3F0'
   },
   {
     subject:
@@ -111,7 +117,8 @@ export const content: IFeedBack[] = [
     createdAt: '1 week ago',
     slug: 'wcwdtmyfj',
     totalFeedback: 65,
-    category: 'Feature Feedback'
+    category: 'Feature Feedback',
+    color: '#FCF1FE'
   }
 ]
 
