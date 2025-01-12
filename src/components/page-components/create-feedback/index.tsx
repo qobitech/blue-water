@@ -63,9 +63,9 @@ const CreateFeedback = () => {
   useUserDetailsCTA(
     rsProps,
     userEmailHookForm.handleSubmit(handleUserEmail),
-    () => {
-      setStage('Feedback Details')
-    },
+    // () => {
+    //   setStage('Feedback Details')
+    // },
     stage
   )
 
@@ -85,6 +85,7 @@ const CreateFeedback = () => {
       // userEmailHookForm.reset(defaultEmailDetails)
       handleColor(cardColorGradient[0])
       setStage('Feedback Details')
+      notificationProps.handleOpenModal('Tevotea')
     },
     stage
   )

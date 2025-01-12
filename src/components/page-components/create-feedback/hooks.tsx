@@ -6,18 +6,13 @@ import { createFeedbackStage } from './utils'
 export const useUserDetailsCTA = (
   rsProps: IRightSection<{}> | undefined,
   onNext: () => void,
-  onPrevious: () => void,
   stage: createFeedbackStage
 ) => {
   const cta: IRsPropsCTA[] = [
-    // {
-    //   title: 'Previous',
-    //   buttonType: 'outlined',
-    //   action: onPrevious
-    // },
     {
       title: 'Generate Feedback Link',
-      buttonType: 'bold',
+      buttonType: 'black',
+      buttonSize: 'large',
       action: onNext,
       icon: <GenerateSVG color="#fff" />
     }
@@ -32,7 +27,6 @@ export const useUserDetailsCTA = (
 
 export const useFeedbackDetailsCTA = (
   rsProps: IRightSection<{}> | undefined,
-  onNext: () => void,
   onPrevious: () => void,
   stage: createFeedbackStage
 ) => {
@@ -42,11 +36,6 @@ export const useFeedbackDetailsCTA = (
       buttonType: 'outlined',
       action: onPrevious
     }
-    // {
-    //   title: 'Next',
-    //   buttonType: 'bold',
-    //   action: onNext
-    // }
   ]
   useEffect(() => {
     if (stage === 'Feedback Details') rsProps?.setCTA(cta)

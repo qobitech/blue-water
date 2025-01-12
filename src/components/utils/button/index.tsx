@@ -4,10 +4,11 @@ import './index.scss'
 import { forwardRef } from 'react'
 
 export type buttonType = 'bold' | 'outlined' | 'disabled' | 'danger' | 'black'
+export type buttonSize = 'small' | 'medium' | 'large' | 'table'
 
 interface IButton extends React.ComponentPropsWithoutRef<'button'> {
   buttonType?: buttonType
-  buttonSize?: 'small' | 'medium' | 'large' | 'table'
+  buttonSize?: buttonSize
   buttonShape?: 'square' | 'pill' | 'curve'
   title: string
   innerTitle?: string

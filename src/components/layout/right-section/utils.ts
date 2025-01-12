@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import { paymentStatusType } from '../../../interface/ITransaction'
 import { SNART_XER } from '../../page-components/payment/payment-status'
-import { buttonType } from '../../utils/button'
+import { buttonSize, buttonType } from '../../utils/button'
 import { IOptionAction } from '../../utils/reusable'
 import { IGlobalContext } from '../context'
 
@@ -116,6 +116,7 @@ export interface ICallSection<T> {
 export interface IRsPropsCTA {
   title: string
   buttonType: buttonType
+  buttonSize?: buttonSize
   action?: () => void
   load?: boolean
   loadText?: string

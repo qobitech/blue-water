@@ -92,6 +92,7 @@ const RightSection = <T extends {}>({
                         title={i.title}
                         buttonType={ctaLoad.status ? 'disabled' : i.buttonType}
                         onClick={i.action}
+                        buttonSize={i.buttonSize}
                         key={index}
                         icon={i.icon}
                       />
