@@ -68,8 +68,8 @@ export const defaultDetails: IFeedbackDetails = {
   fullName: 'My Name',
   companyUrl: '',
   category: 'Category',
-  purpose: 'What im I using the feedback for?',
-  subject: 'What do I want to talk about?',
+  purpose: 'What is the feedback for?',
+  subject: 'What do you want to talk about?',
   jobTitle: 'My Job Title',
   company: 'The Company where i work'
 }
