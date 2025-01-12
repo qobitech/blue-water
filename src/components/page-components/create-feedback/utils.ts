@@ -65,13 +65,13 @@ export interface IColorItemProps {
 }
 
 export const defaultDetails: IFeedbackDetails = {
-  fullName: 'My Name',
+  fullName: 'Your Name',
   companyUrl: '',
   category: 'Category',
   purpose: 'What is the feedback for?',
   subject: 'What do you want to talk about?',
-  jobTitle: 'My Job Title',
-  company: 'The Company where i work'
+  jobTitle: 'Your job title',
+  company: 'the Company where you work'
 }
 
 export interface IStageArray {

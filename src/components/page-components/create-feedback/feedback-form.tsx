@@ -49,7 +49,7 @@ export const FeedbackForm: FC<IFeedbackFormProps> = ({ hookForm }) => {
       label: 'Purpose',
       id: 'purpose',
       component: 'text-area',
-      placeHolder: 'What are you using the feedback for?'
+      placeHolder: 'What is the feedback for?'
     }
   ]
 
