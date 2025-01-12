@@ -10,11 +10,11 @@ export const useUserDetailsCTA = (
   stage: createFeedbackStage
 ) => {
   const cta: IRsPropsCTA[] = [
-    {
-      title: 'Previous',
-      buttonType: 'outlined',
-      action: onPrevious
-    },
+    // {
+    //   title: 'Previous',
+    //   buttonType: 'outlined',
+    //   action: onPrevious
+    // },
     {
       title: 'Generate Feedback Link',
       buttonType: 'bold',
@@ -41,12 +41,12 @@ export const useFeedbackDetailsCTA = (
       title: 'Previous',
       buttonType: 'outlined',
       action: onPrevious
-    },
-    {
-      title: 'Next',
-      buttonType: 'bold',
-      action: onNext
     }
+    // {
+    //   title: 'Next',
+    //   buttonType: 'bold',
+    //   action: onNext
+    // }
   ]
   useEffect(() => {
     if (stage === 'Feedback Details') rsProps?.setCTA(cta)
@@ -64,7 +64,7 @@ export const useFeedbackLinkCTA = (
   const cta: IRsPropsCTA[] = [
     {
       title: 'New Feedback Link',
-      buttonType: 'black',
+      buttonType: 'outlined',
       action: onNewFeedback
     }
   ]

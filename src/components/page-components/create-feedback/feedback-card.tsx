@@ -7,15 +7,23 @@ import { ColorSelection } from './color-selection'
 export const FeedbackCard: FC<IFeedbackCardProps> = ({
   feedbackDetails,
   color,
-  handleColor
+  handleColor,
+  isFeedbackLink
 }) => {
   const onCompany = () => {}
 
   const isUrl = !!feedbackDetails.companyUrl
 
   return (
-    <div className="f-column-17">
-      <ColorSelection handleColor={handleColor} selectedColor={color} />
+    <div className="f-column-27">
+      {!isFeedbackLink ? (
+        <div className="f-column-7 aic">
+          <label className="text-small color-label">
+            Choose Background color
+          </label>
+          <ColorSelection handleColor={handleColor} selectedColor={color} />
+        </div>
+      ) : null}
       <div
         className={`rounded-33 ${_isMobile() ? 'p-4' : 'p-5'} f-column-33`}
         style={{
@@ -26,7 +34,7 @@ export const FeedbackCard: FC<IFeedbackCardProps> = ({
           <div className="f-row-20 aic pb-1 feedback-card-header-section">
             <div className="f-column feedback-card-header-right-section">
               <p className="m-0 text-medium">
-                {feedbackDetails.fullName || defaultDetails.fullName}
+                {feedbackDetails.name || defaultDetails.name}
               </p>
               <p className="text-tiny color-label m-0">
                 {feedbackDetails.jobTitle || defaultDetails.jobTitle} at{' '}
@@ -47,7 +55,7 @@ export const FeedbackCard: FC<IFeedbackCardProps> = ({
         </div>
         <div className="question-feedback">
           <OverViewHeader title="Question" />
-          <h4 className="mt-2">
+          <h4 className="mt-1">
             <b>{feedbackDetails.subject || defaultDetails.subject}</b>
           </h4>
         </div>

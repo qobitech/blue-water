@@ -12,7 +12,7 @@ export interface IUserEmail {
   tandc: boolean
 }
 export interface IFeedbackDetails {
-  fullName: string
+  name: string
   company: string
   companyUrl: string
   jobTitle: string
@@ -27,7 +27,7 @@ export const userEmailSchema = {
 }
 
 export const feedbackDetailsSchema = {
-  fullName: yup.string().required('Full Name is required'),
+  name: yup.string().required('Full Name is required'),
   company: yup.string().required('Email is required'),
   companyUrl: yup.string(),
   jobTitle: yup.string().required('Job Title is required'),
@@ -51,6 +51,7 @@ export interface IFeedbackCardProps {
   feedbackDetails: IFeedbackDetails
   color: IColorGradient
   handleColor: (color: IColorGradient) => void
+  isFeedbackLink: boolean
 }
 
 export interface IColorSelectionProps {
@@ -65,7 +66,7 @@ export interface IColorItemProps {
 }
 
 export const defaultDetails: IFeedbackDetails = {
-  fullName: 'Your Name',
+  name: 'Your Name',
   companyUrl: '',
   category: 'Category',
   purpose: 'What is the feedback for?',
@@ -85,11 +86,39 @@ export const defaultEmailDetails: IUserEmail = {
 }
 
 export const defaultFeedbackDetails: IFeedbackDetails = {
-  fullName: '',
+  name: '',
   companyUrl: '',
   category: '',
   purpose: '',
   subject: '',
   jobTitle: '',
   company: ''
+}
+
+export const userProfileSchema = {
+  name: yup.string().required('Name is required'),
+  email: yup.string().required('Email is required'),
+  company: yup.string().required('Email is required'),
+  companyUrl: yup.string(),
+  jobTitle: yup.string().required('Job Title is required')
+}
+
+export const feedbackSchema = {
+  category: yup.string().required('Category is required'),
+  subject: yup.string().required('Subject is required'),
+  purpose: yup.string().required('Purpose is required')
+}
+
+export interface IUserProfile {
+  name: string
+  email: string
+  company: string
+  companyUrl: string
+  jobTitle: string
+}
+
+export interface IFeedback {
+  category: string
+  subject: string
+  purpose: string
 }
