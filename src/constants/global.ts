@@ -832,11 +832,11 @@ export const cardColorGradient: IColorGradient[] = [
     to: '#fcb69f',
     name: 'Peach Blush'
   },
-  {
-    from: '#FFFFFF',
-    to: '#F9F9F9',
-    name: 'Soft White Gradient'
-  },
+  // {
+  //   from: '#FFFFFF',
+  //   to: '#F9F9F9',
+  //   name: 'Soft White Gradient'
+  // },
   {
     from: '#F5F5F5',
     to: '#EAEAEA',
