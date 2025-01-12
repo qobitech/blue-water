@@ -38,6 +38,15 @@ const LandingPage = () => {
     })
   }
 
+  const createFeedback = () => {
+    rsProps?.callSection({
+      action: 'create',
+      component: 'feedback',
+      title: 'Create Feedback Link',
+      max: true
+    })
+  }
+
   // const specialization = [
   //   {
   //     title: 'Brands & Companies',
@@ -76,6 +85,7 @@ const LandingPage = () => {
                 buttonSize="large"
                 aria-label="Proceed to Sign up oor Sign in"
                 className="hw-mx mx-auto"
+                onClick={createFeedback}
               />
             </div>
             <p className="m-0 color-label font-16">It&apos;s free</p>
@@ -155,6 +165,7 @@ const LandingPage = () => {
                 buttonType="bold"
                 title="Start Collecting Feedback"
                 aria-label="Collect Audio Feedback"
+                onClick={createFeedback}
               />
             </Reveal>
           </div>
@@ -191,6 +202,7 @@ const LandingPage = () => {
                   buttonType="bold"
                   title="Start Collecting Feedback"
                   aria-label="Subscribe for $2/Month"
+                  onClick={createFeedback}
                 />
               </div>
             </div>

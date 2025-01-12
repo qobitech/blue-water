@@ -787,3 +787,90 @@ const user = getUserData()?.user
 
 export const isPersonalDetails =
   !!user?.firstName && !!user?.lastName && !!user?.phoneNumber
+
+export const cardColors = ['#F2FBFE', '#FDF3F0', '#FCF1FE']
+
+export interface IColorGradient {
+  from: string
+  to: string
+  name: string
+}
+
+export const cardColorGradient: IColorGradient[] = [
+  {
+    from: '#FFF8E7',
+    to: '#FFF5E6',
+    name: 'Pale Beige Gradient'
+  },
+  {
+    from: '#E9F9E9',
+    to: '#E6F7E6',
+    name: 'Mint Green Gradient'
+  },
+  {
+    from: '#EBF4FC',
+    to: '#E6F1FA',
+    name: 'Sky Blue Gradient'
+  },
+  {
+    from: '#F7EBFC',
+    to: '#F3E6FA',
+    name: 'Light Lavender Gradient'
+  },
+  {
+    from: '#FDEAEA',
+    to: '#FCE6E6',
+    name: 'Blush Pink Gradient'
+  },
+  {
+    from: '#e3fdfd',
+    to: '#cbf1f5',
+    name: 'Cool Mint'
+  },
+  {
+    from: '#ffecd2',
+    to: '#fcb69f',
+    name: 'Peach Blush'
+  },
+  {
+    from: '#FFFFFF',
+    to: '#F9F9F9',
+    name: 'Soft White Gradient'
+  },
+  {
+    from: '#F5F5F5',
+    to: '#EAEAEA',
+    name: 'Light Gray Gradient'
+  }
+]
+
+export const feedbackCategory = [
+  {
+    name: 'Product Improvement',
+    description: ''
+  },
+  {
+    name: 'User Experience',
+    description: ''
+  },
+  {
+    name: 'Feature Feedback',
+    description: ''
+  },
+  {
+    name: 'Workflow Optimization',
+    description: ''
+  },
+  {
+    name: 'Integration Feedback',
+    description: ''
+  },
+  {
+    name: 'Feature Feedback',
+    description: ''
+  },
+  {
+    name: 'Feature Feedback',
+    description: ''
+  }
+]

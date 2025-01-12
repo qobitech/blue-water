@@ -1,6 +1,15 @@
 @import './assets/style/variables.scss';
 
 @for $i from 1 through 1000 {
+  // FLEX BASIS %
+  .flex-basis-#{$i} {
+    --fb: calc(#{$i}% - 1px);
+    flex-basis: var(--fb);
+    @media (max-width: $lg-breakpoint) {
+      flex-basis: 100%;
+    }
+  }
+
   // GRID WRAPPER %
   .grid-wrapper-#{$i} {
     display: grid;

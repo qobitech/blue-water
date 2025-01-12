@@ -25,6 +25,7 @@ import FundWallet from '../../pages/dashboard/my-account/wallet/fund-wallet'
 import FeedbackRS from './feed-back/rs'
 import SendFeedback from '../page-components/send-feedback'
 import { IGlobalRightSection } from './right-section/utils'
+import CreateFeedback from '../page-components/create-feedback'
 
 const GlobalRightSection = () => {
   const globalContext = useGlobalContext()
@@ -38,6 +39,7 @@ const GlobalRightSection = () => {
   return (
     <>
       <RightSection rsProps={rsProps} globalContext={globalContext}>
+        {rsProps.isView('create', 'feedback') ? <CreateFeedback /> : null}
         {rsProps.isView('view', 'users') ? <ViewUser /> : null}
 
         {rsProps.isView('create', 'create-user') ? <CreateUser /> : null}

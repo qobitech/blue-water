@@ -82,6 +82,7 @@ export type actionComponent =
   | 'bet-stats-instruction'
   | 'send-feedback'
   | 'record-feedback'
+  | 'feedback'
   | null
 export type actionId = string | null
 
