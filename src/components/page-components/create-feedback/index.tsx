@@ -12,7 +12,6 @@ import {
 import { useGlobalContext } from '../../layout/context'
 import { useFormHook } from '../../utils/hooks'
 import { UserEmail } from './email'
-import { ProgressData } from './progress-data'
 import {
   useFeedbackDetailsCTA,
   useFeedbackLinkCTA,
@@ -22,6 +21,7 @@ import { FeedbackCard } from './feedback-card'
 import { FeedbackForm } from './feedback-form'
 import { Status } from './status'
 import { cardColorGradient, IColorGradient } from '../../../constants/global'
+import './style.scss'
 
 const CreateFeedback = () => {
   const { rsProps } = useGlobalContext()
@@ -75,9 +75,9 @@ const CreateFeedback = () => {
   )
 
   return (
-    <div className="f-column-17">
-      <ProgressData stage={stage} />
-      <div className="f-row-33 flex-wrap jcsb" style={{ height: '50vh' }}>
+    <div className="f-column-17 w-100">
+      {/* <ProgressData stage={stage} /> */}
+      <div className="f-row-33 flex-wrap jcsb">
         <div className="flex-basis-60">
           <FeedbackCard
             feedbackDetails={feedbackDetailsHookForm.watch()}
@@ -85,10 +85,7 @@ const CreateFeedback = () => {
             handleColor={handleColor}
           />
         </div>
-        <div
-          className="flex-basis-35 border-label p-4 rounded"
-          style={{ overflow: 'auto', height: '55vh' }}
-        >
+        <div className="flex-basis-35 border-label p-4 rounded feedback-right-section">
           <HVC view={stage === 'Feedback Details'} removeDOM>
             <FeedbackForm hookForm={feedbackDetailsHookForm} />
           </HVC>

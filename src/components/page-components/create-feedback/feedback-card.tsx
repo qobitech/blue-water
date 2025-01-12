@@ -23,29 +23,31 @@ export const FeedbackCard: FC<IFeedbackCardProps> = ({
         }}
       >
         <div className="f-column">
-          <div className="f-row-20 aic pb-1 jcsb">
-            <p className="m-0 text-medium">
-              {feedbackDetails.fullName || defaultDetails.fullName}
-            </p>
+          <div className="f-row-20 aic pb-1 feedback-card-header-section">
+            <div className="f-column feedback-card-header-right-section">
+              <p className="m-0 text-medium">
+                {feedbackDetails.fullName || defaultDetails.fullName}
+              </p>
+              <p className="text-tiny color-label m-0">
+                {feedbackDetails.jobTitle || defaultDetails.jobTitle} at{' '}
+                <span
+                  className={`${
+                    isUrl ? 'text-decoration-underline cursor-pointer' : ''
+                  }`}
+                  onClick={onCompany}
+                >
+                  {feedbackDetails.company || defaultDetails.company}
+                </span>
+              </p>
+            </div>
             <p className="m-0 font-11 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
               {feedbackDetails.category}
             </p>
           </div>
-          <p className="text-tiny color-label m-0">
-            {feedbackDetails.jobTitle || defaultDetails.jobTitle} at{' '}
-            <span
-              className={`${
-                isUrl ? 'text-decoration-underline cursor-pointer' : ''
-              }`}
-              onClick={onCompany}
-            >
-              {feedbackDetails.company || defaultDetails.company}
-            </span>
-          </p>
         </div>
         <div className="question-feedback">
           <OverViewHeader title="Question" />
-          <h4 className="m-0">
+          <h4 className="mt-2">
             <b>{feedbackDetails.subject || defaultDetails.subject}</b>
           </h4>
         </div>

@@ -42,5 +42,6 @@
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off", // Turn off the rule that requires React to be in scope
     "react/prop-types": "off" // Disable prop-types rule
-  }
+  },
+  "ignorePatterns": ["*.scss"]
 }

@@ -80,7 +80,7 @@ export const OverViewHeader = ({
   onMoreInfo?: () => void
 }) => {
   return (
-    <p className="text-little mb-2 color-label" style={{ color: '#616161' }}>
+    <p className="text-little m-0 color-label" style={{ color: '#616161' }}>
       {title}{' '}
       {moreInfo ? (
         <span onClick={onMoreInfo}>
