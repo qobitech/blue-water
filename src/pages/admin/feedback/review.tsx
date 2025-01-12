@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IGlobalRightSection } from '../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../components/layout/right-section/utils'
 import { getCountry, getUserRole, typeRoleId } from '../../../constants/global'
 import moment from 'moment'
 import {

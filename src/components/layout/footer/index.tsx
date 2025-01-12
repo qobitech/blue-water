@@ -43,7 +43,10 @@ const Footer = memo(
                     need.
                   </p>
                   <p className="p-footer-class">
-                    <b>Stop guessing, start building products users love.</b>
+                    <b>
+                      Stop guessing, start building products & services users
+                      love.
+                    </b>
                   </p>
                 </div>
                 <div className="div-right f-column-15">

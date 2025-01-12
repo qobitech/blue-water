@@ -1,5 +1,5 @@
 import { IUseAPI } from '../../../../api'
-import { IRightSection } from '../../../../components/layout/right-section'
+import { IRightSection } from '../../../../components/layout/right-section/utils'
 import DefaultTable from '../../../../components/table/default'
 import { getTime, ITableRecord } from '../../../../components/table/utils'
 import PaginationComponent from '../../../../components/utils/pagination'

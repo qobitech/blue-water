@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { IGlobalRightSection } from '../../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../../components/layout/right-section/utils'
 import { useFormHook } from '../../../../components/utils/hooks'
 import {
   BASEURLFE,

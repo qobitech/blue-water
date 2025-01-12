@@ -1,7 +1,7 @@
 import { LABEL_COLOR } from '../../../constants/global'
 import { RightAngleSVG } from '../../utils/svgs/f-awesome'
 
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 
 const SelectPaymentMethod = ({ globalContext }: IGlobalRightSection) => {
   if (!globalContext) return <></>

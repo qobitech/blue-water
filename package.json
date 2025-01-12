@@ -37,6 +37,7 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.4.3",
     "sass": "^1.56.0",
+    "vite-plugin-checker": "^0.8.0",
     "yup": "^0.32.11"
   },
   "engines": {

@@ -11,7 +11,10 @@ import {
 } from '../../../constants/global'
 import { TypeButton, TypeSmallButton } from '../../utils/button'
 import SummaryOrder from './order-summary'
-import { IGlobalRightSection, IRightSection } from '../../layout/right-section'
+import {
+  IGlobalRightSection,
+  IRightSection
+} from '../../layout/right-section/utils'
 import { TypeRadio } from '../../utils/radio'
 import TextPrompt from '../../utils/text-prompt'
 import { pageurl } from '../../../constants/pageurl'

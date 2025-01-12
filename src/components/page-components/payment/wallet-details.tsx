@@ -6,7 +6,7 @@ import { IWalletTransactionStats } from '../../../interface/ITransaction'
 import SummaryOrder from './order-summary'
 import { AcceptTransaction } from './payment-details'
 import { TypeButton, TypeSmallButton } from '../../utils/button'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 import { RightAngleSVG, TopAngleSVG } from '../../utils/svgs/f-awesome'
 
 const WalletDetails = ({ globalContext }: IGlobalRightSection) => {

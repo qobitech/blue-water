@@ -7,7 +7,7 @@ import { IBillingResponse } from '../../../interface/IBilling'
 import SummaryOrder from './order-summary'
 import { TypeCheckbox } from '../../utils/checkbox'
 import TextPrompt from '../../utils/text-prompt'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 import { RightAngleSVG, TopAngleSVG } from '../../utils/svgs/f-awesome'
 
 const CardPaymentDetails = ({ globalContext }: IGlobalRightSection) => {

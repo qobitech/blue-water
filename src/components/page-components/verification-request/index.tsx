@@ -4,11 +4,10 @@ import { TypeButton, TypeSmallButton } from '../../utils/button'
 import FormBuilder, { IFormComponent } from '../../utils/form-builder'
 import { useFormHook } from '../../utils/hooks'
 import * as yup from 'yup'
-// import { ResponseComponent } from '../../../api'
 import { useCreateVerificationRequest } from '../../../api/verification-request'
 import RequestStatus from '../../utils/request-status'
 import { HVC } from '../../utils/hvc'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 
 interface IVerificationRequestForm {
   firstName: string

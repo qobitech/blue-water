@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import CardTable from '../reusable/card-table'
-import RightSection, {
-  useRightSection
-} from '../../../components/layout/right-section'
+import RightSection from '../../../components/layout/right-section'
 import { TypeInput } from '../../../components/utils/input'
 import { TypeSelect } from '../../../components/utils/select'
 import { TypeSmallButton } from '../../../components/utils/button'
@@ -12,6 +10,7 @@ import { ISubscriptionResponse } from '../../../interface/ISubscription'
 import '../page.scss'
 import { ITableRecord } from '../../../components/table/utils'
 import { useTableAction } from '../../../components/table/table-components'
+import { useRightSection } from '../../../components/layout/right-section/hooks'
 
 const AdminSubscriptions = () => {
   const rsProps = useRightSection()

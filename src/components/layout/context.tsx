@@ -9,7 +9,7 @@ import {
   transactionItemType
 } from '../../constants/global'
 import { IUseNotificationModal } from '../utils/modal'
-import { IRightSection } from '../layout/right-section'
+import { IRightSection } from '../layout/right-section/utils'
 import { IMultiBetTicketResponse } from '../../interface/IBet'
 import { IUPC } from '../page-components/payment/post-payment/hooks'
 import { IShareProps } from '../utils/share'

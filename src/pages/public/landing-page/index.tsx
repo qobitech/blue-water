@@ -16,7 +16,7 @@ const LandingPage = () => {
   const { rsProps } = useGlobalContext()
 
   const howItWorksList = [
-    'Create a Voice Link',
+    'Create a Feedback Link',
     `Share with Your Audience`,
     `Receive Responses (Feedback)`
   ]
@@ -111,7 +111,7 @@ const LandingPage = () => {
           <h2>Designed for You</h2>
         </div>
         <SubReveal
-          className="container grid-wrapper-40 gap-33 p-5 mt-3 rounded-25 bg-lighter-blue"
+          className="container grid-wrapper-40 gap-33 p-4 mt-3 rounded-25 bg-lighter-blue"
           hidden={{ opacity: 0, x: '-50%' }}
           visible={{ opacity: 1, x: 0 }}
         >
@@ -138,13 +138,18 @@ const LandingPage = () => {
             alt="Designed for you"
             style={{ width: '100%', borderRadius: '20px' }}
           />
-          <div className="f-column-43 pt-4">
-            <h2 style={{ lineHeight: '3rem' }}>
-              Tevotea is built for Product Managers who need actionable insights
-              to refine their products. Capture the authentic voice of your
-              users and make data-driven decisions with confidence.
-            </h2>
-            <Reveal className="cta-wrapper container jcs">
+          <div className="f-column-55 pt-4">
+            <div className="f-column-13 pt-2">
+              <h2 style={{ lineHeight: '3rem', fontSize: '39px' }}>
+                Tevotea is built for those who need actionable insights to
+                refine their products or services.
+              </h2>
+              <p className="m-0">
+                Capture the authentic voice of your users and make data-driven
+                decisions with confidence.
+              </p>
+            </div>
+            <Reveal className="cta-wrapper container">
               <TypeButton
                 buttonSize="large"
                 buttonType="bold"

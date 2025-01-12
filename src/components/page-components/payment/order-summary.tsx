@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import TextPrompt from '../../utils/text-prompt'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 import { TypeButton } from '../../utils/button'
 import { showAmount } from '../../../constants/global'
 import { RightAngleSVG, TopAngleSVG } from '../../utils/svgs/f-awesome'

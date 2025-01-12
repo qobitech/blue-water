@@ -1,5 +1,5 @@
 import { Children } from 'react'
-import RightSection, { IGlobalRightSection } from '../layout/right-section'
+import RightSection from '../layout/right-section'
 import { useGlobalContext } from './context'
 import OrderSummary from '../page-components/payment/order-summary'
 import CheckoutPage from '../page-components/payment/check-out'
@@ -24,6 +24,7 @@ import WithdrawRequestTransaction from '../../pages/dashboard/my-account/wallet/
 import FundWallet from '../../pages/dashboard/my-account/wallet/fund-wallet'
 import FeedbackRS from './feed-back/rs'
 import SendFeedback from '../page-components/send-feedback'
+import { IGlobalRightSection } from './right-section/utils'
 
 const GlobalRightSection = () => {
   const globalContext = useGlobalContext()

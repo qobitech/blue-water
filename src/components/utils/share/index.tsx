@@ -1,6 +1,6 @@
 import { ShareBlogComponentData, ShareComponent } from './component'
 import { useCopy } from '../hooks'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 import { CheckSVG, CopySVG, ShareSVG } from '../svgs'
 
 export const shareCategoryEnum = {

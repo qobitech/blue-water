@@ -3,8 +3,10 @@ import { CloseSVG, TrashSVG } from '../svgs'
 import './index.scss'
 import { forwardRef } from 'react'
 
+export type buttonType = 'bold' | 'outlined' | 'disabled' | 'danger' | 'black'
+
 interface IButton extends React.ComponentPropsWithoutRef<'button'> {
-  buttonType?: 'bold' | 'outlined' | 'disabled' | 'danger' | 'black'
+  buttonType?: buttonType
   buttonSize?: 'small' | 'medium' | 'large' | 'table'
   buttonShape?: 'square' | 'pill' | 'curve'
   title: string

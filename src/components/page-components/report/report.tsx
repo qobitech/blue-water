@@ -25,7 +25,7 @@ import { IMultiBetTicketResponse } from '../../../interface/IBet'
 import { _separator, getTime } from '../../utils/helper'
 import { useGetTransactions } from '../../../api/transaction'
 import { useGetReports, usePatchReport } from '../../../api/reports'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 
 interface ICreateReportHK {
   comment: string

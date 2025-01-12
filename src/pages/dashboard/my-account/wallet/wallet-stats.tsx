@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IRightSection } from '../../../../components/layout/right-section'
+import { IRightSection } from '../../../../components/layout/right-section/utils'
 import { IWalletTransactionStats } from '../../../../interface/ITransaction'
 import { GETISSELLER, showAmount } from '../../../../constants/global'
 import { TypeButton } from '../../../../components/utils/button'

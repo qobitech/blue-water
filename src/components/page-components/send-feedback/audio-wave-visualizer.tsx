@@ -17,7 +17,7 @@ const AudioVisualizerBars = () => {
         // Step 2: Create an audio context and analyser node
         const audioContext = new AudioContext()
         const analyser = audioContext.createAnalyser()
-        analyser.fftSize = 256 // Smaller fftSize for fewer bars
+        analyser.fftSize = 256 // Adjusted for fewer bars
         audioContextRef.current = audioContext
         analyserRef.current = analyser
 
@@ -25,7 +25,7 @@ const AudioVisualizerBars = () => {
         const source = audioContext.createMediaStreamSource(stream)
         source.connect(analyser)
 
-        // Step 3: Visualize audio data on canvas with vertical bars
+        // Step 3: Visualize audio data on canvas
         const canvas = canvasRef.current
         const canvasCtx = canvas?.getContext('2d')
         const bufferLength = analyser.frequencyBinCount
@@ -43,14 +43,24 @@ const AudioVisualizerBars = () => {
           let x = 0
 
           for (let i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i] * 0.1 // Scale the height for effect
+            barHeight = dataArray[i] * 0.3 // Scale for visual effect
 
-            const colorIntensity = barHeight + 100
-            canvasCtx.fillStyle = `rgb(${colorIntensity}, 50, 50)` // Reddish bars
+            // Create a gradient for dynamic coloring
+            const gradient = canvasCtx.createLinearGradient(
+              0,
+              canvas.height - barHeight,
+              0,
+              canvas.height
+            )
+            gradient.addColorStop(0, `rgba(255, 0, 0, 1)`) // Red
+            gradient.addColorStop(0.5, `rgba(255, 165, 0, 1)`) // Orange
+            gradient.addColorStop(1, `rgba(0, 255, 0, 1)`) // Green
+
+            canvasCtx.fillStyle = gradient
             canvasCtx.fillRect(
               x,
               canvas.height - barHeight,
-              barWidth - 2,
+              barWidth - 2, // Narrower bars
               barHeight
             )
 
@@ -85,7 +95,12 @@ const AudioVisualizerBars = () => {
       <canvas
         ref={canvasRef}
         width="800"
-        style={{ background: '#000', borderRadius: '10px', height: '80px' }}
+        style={{
+          background: 'linear-gradient(to bottom, #000428, #004e92)',
+          borderRadius: '10px',
+          height: '75px',
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+        }}
       />
     </div>
   )

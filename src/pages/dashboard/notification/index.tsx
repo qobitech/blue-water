@@ -19,15 +19,14 @@ import {
   defaultPATCHDataTemplate,
   useAPIPATCH
 } from '../../../api'
-import RightSection, {
-  useRightSection
-} from '../../../components/layout/right-section'
+import RightSection from '../../../components/layout/right-section'
 import { getTime } from '../../../components/utils/helper'
 import PaginationComponent from '../../../components/utils/pagination'
 import './style.scss'
 import Template from '../template'
 import { useGlobalContext } from '../../../components/layout/context'
 import { NotificationSVG } from '../../../components/utils/svgs'
+import { useRightSection } from '../../../components/layout/right-section/hooks'
 
 const NotificationPage = () => {
   const { refreshNotificationMessages, globalStateActions } = useGlobalContext()

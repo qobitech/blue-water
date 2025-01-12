@@ -1,4 +1,4 @@
-import { actionComponent } from '../../../../components/layout/right-section'
+import { actionComponent } from '../../../../components/layout/right-section/utils'
 import { TypeSmallButton } from '../../../../components/utils/button'
 import { HVC } from '../../../../components/utils/hvc'
 import { RefreshComponent } from '../../../../components/utils/reusable'

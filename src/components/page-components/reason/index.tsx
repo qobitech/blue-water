@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TypeTextArea } from '../../utils/text-area'
 import { TypeButton } from '../../utils/button'
-import { IRightSection } from '../../layout/right-section'
+import { IRightSection } from '../../layout/right-section/utils'
 
 export interface IReason {
   onAction: (reason: string) => void

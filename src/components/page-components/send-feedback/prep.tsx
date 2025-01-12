@@ -1,4 +1,4 @@
-import { IRightSection } from '../../layout/right-section'
+import { IRightSection } from '../../layout/right-section/utils'
 // import { TypeButton } from '../../utils/button'
 import { OverViewHeader } from '../../utils/card-items'
 import { _isMobile } from '../../utils/helper'

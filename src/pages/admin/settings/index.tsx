@@ -1,14 +1,10 @@
-import RightSection, {
-  IRightSection,
-  useRightSection
-} from '../../../components/layout/right-section'
+import RightSection from '../../../components/layout/right-section'
 import { CardHeader } from '../reusable/card-table'
 import { CardFilter, useCardFilter } from '../overview'
 import MembershipSetting from './membership'
 import Sport from './sport'
 import Bookie from './bookie'
 import NotificationPreferenceSettings from './notification-preference'
-// import SubscriptionSetting from './membership-subscription-plan'
 import MemberSubscriptionService from './membership-subscription-service'
 import UserTier from './user-tier'
 import ChannelSubscriptionThreshold from './channel-sub-threshold'
@@ -18,6 +14,8 @@ import AchievementsAndRewardsSettings from './achievements-and-tasks'
 import RewardSettings from './rewards'
 import './index.scss'
 import '../page.scss'
+import { IRightSection } from '../../../components/layout/right-section/utils'
+import { useRightSection } from '../../../components/layout/right-section/hooks'
 
 const filterEnums = {
   SUBSCRIPTION: 'Subscription',

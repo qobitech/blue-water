@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IGlobalRightSection } from '../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../components/layout/right-section/utils'
 import { TypeSmallButton } from '../../../components/utils/button'
 import { IUser } from '../../../interface/IUser'
 import { useUpdateUserStatus } from '../../../api/user'

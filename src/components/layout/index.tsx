@@ -24,7 +24,6 @@ import Footer from './footer'
 import { INotification } from '../../interface/IOther'
 import { useModal } from '../utils/modal'
 import axios from 'axios'
-import { useRightSection } from './right-section'
 import GlobalRightSection from './global-right-section'
 import { IMultiBetTicketResponse } from '../../interface/IBet'
 import PaymentFrame from '../page-components/payment/payment-frame'
@@ -58,6 +57,7 @@ import { GlobalContext } from './context'
 import NotificationCard from './notification-card'
 import { IComponentState } from './global-schema'
 import { IUSH } from './state-hook'
+import { useRightSection } from './right-section/hooks'
 
 interface IDashboard {
   children: ReactNode

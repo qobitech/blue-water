@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { IRightSection } from '../../../components/layout/right-section'
+import { IRightSection } from '../../../components/layout/right-section/utils'
 import FormBuilder, {
   IFormComponent
 } from '../../../components/utils/form-builder'

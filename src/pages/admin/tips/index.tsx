@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import CardTable from '../reusable/card-table'
-import { IGlobalRightSection } from '../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../components/layout/right-section/utils'
 import { TypeInput } from '../../../components/utils/input'
 import { TypeSelect } from '../../../components/utils/select'
 import { TypeSmallButton } from '../../../components/utils/button'

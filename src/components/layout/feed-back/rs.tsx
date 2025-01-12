@@ -9,7 +9,7 @@ import FormBuilder, { IFormComponent } from '../../utils/form-builder'
 import { TypeButton, TypeSmallButton } from '../../utils/button'
 import { HVC } from '../../utils/hvc'
 import { getUserData } from '../../../constants/global'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 import { useCreateFeedback } from '../../../api/feedback'
 import RequestStatus from '../../utils/request-status'
 

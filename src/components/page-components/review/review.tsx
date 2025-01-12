@@ -12,7 +12,7 @@ import Rating from '../../utils/rating'
 import { useGetReview } from '../../../api/review'
 import { useEffect } from 'react'
 import Skeleton from '../../utils/skeleton'
-import { IGlobalRightSection } from '../../layout/right-section'
+import { IGlobalRightSection } from '../../layout/right-section/utils'
 import { IMultiBetTicketResponse } from '../../../interface/IBet'
 
 interface ICreateReviewHK {

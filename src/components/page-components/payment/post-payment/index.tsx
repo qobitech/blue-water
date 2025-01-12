@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { IGlobalRightSection } from '../../../layout/right-section'
+import { IGlobalRightSection } from '../../../layout/right-section/utils'
 import {
   Failed,
   NextSteps,

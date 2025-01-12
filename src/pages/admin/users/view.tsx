@@ -1,4 +1,4 @@
-import { IGlobalRightSection } from '../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../components/layout/right-section/utils'
 import { IUser } from '../../../interface/IUser'
 import { getCountry, getUserRole, typeRoleId } from '../../../constants/global'
 import { CardItems } from '../../../components/utils/card-items'

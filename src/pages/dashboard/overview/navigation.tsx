@@ -6,7 +6,7 @@ import {
   GETISBUYER,
   GETISSELLER
 } from '../../../constants/global'
-import { IGlobalRightSection } from '../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../components/layout/right-section/utils'
 
 const Navigation = ({ globalContext }: IGlobalRightSection) => {
   if (!globalContext) return <>reload page</>

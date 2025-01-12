@@ -30,13 +30,11 @@ const SendFeedback = () => {
 
   const screenProps = useScreenAudioRecorder()
 
-  const [options, setOptions] = useState<optionType>()
-
   const onRecord = () => {
-    if (options === 'audio') {
+    if (rsProps?.feedbackOption === 'audio') {
       rsProps?.setAudioProps(true)
     }
-    if (options === 'screen') {
+    if (rsProps?.feedbackOption === 'screen') {
       screenProps.startRecording()
     }
     setStage('main page')
@@ -46,11 +44,11 @@ const SendFeedback = () => {
     rsProps,
     () => {
       onPrompt()
-      setOptions('audio')
+      rsProps?.setFeedbackOption('audio')
     },
     () => {
       onPrompt()
-      setOptions('screen')
+      rsProps?.setFeedbackOption('screen')
     }
   )
 
@@ -90,7 +88,7 @@ const SendFeedback = () => {
           <div className="pt-3 f-row aic jcsb number-of-feedbacks">
             <p className="m-0 text-tiny color-label">
               {feedbackContent.totalFeedback.toLocaleString()} feedback
-              {isSingular ? '' : 's'}
+              {isSingular ? '' : 's'} collected.
             </p>
           </div>
         </div>

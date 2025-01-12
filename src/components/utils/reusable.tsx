@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { TypeButton } from './button'
+import { buttonType, TypeButton } from './button'
 import TextPrompt from './text-prompt'
 import { BG, BUTTON_PRIMARY, DISABLED_COLOR } from '../../constants/global'
 import { useNavigate } from 'react-router-dom'
@@ -20,7 +20,6 @@ import {
   TrashSVG,
   VolleyBallSVG
 } from './svgs'
-import { btnType } from '../tables/public-bet-channel'
 import './index.scss'
 import ButtonLoader from './button/button-loader'
 import { HVC, HVCLoad } from './hvc'
@@ -760,7 +759,7 @@ interface IActionComponent extends React.ComponentPropsWithoutRef<'button'> {
   title?: string
   actions?: IOptionAction[]
   load?: boolean
-  buttonType?: btnType
+  buttonType?: buttonType
   icon?: JSX.Element
 }
 

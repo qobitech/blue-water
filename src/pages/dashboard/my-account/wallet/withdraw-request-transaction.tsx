@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { IUsers } from '../../../../interface/IUser'
 import { defaultGETDataTemplate, useAPIGET } from '../../../../api'
-import { IGlobalRightSection } from '../../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../../components/layout/right-section/utils'
 import { IWithdrawRequestTransaction } from '../../../../interface/ITransaction'
 import {
   getCountry,

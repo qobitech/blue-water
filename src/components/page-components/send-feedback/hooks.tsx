@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { IRightSection, IRsPropsCTA } from '../../layout/right-section'
+import { IRightSection, IRsPropsCTA } from '../../layout/right-section/utils'
 import { RecordSVG, TapeRecordSVG } from '../../utils/svgs'
 
 export const useRecordSectionCTA = (
@@ -19,7 +19,7 @@ export const useRecordSectionCTA = (
           action: onJustRecord
         },
         {
-          label: 'View Product while recording',
+          label: 'Use Product while recording',
           action: onViewProductRecord,
           disabled: true
         }

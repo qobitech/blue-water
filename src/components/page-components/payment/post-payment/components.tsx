@@ -7,7 +7,10 @@ import {
 } from '../../../../constants/global'
 import { pageurl } from '../../../../constants/pageurl'
 import './style.scss'
-import { clearTransRef, IRightSection } from '../../../layout/right-section'
+import {
+  clearTransRef,
+  IRightSection
+} from '../../../layout/right-section/utils'
 
 export const Successful = ({
   children,

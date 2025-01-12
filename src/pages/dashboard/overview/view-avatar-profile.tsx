@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IGlobalRightSection } from '../../../components/layout/right-section'
+import { IGlobalRightSection } from '../../../components/layout/right-section/utils'
 import { avatarType } from './avatars'
 import { TypeButton, TypeSmallButton } from '../../../components/utils/button'
 import { HVC } from '../../../components/utils/hvc'
