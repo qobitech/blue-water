@@ -16,7 +16,7 @@ const LandingPage = () => {
   const { rsProps } = useGlobalContext()
 
   const howItWorksList = [
-    'Create a Feedback Link',
+    'Create a Feedback Campaign Link',
     `Share with Your Audience`,
     `Receive Responses (Feedback)`
   ]
@@ -93,26 +93,41 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section
-        className="container f-row-23 ais py-5"
-        style={{ overflow: 'auto' }}
-      >
-        {content.map((i, index) => (
-          <FeedBackCard
-            subject={i.subject}
-            requester={i.requester}
-            title={i.title}
-            company={i.company}
-            key={index}
-            createdAt={i.createdAt}
-            totalFeedback={i.totalFeedback}
-            onFeedback={onFeedback(i.slug)}
-            location={i.location}
-            purpose={i.purpose}
-            category={i.category}
-            color={i.color}
+      <section className="py-5 f-column-33">
+        <div className="section-text text-center f-column-20 header-text-content">
+          <LogoAnimated />
+          <h2>Feedback Campaigns</h2>
+          <p>
+            Explore feedback campaigns shaping better products and experiences.
+          </p>
+        </div>
+        <div className="f-row-23 ais py-5 px-3" style={{ overflow: 'auto' }}>
+          {content.map((i, index) => (
+            <FeedBackCard
+              subject={i.subject}
+              requester={i.requester}
+              title={i.title}
+              company={i.company}
+              key={index}
+              createdAt={i.createdAt}
+              totalFeedback={i.totalFeedback}
+              onFeedback={onFeedback(i.slug)}
+              location={i.location}
+              purpose={i.purpose}
+              category={i.category}
+              color={i.color}
+            />
+          ))}
+        </div>
+        <Reveal className="cta-wrapper container jcc">
+          <TypeButton
+            buttonSize="large"
+            buttonType="bold"
+            title="Create a Feedback Campaign"
+            aria-label="Collect Audio Feedback"
+            onClick={createFeedback}
           />
-        ))}
+        </Reveal>
       </section>
       {/* specialization */}
       <section className="py-5 f-column-33 px-3">

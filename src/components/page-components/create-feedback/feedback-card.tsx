@@ -18,7 +18,7 @@ export const FeedbackCard: FC<IFeedbackCardProps> = ({
     <div className="f-column-27">
       {!isFeedbackLink ? (
         <div className="f-column-7 aic">
-          <label className="text-small color-label">
+          <label className="text-little color-label">
             Choose Background color
           </label>
           <ColorSelection handleColor={handleColor} selectedColor={color} />

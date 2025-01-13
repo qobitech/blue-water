@@ -106,7 +106,8 @@ export const userProfileSchema = {
 export const feedbackSchema = {
   category: yup.string().required('Category is required'),
   subject: yup.string().required('Subject is required'),
-  purpose: yup.string().required('Purpose is required')
+  purpose: yup.string().required('Purpose is required'),
+  demoPresentation: yup.string()
 }
 
 export interface IUserProfile {
@@ -121,4 +122,5 @@ export interface IFeedback {
   category: string
   subject: string
   purpose: string
+  demoPresentation: string
 }

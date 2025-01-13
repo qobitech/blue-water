@@ -91,7 +91,7 @@ const CreateFeedback = () => {
   )
 
   useEffect(() => {
-    notificationProps.handleOpenModal('Tevotea Feedback Form')
+    notificationProps.handleOpenModal('Feedback Campaign Form')
   }, [])
 
   const userProfileFC: IFormComponent[] = [
@@ -111,7 +111,7 @@ const CreateFeedback = () => {
       label: 'Your Organization',
       id: 'company',
       component: 'input',
-      placeHolder: `What's the name of your company or project?`
+      placeHolder: `The name of your company or project?`
     },
     {
       label: 'Organization Website (Optional)',
@@ -150,6 +150,12 @@ const CreateFeedback = () => {
         label: i.name,
         value: i.name
       }))
+    },
+    {
+      label: `Add a Video or Demo Link (Optional)`,
+      id: 'demoPresentation',
+      component: 'text-area',
+      placeHolder: `Share a video or demo link to help your audience better understand your feedback campaign. This could be a quick walkthrough, a product demo, or a message directly from you.`
     }
   ]
 
@@ -167,7 +173,7 @@ const CreateFeedback = () => {
         <HVC
           view={stage === 'Feedback Details'}
           removeDOM
-          className="f-column-23 p-4"
+          className="f-column-23 px-4 pb-4 pt-2"
         >
           <FormBuilder
             formComponent={feedbackFC}
@@ -183,8 +189,20 @@ const CreateFeedback = () => {
         <HVC
           view={stage === 'Email Address'}
           removeDOM
-          className="f-column-23 p-4"
+          className="f-column-23 px-4 pb-4 pt-2"
         >
+          <div className="text-center">
+            <p className="m-0 p-0 text-small">
+              <span className="color-label">Already have an account?</span>
+              &nbsp;&nbsp;
+              <span className="text-decoration-underline cursor-pointer">
+                Login to continue
+              </span>
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="m-0">OR</p>
+          </div>
           <div className="grid-wrapper-40 gap-23">
             <FormBuilder
               formComponent={userProfileFC}
@@ -192,7 +210,7 @@ const CreateFeedback = () => {
             />
           </div>
           <TypeButton
-            title="Preview"
+            title="Preview Feedback Campaign"
             onClick={() => notificationProps.handleCloseModal()}
             icon={<EyeSVG color="#fff" />}
           />
