@@ -11,6 +11,8 @@ import WYSIWYG from '../wysiwyg'
 import { TypeRadio } from '../radio'
 import { HVC } from '../hvc'
 import BoxCheck, { IBCItem } from '../box-check'
+import { ICardListItem } from '../card-list/utils'
+import CardList from '../card-list'
 
 export type typecomponent =
   | 'input'
@@ -25,6 +27,7 @@ export type typecomponent =
   | 'wysiwyg'
   | 'date'
   | 'box-check'
+  | 'card-list'
 
 interface ISelectOptions {
   id: number
@@ -60,6 +63,7 @@ export interface IFormComponent {
     text: string
     action: () => void
   }
+  cardLists?: ICardListItem[]
 }
 
 interface IFormBuilder<T extends FieldValues> {
@@ -261,6 +265,17 @@ const FormBuilder = <T extends FieldValues>({
           )}
           {i.component === 'rating' && (
             <Rating rating={hookForm.getValues(i.id as Path<T>)} />
+          )}
+          {i.component === 'card-list' && (
+            <CardList
+              cardLists={i.cardLists}
+              onAction={(card) => {
+                hookForm?.setValue?.(
+                  i.id as Path<T>,
+                  card.value as PathValue<T, Path<T>>
+                )
+              }}
+            />
           )}
         </HVC>
       ))}

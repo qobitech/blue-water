@@ -35,10 +35,6 @@ export const feedbackDetailsSchema = {
   subject: yup.string().required('Subject is required'),
   purpose: yup.string().required('Purpose is required')
 }
-
-export interface IFeedbackFormProps {
-  hookForm: UseFormReturn<IFeedbackDetails, any>
-}
 export interface IFeedbackDetailsProps {
   hookForm: UseFormReturn<IFeedbackDetails, any>
 }
@@ -123,4 +119,9 @@ export interface IFeedback {
   subject: string
   purpose: string
   demoPresentation: string
+}
+
+export interface IFeedbackFormProps {
+  hookForm: UseFormReturn<IFeedback, any>
+  handleFeedback: () => void
 }

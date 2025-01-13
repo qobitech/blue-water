@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react'
-// import { HVC } from '../../utils/hvc'
 import {
   createFeedbackStage,
-  // IUserEmail,
-  // feedbackDetailsSchema,
-  // userEmailSchema,
-  // IFeedbackDetails,
-  // defaultEmailDetails,
   defaultFeedbackDetails,
   IFeedback,
   feedbackSchema,
@@ -15,27 +9,16 @@ import {
 } from './utils'
 import { useGlobalContext } from '../../layout/context'
 import { useFormHook } from '../../utils/hooks'
-// import { UserEmail } from './email'
-import {
-  // useFeedbackDetailsCTA,
-  useFeedbackLinkCTA,
-  useUserDetailsCTA
-} from './hooks'
+import { useFeedbackLinkCTA, useUserDetailsCTA } from './hooks'
 import { FeedbackCard } from './feedback-card'
-// import { FeedbackForm } from './feedback-form'
-// import { Status } from './status'
-import {
-  cardColorGradient,
-  feedbackCategory,
-  IColorGradient
-} from '../../../constants/global'
+import { cardColorGradient, IColorGradient } from '../../../constants/global'
 import './style.scss'
 import NotificationModal, { useModal } from '../../utils/modal'
 import { TypeButton } from '../../utils/button'
 import FormBuilder, { IFormComponent } from '../../utils/form-builder'
 import { HVC } from '../../utils/hvc'
 import { Status } from './status'
-import { EyeSVG } from '../../utils/svgs/f-awesome'
+import { FeedbackForm } from './feedback-form'
 
 const CreateFeedback = () => {
   const { rsProps } = useGlobalContext()
@@ -91,7 +74,7 @@ const CreateFeedback = () => {
   )
 
   useEffect(() => {
-    notificationProps.handleOpenModal('Feedback Campaign Form')
+    notificationProps.handleOpenModal('Feedback Campaign Form - Tevotea')
   }, [])
 
   const userProfileFC: IFormComponent[] = [
@@ -127,38 +110,6 @@ const CreateFeedback = () => {
     }
   ]
 
-  const feedbackFC: IFormComponent[] = [
-    {
-      label: `What's the one question you want to ask your audience?`,
-      id: 'subject',
-      component: 'text-area',
-      placeHolder: `e.g., What's the biggest challenge you face when using our platform?`
-    },
-    {
-      label: `Explain why this feedback is important and how you'll use it`,
-      id: 'purpose',
-      component: 'text-area',
-      placeHolder: `e.g., We want to understand your needs better to improve our features and make the platform more user-friendly.`
-    },
-    {
-      label: 'Feedback Category',
-      id: 'category',
-      component: 'select',
-      initOptions: { id: 1, label: 'Select a category', value: '' },
-      optionData: feedbackCategory.map((i, index) => ({
-        id: index,
-        label: i.name,
-        value: i.name
-      }))
-    },
-    {
-      label: `Add a Video or Demo Link (Optional)`,
-      id: 'demoPresentation',
-      component: 'text-area',
-      placeHolder: `Share a video or demo link to help your audience better understand your feedback campaign. This could be a quick walkthrough, a product demo, or a message directly from you.`
-    }
-  ]
-
   const isFeedbackLink = stage === 'Feedback Link'
 
   return (
@@ -170,20 +121,10 @@ const CreateFeedback = () => {
         size="medium"
         disableClose
       >
-        <HVC
-          view={stage === 'Feedback Details'}
-          removeDOM
-          className="f-column-23 px-4 pb-4 pt-2"
-        >
-          <FormBuilder
-            formComponent={feedbackFC}
+        <HVC view={stage === 'Feedback Details'} removeDOM>
+          <FeedbackForm
             hookForm={feedbackDetailsHookForm}
-          />
-          <TypeButton
-            title="Next"
-            onClick={feedbackDetailsHookForm.handleSubmit(
-              handleFeedbackDetails
-            )}
+            handleFeedback={handleFeedbackDetails}
           />
         </HVC>
         <HVC
@@ -203,7 +144,7 @@ const CreateFeedback = () => {
           <div className="text-center">
             <p className="m-0">OR</p>
           </div>
-          <div className="grid-wrapper-40 gap-23">
+          <div className="f-column-23">
             <FormBuilder
               formComponent={userProfileFC}
               hookForm={userEmailHookForm}
@@ -212,7 +153,7 @@ const CreateFeedback = () => {
           <TypeButton
             title="Preview Feedback Campaign"
             onClick={() => notificationProps.handleCloseModal()}
-            icon={<EyeSVG color="#fff" />}
+            buttonSize="large"
           />
         </HVC>
       </NotificationModal>
