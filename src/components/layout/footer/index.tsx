@@ -9,6 +9,7 @@ import './index.scss'
 import { HVC } from '../../utils/hvc'
 import { LogoTextSVG } from '../../utils/svgs'
 import { _isMobile } from '../../utils/helper'
+import { useGlobalContext } from '../context'
 
 interface IFooter {
   hideTopFooter?: boolean
@@ -25,6 +26,16 @@ const Footer = memo(
     setJoinWaitingList
   }: IFooter) => {
     // const navigate = useNavigate()
+    const { rsProps } = useGlobalContext()
+
+    const createFeedback = () => {
+      rsProps?.callSection({
+        action: 'create',
+        component: 'feedback',
+        title: 'Create Feedback Link',
+        max: true
+      })
+    }
     return (
       <div className="footer-container">
         <PageContainer>
@@ -68,7 +79,7 @@ const Footer = memo(
                       buttonSize="large"
                       title="Start Collecting Feedback"
                       className={_isMobile() ? 'hw-mx mx-auto' : ''}
-                      // onClick={() => setJoinWaitingList?.(true)}
+                      onClick={createFeedback}
                       buttonType="bold"
                     />
                   </div>
@@ -84,7 +95,7 @@ const Footer = memo(
             </div>
             <div className="footer-right">
               <ul>
-                {/* <li
+                <li
                   style={{ listStyleType: 'none' }}
                   className="cursor-pointer"
                 >
@@ -96,10 +107,10 @@ const Footer = memo(
                       background: 'none',
                       textDecoration: 'underline'
                     }}
-                    onClick={() => navigate(pageurl.LOGIN)}
+                    // onClick={() => navigate(pageurl.LOGIN)}
                   />
-                </li> */}
-                {/* <li
+                </li>
+                <li
                   style={{ listStyleType: 'none' }}
                   className="cursor-pointer"
                 >
@@ -113,7 +124,7 @@ const Footer = memo(
                     }}
                     onClick={showConsentBanner}
                   />
-                </li> */}
+                </li>
                 {/* <li
                   style={{ listStyleType: 'none' }}
                   className="cursor-pointer"
@@ -144,7 +155,7 @@ const Footer = memo(
                     onClick={() => navigate(pageurl.BETCHANNEL)}
                   />
                 </li> */}
-                {/* <li
+                <li
                   style={{ listStyleType: 'none' }}
                   className="cursor-pointer"
                 >
@@ -160,7 +171,7 @@ const Footer = memo(
                       window.open('https://twitter.com/mytipsterpro', '_blank')
                     }
                   />
-                </li> */}
+                </li>
                 <li
                   style={{ listStyleType: 'none' }}
                   className="cursor-pointer"

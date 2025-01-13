@@ -23,3 +23,16 @@
     gap: 5px;
   }
 }
+
+.share-link-section {
+  @media (max-width: $lg-breakpoint) {
+    align-items: center;
+    text-align: center;
+  }
+}
+.sm-link-section {
+  @media (max-width: $lg-breakpoint) {
+    justify-content: center;
+    text-align: center;
+  }
+}

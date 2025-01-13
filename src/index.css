@@ -422,12 +422,14 @@ canvas {
   max-width: 1600px !important;
   margin: 20px auto 0 !important;
   padding: 0 !important;
+  background: #fff;
 }
 
 .medium-modal .modal-dialog {
   max-width: 800px !important;
   margin: 20px auto 0 !important;
   padding: 0 !important;
+  background: #fff;
 }
 
 .bs {
