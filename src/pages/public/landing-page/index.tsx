@@ -197,10 +197,6 @@ const LandingPage = () => {
             <LogoAnimated />
             {/* text */}
             <h2>How It Works</h2>
-            {/* <p>
-              Hear directly from your audience in their own words, anytime,
-              anywhere.
-            </p> */}
           </div>
           {/* list-media */}
           <div className="list-media container">
@@ -223,6 +219,13 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+      </section>
+      {/* other benefits */}
+      <section className="three-section how-it-works py-5 mt-0 container f-column aic d-none">
+        <p>
+          We have also made it easy for you to analyze feedbacks collected with
+          AI
+        </p>
       </section>
       {/* faq */}
       <section className="faq section-text" ref={faqRef}>
