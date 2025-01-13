@@ -19,6 +19,8 @@
   @media (max-width: $lg-breakpoint) {
     text-align: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 35px;
   }
 }
 

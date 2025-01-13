@@ -10,6 +10,8 @@
 //   }
 // }
 
+import { cardColorGradient, IColorGradient } from '../../../constants/global'
+
 // It&apos;s about giving people a voice and
 //             creating authentic connections, so you can truly understand what
 //             matters to them.
@@ -26,7 +28,7 @@ export interface IFeedBack {
   location: string
   purpose: string
   category: string
-  color: string
+  color: IColorGradient
 }
 
 export const content: IFeedBack[] = [
@@ -43,7 +45,7 @@ export const content: IFeedBack[] = [
     slug: 'wsng',
     totalFeedback: 3465,
     category: 'Product Improvement',
-    color: '#F2FBFE'
+    color: cardColorGradient[0]
   },
   {
     subject:
@@ -58,7 +60,7 @@ export const content: IFeedBack[] = [
     slug: 'waytool',
     totalFeedback: 1465,
     category: 'User Experience',
-    color: '#FDF3F0'
+    color: cardColorGradient[1]
   },
   {
     subject:
@@ -73,7 +75,7 @@ export const content: IFeedBack[] = [
     slug: 'waytoorts',
     totalFeedback: 105,
     category: 'Feature Feedback',
-    color: '#FCF1FE'
+    color: cardColorGradient[2]
   },
   {
     subject:
@@ -88,7 +90,7 @@ export const content: IFeedBack[] = [
     slug: 'hyriwoc',
     totalFeedback: 3215,
     category: 'Workflow Optimization',
-    color: '#F2FBFE'
+    color: cardColorGradient[3]
   },
   {
     subject:
@@ -103,7 +105,7 @@ export const content: IFeedBack[] = [
     slug: 'hcwmow',
     totalFeedback: 10465,
     category: 'Integration Feedback',
-    color: '#FDF3F0'
+    color: cardColorGradient[4]
   },
   {
     subject:
@@ -118,7 +120,7 @@ export const content: IFeedBack[] = [
     slug: 'wcwdtmyfj',
     totalFeedback: 65,
     category: 'Feature Feedback',
-    color: '#FCF1FE'
+    color: cardColorGradient[5]
   }
 ]
 

@@ -309,7 +309,11 @@ const FeedBackCard = ({
   return (
     <div
       className="shadow-sm rounded-23 p-4 f-column-33 cursor-pointer"
-      style={{ maxWidth: '350px', flexShrink: 0, background: color }}
+      style={{
+        maxWidth: '350px',
+        flexShrink: 0,
+        background: `linear-gradient(135deg, ${color?.from}, ${color?.to})`
+      }}
     >
       <div className="f-column-23">
         <div className="f-column">

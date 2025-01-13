@@ -8,6 +8,7 @@ import { useScreenAudioRecorder } from './screen-audio-record'
 import { CardItems, OverViewHeader } from '../../utils/card-items'
 import { useRecordSectionCTA } from './hooks'
 import { _isMobile } from '../../utils/helper'
+import { PlaySVG } from '../../utils/svgs'
 
 export type views = 'main page' | 'prep'
 
@@ -59,7 +60,9 @@ const SendFeedback = () => {
           className={`rounded-33 ${
             _isMobile() ? 'p-4' : 'p-5'
           } f-column-33 shadow-sm`}
-          style={{ background: feedbackContent.color }}
+          style={{
+            background: `linear-gradient(135deg, ${feedbackContent.color?.from}, ${feedbackContent.color?.to})`
+          }}
         >
           <div className="f-column">
             <div className="f-row-20 aic pb-1 jcsb">
@@ -90,6 +93,12 @@ const SendFeedback = () => {
               {feedbackContent.totalFeedback.toLocaleString()} feedback
               {isSingular ? '' : 's'} collected.
             </p>
+            <div className="f-row-11 aic">
+              <PlaySVG />
+              <p className="m-0 text-tiny text-decoration-underline cursor-pointer">
+                Watch Demo / Presentation
+              </p>
+            </div>
           </div>
         </div>
       </HVC>
