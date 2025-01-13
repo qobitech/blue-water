@@ -846,31 +846,24 @@ export const cardColorGradient: IColorGradient[] = [
 
 export const feedbackCategory = [
   {
-    name: 'Product Improvement',
-    description: ''
+    name: 'Overall Feedback',
+    description: 'A general category for open-ended thoughts and insights.'
   },
   {
-    name: 'User Experience',
-    description: ''
+    name: 'Ideas & Suggestions',
+    description: 'Creative input for improving content or products.'
   },
   {
-    name: 'Feature Feedback',
-    description: ''
+    name: 'Brand Perception',
+    description: 'How the audience perceives the brand identity.'
   },
   {
-    name: 'Workflow Optimization',
-    description: ''
+    name: 'Accessibility',
+    description:
+      'Feedback on inclusivity, such as language, design, or usability.'
   },
   {
-    name: 'Integration Feedback',
-    description: ''
-  },
-  {
-    name: 'Feature Feedback',
-    description: ''
-  },
-  {
-    name: 'Feature Feedback',
-    description: ''
+    name: 'Event Feedback',
+    description: 'Responses on live events, webinars, or product launches.'
   }
 ]

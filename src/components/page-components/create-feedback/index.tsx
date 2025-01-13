@@ -35,7 +35,7 @@ import { TypeButton } from '../../utils/button'
 import FormBuilder, { IFormComponent } from '../../utils/form-builder'
 import { HVC } from '../../utils/hvc'
 import { Status } from './status'
-import { GenerateSVG } from '../../utils/svgs'
+import { EyeSVG } from '../../utils/svgs/f-awesome'
 
 const CreateFeedback = () => {
   const { rsProps } = useGlobalContext()
@@ -91,45 +91,57 @@ const CreateFeedback = () => {
   )
 
   useEffect(() => {
-    notificationProps.handleOpenModal('Tevotea')
+    notificationProps.handleOpenModal('Tevotea Feedback Form')
   }, [])
 
   const userProfileFC: IFormComponent[] = [
     {
-      label: 'Name',
+      label: 'Your Name',
       id: 'name',
       component: 'input',
-      placeHolder: 'Enter name'
+      placeHolder: 'Enter your full name'
     },
     {
-      label: 'Email',
+      label: 'Your Email',
       id: 'email',
       component: 'input',
-      placeHolder: 'Enter email address'
+      placeHolder: 'Enter your email address'
     },
     {
-      label: 'Company',
+      label: 'Your Organization',
       id: 'company',
       component: 'input',
-      placeHolder: 'Enter company name'
+      placeHolder: `What's the name of your company or project?`
     },
     {
-      label: 'Company Website (Optional)',
+      label: 'Organization Website (Optional)',
       id: 'companyUrl',
       component: 'input',
-      placeHolder: 'Enter company website'
+      placeHolder: 'Enter company or project website'
     },
     {
-      label: 'Job Title',
+      label: `What's your job title?`,
       id: 'jobTitle',
       component: 'input',
-      placeHolder: 'Enter job title'
+      placeHolder: 'e.g., Product Manager, Content Creator'
     }
   ]
 
   const feedbackFC: IFormComponent[] = [
     {
-      label: 'Category',
+      label: `What's the one question you want to ask your audience?`,
+      id: 'subject',
+      component: 'text-area',
+      placeHolder: `e.g., What's the biggest challenge you face when using our platform?`
+    },
+    {
+      label: `Explain why this feedback is important and how you'll use it`,
+      id: 'purpose',
+      component: 'text-area',
+      placeHolder: `e.g., We want to understand your needs better to improve our features and make the platform more user-friendly.`
+    },
+    {
+      label: 'Feedback Category',
       id: 'category',
       component: 'select',
       initOptions: { id: 1, label: 'Select a category', value: '' },
@@ -138,18 +150,6 @@ const CreateFeedback = () => {
         label: i.name,
         value: i.name
       }))
-    },
-    {
-      label: 'Subject',
-      id: 'subject',
-      component: 'text-area',
-      placeHolder: 'What do you want to talk about?'
-    },
-    {
-      label: 'Purpose',
-      id: 'purpose',
-      component: 'text-area',
-      placeHolder: 'What is the feedback for?'
     }
   ]
 
@@ -194,7 +194,7 @@ const CreateFeedback = () => {
           <TypeButton
             title="Preview"
             onClick={() => notificationProps.handleCloseModal()}
-            icon={<GenerateSVG color="#fff" />}
+            icon={<EyeSVG color="#fff" />}
           />
         </HVC>
       </NotificationModal>

@@ -121,7 +121,7 @@ const LandingPage = () => {
           <h2>Designed for You</h2>
         </div>
         <SubReveal
-          className="container grid-wrapper-40 gap-33 p-4 mt-3 rounded-25 bg-lighter-blue"
+          className="container grid-wrapper-40 gap-33 mt-3 rounded-25"
           hidden={{ opacity: 0, x: '-50%' }}
           visible={{ opacity: 1, x: 0 }}
         >
