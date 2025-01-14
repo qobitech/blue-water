@@ -55,6 +55,13 @@
   }
 }
 
+.designed-for-you {
+  @media (max-width: $lg-breakpoint) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
 .two-section {
   padding: 80px 0 0;
   overflow: hidden;

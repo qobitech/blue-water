@@ -128,7 +128,9 @@ export const AccordionPageSection = ({
         <div className="f-row aic">
           <h1 className="accordion-header-text">{header}</h1>
         </div>
-        {isId ? <MinusSVG /> : <PlusSVG />}
+        <div className="accordion-control">
+          {isId ? <MinusSVG /> : <PlusSVG />}
+        </div>
       </div>
       {isId && (
         <div className="accordion-row-body">

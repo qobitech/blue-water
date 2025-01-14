@@ -35,6 +35,15 @@
   cursor: pointer;
 }
 
+.accordion-control {
+  width: 30px;
+  min-width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .accordion-row-body {
   width: 100%;
   box-sizing: border-box;

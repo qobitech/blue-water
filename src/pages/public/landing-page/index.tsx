@@ -164,7 +164,7 @@ const LandingPage = () => {
             style={{ width: '100%', borderRadius: '20px' }}
           />
           <div className="f-column-55 jcc">
-            <div className="f-column-13 pt-2">
+            <div className="f-column-13 pt-2 designed-for-you">
               <h2 style={{ lineHeight: '3.4rem', fontSize: '39px' }}>
                 Tevotea is built for those who need actionable insights to
                 refine their products or services.
