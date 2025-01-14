@@ -4,17 +4,22 @@ import { CheckSVG, CopySVG } from '../svgs'
 import { _removeHTML } from '../helper'
 import { forwardRef } from 'react'
 import { HVC } from '../hvc'
+import './style.scss'
 
 interface ITextArea extends React.ComponentPropsWithoutRef<'textarea'> {
   label?: string
   error?: string | undefined
   moreInfo?: string
   isonlyview?: boolean
+  autoresize?: boolean
 }
 
 // eslint-disable-next-line react/display-name
 export const TypeTextArea = forwardRef(
-  ({ label, error, moreInfo, isonlyview, ...props }: ITextArea, ref) => {
+  (
+    { label, error, moreInfo, isonlyview, autoresize, ...props }: ITextArea,
+    ref
+  ) => {
     const copy = useCopy()
     return (
       <div className="f-column text-left">
@@ -50,9 +55,15 @@ export const TypeTextArea = forwardRef(
         <textarea
           {...props}
           ref={ref as React.LegacyRef<HTMLTextAreaElement> | undefined}
-          className={`TextArea ${error ? 'iserror' : ''} ${
-            isonlyview ? 'isonlyview' : ''
-          }`}
+          className={`text-area ${
+            autoresize ? 'type-text-area-auto-resize' : 'type-text-area'
+          } ${error ? 'iserror' : ''} ${isonlyview ? 'isview' : ''} `}
+          onInput={(e) => {
+            if (autoresize) {
+              e.currentTarget.style.height = 'auto'
+              e.currentTarget.style.height = `${e.currentTarget.scrollHeight}px`
+            }
+          }}
         />
         <HVC removeDOM view={!!error} className="mt-2">
           <TextPrompt prompt={error} status={false} />

@@ -64,6 +64,7 @@ export interface IFormComponent {
     action: () => void
   }
   cardLists?: ICardListItem[]
+  autoresize?: boolean
 }
 
 interface IFormBuilder<T extends FieldValues> {
@@ -204,6 +205,7 @@ const FormBuilder = <T extends FieldValues>({
               style={{
                 fontSize: size === 'small' ? '13px' : ''
               }}
+              autoresize={i.autoresize}
             />
           )}
           {i.component === 'wysiwyg' && (

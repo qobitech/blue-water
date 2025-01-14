@@ -24,12 +24,14 @@ export const FeedbackForm: FC<IFeedbackCampaignFormProps> = ({
     {
       id: 'subject',
       component: 'text-area',
-      placeHolder: `Reply here...`
+      placeHolder: `Reply here...`,
+      autoresize: true
     },
     {
       id: 'purpose',
       component: 'text-area',
-      placeHolder: `Reply here...`
+      placeHolder: `Reply here...`,
+      autoresize: true
     },
     {
       id: 'category',
@@ -44,7 +46,8 @@ export const FeedbackForm: FC<IFeedbackCampaignFormProps> = ({
     },
     {
       id: 'demoPresentation',
-      component: 'input',
+      component: 'text-area',
+      autoresize: true,
       placeHolder: `Enter video link here...`
     }
   ]
