@@ -3,9 +3,10 @@ import { UseFormReturn } from 'react-hook-form'
 import { IColorGradient } from '../../../constants/global'
 
 export type createFeedbackStage =
-  | 'Email Address'
-  | 'Feedback Details'
-  | 'Feedback Link'
+  | 'Feedback Campaign'
+  | 'Authentication'
+  | 'Preview'
+  | 'Generate Feedback Link'
 
 export interface IUserEmail {
   email: string
@@ -47,7 +48,7 @@ export interface IFeedbackCardProps {
   feedbackDetails: IFeedbackDetails
   color: IColorGradient
   handleColor: (color: IColorGradient) => void
-  isFeedbackLink: boolean
+  hidePallette?: boolean
 }
 
 export interface IColorSelectionProps {
@@ -99,7 +100,7 @@ export const userProfileSchema = {
   jobTitle: yup.string().required('Job Title is required')
 }
 
-export const feedbackSchema = {
+export const feedbackCampaignSchema = {
   category: yup.string().required('Category is required'),
   subject: yup.string().required('Subject is required'),
   purpose: yup.string().required('Purpose is required'),
@@ -114,14 +115,20 @@ export interface IUserProfile {
   jobTitle: string
 }
 
-export interface IFeedback {
+export interface IFeedbackCampaign {
   category: string
   subject: string
   purpose: string
   demoPresentation: string
 }
 
-export interface IFeedbackFormProps {
-  hookForm: UseFormReturn<IFeedback, any>
+export interface IFeedbackCampaignFormProps {
+  hookForm: UseFormReturn<IFeedbackCampaign, any>
   handleFeedback: () => void
+}
+
+export interface IRegisterForm {
+  hookForm: UseFormReturn<IUserProfile, any>
+  handleRegister: () => void
+  btnTitle: string
 }

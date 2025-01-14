@@ -19,7 +19,7 @@ export interface IUseNotificationModal {
 export const useModal = (): IUseNotificationModal => {
   const modalRef = useRef<HTMLSpanElement>(null)
   const closeRef = useRef<HTMLSpanElement>(null)
-  const [openModal, setOpenModal] = useState<boolean>(false)
+  const [openModal, setOpenModal] = useState<boolean>(() => false)
   const [title, setTitle] = useState<string | null>(null)
   const [description, setDescription] = useState<string | null>(null)
   const [url, setUrl] = useState<string | null>(null)

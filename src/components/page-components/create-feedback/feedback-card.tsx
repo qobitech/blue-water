@@ -8,7 +8,7 @@ export const FeedbackCard: FC<IFeedbackCardProps> = ({
   feedbackDetails,
   color,
   handleColor,
-  isFeedbackLink
+  hidePallette
 }) => {
   const onCompany = () => {}
 
@@ -16,7 +16,7 @@ export const FeedbackCard: FC<IFeedbackCardProps> = ({
 
   return (
     <div className="f-column-27">
-      {!isFeedbackLink ? (
+      {!hidePallette ? (
         <div className="f-column-7 aic">
           <label className="text-little color-label">
             Choose Background color

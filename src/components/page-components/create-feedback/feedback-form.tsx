@@ -1,10 +1,10 @@
 import { FC, useState } from 'react'
 import FormBuilder, { IFormComponent } from '../../utils/form-builder'
-import { IFeedbackFormProps } from './utils'
+import { IFeedbackCampaignFormProps } from './utils'
 import { feedbackCategory } from '../../../constants/global'
 import { TypeButton } from '../../utils/button'
 
-export const FeedbackForm: FC<IFeedbackFormProps> = ({
+export const FeedbackForm: FC<IFeedbackCampaignFormProps> = ({
   hookForm,
   handleFeedback
 }) => {

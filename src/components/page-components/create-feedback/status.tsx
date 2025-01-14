@@ -9,11 +9,11 @@ import {
 export const Status = () => {
   return (
     <div
-      className="border-label bg-light rounded-30 m-auto p-5 f-column-33 w-100"
+      className="bg-light rounded-30 m-auto p-5 f-column-33 w-100"
       style={{ flexShrink: 0 }}
     >
       <div className="f-row-43 aic w-100 sm-link-section">
-        <h3>Feedback Campaign Created Successfully</h3>
+        <h4>Feedback Link generated successfully</h4>
       </div>
       <CardItems
         copy

@@ -2,31 +2,37 @@ import { useEffect, useState } from 'react'
 import {
   createFeedbackStage,
   defaultFeedbackDetails,
-  IFeedback,
-  feedbackSchema,
+  IFeedbackCampaign,
+  feedbackCampaignSchema,
   userProfileSchema,
   IUserProfile
 } from './utils'
 import { useGlobalContext } from '../../layout/context'
 import { useFormHook } from '../../utils/hooks'
-import { useFeedbackLinkCTA, useUserDetailsCTA } from './hooks'
+import { useGenerateFeedbackLinkCTA } from './hooks'
 import { FeedbackCard } from './feedback-card'
-import { cardColorGradient, IColorGradient } from '../../../constants/global'
+import {
+  cardColorGradient,
+  getIsLogged,
+  IColorGradient
+} from '../../../constants/global'
 import './style.scss'
 import NotificationModal, { useModal } from '../../utils/modal'
-import { TypeButton } from '../../utils/button'
-import FormBuilder, { IFormComponent } from '../../utils/form-builder'
 import { HVC } from '../../utils/hvc'
 import { Status } from './status'
 import { FeedbackForm } from './feedback-form'
+import RegisterForm from './register-form'
 
 const CreateFeedback = () => {
   const { rsProps } = useGlobalContext()
-  const [stage, setStage] = useState<createFeedbackStage>('Feedback Details')
+  const [stage, setStage] = useState<createFeedbackStage>('Feedback Campaign')
   const [color, setColor] = useState<IColorGradient>(cardColorGradient[0])
+  const [isFeedbackLink, setIsFeedbackLink] = useState<boolean>(false)
 
-  const [userEmailHookForm] = useFormHook<IUserProfile>(userProfileSchema)
-  const [feedbackDetailsHookForm] = useFormHook<IFeedback>(feedbackSchema)
+  const [userProfileHookForm] = useFormHook<IUserProfile>(userProfileSchema)
+  const [feedbackCampaignHookForm] = useFormHook<IFeedbackCampaign>(
+    feedbackCampaignSchema
+  )
 
   const notificationProps = useModal()
 
@@ -34,149 +40,88 @@ const CreateFeedback = () => {
     setColor(color)
   }
 
-  const handleUserEmail = () => {
-    setStage('Feedback Link')
-    notificationProps.handleCloseModal()
+  const saveFeedbackCampaignToDraft = () => {
+    notificationProps.handleCloseModal(() => {
+      setStage('Preview')
+    })
   }
 
-  const handleFeedbackDetails = () => {
-    setStage('Email Address')
+  const handleRegistration = () => {
+    saveFeedbackCampaignToDraft()
   }
 
-  useUserDetailsCTA(
-    rsProps,
-    userEmailHookForm.handleSubmit(handleUserEmail),
-    // () => {
-    //   setStage('Feedback Details')
-    // },
-    stage
-  )
+  const handleFeedbackCampaign = () => {
+    if (!getIsLogged()) setStage('Authentication')
+    else saveFeedbackCampaignToDraft()
+  }
 
-  // useFeedbackDetailsCTA(
-  //   rsProps,
-  //   feedbackDetailsHookForm.handleSubmit(handleFeedbackDetails),
-  //   () => {
-  //     setStage('Email Address')
-  //   },
-  //   stage
-  // )
+  const onNewFeedback = () => {
+    feedbackCampaignHookForm.reset(defaultFeedbackDetails)
+    handleColor(cardColorGradient[0])
+    setStage('Feedback Campaign')
+    setIsFeedbackLink(false)
+    notificationProps.handleOpenModal(`${stage} - Tevotea`)
+  }
 
-  useFeedbackLinkCTA(
+  const onGenerateFeedbackLink = () => {
+    setIsFeedbackLink(true)
+  }
+
+  useGenerateFeedbackLinkCTA(
     rsProps,
-    () => {
-      feedbackDetailsHookForm.reset(defaultFeedbackDetails)
-      // userEmailHookForm.reset(defaultEmailDetails)
-      handleColor(cardColorGradient[0])
-      setStage('Feedback Details')
-      notificationProps.handleOpenModal('Tevotea')
-    },
-    stage
+    onGenerateFeedbackLink,
+    stage,
+    isFeedbackLink,
+    onNewFeedback
   )
 
   useEffect(() => {
-    notificationProps.handleOpenModal('Feedback Campaign Form - Tevotea')
-  }, [])
-
-  const userProfileFC: IFormComponent[] = [
-    {
-      label: 'Your Name',
-      id: 'name',
-      component: 'input',
-      placeHolder: 'Enter your full name'
-    },
-    {
-      label: 'Your Email',
-      id: 'email',
-      component: 'input',
-      placeHolder: 'Enter your email address'
-    },
-    {
-      label: 'Your Organization',
-      id: 'company',
-      component: 'input',
-      placeHolder: `The name of your company or project?`
-    },
-    {
-      label: 'Organization Website (Optional)',
-      id: 'companyUrl',
-      component: 'input',
-      placeHolder: 'Enter company or project website'
-    },
-    {
-      label: `What's your job title?`,
-      id: 'jobTitle',
-      component: 'input',
-      placeHolder: 'e.g., Product Manager, Content Creator'
-    }
-  ]
-
-  const isFeedbackLink = stage === 'Feedback Link'
+    if (stage !== 'Preview')
+      notificationProps.handleOpenModal(`${stage} - Tevotea`)
+  }, [stage])
 
   return (
     <div className="f-column-17 w-100">
-      {/* <ProgressData stage={stage} /> */}
-      {/* <div className="f-row-33 flex-wrap jcsb"> */}
       <NotificationModal
         useNotificationProps={notificationProps}
         size="medium"
         disableClose
       >
-        <HVC view={stage === 'Feedback Details'} removeDOM>
+        <HVC view={stage === 'Feedback Campaign'} removeDOM>
           <FeedbackForm
-            hookForm={feedbackDetailsHookForm}
-            handleFeedback={handleFeedbackDetails}
+            hookForm={feedbackCampaignHookForm}
+            handleFeedback={handleFeedbackCampaign}
           />
         </HVC>
-        <HVC
-          view={stage === 'Email Address'}
-          removeDOM
-          className="f-column-23 px-4 pb-4 pt-2"
-        >
-          <div className="text-center">
-            <p className="m-0 p-0 text-small">
-              <span className="color-label">Already have an account?</span>
-              &nbsp;&nbsp;
-              <span className="text-decoration-underline cursor-pointer">
-                Login to continue
-              </span>
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="m-0">OR</p>
-          </div>
-          <div className="f-column-23">
-            <FormBuilder
-              formComponent={userProfileFC}
-              hookForm={userEmailHookForm}
-            />
-          </div>
-          <TypeButton
-            title="Preview Feedback Campaign"
-            onClick={() => notificationProps.handleCloseModal()}
-            buttonSize="large"
+        <HVC view={stage === 'Authentication'} removeDOM>
+          <RegisterForm
+            hookForm={userProfileHookForm}
+            handleRegister={handleRegistration}
+            btnTitle="Create Account"
           />
         </HVC>
       </NotificationModal>
-      <div className="f-row-23 flex-wrap jcsb aic">
-        <HVC
-          view={stage === 'Feedback Link'}
-          className="flex-basis-35 feedback-right-section f-row"
-          style={{ flexShrink: 0 }}
-        >
-          <Status />
-        </HVC>
-        <div className={`w-100 ${isFeedbackLink ? 'flex-basis-60' : ''}`}>
+      <HVC view={stage === 'Preview'} className="f-row-13 flex-wrap jcsb aic">
+        {isFeedbackLink ? (
+          <div
+            className="flex-basis-35 feedback-right-section f-row"
+            style={{ flexShrink: 0 }}
+          >
+            <Status />
+          </div>
+        ) : null}
+        <div className={`w-100 ${isFeedbackLink ? 'flex-basis-63' : ''}`}>
           <FeedbackCard
             feedbackDetails={{
-              ...feedbackDetailsHookForm.watch(),
-              ...userEmailHookForm.watch()
+              ...feedbackCampaignHookForm.watch(),
+              ...userProfileHookForm.watch()
             }}
             color={color}
             handleColor={handleColor}
-            isFeedbackLink={isFeedbackLink}
+            hidePallette={isFeedbackLink}
           />
         </div>
-      </div>
+      </HVC>
     </div>
   )
 }
