@@ -17,14 +17,14 @@ export const FeedbackForm: FC<IFeedbackCampaignFormProps> = ({
   const placeholder = [
     `e.g., What's the biggest challenge you face when using our platform?`,
     `e.g., We want to understand your needs better to improve our features and make the platform more user-friendly.`,
-    'Click to select one of the items below',
+    'Choose a category from the options below',
     `Share a video or demo link to help your audience better understand your feedback campaign. This could be a quick walkthrough, a product demo, or a message directly from you.`
   ]
   const formComponents: IFormComponent[] = [
     {
       id: 'subject',
       component: 'text-area',
-      placeHolder: `Reply here...`,
+      placeHolder: `Ask here...`,
       autoresize: true
     },
     {

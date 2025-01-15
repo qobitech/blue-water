@@ -56,9 +56,20 @@
 }
 
 .designed-for-you {
+  h2 {
+    font-size: 39px;
+    line-height: 3.4rem;
+  }
   @media (max-width: $lg-breakpoint) {
     align-items: center;
     text-align: center;
+    h2 {
+      font-size: clamp(1.3625rem, -0.875rem + 8.333vw, 0.7065rem);
+      line-height: 2.4rem;
+    }
+    p {
+      color: #2d2d2d;
+    }
   }
 }
 
