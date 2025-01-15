@@ -3,20 +3,19 @@ import './style.scss'
 import { TypeButton } from '../../../components/utils/button'
 // framer motion
 import { motion, useAnimation, useInView } from 'framer-motion'
-// import { BUTTON_PRIMARY } from '../../../constants/global'
-import { RecordSVG } from '../../../components/utils/svgs'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
 import { content, faqdata, IFeedBack } from './data'
 import { LogoAnimated } from '../../../components/utils/hooks'
 import designedforyou from '../../../assets/images/designed-for-you.jpg'
+import { MicSVG } from '../../../components/utils/svgs'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
 
   const howItWorksList = [
-    'Create a Feedback Campaign Link',
+    'Create a Feedback Campaign',
     `Share with Your Audience`,
     `Receive Responses (Feedback)`
   ]
@@ -76,7 +75,7 @@ const LandingPage = () => {
             <div className="content-text text-center">
               <LogoAnimated />
               <h1>Get Real Feedback From Anyone, Anywhere</h1>
-              <h2>Audio feedback tool made simple</h2>
+              <h2>feedback made simple</h2>
             </div>
             {/* button */}
             <div className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
@@ -93,7 +92,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="py-5 f-column-33">
+      <section className="py-5 f-column-53">
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
           <h2>Feedback Campaigns</h2>
@@ -101,7 +100,7 @@ const LandingPage = () => {
             Explore feedback campaigns shaping better products and experiences.
           </p>
         </div>
-        <div className="f-row-23 ais py-5 px-3" style={{ overflow: 'auto' }}>
+        <div className="f-row-23 ais pb-5 px-3" style={{ overflow: 'auto' }}>
           {content.map((i, index) => (
             <FeedBackCard
               subject={i.subject}
@@ -163,15 +162,17 @@ const LandingPage = () => {
             alt="Designed for you"
             style={{ width: '100%', borderRadius: '20px' }}
           />
-          <div className="f-column-55 jcc">
+          <div className="f-column-35 jcc">
             <div className="f-column-13 pt-2 designed-for-you">
               <h2 style={{ lineHeight: '3.4rem', fontSize: '39px' }}>
                 Tevotea is built for those who need actionable insights to
                 refine their products or services.
               </h2>
               <p className="m-0">
-                Capture the authentic voice of your users and make data-driven
-                decisions with confidence.
+                Tevotea provides the capability to transform raw customer
+                feedback into meaningful data that can be used to understand
+                customer needs, identify areas for improvement, and make
+                informed business decisions.
               </p>
             </div>
             <Reveal className="cta-wrapper container">
@@ -311,39 +312,41 @@ const FeedBackCard = ({
 }: IFeedBack) => {
   return (
     <div
-      className="shadow-sm rounded-23 p-4 f-column-33 cursor-pointer"
+      className="rounded-23 p-4 f-column-33 cursor-pointer"
       style={{
         maxWidth: '350px',
         flexShrink: 0,
         background: `linear-gradient(135deg, ${color?.from}, ${color?.to})`
       }}
     >
-      <div className="f-column-23">
+      <div className="f-column-15 text-center">
         <div className="f-column">
-          <div className="f-row-20 aic pb-1 jcsb">
-            <p className="m-0 text-small">{requester}</p>
+          <div className="f-column-15 aic pb-1 jcsb">
+            <div className="f-column aic pb-1 jcsb">
+              <p className="m-0 text-small">{requester}</p>
+              <p className="text-tiny color-label m-0">
+                {title} at{' '}
+                <span
+                  className="text-decoration-underline cursor-pointer"
+                  onClick={onCompany}
+                >
+                  {company}
+                </span>
+              </p>
+            </div>
             <p className="m-0 font-9 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
               {category}
             </p>
           </div>
-          <p className="text-tiny color-label m-0">
-            {title} at{' '}
-            <span
-              className="text-decoration-underline cursor-pointer"
-              onClick={onCompany}
-            >
-              {company}
-            </span>
-          </p>
         </div>
-        <h5 className="m-0 font-19" onClick={onFeedback}>
+        <h5 className="m-0 font-18" onClick={onFeedback}>
           {subject}
         </h5>
       </div>
-      <div className="f-row-10 aic jcc pt-3 mt-auto">
+      <div className="f-row-10 aic jcc mt-auto">
         <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
-          <RecordSVG />
-          <p className="m-0 color-label text-little">Record feedback</p>
+          <MicSVG />
+          <p className="m-0 color-label text-little">Give feedback</p>
         </div>
       </div>
     </div>
