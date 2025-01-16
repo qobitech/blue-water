@@ -312,7 +312,7 @@ const FeedBackCard = ({
 }: IFeedBack) => {
   return (
     <div
-      className="rounded px-4 py-5 f-column-33 cursor-pointer"
+      className="rounded px-5 py-5 f-column-33 cursor-pointer"
       style={{
         maxWidth: '350px',
         flexShrink: 0,
