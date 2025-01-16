@@ -312,7 +312,7 @@ const FeedBackCard = ({
 }: IFeedBack) => {
   return (
     <div
-      className="rounded p-4 f-column-33 cursor-pointer"
+      className="rounded px-4 py-5 f-column-33 cursor-pointer"
       style={{
         maxWidth: '350px',
         flexShrink: 0,
@@ -336,7 +336,7 @@ const FeedBackCard = ({
             </div>
             <div
               className="text-center card-category position-relative rounded-40 px-2 py-1 hw-mx mx-auto"
-              style={{ border: `0.1px solid ${color?.text}` }}
+              style={{ border: `0.001rem solid ${color?.text}` }}
             >
               <p className="m-0 font-9" style={{ color: color?.text }}>
                 {category}
@@ -347,7 +347,7 @@ const FeedBackCard = ({
         <h5
           className="m-0 font-18"
           onClick={onFeedback}
-          style={{ lineHeight: '1.3rem' }}
+          // style={{ lineHeight: '1.3rem' }}
         >
           {subject}
         </h5>
