@@ -794,52 +794,56 @@ export interface IColorGradient {
   from: string
   to: string
   name: string
+  text: string
 }
 
 export const cardColorGradient: IColorGradient[] = [
   {
     from: '#FFF8E7',
     to: '#FFF5E6',
+    text: '#A06917',
     name: 'Pale Beige Gradient'
   },
   {
     from: '#E9F9E9',
     to: '#E6F7E6',
+    text: '#1A8B1A',
     name: 'Mint Green Gradient'
   },
   {
     from: '#EBF4FC',
     to: '#E6F1FA',
+    text: '#185C94',
     name: 'Sky Blue Gradient'
   },
   {
     from: '#F7EBFC',
     to: '#F3E6FA',
+    text: '#6F1F99',
     name: 'Light Lavender Gradient'
   },
   {
     from: '#FDEAEA',
     to: '#FCE6E6',
+    text: '#951919',
     name: 'Blush Pink Gradient'
   },
   {
     from: '#e3fdfd',
     to: '#cbf1f5',
+    text: '#188995',
     name: 'Cool Mint'
   },
   {
     from: '#ffecd2',
     to: '#fcb69f',
+    text: '#A23917',
     name: 'Peach Blush'
   },
-  // {
-  //   from: '#FFFFFF',
-  //   to: '#F9F9F9',
-  //   name: 'Soft White Gradient'
-  // },
   {
     from: '#F5F5F5',
     to: '#EAEAEA',
+    text: '#A92525',
     name: 'Light Gray Gradient'
   }
 ]

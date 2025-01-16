@@ -100,7 +100,7 @@ const LandingPage = () => {
             Explore feedback campaigns shaping better products and experiences.
           </p>
         </div>
-        <div className="f-row-23 ais pb-5 px-3" style={{ overflow: 'auto' }}>
+        <div className="f-row-18 ais pb-5 px-3" style={{ overflow: 'auto' }}>
           {content.map((i, index) => (
             <FeedBackCard
               subject={i.subject}
@@ -312,19 +312,19 @@ const FeedBackCard = ({
 }: IFeedBack) => {
   return (
     <div
-      className="rounded-23 p-4 f-column-33 cursor-pointer"
+      className="rounded p-4 f-column-33 cursor-pointer"
       style={{
         maxWidth: '350px',
         flexShrink: 0,
-        background: `linear-gradient(135deg, ${color?.from}, ${color?.to})`
+        background: `linear-gradient(35deg, ${color?.to}, ${color?.from})`
       }}
     >
       <div className="f-column-15 text-center">
         <div className="f-column">
           <div className="f-column-15 aic pb-1 jcsb">
             <div className="f-column aic pb-1 jcsb">
-              <p className="m-0 text-small">{requester}</p>
-              <p className="text-tiny color-label m-0">
+              <p className="m-0 font-12">{requester}</p>
+              <p className="font-9 color-label m-0">
                 {title} at{' '}
                 <span
                   className="text-decoration-underline cursor-pointer"
@@ -334,19 +334,30 @@ const FeedBackCard = ({
                 </span>
               </p>
             </div>
-            <p className="m-0 font-9 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
-              {category}
-            </p>
+            <div
+              className="text-center card-category position-relative rounded-40 px-2 py-1 hw-mx mx-auto"
+              style={{ border: `0.1px solid ${color?.text}` }}
+            >
+              <p className="m-0 font-9" style={{ color: color?.text }}>
+                {category}
+              </p>
+            </div>
           </div>
         </div>
-        <h5 className="m-0 font-18" onClick={onFeedback}>
+        <h5
+          className="m-0 font-18"
+          onClick={onFeedback}
+          style={{ lineHeight: '1.3rem' }}
+        >
           {subject}
         </h5>
       </div>
       <div className="f-row-10 aic jcc mt-auto">
         <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
-          <MicSVG />
-          <p className="m-0 color-label text-little">Give feedback</p>
+          <MicSVG color={color?.text} />
+          <p className="m-0 text-little" style={{ color: color?.text }}>
+            Give feedback
+          </p>
         </div>
       </div>
     </div>
