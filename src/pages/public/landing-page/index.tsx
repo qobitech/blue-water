@@ -93,7 +93,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="pb-5 pt-2 f-column-53">
+      <section className="pb-5 pt-4 f-column-53">
         <div className="section-text text-center f-column-20 header-text-content px-2">
           <LogoAnimated />
           <h2>Feedback Campaigns with Tevotea</h2>
