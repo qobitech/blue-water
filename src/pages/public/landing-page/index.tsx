@@ -9,7 +9,7 @@ import { AccordionPageSection } from '../faq'
 import { content, faqdata, IFeedBack } from './data'
 import { LogoAnimated } from '../../../components/utils/hooks'
 import designedforyou from '../../../assets/images/designed-for-you.jpg'
-import { MicSVG } from '../../../components/utils/svgs'
+// import { MicSVG } from '../../../components/utils/svgs'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
@@ -360,10 +360,13 @@ const FeedBackCard = ({
           </p>
         </div>
         <div className="f-row-4 aic hw-mx cursor-pointer" onClick={onFeedback}>
-          <p className="m-0 font-11 text-little" style={{ color: color?.text }}>
+          <p
+            className="m-0 font-11 text-little "
+            style={{ color: color?.text }}
+          >
             <b>Give feedback</b>
           </p>
-          <MicSVG color={color?.text} />
+          {/* <MicSVG color={color?.text} /> */}
         </div>
       </div>
     </div>
