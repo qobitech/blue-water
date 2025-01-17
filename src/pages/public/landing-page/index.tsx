@@ -17,7 +17,8 @@ const LandingPage = () => {
   const howItWorksList = [
     'Create a Feedback Campaign',
     `Share with Your Audience`,
-    `Receive Responses (Feedback)`
+    `Receive Responses (feedback)`,
+    `Convert feedback into Actionable Insights`
   ]
   // how it works tabs and lists ends
 
@@ -97,7 +98,7 @@ const LandingPage = () => {
           <LogoAnimated />
           <h2>Feedback Campaigns with Tevotea</h2>
           <p>
-            Gather actionable insights to shape better products and experiences.
+            Gather actionable insights to shape better products and experiences
           </p>
         </div>
         <div className="f-row-18 ais pb-5 px-3" style={{ overflow: 'auto' }}>
@@ -164,10 +165,7 @@ const LandingPage = () => {
           />
           <div className="f-column-35 jcc">
             <div className="f-column-13 pt-2 designed-for-you">
-              <h2>
-                Tevotea is built for those who need actionable insights to
-                refine their products or services.
-              </h2>
+              <h2>Turn Customer Insights into Smarter Decisions</h2>
               <p className="m-0">
                 Tevotea provides the capability to transform raw customer
                 feedback into meaningful data that can be used to understand
@@ -179,7 +177,7 @@ const LandingPage = () => {
               <TypeButton
                 buttonSize="large"
                 buttonType="bold"
-                title="Start Collecting Feedback"
+                title="Create a Feedback Campaign"
                 aria-label="Collect Audio Feedback"
                 onClick={createFeedback}
               />
@@ -324,9 +322,9 @@ const FeedBackCard = ({
         <div className="f-column">
           <div className="f-column-15 aic pb-1 jcsb">
             <div className="f-column aic pb-1 jcsb">
-              <p className="m-0 mb-1 font-12">{requester}</p>
-              <p className="font-9 color-label m-0">
-                {title} at{' '}
+              <p className="m-0 font-9 color-label">{requester}</p>
+              <p className="font-8 m-0">@</p>
+              <p className="font-10 color-label m-0">
                 <span
                   className="text-decoration-underline cursor-pointer"
                   onClick={onCompany}
@@ -339,7 +337,10 @@ const FeedBackCard = ({
               className="text-center card-category position-relative rounded-40 px-2 py-1 hw-mx mx-auto"
               style={{ border: `0.001rem solid ${color?.text}` }}
             >
-              <p className="m-0 font-9" style={{ color: color?.text }}>
+              <p
+                className="m-0 font-8"
+                style={{ color: color?.text, letterSpacing: '1.2px' }}
+              >
                 {category}
               </p>
             </div>

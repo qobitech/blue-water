@@ -163,8 +163,8 @@ export const faqdata = [
   // },
   {
     id: 9,
-    header: 'How do I share feedback links with my audience?',
-    answer: `You can distribute Tevotea feedback links across various channels, including your website, social media platforms, email campaigns, and during virtual or in-person events. These links are designed to be user-friendly, making it easy for your audience to engage and share their voice.`
+    header: 'How do I share a feedback campaign with my audience?',
+    answer: `You can distribute Tevotea feedback campaigns across various channels, including your website, social media platforms, email campaigns, and during virtual or in-person events. These links are designed to be user-friendly, making it easy for your audience to engage and share their voice.`
   }
   // {
   //   id: 10,

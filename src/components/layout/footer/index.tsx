@@ -41,26 +41,33 @@ const Footer = memo(
         <PageContainer>
           <HVC removeDOM view={!hideTopFooter} className="py-5">
             <div className="f-column-25">
-              <div className="ResponsiveDivLeft">
-                <LogoTextSVG />
-              </div>
               <div className="div-wrapper">
-                <div className="div-left f-column-10">
-                  <p className="p-footer-class">
-                    Collect authentic feedback from your users effortlessly.
-                    Whether you&apos;re refining features, validating ideas, or
-                    understanding user pain points, Tevotea empowers you to stay
-                    connected with your audience and deliver what they truly
-                    need.
+                <div className="div-left f-column-10 m-auto">
+                  <div className="ResponsiveDivLeft mb-3">
+                    <LogoTextSVG />
+                  </div>
+                  <p
+                    className="p-footer-class font-28"
+                    style={{ lineHeight: '2.2rem' }}
+                  >
+                    Tevotea empowers you to stay connected with your audience
+                    and deliver what they truly need.
                   </p>
                   <p className="p-footer-class">
-                    <b>
-                      Stop guessing, start building products & services users
-                      love.
-                    </b>
+                    So stop guessing, start building products & services users
+                    love.
                   </p>
+                  <div className="cta-wrapper pt-4">
+                    <TypeButton
+                      buttonSize="large"
+                      title="Create a Feedback Campaign"
+                      className={_isMobile() ? 'hw-mx mx-auto' : ''}
+                      onClick={createFeedback}
+                      buttonType="bold"
+                    />
+                  </div>
                 </div>
-                <div className="div-right f-column-15">
+                <div className="div-right f-column-15 d-none">
                   <h6
                     style={{ lineHeight: '30px', fontSize: '1.15rem' }}
                     className="ff-bold m-0"
@@ -74,15 +81,6 @@ const Footer = memo(
                     meaningfully and capture the feedback that drives impactful
                     product decisions.
                   </p>
-                  <div className="cta-wrapper">
-                    <TypeButton
-                      buttonSize="large"
-                      title="Start Collecting Feedback"
-                      className={_isMobile() ? 'hw-mx mx-auto' : ''}
-                      onClick={createFeedback}
-                      buttonType="bold"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
