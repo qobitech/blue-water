@@ -34,6 +34,20 @@ export interface IFeedBack {
 export const content: IFeedBack[] = [
   {
     subject:
+      'Tevotea transforms customer feedback into actionable insights, how will it benefit your business?',
+    purpose: 'To establish product market-fit',
+    requester: 'Franklyn Edekobi',
+    title: 'CEO',
+    company: 'Qobi Solutions',
+    location: 'GLobal',
+    createdAt: '1 day ago',
+    slug: 'wsng',
+    totalFeedback: 23465,
+    category: 'Product Improvement',
+    color: cardColorGradient[0]
+  },
+  {
+    subject:
       'What’s one challenge you’ve faced while using our app recently? What would have made it better?',
     purpose:
       'Your insights help us prioritize improvements and make the app easier and more enjoyable for you and your team.',
@@ -45,7 +59,7 @@ export const content: IFeedBack[] = [
     slug: 'wsng',
     totalFeedback: 3465,
     category: 'Product Improvement',
-    color: cardColorGradient[0]
+    color: cardColorGradient[1]
   },
   {
     subject:
@@ -60,7 +74,7 @@ export const content: IFeedBack[] = [
     slug: 'waytool',
     totalFeedback: 1465,
     category: 'User Experience',
-    color: cardColorGradient[1]
+    color: cardColorGradient[2]
   },
   {
     subject:
@@ -75,7 +89,7 @@ export const content: IFeedBack[] = [
     slug: 'waytoorts',
     totalFeedback: 105,
     category: 'Feature Feedback',
-    color: cardColorGradient[2]
+    color: cardColorGradient[3]
   },
   {
     subject:
@@ -90,7 +104,7 @@ export const content: IFeedBack[] = [
     slug: 'hyriwoc',
     totalFeedback: 3215,
     category: 'Workflow Optimization',
-    color: cardColorGradient[3]
+    color: cardColorGradient[4]
   },
   {
     subject:
@@ -105,7 +119,7 @@ export const content: IFeedBack[] = [
     slug: 'hcwmow',
     totalFeedback: 10465,
     category: 'Integration Feedback',
-    color: cardColorGradient[4]
+    color: cardColorGradient[5]
   },
   {
     subject:
@@ -120,7 +134,7 @@ export const content: IFeedBack[] = [
     slug: 'wcwdtmyfj',
     totalFeedback: 65,
     category: 'Feature Feedback',
-    color: cardColorGradient[5]
+    color: cardColorGradient[6]
   }
 ]
 
