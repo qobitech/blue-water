@@ -68,7 +68,7 @@ const LandingPage = () => {
   return (
     <div className="landing-page-wrapper bg-white">
       {/* jumbotron */}
-      <section className="video-background">
+      <section className="video-background d-none">
         <div className="content container">
           <Reveal className="f-column-53 text-center">
             {/* lottie */}
@@ -92,10 +92,10 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="py-5 f-column-53">
+      <section className="pb-5 f-column-53">
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
-          <h2>Feedback Campaigns</h2>
+          <h2>Feedback Campaigns with Tevotea</h2>
           <p>
             Explore feedback campaigns shaping better products and experiences.
           </p>
