@@ -324,7 +324,7 @@ const FeedBackCard = ({
         <div className="f-column">
           <div className="f-column-15 aic pb-1 jcsb">
             <div className="f-column aic pb-1 jcsb">
-              <p className="m-0 font-12">{requester}</p>
+              <p className="m-0 mb-1 font-12">{requester}</p>
               <p className="font-9 color-label m-0">
                 {title} at{' '}
                 <span
