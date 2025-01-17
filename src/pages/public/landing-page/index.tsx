@@ -359,11 +359,11 @@ const FeedBackCard = ({
             {totalFeedback.toLocaleString()} feedback collected
           </p>
         </div>
-        <div className="f-row-7 aic hw-mx cursor-pointer" onClick={onFeedback}>
-          <MicSVG color={color?.text} />
+        <div className="f-row-4 aic hw-mx cursor-pointer" onClick={onFeedback}>
           <p className="m-0 font-11 text-little" style={{ color: color?.text }}>
-            Give feedback
+            <b>Give feedback</b>
           </p>
+          <MicSVG color={color?.text} />
         </div>
       </div>
     </div>
