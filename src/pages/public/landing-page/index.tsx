@@ -97,7 +97,7 @@ const LandingPage = () => {
           <LogoAnimated />
           <h2>Feedback Campaigns with Tevotea</h2>
           <p>
-            Explore feedback campaigns shaping better products and experiences.
+            Gather actionable insights to shape better products and experiences.
           </p>
         </div>
         <div className="f-row-18 ais pb-5 px-3" style={{ overflow: 'auto' }}>
@@ -308,7 +308,8 @@ const FeedBackCard = ({
   title,
   onCompany,
   onFeedback,
-  color
+  color,
+  totalFeedback
 }: IFeedBack) => {
   return (
     <div
@@ -352,10 +353,15 @@ const FeedBackCard = ({
           {subject}
         </h5>
       </div>
-      <div className="f-row-10 aic jcc mt-auto">
-        <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
+      <div className="f-row-10 aic jcsb mt-auto">
+        <div className="text-center">
+          <p className="font-11 m-0 color-label">
+            {totalFeedback.toLocaleString()} feedback collected
+          </p>
+        </div>
+        <div className="f-row-7 aic hw-mx cursor-pointer" onClick={onFeedback}>
           <MicSVG color={color?.text} />
-          <p className="m-0 text-little" style={{ color: color?.text }}>
+          <p className="m-0 font-11 text-little" style={{ color: color?.text }}>
             Give feedback
           </p>
         </div>
