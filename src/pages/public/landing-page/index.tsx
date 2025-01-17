@@ -167,10 +167,10 @@ const LandingPage = () => {
             <div className="f-column-13 pt-2 designed-for-you">
               <h2>Turn Customer Insights into Smarter Decisions</h2>
               <p className="m-0">
-                Tevotea provides the capability to transform raw customer
-                feedback into meaningful data that can be used to understand
-                customer needs, identify areas for improvement, and make
-                informed business decisions.
+                With Tevotea you can transform raw customer feedback into
+                meaningful data that can be used to understand customer needs,
+                identify areas for improvement, and make informed business
+                decisions.
               </p>
             </div>
             <Reveal className="cta-wrapper container">
