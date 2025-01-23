@@ -47,7 +47,7 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
         <div className="flex-basis-42 m-auto">
           <div
             className={`f-column-37 ${
-              watchDemo ? '' : 'aic text-center '
+              watchDemo ? 'feedback-content' : 'aic text-center '
             } jcc h-100 p-2`}
           >
             <h4 className="m-0" style={{ lineHeight: '2.2rem' }}>

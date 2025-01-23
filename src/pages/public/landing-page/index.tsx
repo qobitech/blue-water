@@ -31,7 +31,7 @@ const LandingPage = () => {
     rsProps?.callSection({
       action: 'view',
       component: 'send-feedback',
-      title: 'Send Feedback',
+      title: 'Give Feedback',
       slug,
       max: true
     })

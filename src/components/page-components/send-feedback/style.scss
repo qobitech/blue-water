@@ -33,3 +33,10 @@
     }
   }
 }
+
+.feedback-content {
+  @media (max-width: $lg-breakpoint) {
+    align-items: center;
+    text-align: center;
+  }
+}
