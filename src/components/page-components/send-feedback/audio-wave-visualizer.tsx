@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-const AudioVisualizerBars = () => {
+const AudioVisualizerSpectrum = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
@@ -9,72 +9,57 @@ const AudioVisualizerBars = () => {
   useEffect(() => {
     const startVisualization = async () => {
       try {
-        // Step 1: Get audio stream from microphone
+        // Access microphone stream
         const stream = await navigator.mediaDevices.getUserMedia({
           audio: true
         })
 
-        // Step 2: Create an audio context and analyser node
         const audioContext = new AudioContext()
         const analyser = audioContext.createAnalyser()
-        analyser.fftSize = 256 // Adjusted for fewer bars
+        analyser.fftSize = 1024 // High resolution for smoother spectrum
         audioContextRef.current = audioContext
         analyserRef.current = analyser
 
-        // Connect the microphone stream to the audio context
         const source = audioContext.createMediaStreamSource(stream)
         source.connect(analyser)
 
-        // Step 3: Visualize audio data on canvas
         const canvas = canvasRef.current
         const canvasCtx = canvas?.getContext('2d')
         const bufferLength = analyser.frequencyBinCount
         const dataArray = new Uint8Array(bufferLength)
 
-        const drawBars = () => {
+        const drawSpectrum = () => {
           if (!canvasCtx || !analyser || !canvas) return
 
           analyser.getByteFrequencyData(dataArray)
 
+          // Clear the canvas with transparency
           canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
 
           const barWidth = canvas.width / bufferLength
-          let barHeight
+          const centerY = canvas.height / 2 // Center line
           let x = 0
 
           for (let i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i] * 0.3 // Scale for visual effect
+            const volume = dataArray[i] / 255 // Normalize volume
+            const barHeight = volume * (canvas.height / 2) // Scale to half canvas height
 
-            // Create a gradient for dynamic coloring
-            const gradient = canvasCtx.createLinearGradient(
-              0,
-              canvas.height - barHeight,
-              0,
-              canvas.height
-            )
-            gradient.addColorStop(0, `rgba(255, 0, 0, 1)`) // Red
-            gradient.addColorStop(0.5, `rgba(255, 165, 0, 1)`) // Orange
-            gradient.addColorStop(1, `rgba(0, 255, 0, 1)`) // Green
+            // Dynamic dark shades based on volume
+            const colorIntensity = Math.floor(volume * 150) // Range: 0–150
+            canvasCtx.fillStyle = `rgba(${colorIntensity}, ${colorIntensity}, ${colorIntensity}, 1)`
 
-            canvasCtx.fillStyle = gradient
-            canvasCtx.fillRect(
-              x,
-              canvas.height - barHeight,
-              barWidth - 2, // Narrower bars
-              barHeight
-            )
+            // Draw each bar from the middle
+            canvasCtx.fillRect(x, centerY - barHeight, barWidth, barHeight * 2)
 
-            x += barWidth
+            x += barWidth + 1 // Slight gap between bars
           }
 
-          // Request next frame
-          animationIdRef.current = requestAnimationFrame(drawBars)
+          animationIdRef.current = requestAnimationFrame(drawSpectrum)
         }
 
-        // Start visualizing
-        drawBars()
+        drawSpectrum()
       } catch (err) {
-        console.error('Error accessing the microphone', err)
+        console.error('Error accessing microphone', err)
       }
     }
 
@@ -95,15 +80,14 @@ const AudioVisualizerBars = () => {
       <canvas
         ref={canvasRef}
         width="800"
+        height="50"
         style={{
-          background: 'linear-gradient(to bottom, #000428, #004e92)',
-          borderRadius: '10px',
-          height: '75px',
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+          background: 'transparent', // Transparent background
+          borderRadius: '10px'
         }}
       />
     </div>
   )
 }
 
-export default AudioVisualizerBars
+export default AudioVisualizerSpectrum

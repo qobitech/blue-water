@@ -10,6 +10,11 @@
     }
   }
 
+  // FONT
+  .font-#{$i} {
+    font-size: #{$i}px;
+  }
+
   // GRID WRAPPER %
   .grid-wrapper-#{$i} {
     display: grid;

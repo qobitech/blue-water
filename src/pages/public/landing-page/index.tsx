@@ -1,15 +1,14 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import './style.scss'
 import { TypeButton } from '../../../components/utils/button'
-// framer motion
-import { motion, useAnimation, useInView } from 'framer-motion'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
-import { content, faqdata, IFeedBack } from './data'
+import { content, faqdata } from './data'
 import { LogoAnimated } from '../../../components/utils/hooks'
 import designedforyou from '../../../assets/images/designed-for-you.jpg'
-// import { MicSVG } from '../../../components/utils/svgs'
+import { FeedBackCard } from './feedback-card'
+import { SubReveal } from './sub-reveal'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
@@ -47,25 +46,6 @@ const LandingPage = () => {
     })
   }
 
-  // const specialization = [
-  //   {
-  //     title: 'Brands & Companies',
-  //     body: `Understand your customers' genuine thoughts.`
-  //   },
-  //   {
-  //     title: 'Journalists & Media Outlets',
-  //     body: `Get real-time statements from the field.`
-  //   },
-  //   {
-  //     title: 'Event Organizers & Community Leaders',
-  //     body: `Engage with your audience on a deeper level.`
-  //   },
-  //   {
-  //     title: 'Researchers & Analysts',
-  //     body: `Collect unstructured feedback for richer insights.`
-  //   }
-  // ]
-
   return (
     <div className="landing-page-wrapper bg-white">
       {/* jumbotron */}
@@ -101,6 +81,15 @@ const LandingPage = () => {
             Gather actionable insights to shape better products and experiences
           </p>
         </div>
+        <Reveal className="cta-wrapper container jcc">
+          <TypeButton
+            buttonSize="large"
+            buttonType="bold"
+            title="Create a Feedback Campaign"
+            aria-label="Collect Audio Feedback"
+            onClick={createFeedback}
+          />
+        </Reveal>
         <div className="f-row-18 ais pb-5 px-3" style={{ overflow: 'auto' }}>
           {content.map((i, index) => (
             <FeedBackCard
@@ -116,18 +105,10 @@ const LandingPage = () => {
               purpose={i.purpose}
               category={i.category}
               color={i.color}
+              supportEmail={i.supportEmail}
             />
           ))}
         </div>
-        <Reveal className="cta-wrapper container jcc">
-          <TypeButton
-            buttonSize="large"
-            buttonType="bold"
-            title="Create a Feedback Campaign"
-            aria-label="Collect Audio Feedback"
-            onClick={createFeedback}
-          />
-        </Reveal>
       </section>
       {/* specialization */}
       <section className="py-5 f-column-33 px-3">
@@ -259,163 +240,3 @@ const LandingPage = () => {
 }
 
 export default LandingPage
-
-interface IReveal
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
-  children?: any
-  className?: string | undefined
-  hidden?: any
-  visible?: any
-}
-
-const SubReveal: FC<IReveal> = ({ children, className, hidden, visible }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  const mainControls = useAnimation()
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start('visible')
-    }
-  }, [isInView])
-  return (
-    <motion.div
-      variants={{
-        hidden: hidden || { opacity: 0, y: 75 },
-        visible: visible || { opacity: 1, y: 0 }
-      }}
-      initial="hidden"
-      animate={mainControls}
-      transition={{ duration: 0.5, delay: 0.25 }}
-      className={className}
-      ref={ref}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
-const FeedBackCard = ({
-  subject,
-  requester,
-  company,
-  category,
-  title,
-  onCompany,
-  onFeedback,
-  color,
-  totalFeedback
-}: IFeedBack) => {
-  return (
-    <div
-      className="rounded px-5 py-5 f-column-33 cursor-pointer"
-      style={{
-        maxWidth: '350px',
-        flexShrink: 0,
-        background: `linear-gradient(35deg, ${color?.to}, ${color?.from})`
-      }}
-    >
-      <div className="f-column-15 text-center">
-        <div className="f-column">
-          <div className="f-column-15 aic pb-1 jcsb">
-            <div className="f-column aic pb-1 jcsb">
-              <p className="m-0 font-9 color-label">{requester}</p>
-              <p className="font-8 m-0">@</p>
-              <p className="font-10 color-label m-0">
-                <span
-                  className="text-decoration-underline cursor-pointer"
-                  onClick={onCompany}
-                >
-                  {company}
-                </span>
-              </p>
-            </div>
-            <div
-              className="text-center card-category position-relative rounded-40 px-2 py-1 hw-mx mx-auto"
-              style={{ border: `0.001rem solid ${color?.text}` }}
-            >
-              <p
-                className="m-0 font-8"
-                style={{ color: color?.text, letterSpacing: '1.2px' }}
-              >
-                {category}
-              </p>
-            </div>
-          </div>
-        </div>
-        <h5
-          className="m-0 font-18"
-          onClick={onFeedback}
-          // style={{ lineHeight: '1.3rem' }}
-        >
-          {subject}
-        </h5>
-      </div>
-      <div className="f-row-10 aic jcsb mt-auto">
-        <div className="text-center">
-          <p className="font-11 m-0 color-label">
-            {totalFeedback.toLocaleString()} feedback collected
-          </p>
-        </div>
-        <div className="f-row-4 aic hw-mx cursor-pointer" onClick={onFeedback}>
-          <p
-            className="m-0 font-11 text-little "
-            style={{ color: color?.text }}
-          >
-            <b>Give feedback</b>
-          </p>
-          {/* <MicSVG color={color?.text} /> */}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// const FeedBackCardLegacy = ({
-//   subject,
-//   requester,
-//   company,
-//   createdAt,
-//   title,
-//   totalFeedback,
-//   onCompany,
-//   onFeedback
-// }: IFeedBack) => {
-//   return (
-//     <div
-//       className="border-label rounded-23 p-4 f-column-33"
-//       style={{ maxWidth: '350px', flexShrink: 0 }}
-//     >
-//       <div className="f-column-23">
-//         <div className="f-column">
-//           <div className="f-row-20 aic pb-1 jcsb">
-//             <p className="m-0 text-tiny">{requester}</p>
-//             <p className="m-0 text-tiniest color-label">{createdAt}</p>
-//           </div>
-//           <p className="text-tiniest color-label m-0">
-//             {title} at{' '}
-//             <span
-//               className="text-decoration-underline cursor-pointer"
-//               onClick={onCompany}
-//             >
-//               {company}
-//             </span>
-//           </p>
-//         </div>
-//         <h5 className="m-0 multiline-ellipsis-3">{subject}</h5>
-//       </div>
-//       <div className="f-row-10 aic jcsb border-label-top pt-3 mt-auto">
-//         <p className="m-0 color-label text-tiny">
-//           {totalFeedback.toLocaleString()} feedback
-//           {totalFeedback > 1 ? 's' : ''}
-//         </p>
-//         <div className="f-row-10 aic hw-mx cursor-pointer" onClick={onFeedback}>
-//           <LogoSVG />
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }

@@ -17,29 +17,15 @@ const AudioRecordSection = ({
   return (
     <div className="f-column-33">
       <div className="f-column-17 justify-content-center">
-        {recording ? (
-          <div className="position-relative">
-            <div
-              className="position-absolute f-column aic w-100 pt-3"
-              style={{ top: 0 }}
-            >
-              <div className="text-center text-white">
-                <h6 className="color-label">New Recording</h6>
-              </div>
-              <div className="text-center text-white">
-                <p className="text-little">{formatTime(recordingTime)}</p>
-              </div>
-            </div>
-            <AudioWaveVisualizer />
-          </div>
-        ) : null}
-        <div className="f-row justify-content-center">
+        {recording ? <AudioWaveVisualizer /> : null}
+        <div className="f-row-17 aic justify-content-center p-2">
           <div
             style={{
               borderRadius: '50%',
-              width: '50px',
-              height: '50px',
-              border: '1px solid #cacaca'
+              width: '30px',
+              height: '30px',
+              border: '1px solid rgb(234, 234, 234)',
+              flexShrink: 0
             }}
             className="f-row jcc aic"
           >
@@ -47,9 +33,10 @@ const AudioRecordSection = ({
               <div
                 style={{
                   borderRadius: '50%',
-                  width: '30px',
-                  height: '30px',
-                  background: 'red'
+                  width: '15px',
+                  height: '15px',
+                  background: 'red',
+                  flexShrink: 0
                 }}
                 onClick={handleStartRecording}
               />
@@ -57,14 +44,23 @@ const AudioRecordSection = ({
               <div
                 style={{
                   borderRadius: '3px',
-                  width: '20px',
-                  height: '20px',
-                  background: 'red'
+                  width: '10px',
+                  height: '10px',
+                  background: 'red',
+                  flexShrink: 0
                 }}
                 onClick={handleStopRecording}
               />
             )}
           </div>
+          {!recording && (
+            <p className="m-0 text-tiny color-label">
+              Click to Start recording feedback
+            </p>
+          )}
+          {recording ? (
+            <p className="m-0 text-little">{formatTime(recordingTime)}</p>
+          ) : null}
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react'
-import { BinSVG, PauseSVG, PlaySVG, StopSVG, SubmitSVG } from '../../utils/svgs'
+import { BinSVG, PauseSVG, PlaySVG, StopSVG } from '../../utils/svgs'
 import { _isMobile, formatTime } from '../../utils/helper'
 import { IUseAudioRecorderProps } from './audio-record-legacy-2'
-import { TypeButton } from '../../utils/button'
 
 interface CustomAudioPlayerProps {
   audioProps: IUseAudioRecorderProps
@@ -11,7 +10,13 @@ interface CustomAudioPlayerProps {
 const defaultTime = '00 : 00'
 
 const CustomAudioPlayer = ({
-  audioProps: { audioURL, recordingTime, handleDeleteRecording, handleSubmit }
+  audioProps: {
+    audioURL,
+    recordingTime,
+    handleDeleteRecording,
+    handleSubmit,
+    handleStartRecording
+  }
 }: CustomAudioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -61,12 +66,9 @@ const CustomAudioPlayer = ({
             onEnded={stopAudio}
           />
         )}
-        <div
-          className="controls-feedback border-label rounded-48 p-4 f-row-33 aic jcc hw-mx mx-auto bg-light"
-          // style={{ background: '#f7f7f7' }}
-        >
+        <div className="controls-feedback rounded-48 p-4 f-row-53 aic jcc hw-mx mx-auto border-label w-100">
           <div className="f-row-17 aic">
-            <p className="m-0 color-label">
+            <p className="m-0 font-11 color-label">
               Time: {audioTime} / {audioDuration}
             </p>
           </div>
@@ -91,6 +93,18 @@ const CustomAudioPlayer = ({
             </div>
           ) : null}
 
+          <div
+            style={{
+              borderRadius: '50%',
+              width: '15px',
+              height: '15px',
+              background: 'red',
+              flexShrink: 0
+            }}
+            className="cursor-pointer"
+            onClick={handleStartRecording}
+          />
+
           {/* Delete/Reset Button */}
           {!isPlaying ? (
             <div
@@ -101,26 +115,15 @@ const CustomAudioPlayer = ({
             </div>
           ) : null}
 
-          {/* Submit Button */}
+          {/* Submit Button
           {!isPlaying ? (
-            <>
-              {_isMobile() ? (
-                <div
-                  className="f-row-12 aic hw-mx cursor-pointer control-item"
-                  onClick={handleSubmit}
-                >
-                  <SubmitSVG />
-                </div>
-              ) : (
-                <TypeButton
-                  title="Submit"
-                  icon={<SubmitSVG />}
-                  buttonType="outlined"
-                  onClick={handleSubmit}
-                />
-              )}
-            </>
-          ) : null}
+            <div
+              className="f-row-12 aic hw-mx cursor-pointer control-item"
+              onClick={handleSubmit}
+            >
+              <SubmitSVG />
+            </div>
+          ) : null} */}
         </div>
       </div>
     </div>

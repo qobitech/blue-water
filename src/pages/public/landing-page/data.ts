@@ -29,6 +29,10 @@ export interface IFeedBack {
   purpose: string
   category: string
   color: IColorGradient
+  demo?: string
+  onWatchDemo?: () => void
+  companyWebsite?: string
+  supportEmail?: string
 }
 
 export const content: IFeedBack[] = [
@@ -41,10 +45,13 @@ export const content: IFeedBack[] = [
     company: 'Qobi Solutions',
     location: 'GLobal',
     createdAt: '1 day ago',
-    slug: 'wsng',
+    slug: 'qobi',
     totalFeedback: 23465,
     category: 'Product Improvement',
-    color: cardColorGradient[0]
+    color: cardColorGradient[0],
+    demo: 'youtube.com',
+    companyWebsite: 'https://edekobi.com',
+    supportEmail: 'contact@edekobi.com'
   },
   {
     subject:
@@ -59,7 +66,8 @@ export const content: IFeedBack[] = [
     slug: 'wsng',
     totalFeedback: 3465,
     category: 'Product Improvement',
-    color: cardColorGradient[1]
+    color: cardColorGradient[1],
+    supportEmail: 'info@technest.com'
   },
   {
     subject:
@@ -74,7 +82,8 @@ export const content: IFeedBack[] = [
     slug: 'waytool',
     totalFeedback: 1465,
     category: 'User Experience',
-    color: cardColorGradient[2]
+    color: cardColorGradient[2],
+    supportEmail: 'info@urbanspaces.com'
   },
   {
     subject:
@@ -89,7 +98,8 @@ export const content: IFeedBack[] = [
     slug: 'waytoorts',
     totalFeedback: 105,
     category: 'Feature Feedback',
-    color: cardColorGradient[3]
+    color: cardColorGradient[3],
+    supportEmail: 'info@cloudsoftsolutions.com'
   },
   {
     subject:
@@ -104,7 +114,8 @@ export const content: IFeedBack[] = [
     slug: 'hyriwoc',
     totalFeedback: 3215,
     category: 'Workflow Optimization',
-    color: cardColorGradient[4]
+    color: cardColorGradient[4],
+    supportEmail: 'info@greenenergy.com'
   },
   {
     subject:
@@ -119,7 +130,8 @@ export const content: IFeedBack[] = [
     slug: 'hcwmow',
     totalFeedback: 10465,
     category: 'Integration Feedback',
-    color: cardColorGradient[5]
+    color: cardColorGradient[5],
+    supportEmail: 'info@ecohome.com'
   },
   {
     subject:
@@ -134,7 +146,8 @@ export const content: IFeedBack[] = [
     slug: 'wcwdtmyfj',
     totalFeedback: 65,
     category: 'Feature Feedback',
-    color: cardColorGradient[6]
+    color: cardColorGradient[6],
+    supportEmail: 'info@easydrive.com'
   }
 ]
 

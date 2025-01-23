@@ -178,8 +178,8 @@ export const LogoTextSVG = ({ color, width, height }: ISVG) => {
 export const PauseSVG = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       viewBox="0 0 90 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -197,8 +197,8 @@ export const PauseSVG = ({ className }: { className?: string }) => {
 export const PlaySVG = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       viewBox="0 0 90 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -218,8 +218,8 @@ export const PlaySVG = ({ className }: { className?: string }) => {
 export const StopSVG = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       viewBox="0 0 90 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1533,8 +1533,8 @@ export const TrashSVG = ({ color }: { color?: string }) => {
 export const SubmitSVG = ({ color }: { color?: string }) => {
   return (
     <svg
-      width="28"
-      height="20"
+      width="20"
+      height="15"
       viewBox="0 0 28 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1579,8 +1579,8 @@ export const GenerateSVG = ({ color }: { color?: string }) => {
 export const BinSVG = ({ color }: { color?: string }) => {
   return (
     <svg
-      width="19"
-      height="19"
+      width="15"
+      height="15"
       viewBox="0 0 45 45"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

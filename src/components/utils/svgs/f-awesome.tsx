@@ -130,7 +130,7 @@ export const TopAngleSVG = () => {
     </svg>
   )
 }
-export const BottomAngleSVG = () => {
+export const BottomAngleSVG = ({ color }: { color?: string }) => {
   return (
     <svg
       width="12"
@@ -141,7 +141,7 @@ export const BottomAngleSVG = () => {
     >
       <path
         d="M1 0.953125L5.94975 5.90287L10.8995 0.953125"
-        stroke="black"
+        stroke={color || 'black'}
         strokeWidth="1.5"
       />
     </svg>
