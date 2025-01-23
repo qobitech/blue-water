@@ -5,7 +5,8 @@ import { IFeedbackActions } from './utils'
 export const FeedbackActions: FC<IFeedbackActions> = ({
   handleAudio,
   handleText,
-  handleShare
+  handleWatchDemo,
+  watchDemo
 }) => {
   const actions = [
     {
@@ -56,11 +57,13 @@ export const FeedbackActions: FC<IFeedbackActions> = ({
         </div>
       </div>
       <div
-        className="f-row-11 aic hw-mx px-3 py-2 rounded-43 border-label rounded cursor-pointer"
+        className="f-row-11 aic hw-mx px-3 py-2 rounded-43 cursor-pointer"
         style={{ height: '35px' }}
-        onClick={handleShare}
+        onClick={handleWatchDemo}
       >
-        <p className="text-tiny m-0 color-label">Watch Demo</p>
+        <p className="text-tiny m-0 color-label">
+          {watchDemo ? 'Cancel' : 'Watch'} Demo
+        </p>
       </div>
     </div>
   )

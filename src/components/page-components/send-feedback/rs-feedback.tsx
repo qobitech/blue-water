@@ -5,12 +5,14 @@ import { WatchDemo } from './watch-demo'
 import { FeedbackActions } from './feedback-actions'
 import { FeedbackText } from './feedback-text'
 import { FeedbackAudio } from './feedback-audio'
-import { FeedbackCTA } from './feedback-cta'
+import { useAudioRecorder } from './audio-record-legacy-2'
 
 export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
   const [feedbackType, setFeedbackType] = useState<feedbackType>()
-
   const [feedbackText, setFeedbackText] = useState<string>('')
+  const [watchDemo, setWatchDemo] = useState<boolean>(false)
+
+  const audioProps = useAudioRecorder()
 
   const handleAudio = () => {
     setFeedbackType('audio')
@@ -24,20 +26,30 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
     setFeedbackType(undefined)
   }
 
-  const handleShare = () => {}
+  const handleWatchDemo = () => {
+    setWatchDemo(!watchDemo)
+  }
 
   const handleDoneWithFeedback = () => {
-    if (feedbackText) setFeedbackType(undefined)
+    setFeedbackType(undefined)
   }
 
   return (
     <div className="w-100 f-column-33">
-      <div className="w-100 f-row-30">
-        <div className="flex-basis-50 bg-light text-center d-none">
+      <div className="w-100 f-row-21 flex-wrap">
+        <div
+          className={`flex-basis-55 bg-light text-center ${
+            watchDemo ? '' : 'd-none'
+          }`}
+        >
           <WatchDemo feedbackContent={feedbackContent} />
         </div>
-        <div className="flex-basis-50 m-auto">
-          <div className="f-column-37 jcc aic text-center h-100 p-2">
+        <div className="flex-basis-42 m-auto">
+          <div
+            className={`f-column-37 ${
+              watchDemo ? '' : 'aic text-center '
+            } jcc h-100 p-2`}
+          >
             <h4 className="m-0" style={{ lineHeight: '2.2rem' }}>
               {feedbackContent.subject}
             </h4>
@@ -45,8 +57,9 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
               <>
                 <FeedbackActions
                   handleAudio={handleAudio}
-                  handleShare={handleShare}
+                  handleWatchDemo={handleWatchDemo}
                   handleText={handleText}
+                  watchDemo={watchDemo}
                 />
                 <div className="f-row-11 aic">
                   <p className="m-0 font-10 color-label">
@@ -56,16 +69,18 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
                 </div>
               </>
             )}
-            <div className="f-column-33 w-100">
+            <div className="w-100">
               {feedbackType === 'text' && (
                 <FeedbackText
                   feedbackText={feedbackText}
                   setFeedbackText={setFeedbackText}
+                  handleDoneWithFeedback={handleDoneWithFeedback}
+                  cancelFeedback={cancelFeedback}
                 />
               )}
-              {feedbackType === 'audio' && <FeedbackAudio />}
-              {!!feedbackType && (
-                <FeedbackCTA
+              {feedbackType === 'audio' && (
+                <FeedbackAudio
+                  audioProps={audioProps}
                   handleDoneWithFeedback={handleDoneWithFeedback}
                   cancelFeedback={cancelFeedback}
                 />

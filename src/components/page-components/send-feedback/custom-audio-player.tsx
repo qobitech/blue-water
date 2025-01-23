@@ -66,7 +66,7 @@ const CustomAudioPlayer = ({
             onEnded={stopAudio}
           />
         )}
-        <div className="controls-feedback rounded-48 p-4 f-row-53 aic jcc hw-mx mx-auto border-label w-100">
+        <div className="controls-feedback rounded-48 py-4 px-5 f-row-33 aic jcc hw-mx mx-auto border-label">
           <div className="f-row-17 aic">
             <p className="m-0 font-11 color-label">
               Time: {audioTime} / {audioDuration}

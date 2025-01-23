@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { IFeedBack } from '../../../pages/public/landing-page/data'
+import { IUseAudioRecorderProps } from './audio-record-legacy-2'
 
 export interface IMiniFeedbackCard {
   feedbackContent: IFeedBack
@@ -8,7 +9,8 @@ export interface IMiniFeedbackCard {
 export interface IFeedbackActions {
   handleText: () => void
   handleAudio: () => void
-  handleShare: () => void
+  handleWatchDemo: () => void
+  watchDemo: boolean
 }
 
 export interface IWatchDemo {
@@ -22,13 +24,20 @@ export interface IRSFeedback {
 export interface IFeedbackCTA {
   handleDoneWithFeedback: () => void
   cancelFeedback: () => void
+  isDone: boolean
 }
 
 export interface IFeedbackText {
   feedbackText: string
   setFeedbackText: (text: string) => void
+  handleDoneWithFeedback: () => void
+  cancelFeedback: () => void
 }
 
-export interface IFeedbackAudio {}
+export interface IFeedbackAudio {
+  audioProps: IUseAudioRecorderProps
+  handleDoneWithFeedback: () => void
+  cancelFeedback: () => void
+}
 
 export type feedbackType = 'text' | 'audio' | undefined

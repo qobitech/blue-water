@@ -3,16 +3,19 @@ import { IFeedbackCTA } from './utils'
 
 export const FeedbackCTA: FC<IFeedbackCTA> = ({
   handleDoneWithFeedback,
-  cancelFeedback
+  cancelFeedback,
+  isDone
 }) => {
   return (
     <div className="f-row-11 aic jce">
       <div
-        className="f-row-11 aic hw-mx px-3 py-2 rounded-43 border rounded cursor-pointer"
+        className={`f-row-11 aic hw-mx px-3 py-2 rounded-43 ${
+          isDone ? 'border cursor-pointer' : 'bg-light cursor-not-allowed'
+        } rounded `}
         style={{ height: '35px' }}
-        onClick={handleDoneWithFeedback}
+        onClick={isDone ? handleDoneWithFeedback : undefined}
       >
-        <p className="text-tiny m-0">Done</p>
+        <p className={`text-tiny m-0 ${isDone ? '' : 'color-label'}`}>Done</p>
       </div>
       <div
         className="f-row-11 aic hw-mx px-3 py-2 rounded-43 bg-light rounded cursor-pointer"

@@ -14,22 +14,24 @@ const AudioRecordSection = ({
     recordingTime
   }
 }: ARSProps) => {
+  const styleh = {
+    borderRadius: '50%',
+    width: '30px',
+    height: '30px',
+    border: '1px solid rgb(234, 234, 234)',
+    flexShrink: 0
+  }
   return (
     <div className="f-column-33">
       <div className="f-column-17 justify-content-center">
         {recording ? <AudioWaveVisualizer /> : null}
         <div className="f-row-17 aic justify-content-center p-2">
-          <div
-            style={{
-              borderRadius: '50%',
-              width: '30px',
-              height: '30px',
-              border: '1px solid rgb(234, 234, 234)',
-              flexShrink: 0
-            }}
-            className="f-row jcc aic"
-          >
-            {!recording ? (
+          {!recording ? (
+            <div
+              className="f-row-11 jcc aic hw-mx cursor-pointer"
+              onClick={handleStartRecording}
+            >
+              <p className="m-0 text-tiny color-label">Click to record</p>
               <div
                 style={{
                   borderRadius: '50%',
@@ -38,9 +40,10 @@ const AudioRecordSection = ({
                   background: 'red',
                   flexShrink: 0
                 }}
-                onClick={handleStartRecording}
               />
-            ) : (
+            </div>
+          ) : (
+            <div style={styleh} className="f-row jcc aic">
               <div
                 style={{
                   borderRadius: '3px',
@@ -51,12 +54,7 @@ const AudioRecordSection = ({
                 }}
                 onClick={handleStopRecording}
               />
-            )}
-          </div>
-          {!recording && (
-            <p className="m-0 text-tiny color-label">
-              Click to Start recording feedback
-            </p>
+            </div>
           )}
           {recording ? (
             <p className="m-0 text-little">{formatTime(recordingTime)}</p>
