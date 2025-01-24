@@ -82,11 +82,7 @@ const CreateFeedback = () => {
 
   return (
     <div className="f-column-17 w-100">
-      <NotificationModal
-        useNotificationProps={notificationProps}
-        size="medium"
-        disableClose
-      >
+      <NotificationModal useNotificationProps={notificationProps} size="medium">
         <HVC view={stage === 'Feedback Campaign'} removeDOM>
           <FeedbackForm
             hookForm={feedbackCampaignHookForm}

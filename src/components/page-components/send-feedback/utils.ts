@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { IFeedBack } from '../../../pages/public/landing-page/data'
+import { IUseNotificationModal } from '../../utils/modal'
 import { IUseAudioRecorderProps } from './audio-record-legacy-2'
 
 export interface IMiniFeedbackCard {
@@ -41,3 +42,13 @@ export interface IFeedbackAudio {
 }
 
 export type feedbackType = 'text' | 'audio' | undefined
+
+export interface ISubmitFeedback {
+  notificationProps: IUseNotificationModal
+  handleSubmit: () => void
+}
+
+export interface ISubmitFeedbackForm {
+  handleClose: () => void
+  handleSubmit: () => void
+}

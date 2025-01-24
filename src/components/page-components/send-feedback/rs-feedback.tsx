@@ -6,6 +6,8 @@ import { FeedbackActions } from './feedback-actions'
 import { FeedbackText } from './feedback-text'
 import { FeedbackAudio } from './feedback-audio'
 import { useAudioRecorder } from './audio-record-legacy-2'
+import { SubmitFeedback } from './submit-feedback'
+import { useModal } from '../../utils/modal'
 
 export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
   const [feedbackType, setFeedbackType] = useState<feedbackType>()
@@ -24,14 +26,21 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
 
   const cancelFeedback = () => {
     setFeedbackType(undefined)
+    setFeedbackText('')
   }
 
   const handleWatchDemo = () => {
     setWatchDemo(!watchDemo)
   }
 
+  const notificationProps = useModal()
+
   const handleDoneWithFeedback = () => {
-    setFeedbackType(undefined)
+    notificationProps.handleOpenModal('Submit Feedback')
+  }
+
+  const handleSubmit = () => {
+    notificationProps.handleCloseModal(() => setFeedbackType(undefined))
   }
 
   return (
@@ -90,6 +99,10 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
         </div>
       </div>
       <MetaData feedbackContent={feedbackContent} />
+      <SubmitFeedback
+        notificationProps={notificationProps}
+        handleSubmit={handleSubmit}
+      />
     </div>
   )
 }
