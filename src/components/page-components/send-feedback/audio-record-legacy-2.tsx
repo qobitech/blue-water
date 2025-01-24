@@ -21,7 +21,6 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
   const [elapsedTime, setElapsedTime] = useState<number>(0)
   const [options, setOptions] = useState<optionType>()
   const [recordSection, setRecordSection] = useState<boolean>(false)
-  // const [audioDataBuffer, setAudioDataBuffer] = useState<BlobPart[]>([])
   const localChunks = useRef<Blob[]>([]) // Use a ref for storing chunks locally
   const startTimeRef = useRef<number | null>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
@@ -30,7 +29,6 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
 
   let micStream: MediaStream | null // Reference to the microphone stream
   let audioContext: AudioContext | null // Reference to the AudioContext
-  // let audioWorkletNode: AudioWorkletNode | null // Reference to the AudioWorkletNode
 
   const handleStartRecording = async () => {
     const isConfirmDelete = audioURL
@@ -67,9 +65,6 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
 
       audioContext = new AudioContext()
       await audioContext.resume()
-      // const rate = audioContext.sampleRate || 44100
-      // const mp3Encoder = new lamejs.Mp3Encoder(1, rate, 128)
-      // const mediaSource = audioContext.createMediaStreamSource(micStream)
       if (
         audioContext.createScriptProcessor &&
         typeof audioContext.createScriptProcessor === 'function'
@@ -80,23 +75,14 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
             { cmd: 'encode', buf: event.inputBuffer.getChannelData(0) },
             '*'
           )
-          // _decode(event.inputBuffer.getChannelData(0))
         }
       } else {
         // 采用新方案
         // mediaProcessor = await initWorklet()
       }
-      // const osc = audioContext.createOscillator()
-      // const dest = audioContext.createMediaStreamDestination()
+
       const mediaRecorder = new MediaRecorder(micStream)
       mediaRecorderRef.current = mediaRecorder
-      // osc.connect(dest)
-
-      // mediaRecorder.start()
-      // osc.start(0)
-
-      // const micStreamAudioSourceNode =
-      //   audioContext.createMediaStreamSource(micStream)
 
       mediaRecorder.ondataavailable = (evt) => {
         // Push each chunk (blobs) in an array
@@ -122,15 +108,7 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
         }
       }
 
-      // Add the audio processor worklet
-      // await audioContext.audioWorklet.addModule('my-audio-processor.js')
-      // audioWorkletNode = new AudioWorkletNode(
-      //   audioContext,
-      //   'my-audio-processor'
-      // )
-
       mediaRecorder.start()
-      // osc.start(0)
       setRecording(true)
       startTimeRef.current = Date.now()
 
@@ -140,122 +118,34 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
           setElapsedTime((Date.now() - startTimeRef.current) / 1000) // Convert to seconds
         }
       }, 1000) // Update every second
-
-      // Listen to audio data sent from the AudioWorkletProcessor
-      // audioWorkletNode.port.onmessage = (event) => {
-      //   // Push incoming audio frames into the buffer
-      //   localChunks.current.push(event.data)
-      // }
-
-      // Connect the audio worklet node
-      // micStreamAudioSourceNode.connect(audioWorkletNode)
     } catch (err: any) {
       console.error('Error accessing microphone:', err)
-
-      // if (
-      //   err.name === 'NotAllowedError' ||
-      //   err.message === 'The user aborted a request.'
-      // ) {
-      //   const retry = window.confirm(
-      //     'Microphone access was denied. Would you like to try again? Please allow microphone access when prompted.'
-      //   )
-      //   if (retry) {
-      //     handleStartRecording() // Retry the function
-      //   }
-      // } else if (err.name === 'NotFoundError') {
-      //   alert('No microphone found. Please ensure a microphone is connected.')
-      // } else {
-      //   alert(`Error accessing microphone: ${err.message}`)
-      // }
     }
   }
 
-  // content of audioworklet function
-  // async function initWorklet() {
-  //   try {
-  //     if (audioContext) {
-  //       await audioContext?.audioWorklet.addModule('my-audio-processor.js')
-  //       const audioWorkletNode = new AudioWorkletNode(
-  //         audioContext,
-  //         'get-voice-node'
-  //       )
-  //       console.log('audioWorkletNode', audioWorkletNode)
-  //       const messagePort = audioWorkletNode.port
-  //       messagePort.onmessage = (e) => {
-  //         const channelData = e.data[0]
-  //         window.postMessage({ cmd: 'encode', buf: channelData }, '*')
-  //         // this._decode(channelData)
-  //       }
-  //       return audioWorkletNode
-  //     }
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
-
-  // const downloadFile = async (
-  //   url: string,
-  //   // updateState: (type: IComponentStateKey, payload: any) => void,
-  //   name?: string
-  // ) => {
-  //   // updateState('downloadLoader', true)
-  //   const fname = url.substring(0, url.lastIndexOf('?'))
-  //   const fileName = fname.substring(0, url.lastIndexOf('.'))
-  //   const downloadurl = url.replace('dl=0', 'raw=1') || ''
-  //   fetch(downloadurl).then((response) => {
-  //     response.blob().then((blob) => {
-  //       const fileURL = window.URL.createObjectURL(blob)
-  //       const alink = document.createElement('a')
-  //       alink.href = fileURL
-  //       alink.download = (name || fileName) + '.mp3'
-  //       alink.click()
-  //       // updateState('downloadLoader', false)
-  //     })
-  //   })
-  // }
-
   const handleStopRecording = () => {
     if (mediaRecorderRef.current) {
-      mediaRecorderRef.current.stop()
+      mediaRecorderRef.current.stop() // Stop the media recorder
       mediaRecorderRef.current = null
-      setRecording(false)
-
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
-        intervalRef.current = null
-      }
     }
-    // if (localChunks.current.length > 0) {
-    //   // Disconnect the microphone stream and close the audio context
-    //   audioWorkletNode?.disconnect()
-    //   micStream?.getTracks().forEach((track) => track.stop())
-    //   audioContext?.close()
-    //   setRecording(false)
 
-    //   // Combine audio data into a single buffer
-    //   const audioBlob = new Blob(localChunks.current, { type: 'audio/wav' })
-    //   const audioUrl = URL.createObjectURL(audioBlob)
-    //   setAudioURL(audioUrl)
-    //   downloadFile(audioUrl, 'recording')
+    if (micStream) {
+      // Stop all tracks in the microphone stream
+      micStream.getTracks().forEach((track) => track.stop())
+      micStream = null // Reset the micStream reference
+    }
 
-    //   console.log('Audio URL:', audioBlob, localChunks.current.length)
+    if (audioContext) {
+      audioContext.close() // Close the audio context
+      audioContext = null // Reset the audioContext reference
+    }
 
-    //   // Reset references
-    //   micStream = null
-    //   audioContext = null
-    //   audioWorkletNode = null
-    //   localChunks.current = []
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current) // Clear the elapsed time interval
+      intervalRef.current = null
+    }
 
-    //   if (intervalRef.current) {
-    //     startTimeRef.current = null
-    //     clearInterval(intervalRef.current)
-    //   }
-
-    //   // Use the audioBlob for saving or playback
-    //   // This function would update the state with the audio URL
-    // } else {
-    //   console.log('No active recording found.')
-    // }
+    setRecording(false) // Update recording state
   }
 
   const handleDeleteRecording = (callback?: () => void) => {
