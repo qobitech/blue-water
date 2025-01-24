@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
+import { IColorGradient } from '../../../constants/global'
 import { IFeedBack } from '../../../pages/public/landing-page/data'
 import { IRightSection } from '../../layout/right-section/utils'
 import { IUseNotificationModal } from '../../utils/modal'
@@ -18,6 +19,7 @@ export interface IFeedbackActions {
   handleAudio: () => void
   handleWatchDemo: () => void
   watchDemo: boolean
+  color: IColorGradient
 }
 
 export interface IWatchDemo {
@@ -33,6 +35,7 @@ export interface IFeedbackCTA {
   handleDoneWithFeedback: () => void
   cancelFeedback: () => void
   isDone: boolean
+  color: IColorGradient
 }
 
 export interface IFeedbackText {
@@ -40,12 +43,14 @@ export interface IFeedbackText {
   setFeedbackText: (text: string) => void
   handleDoneWithFeedback: () => void
   cancelFeedback: () => void
+  color: IColorGradient
 }
 
 export interface IFeedbackAudio {
   audioProps: IUseAudioRecorderProps
   handleDoneWithFeedback: () => void
   cancelFeedback: () => void
+  color: IColorGradient
 }
 
 export type feedbackType = 'text' | 'audio' | undefined

@@ -14,7 +14,6 @@ const CustomAudioPlayer = ({
     audioURL,
     recordingTime,
     handleDeleteRecording,
-    handleSubmit,
     handleStartRecording
   }
 }: CustomAudioPlayerProps) => {
@@ -109,7 +108,7 @@ const CustomAudioPlayer = ({
           {!isPlaying ? (
             <div
               className="f-row-12 aic hw-mx cursor-pointer control-item"
-              onClick={handleDeleteRecording}
+              onClick={() => handleDeleteRecording()}
             >
               <BinSVG />
             </div>

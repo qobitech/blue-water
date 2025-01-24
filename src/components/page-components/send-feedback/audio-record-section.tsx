@@ -43,7 +43,11 @@ const AudioRecordSection = ({
               />
             </div>
           ) : (
-            <div style={styleh} className="f-row jcc aic">
+            <div
+              style={styleh}
+              className="f-row jcc aic"
+              onClick={handleStopRecording}
+            >
               <div
                 style={{
                   borderRadius: '3px',
@@ -52,7 +56,6 @@ const AudioRecordSection = ({
                   background: 'red',
                   flexShrink: 0
                 }}
-                onClick={handleStopRecording}
               />
             </div>
           )}

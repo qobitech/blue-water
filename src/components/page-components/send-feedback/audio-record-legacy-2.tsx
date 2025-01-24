@@ -6,7 +6,7 @@ export interface IUseAudioRecorderProps {
   audioURL: string | null
   handleStartRecording: () => Promise<void>
   handleStopRecording: () => void
-  handleDeleteRecording: () => void
+  handleDeleteRecording: (callback?: () => void) => void
   handleSubmit: () => void
   recordingTime: number
   setOptions: Dispatch<SetStateAction<optionType>>
@@ -258,7 +258,7 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
     // }
   }
 
-  const handleDeleteRecording = () => {
+  const handleDeleteRecording = (callback?: () => void) => {
     const isConfirmDelete = window.confirm(
       'Are you sure you want to delete the recording?'
     )
@@ -266,6 +266,7 @@ export const useAudioRecorder = (): IUseAudioRecorderProps => {
       setRecording(false)
       setAudioURL(null)
       setElapsedTime(0)
+      callback?.()
     }
   }
 

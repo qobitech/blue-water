@@ -140,6 +140,8 @@ export interface IFeedBackCard {
   category: string
   onGenerateLink: () => void
   onNewFeedback: () => void
+  onClose: () => void
+  onEdit: () => void
   color: IColorGradient
   companyWebsite?: string
   isFeedbackLink: boolean

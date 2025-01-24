@@ -1,4 +1,4 @@
-import { GenerateSVG } from '../../utils/svgs'
+import { CloseSVG, EditSVG, GenerateSVG } from '../../utils/svgs'
 import { IFeedBackCard } from './utils'
 
 export const FeedBackCard = ({
@@ -10,7 +10,9 @@ export const FeedBackCard = ({
   onGenerateLink,
   companyWebsite,
   onNewFeedback,
-  isFeedbackLink
+  isFeedbackLink,
+  onClose,
+  onEdit
 }: IFeedBackCard) => {
   return (
     <div
@@ -61,7 +63,7 @@ export const FeedBackCard = ({
           </h5>
         </div>
       </div>
-      <div className="f-row-10 aic jcc mt-auto">
+      <div className="f-row-23 aic jcc mt-auto">
         <div
           className="f-row-7 aic hw-mx cursor-pointer py-3 px-4 rounded-33"
           onClick={isFeedbackLink ? onNewFeedback : onGenerateLink}
@@ -73,6 +75,19 @@ export const FeedBackCard = ({
             style={{ color: color?.text }}
           >
             <b>{isFeedbackLink ? 'New Feedback' : 'Generate Feedback Link'}</b>
+          </p>
+        </div>
+        <div
+          className="f-row-7 aic hw-mx cursor-pointer py-3 px-4 rounded-33"
+          onClick={!isFeedbackLink ? onEdit : onClose}
+          // style={{ border: `0.1px solid ${color?.text}` }}
+        >
+          {!isFeedbackLink ? <EditSVG color={color?.text} /> : <CloseSVG />}
+          <p
+            className="m-0 font-11 text-little "
+            style={{ color: color?.text }}
+          >
+            {!isFeedbackLink ? 'Edit' : 'Close'}
           </p>
         </div>
       </div>

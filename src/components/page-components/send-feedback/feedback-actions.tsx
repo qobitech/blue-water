@@ -6,7 +6,8 @@ export const FeedbackActions: FC<IFeedbackActions> = ({
   handleAudio,
   handleText,
   handleWatchDemo,
-  watchDemo
+  watchDemo,
+  color
 }) => {
   const actions = [
     {
@@ -26,14 +27,19 @@ export const FeedbackActions: FC<IFeedbackActions> = ({
     <div className="f-row-11 aic">
       <div className="dropdown">
         <div
-          className="f-row-11 aic hw-mx px-3 py-2 rounded-43 border rounded cursor-pointer dropdown-toggle"
-          style={{ height: '35px' }}
+          className="f-row-11 aic hw-mx px-3 py-2 rounded-43 rounded cursor-pointer dropdown-toggle"
+          style={{
+            height: '35px',
+            background: `linear-gradient(35deg, ${color?.to}, ${color?.from})`
+          }}
           id="dropdownMenuButton"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <p className="text-tiny m-0">Give feedback</p>
+          <p className="text-tiny m-0" style={{ color: color.text }}>
+            Give feedback
+          </p>
           <BottomAngleSVG color="#bababa" />
         </div>
         <div
@@ -62,7 +68,7 @@ export const FeedbackActions: FC<IFeedbackActions> = ({
         onClick={handleWatchDemo}
       >
         <p className="text-tiny m-0 color-label">
-          {watchDemo ? 'Cancel' : 'Watch'} Demo
+          {watchDemo ? 'Close' : 'Watch'} Demo
         </p>
       </div>
     </div>

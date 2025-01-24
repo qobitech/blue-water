@@ -23,9 +23,10 @@ import { Status } from './status'
 import { FeedbackForm } from './feedback-form'
 import RegisterForm from './register-form'
 import { ColorSelection } from './color-selection'
+import { useGlobalContext } from '../../layout/context'
 
 const CreateFeedback = () => {
-  // const { rsProps } = useGlobalContext()
+  const { rsProps } = useGlobalContext()
   const [stage, setStage] = useState<createFeedbackStage>('Feedback Campaign')
   const [color, setColor] = useState<IColorGradient>(cardColorGradient[0])
   const [isFeedbackLink, setIsFeedbackLink] = useState<boolean>(false)
@@ -61,6 +62,11 @@ const CreateFeedback = () => {
     handleColor(cardColorGradient[0])
     setStage('Feedback Campaign')
     setIsFeedbackLink(false)
+    notificationProps.handleOpenModal(`${stage} - Tevotea`)
+  }
+
+  const onEditFeedback = () => {
+    setStage('Feedback Campaign')
     notificationProps.handleOpenModal(`${stage} - Tevotea`)
   }
 
@@ -142,6 +148,8 @@ const CreateFeedback = () => {
             companyWebsite={userProfile.companyUrl}
             onNewFeedback={onNewFeedback}
             isFeedbackLink={isFeedbackLink}
+            onEdit={onEditFeedback}
+            onClose={() => rsProps?.closeSection()}
           />
         </div>
       </HVC>

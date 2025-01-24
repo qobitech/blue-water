@@ -7,15 +7,16 @@ export const FeedbackText: FC<IFeedbackText> = ({
   feedbackText,
   setFeedbackText,
   handleDoneWithFeedback,
-  cancelFeedback
+  cancelFeedback,
+  color
 }) => {
   return (
     <div className="f-column-33 w-100">
       <TypeTextArea
         autoresize
         autoFocus
-        label="Whats on your mind?"
-        placeholder="Type here..."
+        label=""
+        placeholder="Answer here..."
         onChange={(e) => setFeedbackText(e.target.value)}
         value={feedbackText}
       />
@@ -23,6 +24,7 @@ export const FeedbackText: FC<IFeedbackText> = ({
         handleDoneWithFeedback={handleDoneWithFeedback}
         cancelFeedback={cancelFeedback}
         isDone={feedbackText.length > 3}
+        color={color}
       />
     </div>
   )

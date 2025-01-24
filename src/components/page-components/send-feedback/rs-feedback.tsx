@@ -74,6 +74,7 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent, rsProps }) => {
                       handleWatchDemo={handleWatchDemo}
                       handleText={handleText}
                       watchDemo={watchDemo}
+                      color={feedbackContent.color}
                     />
 
                     <div className="f-row-11 aic">
@@ -91,6 +92,7 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent, rsProps }) => {
                       setFeedbackText={setFeedbackText}
                       handleDoneWithFeedback={handleDoneWithFeedback}
                       cancelFeedback={cancelFeedback}
+                      color={feedbackContent.color}
                     />
                   )}
                   {feedbackType === 'audio' && (
@@ -98,6 +100,7 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent, rsProps }) => {
                       audioProps={audioProps}
                       handleDoneWithFeedback={handleDoneWithFeedback}
                       cancelFeedback={cancelFeedback}
+                      color={feedbackContent.color}
                     />
                   )}
                 </div>

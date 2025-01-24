@@ -7,7 +7,8 @@ import { FeedbackCTA } from './feedback-cta'
 export const FeedbackAudio: FC<IFeedbackAudio> = ({
   audioProps,
   handleDoneWithFeedback,
-  cancelFeedback
+  cancelFeedback,
+  color
 }) => {
   return (
     <>
@@ -18,11 +19,18 @@ export const FeedbackAudio: FC<IFeedbackAudio> = ({
         {(!audioProps.audioURL || audioProps.recording) && (
           <AudioRecordSection audioProps={audioProps} />
         )}
-        <FeedbackCTA
-          handleDoneWithFeedback={handleDoneWithFeedback}
-          cancelFeedback={cancelFeedback}
-          isDone={!!audioProps.audioURL}
-        />
+        {!audioProps.recording && (
+          <FeedbackCTA
+            handleDoneWithFeedback={handleDoneWithFeedback}
+            cancelFeedback={() => {
+              if (audioProps.audioURL)
+                audioProps.handleDeleteRecording(cancelFeedback)
+              cancelFeedback()
+            }}
+            isDone={!!audioProps.audioURL}
+            color={color}
+          />
+        )}
       </div>
     </>
   )

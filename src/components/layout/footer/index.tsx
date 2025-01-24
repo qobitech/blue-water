@@ -1,15 +1,11 @@
 import { Dispatch, memo, SetStateAction } from 'react'
 import { PageContainer } from '../../utils/reusable'
 import { TypeButton, TypeSmallButton } from '../../utils/button'
-// import { ISBETA } from '../../../constants/global'
-// import { pageurl } from '../../../constants/pageurl'
-// import { useNavigate } from 'react-router-dom'
 import './index.scss'
-// import { gallery } from '../../../assets'
 import { HVC } from '../../utils/hvc'
-import { LogoTextSVG } from '../../utils/svgs'
 import { _isMobile } from '../../utils/helper'
 import { useGlobalContext } from '../context'
+import { LogoAnimated } from '../../utils/hooks'
 
 interface IFooter {
   hideTopFooter?: boolean
@@ -42,9 +38,9 @@ const Footer = memo(
           <HVC removeDOM view={!hideTopFooter} className="py-5">
             <div className="f-column-25">
               <div className="div-wrapper">
-                <div className="div-left f-column-10 m-auto">
+                <div className="div-left f-column-10 m-auto aic text-center">
                   <div className="ResponsiveDivLeft mb-3">
-                    <LogoTextSVG />
+                    <LogoAnimated />
                   </div>
                   <p
                     className="p-footer-class font-28"
@@ -123,36 +119,6 @@ const Footer = memo(
                     onClick={showConsentBanner}
                   />
                 </li>
-                {/* <li
-                  style={{ listStyleType: 'none' }}
-                  className="cursor-pointer"
-                >
-                  <TypeSmallButton
-                    title="Free tips"
-                    className="bg-none text-little p-0"
-                    style={{
-                      fontSize: '12px',
-                      background: 'none',
-                      textDecoration: 'underline'
-                    }}
-                    onClick={() => navigate(pageurl.BETTICKETS)}
-                  />
-                </li> */}
-                {/* <li
-                  style={{ listStyleType: 'none' }}
-                  className="cursor-pointer"
-                >
-                  <TypeSmallButton
-                    title="Channels"
-                    className="bg-none text-little p-0"
-                    style={{
-                      fontSize: '12px',
-                      background: 'none',
-                      textDecoration: 'underline'
-                    }}
-                    onClick={() => navigate(pageurl.BETCHANNEL)}
-                  />
-                </li> */}
                 <li
                   style={{ listStyleType: 'none' }}
                   className="cursor-pointer"
