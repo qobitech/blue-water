@@ -97,7 +97,13 @@ const CreateFeedback = () => {
       <NotificationModal
         useNotificationProps={notificationProps}
         size="medium"
-        disableClose
+        onClose={() => {
+          if (!isEdit) {
+            rsProps?.closeSection()
+          } else {
+            setStage('Preview')
+          }
+        }}
       >
         <HVC view={stage === 'Feedback Campaign'} removeDOM>
           <FeedbackForm

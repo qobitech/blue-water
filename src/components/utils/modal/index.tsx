@@ -62,13 +62,15 @@ export interface INotificationModal {
   children?: any
   size?: 'wide' | 'medium'
   disableClose?: boolean
+  onClose?: () => void
 }
 
 const NotificationModal: React.FC<INotificationModal> = ({
   useNotificationProps,
   size,
   children,
-  disableClose
+  disableClose,
+  onClose
 }) => {
   const { openModal, title, closeRef, handleCloseModal } = useNotificationProps
 
@@ -113,7 +115,7 @@ const NotificationModal: React.FC<INotificationModal> = ({
                   cursor: 'pointer'
                 }}
                 id="closeBtnId"
-                onClick={() => handleCloseModal()}
+                onClick={() => handleCloseModal(onClose)}
                 ref={closeRef}
               >
                 <CloseSVG />

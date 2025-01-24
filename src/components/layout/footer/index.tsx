@@ -46,8 +46,8 @@ const Footer = memo(
                     className="p-footer-class font-28"
                     style={{ lineHeight: '2.2rem' }}
                   >
-                    Tevotea empowers you to stay connected with your audience
-                    and deliver what they truly need.
+                    Tevotea empowers you to stay connected to your audience and
+                    deliver what they truly need.
                   </p>
                   <p className="p-footer-class">
                     So stop guessing, start building products & services users
