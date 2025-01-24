@@ -17,7 +17,7 @@ const LandingPage = () => {
     'Create a Feedback Campaign',
     `Share with Your Audience`,
     `Receive Responses (feedback)`,
-    `Convert feedback into Actionable Insights`
+    `Transform feedback into Actionable Insights`
   ]
   // how it works tabs and lists ends
 
@@ -146,8 +146,8 @@ const LandingPage = () => {
           />
           <div className="f-column-35 jcc">
             <div className="f-column-13 pt-2 designed-for-you">
-              <h2>Turn Customer Insights into Smarter Decisions</h2>
-              <p className="m-0">
+              <h2>Transform Customer Feedback into Actionable Insights</h2>
+              <p className="m-0" style={{ lineHeight: '1.69rem' }}>
                 With Tevotea you can transform raw customer feedback into
                 meaningful data that can be used to understand customer needs,
                 identify areas for improvement, and make informed business

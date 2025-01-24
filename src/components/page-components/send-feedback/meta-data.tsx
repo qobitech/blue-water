@@ -34,11 +34,14 @@ export const MetaData = ({
   ]
 
   return (
-    <div className="bg-light p-4 rounded grid-wrapper-30 gap-19">
+    <div
+      className="p-4 rounded grid-wrapper-40 gap-37"
+      style={{ background: '#fafafa' }}
+    >
       {metadata.map((i, index) => (
         <div key={index}>
           <p className="m-0 mb-1 font-9 color-label">{i.label}</p>
-          <p className="m-0 font-11">{i.value}</p>
+          <p className="m-0 font-12">{i.value}</p>
         </div>
       ))}
     </div>
