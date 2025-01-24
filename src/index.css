@@ -3,12 +3,13 @@
   font-weight: normal;
   font-display: inherit;
   font-style: normal;
-  src: url('./assets/fonts/Akkurat-Bold.eot');
-  src: url('./assets/fonts/Akkurat-Bold.eot') format('embedded-opentype');
-  src: url('./assets/fonts/Akkurat-Bold.woff') format('woff');
-  src: url('./assets/fonts/Akkurat-Bold.woff2') format('woff2');
-  src: url('./assets/fonts/Akkurat-Bold.ttf') format('truetype');
-  src: url('./assets/fonts/Akkurat-Bold.svg') format('svg');
+  /* src: url('./assets/fonts/Akkurat-Bold.eot');
+  src: url('./assets/fonts/Akkurat-Bold.eot') format('embedded-opentype'); */
+  src: url('./assets/fonts/futstat/Fustat-Bold.ttf') format('truetype');
+  /* src: url('./assets/fonts/futstat/fustat-latin-500-normal.woff2') */
+  /* format('woff2'); */
+  /* src: url('./assets/fonts/Akkurat-Bold.ttf') format('truetype'); */
+  /* src: url('./assets/fonts/Akkurat-Bold.svg') format('svg'); */
 }
 
 @font-face {
@@ -16,12 +17,15 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/Akkurat.eot');
+  src: url('./assets/fonts/futstat/Fustat-Regular.ttf') format('truetype');
+  /* src: url('./assets/fonts/futstat/fustat-latin-300-normal.woff2')
+    format('woff2'); */
+  /* src: url('./assets/fonts/Akkurat.eot');
   src: url('./assets/fonts/Akkurat.eot') format('embedded-opentype');
   src: url('./assets/fonts/Akkurat.ttf') format('truetype');
   src: url('./assets/fonts/Akkurat.woff') format('woff');
   src: url('./assets/fonts/Akkurat.woff2') format('woff2');
-  src: url('./assets/fonts/Akkurat.svg') format('svg');
+  src: url('./assets/fonts/Akkurat.svg') format('svg'); */
 }
 
 @font-face {
@@ -29,12 +33,15 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/Akkurat-Light.eot');
+  src: url('./assets/fonts/futstat/Fustat-Light.ttf') format('truetype');
+  /* src: url('./assets/fonts/futstat/fustat-latin-200-normal.woff2')
+    format('woff2'); */
+  /* src: url('./assets/fonts/Akkurat-Light.eot');
   src: url('./assets/fonts/Akkurat-Light.eot') format('embedded-opentype');
   src: url('./assets/fonts/Akkurat-Light.ttf') format('truetype');
   src: url('./assets/fonts/Akkurat-Light.woff') format('woff');
   src: url('./assets/fonts/Akkurat-Light.woff2') format('woff2');
-  src: url('./assets/fonts/Akkurat-Light.svg') format('svg');
+  src: url('./assets/fonts/Akkurat-Light.svg') format('svg'); */
 }
 
 h1,
