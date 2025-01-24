@@ -121,13 +121,13 @@ const CreateFeedback = () => {
         ) : null}
         <div
           className={`w-100 ${
-            isFeedbackLink ? 'flex-basis-63' : 'f-column-11 aic w-100'
+            isFeedbackLink ? 'flex-basis-63' : 'f-column-21 aic w-100'
           }`}
         >
           <div className="f-column-27">
             {!isFeedbackLink ? (
-              <div className="f-column-7 aic">
-                <label className="text-little color-label">
+              <div className="f-column-11 aic">
+                <label className="font-12 m-0 color-label">
                   Choose Background color
                 </label>
                 <ColorSelection
