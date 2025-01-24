@@ -76,14 +76,6 @@ const CreateFeedback = () => {
     setIsFeedbackLink(true)
   }
 
-  // useGenerateFeedbackLinkCTA(
-  //   rsProps,
-  //   onGenerateFeedbackLink,
-  //   stage,
-  //   isFeedbackLink,
-  //   onNewFeedback
-  // )
-
   useEffect(() => {
     if (stage !== 'Preview')
       notificationProps.handleOpenModal(`${stage} - Tevotea`)
@@ -97,10 +89,9 @@ const CreateFeedback = () => {
       <NotificationModal
         useNotificationProps={notificationProps}
         size="medium"
+        disableClose={!isEdit}
         onClose={() => {
-          if (!isEdit) {
-            rsProps?.closeSection()
-          } else {
+          if (isEdit) {
             setStage('Preview')
           }
         }}
