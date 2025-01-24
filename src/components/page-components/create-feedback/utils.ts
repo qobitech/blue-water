@@ -95,7 +95,7 @@ export const defaultFeedbackDetails: IFeedbackDetails = {
 export const userProfileSchema = {
   name: yup.string().required('Name is required'),
   email: yup.string().required('Email is required'),
-  company: yup.string().required('Email is required'),
+  company: yup.string().required('Company / Organization is required'),
   companyUrl: yup.string(),
   jobTitle: yup.string().required('Job Title is required')
 }

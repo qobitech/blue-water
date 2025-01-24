@@ -1,4 +1,4 @@
-import { CloseSVG, EditSVG, GenerateSVG } from '../../utils/svgs'
+import { EditSVG, GenerateSVG } from '../../utils/svgs'
 import { IFeedBackCard } from './utils'
 
 export const FeedBackCard = ({
@@ -82,7 +82,7 @@ export const FeedBackCard = ({
           onClick={!isFeedbackLink ? onEdit : onClose}
           // style={{ border: `0.1px solid ${color?.text}` }}
         >
-          {!isFeedbackLink ? <EditSVG color={color?.text} /> : <CloseSVG />}
+          {!isFeedbackLink ? <EditSVG color={color?.text} /> : null}
           <p
             className="m-0 font-11 text-little "
             style={{ color: color?.text }}

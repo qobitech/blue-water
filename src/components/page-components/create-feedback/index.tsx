@@ -30,6 +30,7 @@ const CreateFeedback = () => {
   const [stage, setStage] = useState<createFeedbackStage>('Feedback Campaign')
   const [color, setColor] = useState<IColorGradient>(cardColorGradient[0])
   const [isFeedbackLink, setIsFeedbackLink] = useState<boolean>(false)
+  const [isEdit, setIsEdit] = useState<boolean>(false)
 
   const [userProfileHookForm] = useFormHook<IUserProfile>(userProfileSchema)
   const [feedbackCampaignHookForm] = useFormHook<IFeedbackCampaign>(
@@ -53,7 +54,7 @@ const CreateFeedback = () => {
   }
 
   const handleFeedbackCampaign = () => {
-    if (!getIsLogged()) setStage('Authentication')
+    if (!getIsLogged() && !isEdit) setStage('Authentication')
     else saveFeedbackCampaignToDraft()
   }
 
@@ -66,6 +67,7 @@ const CreateFeedback = () => {
   }
 
   const onEditFeedback = () => {
+    setIsEdit(true)
     setStage('Feedback Campaign')
     notificationProps.handleOpenModal(`${stage} - Tevotea`)
   }
