@@ -8,11 +8,13 @@ import { FeedbackAudio } from './feedback-audio'
 import { useAudioRecorder } from './audio-record-legacy-2'
 import { SubmitFeedback } from './submit-feedback'
 import { useModal } from '../../utils/modal'
+import { FeedbackSubmission } from './feedback-submission'
 
-export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
+export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent, rsProps }) => {
   const [feedbackType, setFeedbackType] = useState<feedbackType>()
   const [feedbackText, setFeedbackText] = useState<string>('')
   const [watchDemo, setWatchDemo] = useState<boolean>(false)
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 
   const audioProps = useAudioRecorder()
 
@@ -41,68 +43,79 @@ export const RSFeedback: FC<IRSFeedback> = ({ feedbackContent }) => {
 
   const handleSubmit = () => {
     notificationProps.handleCloseModal(() => setFeedbackType(undefined))
+    setIsSubmitted(true)
   }
 
   return (
-    <div className="w-100 f-column-33">
-      <div className="w-100 f-row-21 flex-wrap">
-        <div
-          className={`flex-basis-55 bg-light text-center ${
-            watchDemo ? '' : 'd-none'
-          }`}
-        >
-          <WatchDemo feedbackContent={feedbackContent} />
-        </div>
-        <div className="flex-basis-42 m-auto">
-          <div
-            className={`f-column-37 ${
-              watchDemo ? 'feedback-content' : 'aic text-center '
-            } jcc h-100 p-2`}
-          >
-            <h4 className="m-0" style={{ lineHeight: '2.2rem' }}>
-              {feedbackContent.subject}
-            </h4>
-            {!feedbackType && (
-              <>
-                <FeedbackActions
-                  handleAudio={handleAudio}
-                  handleWatchDemo={handleWatchDemo}
-                  handleText={handleText}
-                  watchDemo={watchDemo}
-                />
-                <div className="f-row-11 aic">
-                  <p className="m-0 font-10 color-label">
-                    {feedbackContent.totalFeedback.toLocaleString()} feedback
-                    collected
-                  </p>
+    <>
+      {!isSubmitted ? (
+        <div className="w-100 f-column-33">
+          <div className="w-100 f-row-21 flex-wrap">
+            <div
+              className={`flex-basis-55 bg-light text-center ${
+                watchDemo ? '' : 'd-none'
+              }`}
+            >
+              <WatchDemo feedbackContent={feedbackContent} />
+            </div>
+            <div className="flex-basis-42 m-auto">
+              <div
+                className={`f-column-37 ${
+                  watchDemo ? 'feedback-content' : 'aic text-center '
+                } jcc h-100 p-2`}
+              >
+                <h4 className="m-0" style={{ lineHeight: '2.2rem' }}>
+                  {feedbackContent.subject}
+                </h4>
+                {!feedbackType && (
+                  <>
+                    <FeedbackActions
+                      handleAudio={handleAudio}
+                      handleWatchDemo={handleWatchDemo}
+                      handleText={handleText}
+                      watchDemo={watchDemo}
+                    />
+
+                    <div className="f-row-11 aic">
+                      <p className="m-0 font-10 color-label">
+                        {feedbackContent.totalFeedback.toLocaleString()}{' '}
+                        feedback collected
+                      </p>
+                    </div>
+                  </>
+                )}
+                <div className="w-100">
+                  {feedbackType === 'text' && (
+                    <FeedbackText
+                      feedbackText={feedbackText}
+                      setFeedbackText={setFeedbackText}
+                      handleDoneWithFeedback={handleDoneWithFeedback}
+                      cancelFeedback={cancelFeedback}
+                    />
+                  )}
+                  {feedbackType === 'audio' && (
+                    <FeedbackAudio
+                      audioProps={audioProps}
+                      handleDoneWithFeedback={handleDoneWithFeedback}
+                      cancelFeedback={cancelFeedback}
+                    />
+                  )}
                 </div>
-              </>
-            )}
-            <div className="w-100">
-              {feedbackType === 'text' && (
-                <FeedbackText
-                  feedbackText={feedbackText}
-                  setFeedbackText={setFeedbackText}
-                  handleDoneWithFeedback={handleDoneWithFeedback}
-                  cancelFeedback={cancelFeedback}
-                />
-              )}
-              {feedbackType === 'audio' && (
-                <FeedbackAudio
-                  audioProps={audioProps}
-                  handleDoneWithFeedback={handleDoneWithFeedback}
-                  cancelFeedback={cancelFeedback}
-                />
-              )}
+              </div>
             </div>
           </div>
+          <MetaData feedbackContent={feedbackContent} />
+          <SubmitFeedback
+            notificationProps={notificationProps}
+            handleSubmit={handleSubmit}
+          />
         </div>
-      </div>
-      <MetaData feedbackContent={feedbackContent} />
-      <SubmitFeedback
-        notificationProps={notificationProps}
-        handleSubmit={handleSubmit}
-      />
-    </div>
+      ) : (
+        <FeedbackSubmission
+          handleClose={() => rsProps?.closeSection()}
+          handleRecord={() => setIsSubmitted(false)}
+        />
+      )}
+    </>
   )
 }

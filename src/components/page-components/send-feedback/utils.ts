@@ -1,10 +1,16 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { IFeedBack } from '../../../pages/public/landing-page/data'
+import { IRightSection } from '../../layout/right-section/utils'
 import { IUseNotificationModal } from '../../utils/modal'
 import { IUseAudioRecorderProps } from './audio-record-legacy-2'
 
 export interface IMiniFeedbackCard {
   feedbackContent: IFeedBack
+}
+
+export interface IFeedbackSubmission {
+  handleClose: () => void
+  handleRecord: () => void
 }
 
 export interface IFeedbackActions {
@@ -20,6 +26,7 @@ export interface IWatchDemo {
 
 export interface IRSFeedback {
   feedbackContent: IFeedBack
+  rsProps: IRightSection<{}> | undefined
 }
 
 export interface IFeedbackCTA {

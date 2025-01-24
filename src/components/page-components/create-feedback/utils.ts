@@ -132,3 +132,15 @@ export interface IRegisterForm {
   handleRegister: () => void
   btnTitle: string
 }
+
+export interface IFeedBackCard {
+  subject: string
+  requester: string
+  company: string
+  category: string
+  onGenerateLink: () => void
+  onNewFeedback: () => void
+  color: IColorGradient
+  companyWebsite?: string
+  isFeedbackLink: boolean
+}

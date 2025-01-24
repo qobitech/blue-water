@@ -1,69 +1,79 @@
-import { FC } from 'react'
-import { _isMobile } from '../../utils/helper'
-import { CardItems, OverViewHeader } from '../../utils/card-items'
-import { defaultDetails, IFeedbackCardProps } from './utils'
-import { ColorSelection } from './color-selection'
+import { GenerateSVG } from '../../utils/svgs'
+import { IFeedBackCard } from './utils'
 
-export const FeedbackCard: FC<IFeedbackCardProps> = ({
-  feedbackDetails,
+export const FeedBackCard = ({
+  subject,
+  requester,
+  company,
+  category,
   color,
-  handleColor,
-  hidePallette
-}) => {
-  const onCompany = () => {}
-
-  const isUrl = !!feedbackDetails.companyUrl
-
+  onGenerateLink,
+  companyWebsite,
+  onNewFeedback,
+  isFeedbackLink
+}: IFeedBackCard) => {
   return (
-    <div className="f-column-27">
-      {!hidePallette ? (
-        <div className="f-column-7 aic">
-          <label className="text-little color-label">
-            Choose Background color
-          </label>
-          <ColorSelection handleColor={handleColor} selectedColor={color} />
-        </div>
-      ) : null}
-      <div
-        className={`rounded-33 ${_isMobile() ? 'p-4' : 'p-5'} f-column-33`}
-        style={{
-          background: `linear-gradient(135deg, ${color?.from}, ${color?.to})`
-        }}
-      >
+    <div
+      className="rounded px-5 py-5 f-column-33 w-100"
+      style={{
+        maxWidth: '650px',
+        flexShrink: 0,
+        background: `linear-gradient(35deg, ${color?.to}, ${color?.from})`
+      }}
+    >
+      <div className="f-column-15 text-center">
         <div className="f-column">
-          <div className="f-row-20 aic pb-1 feedback-card-header-section">
-            <div className="f-column feedback-card-header-right-section">
-              <p className="m-0 text-medium">
-                {feedbackDetails.name || defaultDetails.name}
-              </p>
-              <p className="text-tiny color-label m-0">
-                {feedbackDetails.jobTitle || defaultDetails.jobTitle} at{' '}
-                <span
-                  className={`${
-                    isUrl ? 'text-decoration-underline cursor-pointer' : ''
-                  }`}
-                  onClick={onCompany}
-                >
-                  {feedbackDetails.company || defaultDetails.company}
-                </span>
+          <div className="f-column-15 aic pb-1 jcsb">
+            <div className="f-column aic pb-1 jcsb">
+              <p className="m-0 font-12 color-label">{requester}</p>
+              <p className="font-11 m-0">@</p>
+              <p
+                className={`font-13 color-label m-0 ${
+                  companyWebsite
+                    ? 'text-decoration-underline cursor-pointer'
+                    : ''
+                }`}
+                onClick={() => {
+                  if (companyWebsite) {
+                    window.open(companyWebsite, '_blank')
+                  }
+                }}
+              >
+                {company}
               </p>
             </div>
-            <p className="m-0 font-11 txt-brand hw-mx py-1 px-2 rounded-10 bg-brand">
-              {feedbackDetails.category}
-            </p>
+            <div
+              className="text-center card-category position-relative rounded-40 px-2 py-1 hw-mx mx-auto"
+              style={{ border: `0.001rem solid ${color?.text}` }}
+            >
+              <p
+                className="m-0 font-9"
+                style={{ color: color?.text, letterSpacing: '1.2px' }}
+              >
+                {category}
+              </p>
+            </div>
           </div>
         </div>
-        <div className="question-feedback">
-          <OverViewHeader title="Question" />
-          <h4 className="mt-1">
-            <b>{feedbackDetails.subject || defaultDetails.subject}</b>
-          </h4>
+        <div className="pt-4 p-5">
+          <h5 className="m-0 font-21" style={{ lineHeight: '2.1rem' }}>
+            {subject}
+          </h5>
         </div>
-        <div className="context-feedback">
-          <CardItems
-            title="Purpose"
-            value={feedbackDetails.purpose || defaultDetails.purpose}
-          />
+      </div>
+      <div className="f-row-10 aic jcc mt-auto">
+        <div
+          className="f-row-7 aic hw-mx cursor-pointer py-3 px-4 rounded-33"
+          onClick={isFeedbackLink ? onNewFeedback : onGenerateLink}
+          style={{ border: `0.1px solid ${color?.text}` }}
+        >
+          {!isFeedbackLink && <GenerateSVG color={color?.text} />}
+          <p
+            className="m-0 font-11 text-little "
+            style={{ color: color?.text }}
+          >
+            <b>{isFeedbackLink ? 'New Feedback' : 'Generate Feedback Link'}</b>
+          </p>
         </div>
       </div>
     </div>
