@@ -73,7 +73,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="pb-5 pt-4 f-column-53">
+      <section className="pb-5 pt-4 px-3 f-column-53">
         <div className="section-text text-center f-column-20 header-text-content px-2">
           <LogoAnimated />
           <h2>Feedback Campaigns with Tevotea</h2>
@@ -81,7 +81,7 @@ const LandingPage = () => {
             Gather actionable insights to shape better products and experiences
           </p>
         </div>
-        <Reveal className="cta-wrapper container jcc">
+        <Reveal className="cta-wrapper container jcc px-4">
           <TypeButton
             buttonSize="large"
             buttonType="bold"
@@ -180,7 +180,7 @@ const LandingPage = () => {
           </div>
           {/* list-media */}
           <div className="list-media container">
-            <div className="list-container f-column-70 border-top border-bottom rounded-50 p-5">
+            <div className="list-container f-column-70 p-4">
               {/* list */}
               <ol className="p-0 m-0 px-4 pt-3">
                 {howItWorksList.map((i, index) => (
@@ -217,7 +217,7 @@ const LandingPage = () => {
               questions
             </h2>
           </div>
-          <div className="content border-0 border-top border-bottom rounded-50">
+          <div className="content border-0">
             <div className="AccordionSection bg-white">
               {faqdata.map((i, index) => (
                 <AccordionPageSection

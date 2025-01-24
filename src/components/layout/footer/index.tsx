@@ -3,7 +3,7 @@ import { PageContainer } from '../../utils/reusable'
 import { TypeButton, TypeSmallButton } from '../../utils/button'
 import './index.scss'
 import { HVC } from '../../utils/hvc'
-import { _isMobile } from '../../utils/helper'
+// import { _isMobile } from '../../utils/helper'
 import { useGlobalContext } from '../context'
 import { LogoAnimated } from '../../utils/hooks'
 
@@ -53,11 +53,11 @@ const Footer = memo(
                     So stop guessing, start building products & services users
                     love.
                   </p>
-                  <div className="cta-wrapper pt-4">
+                  <div className="cta-wrapper pt-4 w-100 px-4 jcc">
                     <TypeButton
                       buttonSize="large"
                       title="Create a Feedback Campaign"
-                      className={_isMobile() ? 'hw-mx mx-auto' : ''}
+                      // className={_isMobile() ? 'hw-mx mx-auto' : ''}
                       onClick={createFeedback}
                       buttonType="bold"
                     />
