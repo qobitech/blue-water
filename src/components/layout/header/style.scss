@@ -55,20 +55,20 @@
   width: 100%;
   list-style-type: none;
   justify-content: space-evenly;
-  li {
-    font-size: 12px;
-    color: #aaaaaa;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s ease;
-    &.active {
-      color: var(--brand);
-      cursor: default;
-    }
-    &:hover {
-      color: var(--brand);
-    }
-  }
+  // li {
+  //   font-size: 12px;
+  //   color: #aaaaaa;
+  //   cursor: pointer;
+  //   font-weight: 600;
+  //   transition: 0.2s ease;
+  //   &.active {
+  //     color: var(--brand);
+  //     cursor: default;
+  //   }
+  //   &:hover {
+  //     color: var(--brand);
+  //   }
+  // }
   @media (max-width: $md-breakpoint) {
     display: none;
   }
@@ -76,12 +76,16 @@
 
 .header-container-wrapper {
   z-index: 7;
-  background: #fff;
+  background: rgba(256, 256, 256, 0.8);
   width: 100%;
   height: auto;
   top: 0;
   left: 0;
   padding: 0;
+  position: relative;
+  &.fix-nav {
+    position: fixed;
+  }
   @media (max-width: $md-breakpoint) {
     background: #222222;
   }
@@ -113,7 +117,6 @@
 .header-container {
   display: flex;
   align-items: center;
-  background: #fff;
   width: 100%;
   height: 60px;
   padding: 0;
@@ -262,5 +265,169 @@
   margin-left: auto;
   @media (max-width: $md-breakpoint) {
     display: flex;
+  }
+}
+
+.nav-items-container {
+  transition: height 0.3s ease-in-out; /* Smooth height animation */
+  &.open {
+    height: 40vh;
+  }
+  &.close {
+    height: auto;
+  }
+  @media (max-width: $md-breakpoint) {
+    display: none;
+  }
+}
+
+.nav-items-header {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  li {
+    font-size: 0.85rem;
+    padding: 20px 0;
+    cursor: pointer;
+    svg {
+      transition: transform 0.3s ease;
+    }
+    &:hover {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// .back-drop {
+//   max-height: 0;
+//   opacity: 0;
+//   overflow: hidden;
+//   transition: max-height 0.4s ease, opacity 0.4s ease;
+//   top: 80px;
+//   left: 0;
+//   &.open {
+//     width: 100%;
+//     height: 100vh;
+//     max-height: 100vh;
+//     position: fixed;
+//     background: rgba(0, 0, 0, 0.1);
+//     z-index: 1;
+//     opacity: 1;
+//   }
+// }
+
+.sub-menu-tray {
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  padding: 40px 40px 60px;
+  border-bottom: 1px solid #efefef;
+  z-index: 7;
+  left: 50%;
+  top: 56px;
+  transform: translateX(-50%);
+  max-height: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  &.open {
+    max-height: 800px; /* Adjust to fit the submenu's content */
+    height: auto;
+    opacity: 1;
+  }
+  // @media (max-width: $md-breakpoint) {
+  //   display: none;
+  // }
+}
+
+.sub-menu-tray-child {
+  max-width: 1150px;
+  width: 100%;
+  margin: auto;
+}
+
+.sub-menu-product-product {
+  h5 {
+    margin: 0;
+    padding: 0 14px;
+    font-family: 'Outfit_Bold';
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      font-size: 0.8rem;
+      font-family: 'Outfit_SemiBold';
+      padding: 10px 14px;
+      border-radius: 5px;
+      width: max-content;
+      cursor: pointer;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      &.open {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .icon-container {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+      }
+      &:hover {
+        background: #f6f6f6;
+        .icon-container {
+          transform: scale(85%);
+        }
+      }
+    }
+  }
+}
+.sub-menu-product-features {
+  h5 {
+    margin: 0;
+    padding: 0 14px;
+    font-family: 'Outfit_Bold';
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      font-size: 0.7rem;
+      padding: 10px 14px;
+      border-radius: 5px;
+      width: max-content;
+      cursor: pointer;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      &.open {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .icon-container {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+      }
+      &:hover {
+        background: #f6f6f6;
+        .icon-container {
+          transform: scale(85%);
+        }
+      }
+    }
   }
 }

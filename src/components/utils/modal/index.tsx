@@ -123,7 +123,11 @@ const NotificationModal: React.FC<INotificationModal> = ({
             ) : null}
           </span>
         </Modal.Header>
-        <Modal.Body style={{ overflow: 'auto' }} className="px-4">
+        <Modal.Body
+          style={{ overflow: 'auto' }}
+          className="px-4"
+          id="modal-body"
+        >
           <div className="separator-h-10" />
           {matchChild}
         </Modal.Body>

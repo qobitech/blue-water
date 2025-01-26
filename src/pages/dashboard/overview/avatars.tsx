@@ -1,11 +1,5 @@
 import { useEffect } from 'react'
 import { useGetCommunityForum } from '../../../api/community-forum'
-import {
-  CasualSVG,
-  ConservativeSVG,
-  ProfitableSVG,
-  RiskTakerSVG
-} from '../../../components/utils/svgs'
 import Skeleton from '../../../components/utils/skeleton'
 import { IGETCommunityForum } from '../../../interface/ICommunityForum'
 import { useGlobalContext } from '../../../components/layout/context'
@@ -60,10 +54,10 @@ const AvatarsBody = () => {
   }
 
   const avatarsData: { [key: string]: JSX.Element } = {
-    profitable: <ProfitableSVG />,
-    'risk taker': <RiskTakerSVG />,
-    conservative: <ConservativeSVG />,
-    casual: <CasualSVG />
+    profitable: <></>,
+    'risk taker': <></>,
+    conservative: <></>,
+    casual: <></>
   }
 
   if (!avatars?.length && getCFProps.isLoading)

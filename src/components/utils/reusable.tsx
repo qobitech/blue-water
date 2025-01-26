@@ -3,23 +3,7 @@ import { buttonType, TypeButton } from './button'
 import TextPrompt from './text-prompt'
 import { BG, BUTTON_PRIMARY, DISABLED_COLOR } from '../../constants/global'
 import { useNavigate } from 'react-router-dom'
-import {
-  AmericanFootballSVG,
-  BaseBallSVG,
-  BasketBallSVG,
-  BoxingSVG,
-  IceHockeySVG,
-  NoticeSVG,
-  PingPongSVG,
-  PreviewSVG,
-  PulseSVG,
-  RefreshSVG,
-  RugbySVG,
-  SoccerSVG,
-  TennisSVG,
-  TrashSVG,
-  VolleyBallSVG
-} from './svgs'
+import { NoticeSVG, PreviewSVG, PulseSVG, RefreshSVG, TrashSVG } from './svgs'
 import './index.scss'
 import ButtonLoader from './button/button-loader'
 import { HVC, HVCLoad } from './hvc'
@@ -857,25 +841,25 @@ export const getSportIcon = (sport: string) => {
   const sportsIcon = () => {
     switch (sport.toLowerCase()) {
       case 'american football':
-        return <AmericanFootballSVG />
+        return <></>
       case 'base ball':
-        return <BaseBallSVG />
+        return <></>
       case 'basket ball':
-        return <BasketBallSVG />
+        return <></>
       case 'boxing':
-        return <BoxingSVG />
+        return <></>
       case 'ice hockey':
-        return <IceHockeySVG />
+        return <></>
       case 'rugby':
-        return <RugbySVG />
+        return <></>
       case 'soccer':
-        return <SoccerSVG />
+        return <></>
       case 'table tennis':
-        return <PingPongSVG />
+        return <></>
       case 'tennis':
-        return <TennisSVG />
+        return <></>
       case 'volley ball':
-        return <VolleyBallSVG />
+        return <></>
       default:
         return <></>
     }

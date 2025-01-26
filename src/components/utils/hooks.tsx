@@ -22,8 +22,8 @@ import {
 } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import Lottie from 'react-lottie'
-import wave from '../../assets/animation/audio.json'
+// import Lottie from 'react-lottie'
+// import wave from '../../assets/animation/audio.json'
 
 import axios from 'axios'
 import { HVC, HVCLoad } from './hvc'
@@ -35,7 +35,8 @@ import {
   PreviewSVG,
   RefreshSVG,
   RemoveSVG,
-  UploadSVG
+  UploadSVG,
+  WaveSVG
 } from './svgs'
 import { formatBytes } from './helper'
 import { TypeButton } from './button'
@@ -182,18 +183,13 @@ export const Loader = ({ loader }: { loader: boolean }) => {
 }
 
 export const LogoAnimated = () => {
-  const mobileOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: wave,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
   return (
-    <div className="lottie-ball-container mx-auto text-center">
-      <div className="lottie-ball mx-auto text-center">
-        <Lottie options={mobileOptions} />
+    <div className="mx-auto text-center position-relative hw-mx">
+      <div
+        className="m-auto hw-mx position-absolute"
+        style={{ top: '-33px', left: '-2.1px' }}
+      >
+        <WaveSVG />
       </div>
       <div className="svg-wrapper hw-mx">
         <LogoNoWaveSVG />

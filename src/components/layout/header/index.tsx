@@ -22,6 +22,7 @@ import Profile from './profile'
 import { HVC } from '../../utils/hvc'
 // import { useNavigate } from 'react-router-dom'
 import { HamburgerSVG } from '../../utils/svgs'
+import { NavItems } from './nav-items'
 
 interface IHeader {
   setMenu: () => void
@@ -81,8 +82,12 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
   const isDashboard = route !== 'public' && route !== 'auth'
 
   return (
-    <div className={`header-container-wrapper ${isDashboard ? '' : 'p-2'}`}>
-      <div className="header-container">
+    <div
+      className={`header-container-wrapper ${
+        isDashboard ? '' : 'px-2 fix-nav'
+      }`}
+    >
+      <div className="header-container gap-73">
         <HeaderBrand isMenu={isDashboard} setMenu={setMenu} />
         <HVC view={isDashboard} removeDOM className="w-100">
           <div className="nav-profile-container gap-60">
@@ -98,7 +103,8 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
             <DropDownMenu id="dropdownMenuButton" items={dropDownItems} />
           </div>
         </HVC>
-        <HVC view={!isDashboard} removeDOM className="w-100">
+        <HVC view={!isDashboard} removeDOM className="w-100 f-row aic">
+          <NavItems />
           <div className="nav-profile-container gap-20 mr-4">
             <ActionComponent
               title="Get Started"

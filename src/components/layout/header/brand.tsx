@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { GETDASHBOARDURL } from '../../../constants/global'
 import { HamburgerSVG } from '../../utils/svgs/f-awesome'
 import { LogoTextSVG } from '../../utils/svgs'
@@ -10,6 +10,7 @@ interface IHeaderBrand {
 }
 
 const HeaderBrand = memo(({ isMenu, setMenu }: IHeaderBrand) => {
+  const navigate = useNavigate()
   return (
     <div className="f-row-23 aic">
       {isMenu && (
@@ -17,13 +18,14 @@ const HeaderBrand = memo(({ isMenu, setMenu }: IHeaderBrand) => {
           <HamburgerSVG />
         </div>
       )}
-      <Link to={GETDASHBOARDURL()} className={`header-link-container`}>
-        <div className="py-1">
-          <div className="logo-container">
-            <LogoTextSVG width="75" />
-          </div>
+      <div
+        className={`header-link-container`}
+        onClick={() => navigate(GETDASHBOARDURL())}
+      >
+        <div className="logo-container">
+          <LogoTextSVG width="63" />
         </div>
-      </Link>
+      </div>
     </div>
   )
 })

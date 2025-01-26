@@ -43,6 +43,21 @@
   src: url('./assets/fonts/Akkurat-Light.woff2') format('woff2');
   src: url('./assets/fonts/Akkurat-Light.svg') format('svg'); */
 }
+@font-face {
+  font-family: 'Outfit_SemiBold';
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+  src: url('./assets/fonts/futstat/Fustat-SemiBold.ttf') format('truetype');
+  /* src: url('./assets/fonts/futstat/fustat-latin-200-normal.woff2')
+    format('woff2'); */
+  /* src: url('./assets/fonts/Akkurat-Light.eot');
+  src: url('./assets/fonts/Akkurat-Light.eot') format('embedded-opentype');
+  src: url('./assets/fonts/Akkurat-Light.ttf') format('truetype');
+  src: url('./assets/fonts/Akkurat-Light.woff') format('woff');
+  src: url('./assets/fonts/Akkurat-Light.woff2') format('woff2');
+  src: url('./assets/fonts/Akkurat-Light.svg') format('svg'); */
+}
 
 h1,
 h2,
@@ -780,4 +795,25 @@ input::file-selector-button {
 
 .bg-brand {
   background: #fff4f2;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

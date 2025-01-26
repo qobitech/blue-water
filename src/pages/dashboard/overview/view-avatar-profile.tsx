@@ -5,13 +5,9 @@ import { TypeButton, TypeSmallButton } from '../../../components/utils/button'
 import { HVC } from '../../../components/utils/hvc'
 import {
   ArrowLeftSVG,
-  CasualSVG,
-  ConservativeSVG,
   LeftNavSVG,
   PreviewSVG,
-  ProfitableSVG,
-  RightNavSVG,
-  RiskTakerSVG
+  RightNavSVG
 } from '../../../components/utils/svgs'
 import { useJoinCommunityForum } from '../../../api/community-forum'
 import { IGETCommunityForum } from '../../../interface/ICommunityForum'
@@ -78,10 +74,10 @@ const prosCons: { [key: string]: { pros: string[]; cons: string[] } } = {
 }
 
 const avatarIcons: { [key: string]: JSX.Element } = {
-  profitable: <ProfitableSVG />,
-  'risk taker': <RiskTakerSVG />,
-  conservative: <ConservativeSVG />,
-  casual: <CasualSVG />
+  profitable: <></>,
+  'risk taker': <></>,
+  conservative: <></>,
+  casual: <></>
 }
 
 const stageEnum = {

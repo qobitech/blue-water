@@ -43,6 +43,7 @@ const RightSection = <T extends {}>({
         <div className="back-drop" onClick={rsProps.closeSection} />
       ) : null}
       <div
+        id="right-section"
         className={`right_container ${
           rsProps.openSection ? 'menuopen' : 'menuclose'
         } ${rsProps.max ? 'max' : ''}`}

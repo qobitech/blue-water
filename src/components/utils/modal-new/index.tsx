@@ -81,7 +81,9 @@ const ModalCustom: React.FC<IModal> = ({
             Close
           </p>
         </div>
-        <div className={modalbody}>{children}</div>
+        <div className={modalbody} id="modal-body-new">
+          {children}
+        </div>
       </div>
     </div>
   )

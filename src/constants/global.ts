@@ -869,5 +869,10 @@ export const feedbackCategory = [
   {
     name: 'Event Feedback',
     description: 'Responses on live events, webinars, or product launches.'
+  },
+  {
+    name: 'Incentive Activities',
+    description:
+      'Fun challenges like trivia or competitions for a chance to win exciting prizes.'
   }
 ]

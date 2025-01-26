@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './style.scss'
 import { TypeButton } from '../../../components/utils/button'
 import { Reveal } from './utils'
@@ -9,9 +9,31 @@ import { LogoAnimated } from '../../../components/utils/hooks'
 import designedforyou from '../../../assets/images/designed-for-you.jpg'
 import { FeedBackCard } from './feedback-card'
 import { SubReveal } from './sub-reveal'
+import Lenis from 'lenis'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      smoothWheel: true,
+      anchors: true,
+      prevent: (node) =>
+        ['right-section', 'modal-body', 'modal-body-new'].includes(node.id)
+    })
+
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf) // Keep the scroll smooth
+    }
+
+    const frameId = requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy() // Clean up Lenis instance
+      cancelAnimationFrame(frameId) // Cancel the animation frame to avoid memory leaks
+    }
+  }, [])
 
   const howItWorksList = [
     'Create a Feedback Campaign',
@@ -49,48 +71,41 @@ const LandingPage = () => {
   return (
     <div className="landing-page-wrapper bg-white">
       {/* jumbotron */}
-      <section className="video-background d-none">
+      <section className="video-background">
         <div className="content container">
-          <Reveal className="f-column-53 text-center">
+          <div className="f-column-43 text-center">
             {/* lottie */}
-            <div className="content-text text-center">
-              <LogoAnimated />
-              <h1>Get Real Feedback From Anyone, Anywhere</h1>
-              <h2>feedback made simple</h2>
+            <div className="content-text text-center px-4">
+              <div className="pb-3">
+                <LogoAnimated />
+              </div>
+              <h1>
+                Feedback Campaigns with{' '}
+                <span className="outline-text gradient-stroke fancy-underline">
+                  Tevotea
+                </span>
+              </h1>
+              <h2>
+                Gather actionable insights to shape better products and
+                experiences
+              </h2>
             </div>
             {/* button */}
-            <div className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
+            <Reveal className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
               <TypeButton
-                title="Start Collecting Feedback"
+                title="Create a Feedback Campaign"
                 buttonSize="large"
                 aria-label="Proceed to Sign up oor Sign in"
                 className="hw-mx mx-auto"
                 onClick={createFeedback}
               />
-            </div>
-            <p className="m-0 color-label font-16">It&apos;s free</p>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
       {/* feedback cards */}
-      <section className="pb-5 pt-4 px-3 f-column-53">
-        <div className="section-text text-center f-column-20 header-text-content px-2">
-          <LogoAnimated />
-          <h2>Feedback Campaigns with Tevotea</h2>
-          <p>
-            Gather actionable insights to shape better products and experiences
-          </p>
-        </div>
-        <Reveal className="cta-wrapper container jcc px-4">
-          <TypeButton
-            buttonSize="large"
-            buttonType="bold"
-            title="Create a Feedback Campaign"
-            aria-label="Collect Audio Feedback"
-            onClick={createFeedback}
-          />
-        </Reveal>
-        <div className="f-row-18 ais pb-5 px-3" style={{ overflow: 'auto' }}>
+      <section className="f-column-53 pb-5">
+        <div className="f-row-18 ais pb-5 pl-3" style={{ overflow: 'auto' }}>
           {content.map((i, index) => (
             <FeedBackCard
               subject={i.subject}
