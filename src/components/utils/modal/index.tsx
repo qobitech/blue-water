@@ -1,6 +1,7 @@
 import { useState, useRef, Children } from 'react'
 import { Modal } from 'react-bootstrap'
 import { CloseSVG } from '../svgs'
+import { LogoAnimated } from '../hooks'
 
 export interface IUseNotificationModal {
   openModal: boolean
@@ -97,7 +98,10 @@ const NotificationModal: React.FC<INotificationModal> = ({
         }}
       >
         <Modal.Header className="f-row jcc ">
-          <span className="position-relative w-100 text-center">
+          <div className="position-relative w-100 text-center f-row-17 aic jcc">
+            <div className="position-absolute" style={{ left: 0 }}>
+              <LogoAnimated />
+            </div>
             <h5
               className="modal-title text-center"
               style={{ fontSize: '14px', fontFamily: 'var(--Inter-medium)' }}
@@ -121,7 +125,7 @@ const NotificationModal: React.FC<INotificationModal> = ({
                 <CloseSVG />
               </span>
             ) : null}
-          </span>
+          </div>
         </Modal.Header>
         <Modal.Body
           style={{ overflow: 'auto' }}

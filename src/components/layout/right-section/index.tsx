@@ -1,6 +1,6 @@
 import { Children } from 'react'
 import { TypeButton } from '../../utils/button'
-import { Loader2 } from '../../utils/hooks'
+import { Loader2, LogoAnimated } from '../../utils/hooks'
 import TextPrompt from '../../utils/text-prompt'
 import { BellBoldSVG, BellOutlineSVG, VerifiedSVG } from '../../utils/svgs'
 import { IUseBetMultiBetTicket } from '../../../api/multi-prediction'
@@ -48,7 +48,7 @@ const RightSection = <T extends {}>({
           rsProps.openSection ? 'menuopen' : 'menuclose'
         } ${rsProps.max ? 'max' : ''}`}
       >
-        <div className="rs-header">
+        <div className="rs-header aic">
           <div className="ctas">
             <TypeButton
               title=""
@@ -60,6 +60,9 @@ const RightSection = <T extends {}>({
             />
           </div>
           {isTitleString ? <h3>{rsProps.title}</h3> : rsProps.title}
+          <div className="ml-auto">
+            <LogoAnimated />
+          </div>
         </div>
         {rsProps.isSectionHistory ? (
           <div
