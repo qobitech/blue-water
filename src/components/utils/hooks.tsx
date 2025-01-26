@@ -35,8 +35,9 @@ import {
   PreviewSVG,
   RefreshSVG,
   RemoveSVG,
-  UploadSVG,
-  WaveSVG
+  TeaVapourSVG,
+  UploadSVG
+  // WaveSVG
 } from './svgs'
 import { formatBytes } from './helper'
 import { TypeButton } from './button'
@@ -187,9 +188,9 @@ export const LogoAnimated = () => {
     <div className="mx-auto text-center position-relative hw-mx">
       <div
         className="m-auto hw-mx position-absolute"
-        style={{ top: '-33px', left: '-2.1px' }}
+        style={{ top: '-23px', left: '-6.4px' }}
       >
-        <WaveSVG />
+        <TeaVapourSVG />
       </div>
       <div className="svg-wrapper hw-mx">
         <LogoNoWaveSVG />

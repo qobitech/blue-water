@@ -1015,13 +1015,13 @@ export const WaveSVG = () => {
     >
       <style>
         {`@keyframes wave {
-      0%, 100% {
-        transform: scaleY(0.9);
-      }
-      50% {
-        transform: scaleY(1.2);
-      }
-    }
+          0%, 100% {
+              transform: scaleY(0.9);
+          }
+          50% {
+              transform: scaleY(1.2);
+          }
+        }
 
     .line {
       animation: wave 1s ease-in-out infinite;
@@ -1037,7 +1037,7 @@ export const WaveSVG = () => {
     }
 
     .line3 {
-      animation-delay: 0.1s;
+      animation-delay: 0.2s;
     }
 
     .line4 {
@@ -1076,7 +1076,7 @@ export const WaveSVG = () => {
         rx="5"
         ry="5"
         width="15"
-        height="100"
+        height="110"
         fill="#000"
       />
       <rect
@@ -1222,6 +1222,81 @@ export const WaterWaveSVG = () => {
         fill="#e1f3ff"
         d="M0,160 C360,190 720,120 1080,160 S1440,190 1800,160 V200 H0 Z"
       />
+    </svg>
+  )
+}
+
+export const TeaVapourSVG = () => {
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 200 300"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <style>
+        {`@keyframes vapor {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+      }
+      50% {
+        opacity: 0.6;
+        transform: translateY(-40px) scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+
+    .vapor {
+      animation: vapor 4s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .vapor1 {
+      animation-delay: 0s;
+    }
+
+    .vapor2 {
+      animation-delay: 1s;
+    }
+
+    .vapor3 {
+      animation-delay: 2s;
+    }`}
+      </style>
+
+      <path
+        className="vapor vapor1"
+        d="M50,200 C60,150 140,150 150,200"
+        fill="none"
+        stroke="#000"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+
+      <path
+        className="vapor vapor2"
+        d="M70,220 C80,180 120,180 130,220"
+        fill="none"
+        stroke="#000"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+
+      <path
+        className="vapor vapor3"
+        d="M90,240 C100,210 110,210 120,240"
+        fill="none"
+        stroke="#000"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      {/* <ellipse cx="100" cy="250" rx="60" ry="10" fill="#8B4513" />
+      <rect x="40" y="250" width="120" height="20" fill="#8B4513" />
+      <ellipse cx="100" cy="270" rx="60" ry="10" fill="#A0522D" /> */}
     </svg>
   )
 }
