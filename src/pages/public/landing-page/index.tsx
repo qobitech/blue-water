@@ -126,7 +126,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* specialization */}
-      <section className="py-5 f-column-33 px-3">
+      <section className="py-5 f-column-33 px-3 mb-5">
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
           <h2>Designed for You</h2>
@@ -188,7 +188,7 @@ const LandingPage = () => {
       >
         <div className="f-column-30 m-0">
           {/* text and tab section */}
-          <div className="section-text text-center f-column-40 container header-text-content">
+          <div className="section-text text-center f-column-20 container header-text-content">
             <LogoAnimated />
             {/* text */}
             <h2>How It Works</h2>
@@ -226,7 +226,9 @@ const LandingPage = () => {
       <section className="faq section-text" ref={faqRef}>
         <div className="container f-column-40">
           <div className="container text-center">
-            <LogoAnimated />
+            <div className="pb-3">
+              <LogoAnimated />
+            </div>
             <h2>
               Frequently asked <br />
               questions
