@@ -185,7 +185,10 @@ export const Loader = ({ loader }: { loader: boolean }) => {
 
 export const LogoAnimated = () => {
   return (
-    <div className="mx-auto text-center position-relative hw-mx">
+    <div
+      className="mx-auto text-center position-relative hw-mx"
+      title="Tevotea"
+    >
       <div
         className="m-auto hw-mx position-absolute"
         style={{ top: '-23px', left: '-6.4px' }}

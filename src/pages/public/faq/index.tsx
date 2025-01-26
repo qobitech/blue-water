@@ -134,7 +134,7 @@ export const AccordionPageSection = ({
       </div>
       {isId && (
         <div className="accordion-row-body">
-          <p className="m-0 ff-regular" style={{ fontSize: '14px' }}>
+          <p className="m-0 ff-regular font-14" style={{ lineHeight: '24px' }}>
             {answer}
           </p>
         </div>

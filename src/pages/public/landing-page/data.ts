@@ -155,7 +155,7 @@ export const faqdata = [
   {
     id: 1,
     header: 'What is Tevotea?',
-    answer: `Tevotea is a voice feedback platform tailored for professionals and organizations that prioritize authentic audience engagement. It simplifies the process of collecting detailed, voice-recorded feedback, enabling brands to deepen connections and make informed decisions without the constraints of live calls or traditional surveys.`
+    answer: `Tevotea simplifies the process of collecting detailed, customer feedback, transforms the feedback into valuable insights and actionable items to help shape better products and services.`
   },
   // {
   //   id: 2,
