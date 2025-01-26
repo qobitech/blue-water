@@ -91,12 +91,11 @@ const LandingPage = () => {
               </h2>
             </div>
             {/* button */}
-            <Reveal className="f-row-30 jcc flex-wrap content-cta cta-wrapper">
+            <Reveal className="cta-wrapper container f-row jcc">
               <TypeButton
                 title="Create a Feedback Campaign"
                 buttonSize="large"
                 aria-label="Proceed to Sign up oor Sign in"
-                className="hw-mx mx-auto"
                 onClick={createFeedback}
               />
             </Reveal>
@@ -104,7 +103,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="f-column-53 pb-5">
+      <section className="f-column-53 pt-4 pb-5">
         <div className="f-row-18 ais pb-5 pl-3" style={{ overflow: 'auto' }}>
           {content.map((i, index) => (
             <FeedBackCard
