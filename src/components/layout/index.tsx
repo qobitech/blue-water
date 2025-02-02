@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useMemo, useState } from 'react'
 import Header from './header'
 import SideMenu, { menuData } from './side-menu'
 import {
@@ -7,15 +7,10 @@ import {
   UNDER_CONSTRUCTION,
   betChannelTabEnum,
   betTipsTabEnum,
-  encodeData,
   filterQueryType,
-  getUserRole,
   getIsAdminLogged,
   getIsLogged,
-  roleType,
   transactionItemType,
-  typeRoleId,
-  getUserData,
   routeType
 } from '../../constants/global'
 import Footer from './footer'
@@ -29,9 +24,6 @@ import { useTabSection } from '../utils/reusable'
 import { useCopy } from '../utils/hooks'
 import { useGlobalBetChannelQuery } from '../../api/channels'
 import ScrollIntoViewController from './scroll-into-view-controller'
-import { useGetUserProfile } from '../../api/user'
-import { IDefaultGETTemplate } from '../../api'
-import { IUser } from '../../interface/IUser'
 import {
   _isMobile,
   getSubAmount,
@@ -179,24 +171,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
     return <UnderConstruction />
   }
 
-  const onUserProfileSuccess = (data: IDefaultGETTemplate<{ user: IUser }>) => {
-    const userData = data.data.user
-    const userRole = getUserRole(userData.role as typeRoleId)
-    encodeData(userData, userRole as roleType)
-  }
-
-  const getUserProfileProps = useGetUserProfile(onUserProfileSuccess)
-
-  const refreshUserData = () => {
-    getUserProfileProps.mutate({})
-  }
-
-  useEffect(() => {
-    if (getUserData()?.user?._id) {
-      refreshUserData()
-    }
-  }, [])
-
   const refreshNotificationMessages = () => {}
 
   // const refreshCartItems = () => {
@@ -299,7 +273,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
         betChannelTabProps,
         betChannelProps,
         copyProps,
-        refreshUserData,
         setPaymentItemType,
         triggerConfetti: setConfetti,
         setShowConsentBanner,
