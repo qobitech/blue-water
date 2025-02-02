@@ -17,6 +17,8 @@ import Profile from './profile'
 import { HVC } from '../../utils/hvc'
 import { HamburgerSVG } from '../../utils/svgs'
 import { NavItems } from './nav-items'
+import { useNavigate } from 'react-router-dom'
+import { pageurl } from '../../../constants/pageurl'
 
 interface IHeader {
   setMenu: () => void
@@ -26,7 +28,7 @@ interface IHeader {
 }
 
 const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const membership = useMemo(
     () =>
@@ -62,13 +64,13 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
     {
       label: 'Explore the Property',
       action: () => {
-        // navigate(pageurl.REGISTER)
+        navigate(pageurl.REGISTER)
       }
     },
     {
       label: 'Partner with Us',
       action: () => {
-        // navigate(pageurl.LOGIN)
+        navigate(pageurl.LOGIN)
       }
     }
   ]
@@ -82,7 +84,10 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
       }`}
     >
       <div className="header-container gap-73">
-        <HeaderBrand isMenu={isDashboard} setMenu={setMenu} />
+        <HeaderBrand
+          isMenu={isDashboard}
+          setMenu={() => navigate(pageurl.HOME)}
+        />
         <HVC view={isDashboard} removeDOM className="w-100">
           <div className="nav-profile-container gap-60">
             <NotificationWidget />

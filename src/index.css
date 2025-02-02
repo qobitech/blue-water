@@ -3,7 +3,14 @@
   font-weight: normal;
   font-display: inherit;
   font-style: normal;
-  src: url('./assets/fonts/cairo/Cairo-Bold.ttf') format('truetype');
+  src: url('./assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Didot';
+  font-weight: normal;
+  font-display: inherit;
+  font-style: normal;
+  src: url('./assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -11,7 +18,7 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/cairo/Cairo-Regular.ttf') format('truetype');
+  src: url('./assets/fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -19,14 +26,14 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/cairo/Cairo-Light.ttf') format('truetype');
+  src: url('./assets/fonts/open-sans/OpenSans-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Outfit_SemiBold';
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/cairo/Cairo-SemiBold.ttf') format('truetype');
+  src: url('./assets/fonts/open-sans/OpenSans-SemiBold.ttf') format('truetype');
 }
 
 h1,

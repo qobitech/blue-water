@@ -40,12 +40,10 @@ import {
 } from '../utils/helper'
 import './style.scss'
 import Confetti from '../utils/confetti'
-// import FeedbackWidget from './feed-back'
 import UnderConstruction from '../../pages/underconstruction'
 import ConsentBanner from '../../pages/public/consent-banner'
 import CookiePreferencesModal from '../../pages/public/consent-banner/modal'
 import WaitingListModal from '../../pages/public/waiting-list'
-import SubscribeModal from '../../pages/public/subscribe'
 import { GlobalContext } from './context'
 import NotificationCard from './notification-card'
 import { IComponentState } from './global-schema'
@@ -318,7 +316,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
         status={notification.status}
         handleNotification={handleNotification}
       />
-      <SubscribeModal isVisible={subscribe} setIsVisible={setSubscribe} />
       <WaitingListModal
         isVisible={joinWaitingList}
         setIsVisible={setJoinWaitingList}

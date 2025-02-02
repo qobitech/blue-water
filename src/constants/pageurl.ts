@@ -3,6 +3,7 @@ export const isAdmin = '/admin/dashboard'
 
 export const pageurl = {
   HOME: '/',
+  ABOUT: '/about',
   REGISTER: '/auth/signup',
   LOGIN: '/auth/login',
   ACTIVATEACCOUNT: '/auth/activate',

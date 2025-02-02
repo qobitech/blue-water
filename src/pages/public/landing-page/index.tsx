@@ -13,6 +13,8 @@ import {
   OpportunitySVG,
   PartnerSVG
 } from '../../../components/utils/svgs'
+import { LogoSVG } from '../../../components/utils/svgs/f-awesome'
+import { BRANDCOLOR } from '../../../constants/global'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
@@ -79,10 +81,14 @@ const LandingPage = () => {
         <div className="content container">
           <div className="f-column-43 text-center">
             <div className="content-text text-left px-4 f-column-33">
-              <h2 className="">
-                Discover Prime Waterfront property for Visionary developers
-              </h2>
-              <h1>Your Gateway to Transformative Waterfront Development</h1>
+              <div className="f-row-17 aic">
+                <h2 className="m-0">
+                  Discover Prime Waterfront property for Visionary developers
+                </h2>
+              </div>
+              <h1 style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
+                Your Gateway to Transformative Waterfront Development
+              </h1>
             </div>
             <Reveal className="cta-wrapper container f-row">
               <TypeButton
@@ -122,7 +128,10 @@ const LandingPage = () => {
             >
               {i.icon}
             </div>
-            <h4 className="m-0">
+            <h4
+              className="m-0"
+              style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}
+            >
               <b>{i.label}</b>
             </h4>
             <h6 className="m-0" style={{ lineHeight: '1.7rem' }}>
@@ -132,8 +141,13 @@ const LandingPage = () => {
         ))}
       </section>
       <section className="py-5 f-column-33 px-3 mb-5">
-        <div className="section-text text-center f-column-20 header-text-content">
-          <h2>Why Choose Us?</h2>
+        <div className="section-text text-center header-text-content">
+          <div className="text-center">
+            <LogoSVG />
+          </div>
+          <h2 style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
+            Why Choose Us?
+          </h2>
         </div>
         <SubReveal
           className="container grid-wrapper-40 gap-33 mt-3 rounded-25"
@@ -145,10 +159,10 @@ const LandingPage = () => {
             alt="Designed for you"
             style={{ width: '100%', borderRadius: '20px' }}
           />
-          <div className="f-column-45 jcc">
-            <div className="f-column-13 designed-for-you">
-              <h2>
-                <span className="fancy-underline">BlueWater Realty</span> is
+          <div className="f-column-55 jcc">
+            <div className="f-column-23 designed-for-you">
+              <h2 className="m-0">
+                <span className="fancy-underline">BlueWater Shores</span> is
                 your trusted partner in sustainable and innovative land
                 development with clear, transparent processes and support from
                 start to finish
@@ -182,7 +196,10 @@ const LandingPage = () => {
       <section className="faq section-text" ref={faqRef}>
         <div className="container f-column-40">
           <div className="container text-center">
-            <h2>
+            <div className="text-center">
+              <LogoSVG />
+            </div>
+            <h2 style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
               Frequently asked <br />
               questions
             </h2>

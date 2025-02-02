@@ -1,105 +1,11 @@
-import { useState, FC } from 'react'
-import {
-  HeaderComponent,
-  PageContainer,
-  startSubscription
-} from '../../../components/utils/reusable'
-import DashboardWrapper from '../../../components/layout/dashboard-wrapper'
-import { BG, showAmount } from '../../../constants/global'
+import { useState } from 'react'
+import { startSubscription } from '../../../components/utils/reusable'
+import { showAmount } from '../../../constants/global'
 import { TypeInput } from '../../../components/utils/input'
 import { MinusSVG, PlusSVG } from '../../../components/utils/svgs'
 import './style.scss'
 
 export const PAGE_SIZE = 10
-
-interface IFAQ {
-  ye?: any
-}
-
-const FAQPage: FC<IFAQ> = () => {
-  const instructiondata = [
-    {
-      id: 1,
-      header: 'How to Subscribe ?',
-      answer: 'no content'
-    },
-    {
-      id: 2,
-      header: 'How to Register ?',
-      answer: 'no content'
-    },
-    {
-      id: 3,
-      header: 'How to Get Subscribers ?',
-      answer: 'no content'
-    },
-    {
-      id: 4,
-      header: 'What is a Bet Stat ?',
-      answer: 'no content'
-    },
-    {
-      id: 5,
-      header: 'What is a Channel ?',
-      answer: 'no content'
-    },
-    {
-      id: 6,
-      header: 'What is a Bet Tag ?',
-      answer: 'no content'
-    }
-  ]
-
-  const [openAccordion, setOpenAccordion] = useState(0)
-
-  return (
-    <>
-      <div className={`PageWrapper ${BG}`}>
-        <PageContainer>
-          <div className="py-3" />
-          <DashboardWrapper>
-            <HeaderComponent title="FAQ">
-              <div className="ResponsiveDivLeft py-2">
-                <p className="m-0 text-small">Need answers, find them here</p>
-              </div>
-            </HeaderComponent>
-            <div className="py-2" />
-            <div className="bg-white accordion-section">
-              {instructiondata.map((i, index) => (
-                <AccordionPageSection
-                  answer={i.answer}
-                  header={i.header}
-                  id={i.id}
-                  key={i.id}
-                  index={index + 1}
-                  noborder={
-                    index === instructiondata.length - 1 ? 'true' : 'false'
-                  }
-                  setOpenAccordion={setOpenAccordion}
-                  openAccordion={openAccordion}
-                />
-              ))}
-            </div>
-            <div className="py-3" />
-            <div className="ResponsiveDivLeft pt-3 pb-1">
-              <p className="text-little m-0 color-light">
-                Couldn&apos;t find what you&apos;re looking for?
-              </p>
-            </div>
-            <div className="ResponsiveDivLeft">
-              <p>
-                Write to us at{' '}
-                <span className="color-brand">contact@mytipster.pro</span>
-              </p>
-            </div>
-          </DashboardWrapper>
-        </PageContainer>
-      </div>
-    </>
-  )
-}
-
-export default FAQPage
 
 export const AccordionPageSection = ({
   id,

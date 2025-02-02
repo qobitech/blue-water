@@ -4,7 +4,6 @@ export interface INavItem {
   title: string
   isParent: boolean
   onClick: () => void
-  onMouseEnter: () => void
 }
 
 export interface IMenuItem {
@@ -22,7 +21,7 @@ export interface ISubMenuTray {
 
 export const menuItems: IMenuItem[] = [
   {
-    title: 'About BlueWater Realty',
+    title: 'About Us',
     url: ''
   }
 ]

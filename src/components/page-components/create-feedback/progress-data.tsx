@@ -3,9 +3,8 @@ import { createFeedbackStage, IStageArray } from './utils'
 
 export const ProgressData = ({ stage }: { stage: createFeedbackStage }) => {
   const stageArray: IStageArray[] = [
-    { stage: 'Feedback Campaign', isComplete: false },
-    { stage: 'Authentication', isComplete: false },
-    { stage: 'Generate Feedback Link', isComplete: false }
+    { stage: 'Contact Us', isComplete: false },
+    { stage: 'Response Status', isComplete: false }
   ]
 
   const pClass = (i: string) =>

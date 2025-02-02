@@ -22,27 +22,33 @@ const RegisterForm: FC<IRegisterForm> = ({
       placeHolder: 'Enter your email address'
     },
     {
-      label: 'Your Organization',
-      id: 'company',
+      label: 'Phone',
+      id: 'phone',
       component: 'input',
-      placeHolder: `The name of your company or project?`
+      placeHolder: `Enter your phone number`
     },
     {
-      label: 'Organization Website (Optional)',
-      id: 'companyUrl',
-      component: 'input',
-      placeHolder: 'Enter company or project website'
-    },
-    {
-      label: `What's your job title?`,
-      id: 'jobTitle',
-      component: 'input',
-      placeHolder: 'e.g., Product Manager, Content Creator'
+      label: 'Message',
+      id: 'message',
+      component: 'text-area',
+      placeHolder: `Enter message here`
     }
+    // {
+    //   label: 'Organization Website (Optional)',
+    //   id: 'companyUrl',
+    //   component: 'input',
+    //   placeHolder: 'Enter company or project website'
+    // },
+    // {
+    //   label: `What's your job title?`,
+    //   id: 'jobTitle',
+    //   component: 'input',
+    //   placeHolder: 'e.g., Product Manager, Content Creator'
+    // }
   ]
   return (
     <div className="f-column-33 py-4">
-      <div className="text-center">
+      <div className="text-center d-none">
         <p className="m-0 p-0 text-small">
           <span className="color-label">Already have an account?</span>
           &nbsp;&nbsp;
@@ -51,7 +57,7 @@ const RegisterForm: FC<IRegisterForm> = ({
           </span>
         </p>
       </div>
-      <div className="text-center">
+      <div className="text-center d-none">
         <p className="m-0">OR</p>
       </div>
       <div className="f-column-23">
@@ -61,6 +67,7 @@ const RegisterForm: FC<IRegisterForm> = ({
         title={btnTitle}
         onClick={handleRegister}
         buttonSize="large"
+        buttonShape="square"
       />
     </div>
   )

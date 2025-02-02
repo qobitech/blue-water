@@ -702,6 +702,8 @@ export const BG = 'bg-mytipster'
 
 export const ISWELCOME = getUserData()?.user?.welcome
 
+export const BRANDCOLOR = '#05254C'
+
 export const GETISUSERSUSPENDED = () =>
   getUserData()?.user?.status === 'suspended'
 

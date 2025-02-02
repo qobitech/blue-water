@@ -1,9 +1,7 @@
 import { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GETDASHBOARDURL } from '../../../constants/global'
-import { HamburgerSVG } from '../../utils/svgs/f-awesome'
-// import { LogoTextSVG } from '../../utils/svgs'
-import { LogoAnimated } from '../../utils/hooks'
+import { HamburgerSVG, LogoTextSVG } from '../../utils/svgs/f-awesome'
+import { pageurl } from '../../../constants/pageurl'
 
 interface IHeaderBrand {
   isMenu: boolean
@@ -21,11 +19,11 @@ const HeaderBrand = memo(({ isMenu, setMenu }: IHeaderBrand) => {
       )}
       <div
         className={`header-link-container`}
-        onClick={() => navigate(GETDASHBOARDURL())}
+        onClick={() => navigate(pageurl.HOME)}
       >
         <div className="logo-container">
           {/* <LogoTextSVG width="63" /> */}
-          <LogoAnimated />
+          <LogoTextSVG />
         </div>
       </div>
     </div>

@@ -2,11 +2,7 @@ import * as yup from 'yup'
 import { UseFormReturn } from 'react-hook-form'
 import { IColorGradient } from '../../../constants/global'
 
-export type createFeedbackStage =
-  | 'Feedback Campaign'
-  | 'Authentication'
-  | 'Preview'
-  | 'Generate Feedback Link'
+export type createFeedbackStage = 'Contact Us' | 'Response Status'
 
 export interface IUserEmail {
   email: string
@@ -110,9 +106,11 @@ export const feedbackCampaignSchema = {
 export interface IUserProfile {
   name: string
   email: string
-  company: string
-  companyUrl: string
-  jobTitle: string
+  phone: string
+  message: string
+  // company: string
+  // companyUrl: string
+  // jobTitle: string
 }
 
 export interface IFeedbackCampaign {

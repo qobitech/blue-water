@@ -1,7 +1,7 @@
 import { useState, useRef, Children } from 'react'
 import { Modal } from 'react-bootstrap'
 import { CloseSVG } from '../svgs'
-import { LogoAnimated } from '../hooks'
+import { LogoSVG } from '../svgs/f-awesome'
 
 export interface IUseNotificationModal {
   openModal: boolean
@@ -100,7 +100,7 @@ const NotificationModal: React.FC<INotificationModal> = ({
         <Modal.Header className="f-row jcc ">
           <div className="position-relative w-100 text-center f-row-17 aic jcc">
             <div className="position-absolute" style={{ left: 0 }}>
-              <LogoAnimated />
+              <LogoSVG />
             </div>
             <h5
               className="modal-title text-center"

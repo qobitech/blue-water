@@ -44,6 +44,7 @@ import { TypeButton } from './button'
 import TextPrompt from './text-prompt'
 import { IOptionsData, TypeSelect } from './select'
 import moment from 'moment'
+import { LogoTextSVG } from './svgs/f-awesome'
 
 export const useLocationHook = () => {
   const location = useLocation()
@@ -175,7 +176,7 @@ export const Loader = ({ loader }: { loader: boolean }) => {
             style={{ maxWidth: '150px', width: '90%' }}
             className="mx-auto text-center f-column aic"
           >
-            <LogoAnimated />
+            <LogoTextSVG />
           </div>
         </div>
       )}

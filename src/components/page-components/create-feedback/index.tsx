@@ -1,157 +1,64 @@
 import { useEffect, useState } from 'react'
-import {
-  createFeedbackStage,
-  defaultFeedbackDetails,
-  IFeedbackCampaign,
-  feedbackCampaignSchema,
-  userProfileSchema,
-  IUserProfile
-} from './utils'
-// import { useGlobalContext } from '../../layout/context'
+import { createFeedbackStage, userProfileSchema, IUserProfile } from './utils'
 import { useFormHook } from '../../utils/hooks'
-// import { useGenerateFeedbackLinkCTA } from './hooks'
-import { FeedBackCard } from './feedback-card'
-import {
-  cardColorGradient,
-  getIsLogged,
-  IColorGradient
-} from '../../../constants/global'
 import './style.scss'
 import NotificationModal, { useModal } from '../../utils/modal'
 import { HVC } from '../../utils/hvc'
-import { Status } from './status'
-import { FeedbackForm } from './feedback-form'
 import RegisterForm from './register-form'
-import { ColorSelection } from './color-selection'
 import { useGlobalContext } from '../../layout/context'
+import { TypeButton } from '../../utils/button'
 
 const CreateFeedback = () => {
   const { rsProps } = useGlobalContext()
-  const [stage, setStage] = useState<createFeedbackStage>('Feedback Campaign')
-  const [color, setColor] = useState<IColorGradient>(cardColorGradient[0])
-  const [isFeedbackLink, setIsFeedbackLink] = useState<boolean>(false)
-  const [isEdit, setIsEdit] = useState<boolean>(false)
+  const [stage, setStage] = useState<createFeedbackStage>('Contact Us')
 
   const [userProfileHookForm] = useFormHook<IUserProfile>(userProfileSchema)
-  const [feedbackCampaignHookForm] = useFormHook<IFeedbackCampaign>(
-    feedbackCampaignSchema
-  )
 
   const notificationProps = useModal()
 
-  const handleColor = (color: IColorGradient) => {
-    setColor(color)
+  const handleContact = () => {
+    setStage('Response Status')
   }
 
-  const saveFeedbackCampaignToDraft = () => {
-    notificationProps.handleCloseModal(() => {
-      setStage('Preview')
-    })
-  }
-
-  const handleRegistration = () => {
-    saveFeedbackCampaignToDraft()
-  }
-
-  const handleFeedbackCampaign = () => {
-    if (!getIsLogged() && !isEdit) setStage('Authentication')
-    else saveFeedbackCampaignToDraft()
-  }
-
-  const onNewFeedback = () => {
-    feedbackCampaignHookForm.reset(defaultFeedbackDetails)
-    handleColor(cardColorGradient[0])
-    setStage('Feedback Campaign')
-    setIsFeedbackLink(false)
-    notificationProps.handleOpenModal(`${stage} - bluewater`)
-  }
-
-  const onEditFeedback = () => {
-    setIsEdit(true)
-    setStage('Feedback Campaign')
-    notificationProps.handleOpenModal(`${stage} - bluewater`)
-  }
-
-  const onGenerateFeedbackLink = () => {
-    setIsFeedbackLink(true)
+  const handleClose = () => {
+    notificationProps.handleCloseModal(() => rsProps?.closeSection())
   }
 
   useEffect(() => {
-    if (stage !== 'Preview')
-      notificationProps.handleOpenModal(`${stage} - bluewater`)
+    notificationProps.handleOpenModal(`${stage} - BlueWater Shores`)
   }, [stage])
-
-  const feedbackCampaign = feedbackCampaignHookForm.watch()
-  const userProfile = userProfileHookForm.watch()
 
   return (
     <div className="f-column-17 w-100">
       <NotificationModal
         useNotificationProps={notificationProps}
         size="medium"
-        disableClose={!isEdit}
         onClose={() => {
-          if (isEdit) {
-            setStage('Preview')
-          }
+          rsProps?.closeSection()
         }}
       >
-        <HVC view={stage === 'Feedback Campaign'} removeDOM>
-          <FeedbackForm
-            hookForm={feedbackCampaignHookForm}
-            handleFeedback={handleFeedbackCampaign}
-          />
-        </HVC>
-        <HVC view={stage === 'Authentication'} removeDOM>
+        <HVC view={stage === 'Contact Us'} removeDOM>
           <RegisterForm
             hookForm={userProfileHookForm}
-            handleRegister={handleRegistration}
-            btnTitle="Create Account"
+            handleRegister={handleContact}
+            btnTitle="Submit"
           />
         </HVC>
+        <HVC view={stage === 'Response Status'} removeDOM>
+          <div className="text-center f-column-25 aic py-5">
+            <div className="text-center f-column-23 aic py-5">
+              <h3>Thank you for reaching out to BlueWater Shores</h3>
+              <p>We will get back to you shortly</p>
+            </div>
+            <TypeButton
+              title="Close"
+              buttonShape="square"
+              buttonType="danger"
+              onClick={handleClose}
+            />
+          </div>
+        </HVC>
       </NotificationModal>
-      <HVC view={stage === 'Preview'} className="f-row-13 flex-wrap jcsb aic">
-        {isFeedbackLink ? (
-          <div
-            className="flex-basis-35 feedback-right-section f-row"
-            style={{ flexShrink: 0 }}
-          >
-            <Status />
-          </div>
-        ) : null}
-        <div
-          className={`w-100 ${
-            isFeedbackLink ? 'flex-basis-63' : 'f-column-21 aic w-100'
-          }`}
-        >
-          <div className="f-column-27">
-            {!isFeedbackLink ? (
-              <div className="f-column-11 aic">
-                <label className="font-12 m-0 color-label">
-                  Choose Background color
-                </label>
-                <ColorSelection
-                  handleColor={handleColor}
-                  selectedColor={color}
-                />
-              </div>
-            ) : null}
-          </div>
-          <FeedBackCard
-            subject={feedbackCampaign.subject}
-            requester={userProfile.name}
-            company={userProfile.company}
-            category={feedbackCampaign.category}
-            onGenerateLink={onGenerateFeedbackLink}
-            color={color}
-            companyWebsite={userProfile.companyUrl}
-            onNewFeedback={onNewFeedback}
-            isFeedbackLink={isFeedbackLink}
-            onEdit={onEditFeedback}
-            onClose={() => rsProps?.closeSection()}
-          />
-        </div>
-      </HVC>
     </div>
   )
 }

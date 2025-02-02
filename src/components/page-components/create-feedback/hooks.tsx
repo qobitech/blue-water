@@ -28,7 +28,7 @@ export const useGenerateFeedbackLinkCTA = (
         }
       ]
   useEffect(() => {
-    if (stage === 'Preview') rsProps?.setCTA(cta)
+    rsProps?.setCTA(cta)
     return () => {
       rsProps?.setCTA([])
     }

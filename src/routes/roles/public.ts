@@ -1,6 +1,5 @@
 import { lazy } from 'react'
 import { pageurl } from '../../constants/pageurl'
-// import LandingPage from '../../pages/public/l'
 
 const TermsAndCondition = lazy(
   async () => await import('../../pages/public/terms-and-condition')
@@ -8,15 +7,11 @@ const TermsAndCondition = lazy(
 const PrivacyPolicy = lazy(
   async () => await import('../../pages/public/privacy-policy')
 )
-const FAQPage = lazy(async () => await import('../../pages/public/faq'))
-const VendorPage = lazy(async () => await import('../../pages/public/vendor'))
-const AnalyticsPage = lazy(
-  async () => await import('../../pages/public/analytics')
-)
-
-const BuyerPage = lazy(async () => await import('../../pages/public/buyer'))
 const LandingPage = lazy(
   async () => await import('../../pages/public/landing-page')
+)
+const AboutPage = lazy(
+  async () => await import('../../pages/public/about-page')
 )
 
 interface IPageRoutes {
@@ -35,23 +30,11 @@ export const publicPage: IPageRoutes[] = [
     url: pageurl.PP
   },
   {
-    page: FAQPage,
-    url: pageurl.FAQ
-  },
-  {
-    page: VendorPage,
-    url: pageurl.VENDOR
-  },
-  {
-    page: AnalyticsPage,
-    url: pageurl.ANALYTICS
-  },
-  {
-    page: BuyerPage,
-    url: pageurl.BUYER
-  },
-  {
     page: LandingPage,
     url: pageurl.HOME
+  },
+  {
+    page: AboutPage,
+    url: pageurl.ABOUT
   }
 ]
