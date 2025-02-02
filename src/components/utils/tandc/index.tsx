@@ -30,7 +30,7 @@ const TermsAndConditions = <T extends FieldValues>({
         >
           {text || (
             <>
-              I agree to Tevotea&apos;s&nbsp;
+              I agree to bluewater&apos;s&nbsp;
               <span
                 className={`${
                   disabled

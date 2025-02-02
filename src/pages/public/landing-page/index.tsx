@@ -71,7 +71,7 @@ const LandingPage = () => {
   return (
     <div className="landing-page-wrapper bg-white">
       {/* jumbotron */}
-      <section className="video-background">
+      <section className="video-background d-none">
         <div className="content container">
           <div className="f-column-43 text-center">
             {/* lottie */}
@@ -82,7 +82,7 @@ const LandingPage = () => {
               <h1>
                 Feedback Campaigns with{' '}
                 <span className="outline-text gradient-stroke fancy-underline">
-                  Tevotea
+                  bluewater
                 </span>
               </h1>
               <h2>
@@ -103,7 +103,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* feedback cards */}
-      <section className="f-column-53 pt-4 pb-5">
+      <section className="f-column-53 pt-4 pb-5 d-none">
         <div className="f-row-18 ais pb-5 pl-3" style={{ overflow: 'auto' }}>
           {content.map((i, index) => (
             <FeedBackCard
@@ -125,7 +125,7 @@ const LandingPage = () => {
         </div>
       </section>
       {/* specialization */}
-      <section className="py-5 f-column-33 px-3 mb-5">
+      <section className="py-5 f-column-33 px-3 mb-5 d-none">
         <div className="section-text text-center f-column-20 header-text-content">
           <LogoAnimated />
           <h2>Designed for You</h2>
@@ -162,7 +162,7 @@ const LandingPage = () => {
             <div className="f-column-13 pt-2 designed-for-you">
               <h2>Transform Customer Feedback into Actionable Insights</h2>
               <p className="m-0" style={{ lineHeight: '1.69rem' }}>
-                With Tevotea you can transform raw customer feedback into
+                With bluewater you can transform raw customer feedback into
                 meaningful data that can be used to understand customer needs,
                 identify areas for improvement, and make informed business
                 decisions.
@@ -182,7 +182,7 @@ const LandingPage = () => {
       </section>
       {/* how it works */}
       <section
-        className="three-section how-it-works py-5 mt-0"
+        className="three-section how-it-works py-5 mt-0 d-none"
         ref={howitworksRef}
       >
         <div className="f-column-30 m-0">

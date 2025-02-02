@@ -38,7 +38,7 @@ export interface IFeedBack {
 export const content: IFeedBack[] = [
   {
     subject:
-      'Tevotea transforms customer feedback into actionable insights, how will it benefit your business?',
+      'bluewater transforms customer feedback into actionable insights, how will it benefit your business?',
     purpose: 'To establish product market-fit',
     requester: 'Franklyn Edekobi',
     title: 'CEO',
@@ -154,48 +154,33 @@ export const content: IFeedBack[] = [
 export const faqdata = [
   {
     id: 1,
-    header: 'What is Tevotea?',
-    answer: `Tevotea simplifies the process of collecting detailed, customer feedback, transforms the feedback into valuable insights and actionable items to help shape better products and services.`
+    header: 'What kind of partnerships are you looking for?',
+    answer: `We’re seeking developers interested in creating high-value, sustainable projects like luxury homes, resorts, or marinas.`
   },
-  // {
-  //   id: 2,
-  //   header: 'How does Tevotea work?',
-  //   answer: `Sign up, generate unique voice recording links, and share them with their audience. Viewers and listeners can click on the link, record their feedback, and submit it directly to you.`
-  // },
   {
-    id: 3,
-    header: 'Who can use Tevotea?',
-    answer: `Tevotea is perfect for brand managers, community advocates, customer experience teams, marketers, and businesses seeking actionable insights from their audience. It empowers organizations to gather honest, thoughtful feedback from diverse audiences, regardless of their location or schedules.
+    id: 2,
+    header: 'Can the land be divided for multiple projects?',
+    answer: `Yes, the land offers flexibility for single or mixed-use developments.
 `
   },
-  // {
-  //   id: 4,
-  //   header: 'How is audience privacy handled on Tevotea?',
-  //   answer: `Tevotea takes privacy seriously. All recordings are stored securely and are only accessible to the intended media house. We comply with all relevant data protection regulations to ensure the confidentiality of your audience’s feedback.`
-  // },
+  {
+    id: 3,
+    header: 'Is the property development-ready?',
+    answer: `Yes, the land is accessible by road and has utilities like water and power connections.`
+  },
+  {
+    id: 4,
+    header: 'Can I schedule a visit to view the property?',
+    answer: `Absolutely. Contact us, and we’ll arrange a site visit.`
+  },
+  {
+    id: 5,
+    header: 'Are there zoning or environmental restrictions?',
+    answer: `There are minor environmental guidelines to ensure sustainable development, which we’ll guide you through.`
+  },
   {
     id: 6,
-    header: 'Can feedback be given anonymously?',
-    answer: `Yes, Tevotea supports anonymous feedback submissions. This ensures a safe and open channel for your audience to share genuine thoughts, fostering trust and transparency in your interactions.`
-  },
-  // {
-  //   id: 7,
-  //   header: 'How can Tevotea benefit my brand?',
-  //   answer: `Tevotea streamlines the process of gathering audience feedback, reduces the need for live call-ins, and provides a more inclusive way for people to share their views. This leads to better engagement, actionable insights, and a deeper connection with your audience.`
-  // },
-  // {
-  //   id: 8,
-  //   header: 'Is there a limit to the number of recordings we can receive?',
-  //   answer: `Each subscription plan comes with a set limit on the number of voice recordings. Higher-tier plans offer increased limits to accommodate larger audiences. You can upgrade your plan at any time to meet your growing needs.`
-  // },
-  {
-    id: 9,
-    header: 'How do I share a feedback campaign with my audience?',
-    answer: `You can distribute Tevotea feedback campaigns across various channels, including your website, social media platforms, email campaigns, and during virtual or in-person events. These links are designed to be user-friendly, making it easy for your audience to engage and share their voice.`
+    header: 'How do I start a partnership?',
+    answer: `Simply reach out to us through the Contact Us page, and we’ll walk you through the next steps.`
   }
-  // {
-  //   id: 10,
-  //   header: 'What kind of support does Tevotea offer?',
-  //   answer: `Tevotea offers comprehensive support, including a help center, email support, and live chat options. We’re committed to helping you get the most out of the platform and ensuring a smooth experience for both you and your audience.`
-  // }
 ]

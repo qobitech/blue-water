@@ -187,7 +187,7 @@ export const LogoAnimated = () => {
   return (
     <div
       className="mx-auto text-center position-relative hw-mx"
-      title="Tevotea"
+      title="bluewater"
     >
       <div
         className="m-auto hw-mx position-absolute"

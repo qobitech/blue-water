@@ -63,13 +63,13 @@ const CreateFeedback = () => {
     handleColor(cardColorGradient[0])
     setStage('Feedback Campaign')
     setIsFeedbackLink(false)
-    notificationProps.handleOpenModal(`${stage} - Tevotea`)
+    notificationProps.handleOpenModal(`${stage} - bluewater`)
   }
 
   const onEditFeedback = () => {
     setIsEdit(true)
     setStage('Feedback Campaign')
-    notificationProps.handleOpenModal(`${stage} - Tevotea`)
+    notificationProps.handleOpenModal(`${stage} - bluewater`)
   }
 
   const onGenerateFeedbackLink = () => {
@@ -78,7 +78,7 @@ const CreateFeedback = () => {
 
   useEffect(() => {
     if (stage !== 'Preview')
-      notificationProps.handleOpenModal(`${stage} - Tevotea`)
+      notificationProps.handleOpenModal(`${stage} - bluewater`)
   }, [stage])
 
   const feedbackCampaign = feedbackCampaignHookForm.watch()

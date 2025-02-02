@@ -35,7 +35,7 @@ const Footer = memo(
     return (
       <div className="footer-container">
         <PageContainer>
-          <HVC removeDOM view={!hideTopFooter} className="py-5">
+          <HVC removeDOM view={!hideTopFooter} className="py-5 d-none">
             <div className="f-column-25">
               <div className="div-wrapper">
                 <div className="div-left f-column-10 m-auto aic text-center">
@@ -46,8 +46,8 @@ const Footer = memo(
                     className="p-footer-class font-28"
                     style={{ lineHeight: '2.2rem' }}
                   >
-                    Tevotea empowers you to stay connected to your audience and
-                    deliver what they truly need.
+                    bluewater empowers you to stay connected to your audience
+                    and deliver what they truly need.
                   </p>
                   <p className="p-footer-class">
                     So stop guessing, start building products & services users
@@ -84,13 +84,13 @@ const Footer = memo(
           <div className="pt-4 pb-5 footer border-label-top w-100">
             <div className="footer-left f-row-10 aic">
               <p className="m-0 text-little">
-                &#169; Tevotea, {new Date().getFullYear()}
+                &#169; bluewater, {new Date().getFullYear()}
               </p>
             </div>
             <div className="footer-right">
               <ul>
                 <li
-                  style={{ listStyleType: 'none' }}
+                  style={{ listStyleType: 'none', display: 'none' }}
                   className="cursor-pointer"
                 >
                   <TypeSmallButton
@@ -105,7 +105,7 @@ const Footer = memo(
                   />
                 </li>
                 <li
-                  style={{ listStyleType: 'none' }}
+                  style={{ listStyleType: 'none', display: 'none' }}
                   className="cursor-pointer"
                 >
                   <TypeSmallButton
@@ -120,7 +120,7 @@ const Footer = memo(
                   />
                 </li>
                 <li
-                  style={{ listStyleType: 'none' }}
+                  style={{ listStyleType: 'none', display: 'none' }}
                   className="cursor-pointer"
                 >
                   <TypeSmallButton

@@ -18,7 +18,7 @@ export const Status = () => {
       <CardItems
         copy
         title="Feedback Link"
-        value={'https://tevotea.com/sdfdffe'}
+        value={'https://bluewater.com/sdfdffe'}
       />
       <div className="f-column-11 share-link-section">
         <OverViewHeader title="Share link on" />
