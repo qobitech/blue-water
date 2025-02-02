@@ -55,11 +55,90 @@ export const LogoNoWaveSVG = ({ color }: ISVG) => {
     >
       <path
         d="M18.7776 0.205136H16.6927H16.6813H16.6699H0.691342C0.368655 0.205136 0.105469 0.468322 0.105469 0.791009V7.9908C0.105469 12.2018 3.53376 15.63 7.7517 15.63H9.62145C13.1824 15.63 16.1715 13.1812 17.0204 9.8834H18.7895C21.4557 9.8834 23.6298 7.70929 23.6298 5.0431C23.6161 2.37234 21.4483 0.205136 18.7776 0.205136ZM16.0886 7.98377C16.0886 11.5516 13.1821 14.4582 9.61411 14.4582H7.74435C4.1765 14.4582 1.26987 11.5518 1.26987 7.98377L1.27216 1.37688H16.0836L16.0813 7.98377H16.0886ZM18.7776 8.71154H17.2191C17.242 8.47124 17.2534 8.23094 17.2534 7.99062V1.37671H18.7776C20.7984 1.37671 22.4462 3.02219 22.4462 5.04527C22.4439 7.06377 20.8053 8.71154 18.7776 8.71154Z"
-        fill={color || 'black'}
+        fill="#000"
       />
       <path
         d="M16.773 17.7812H0.585874C0.263187 17.7812 0 18.0444 0 18.3671C0 18.6898 0.263187 18.953 0.585874 18.953H16.773C17.0956 18.953 17.3588 18.6898 17.3588 18.3671C17.3588 18.0444 17.0956 17.7812 16.773 17.7812Z"
-        fill={color || 'black'}
+        fill="#000"
+      />
+    </svg>
+  )
+}
+
+export const MainLogoSVG = ({ color }: ISVG) => {
+  return (
+    <svg
+      width="200"
+      height="300"
+      viewBox="0 0 200 300"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <style>
+        {`@keyframes vapor {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+      }
+      50% {
+        opacity: 0.6;
+        transform: translateY(-40px) scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+
+    .vapor {
+      animation: vapor 4s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .vapor1 {
+      animation-delay: 0s;
+    }
+
+    .vapor2 {
+      animation-delay: 1s;
+    }
+
+    .vapor3 {
+      animation-delay: 2s;
+    }`}
+      </style>
+
+      <path
+        className="vapor vapor1"
+        d="M75,150 C85,100 115,100 125,150"
+        fill="none"
+        stroke="#000"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        className="vapor vapor2"
+        d="M85,170 C95,130 105,130 115,170"
+        fill="none"
+        stroke="#000"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        className="vapor vapor3"
+        d="M95,190 C105,160 115,160 125,190"
+        fill="none"
+        stroke="#000"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M115,200 H100 H100 H100 H20 C18,200 10,210 10,230 V270 C10,290 30,310 70,310 H85 C125,310 155,280 160,250 H170 C185,250 195,240 195,230 C195,220 185,210 170,200 Z M160,270 C160,300 125,330 85,330 H70 C35,330 10,300 10,270 V200 H160 V270 Z"
+        fill="#000"
+      />
+      <path
+        d="M160,275 H10 C10,280 10,290 10,300 H160 C160,295 160,285 160,275 Z"
+        fill="#000"
       />
     </svg>
   )
