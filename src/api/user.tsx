@@ -1,5 +1,4 @@
 import { UseMutateFunction, useMutation, useQuery } from '@tanstack/react-query'
-// import { useNavigate } from 'react-router-dom'
 import {
   getUserData,
   getUserRole,
@@ -15,13 +14,7 @@ import {
   IPasswordRequest,
   IUsers
 } from '../interface/IUser'
-import {
-  IBasicInfoSchema,
-  // IBetCodeWebsitePreferenceSchema,
-  INotificationPreferenceSchema
-  // ISubscribeMultiBetChannelSchema
-} from '../pages/onboarding/data'
-// import { getAllItems } from '../pages/admin/settings/components'
+import { INotificationPreferenceSchema } from '../pages/onboarding/data'
 import { IGetGenericHooks } from './membership'
 import {
   IAchievement,
@@ -39,7 +32,6 @@ import {
   defaultGETDataTemplate,
   useAPIGET
 } from '.'
-import { roleEnum } from '../pages/auth/register/data'
 import { onErrorType, onSuccessType } from './sports'
 import {
   IDefaultResponse,
@@ -51,7 +43,6 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 export interface IUUser {
-  handleBasicInfo: (data: IBasicInfoSchema) => void
   isLoading: boolean
   updateUserAction: UseMutateFunction<
     IUserResponse,
@@ -108,13 +99,6 @@ export const useUser = (
     }
   })
 
-  const handleBasicInfo = (data: IBasicInfoSchema) => {
-    mutate({
-      ...data,
-      stage: getUserData().role === roleEnum.seller ? 'onboarding2' : 'user'
-    })
-  }
-
   const getNotificationPreferenceData = (
     data: INotificationPreferenceSchema
   ) => {
@@ -133,7 +117,6 @@ export const useUser = (
   }
 
   return {
-    handleBasicInfo,
     isLoading,
     updateUserAction: mutate,
 

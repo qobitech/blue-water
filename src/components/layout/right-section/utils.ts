@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
 import { paymentStatusType } from '../../../interface/ITransaction'
-import { SNART_XER } from '../../page-components/payment/payment-status'
 import { buttonSize, buttonType } from '../../utils/button'
 import { IOptionAction } from '../../utils/reusable'
 import { IGlobalContext } from '../context'
@@ -181,8 +180,4 @@ export interface IRSection<T> {
 export interface IGlobalRightSection<T = undefined> {
   rsProps?: IRightSection<T>
   globalContext?: IGlobalContext
-}
-
-export const clearTransRef = () => {
-  if (localStorage.getItem(SNART_XER)) localStorage.removeItem(SNART_XER)
 }

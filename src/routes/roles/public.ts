@@ -1,5 +1,4 @@
 import { lazy } from 'react'
-import { IPageRoutes } from './buyers-sellers'
 import { pageurl } from '../../constants/pageurl'
 // import LandingPage from '../../pages/public/l'
 
@@ -19,6 +18,12 @@ const BuyerPage = lazy(async () => await import('../../pages/public/buyer'))
 const LandingPage = lazy(
   async () => await import('../../pages/public/landing-page')
 )
+
+interface IPageRoutes {
+  page: React.ElementType<any>
+  url: string
+  noWrapper?: boolean
+}
 
 export const publicPage: IPageRoutes[] = [
   {

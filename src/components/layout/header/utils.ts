@@ -22,22 +22,7 @@ export interface ISubMenuTray {
 
 export const menuItems: IMenuItem[] = [
   {
-    title: 'Product',
-    url: '',
-    childId: 'product'
-  },
-  {
-    title: 'Solutions',
-    url: '',
-    childId: 'solutions'
-  },
-  {
-    title: 'Resources',
-    url: '',
-    childId: 'resources'
-  },
-  {
-    title: 'Pricing',
+    title: 'About BlueWater Realty',
     url: ''
   }
 ]

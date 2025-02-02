@@ -760,7 +760,7 @@ export const ActionComponent = ({
     <div className="dropdown cta-section">
       <button
         title="Action"
-        className={`dropdown-toggle f-row-10 aic jcc action-type-button ${
+        className={`dropdown-toggle f-row-10 aic jcc action-type-button square ${
           buttonType || ''
         } ${className}`}
         type="button"

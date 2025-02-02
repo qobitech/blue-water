@@ -1,5 +1,3 @@
-import { roleIdType } from '../pages/auth/register/data'
-
 export interface ICreateWaitingListResponse {
   status: string
   data: {}
@@ -16,7 +14,7 @@ export type waitingListType =
 export interface ICreateWaitingList {
   email: string
   feature: waitingListType
-  role: roleIdType
+  role: any
 }
 
 export interface IWaitingList {
@@ -24,7 +22,7 @@ export interface IWaitingList {
   feature: string
   ipAdress: string
   device: string
-  role: roleIdType
+  role: any
 }
 
 export interface IWaitingLists {

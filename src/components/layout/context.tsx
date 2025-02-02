@@ -11,12 +11,10 @@ import {
 import { IUseNotificationModal } from '../utils/modal'
 import { IRightSection } from '../layout/right-section/utils'
 import { IMultiBetTicketResponse } from '../../interface/IBet'
-import { IUPC } from '../page-components/payment/post-payment/hooks'
 import { IShareProps } from '../utils/share'
 import { IUseTab } from '../utils/reusable'
 import { ICopyProps } from '../utils/hooks'
 import { IUseBetChannels } from '../../api/channels'
-import { IUserGlobalStateActions } from '../../api/globalStateActions'
 import { IUseAPI } from '../../api'
 import { IDefaultResponse } from '../../api/utils'
 import { IPaymentResponse } from '../../interface/IPayment'
@@ -45,25 +43,14 @@ export interface IGlobalContext {
   ) => void
   paymentDetails?: IPaymentDetails[] | null
   refreshNotificationMessages?: () => void
-  // refreshCartItems?: () => void
   paymentNotificationProps?: IUseNotificationModal
   paymentItemType?: transactionItemType
   rsProps?: IRightSection<{}>
   handleSetPrediction?: (prediction: IMultiBetTicketResponse) => void
   prediction?: IMultiBetTicketResponse | null
   handlePaymentLink?: (paymentLink: string | null) => void
-  paymentConfirmationProps?: IUPC
   shareProps?: IShareProps | null
   setShareProps?: (shareProps: IShareProps) => void
-  // setBetStatProps?: (betChannelInfo: IBetChannelInfo) => void
-  // setBetChannelItemProps?: (betChannelInfo: IBetChannelInfo) => void
-  // betChannelInfo?: IBetChannelInfo | null
-  // setBetChannelSlug?: (
-  //   slug: string,
-  //   title: string,
-  //   type: 'public' | 'user'
-  // ) => void
-  // betChannelSlug?: string
   orderSummaryProps?: IOrderSummaryProps | null
   filters?: { [key: string]: string } | null
   setFilters?: (
@@ -77,7 +64,6 @@ export interface IGlobalContext {
   betChannelTabProps?: IUseTab
   copyProps?: ICopyProps
   betChannelProps?: IUseBetChannels
-  globalStateActions?: IUserGlobalStateActions
   refreshUserData?: () => void
   makePayment?: IUseAPI<IDefaultResponse<IPaymentResponse>>
   setPaymentItemType?: (

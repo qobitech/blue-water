@@ -18,7 +18,6 @@
   max-width: 900px;
   height: 550px;
   @media (max-width: $lg-breakpoint) {
-    // display: none;
     position: relative;
     height: 300px;
     margin: 0 auto;
@@ -58,8 +57,8 @@
 
 .designed-for-you {
   h2 {
-    font-size: 39px;
-    line-height: 3rem;
+    font-size: 35px;
+    line-height: 3.3rem;
   }
   @media (max-width: $lg-breakpoint) {
     align-items: center;
@@ -194,6 +193,11 @@
   overflow: hidden;
   background: #fff;
   padding: 80px 0;
+  background: var(--brand);
+  background-image: url('../../../assets/images/web.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   .content {
     position: relative;
@@ -204,32 +208,26 @@
     justify-content: center;
 
     .content-text {
-      width: 65%;
-      margin: 0 auto;
+      width: 60%;
+      margin: 0;
       color: var(--brand);
       h1 {
         // font-size: 70px;
-        font-size: clamp(2.2625rem, -0.875rem + 8.333vw, 4.375rem);
+        font-size: clamp(2.2625rem, -0.875rem + 8.333vw, 3.575rem);
         font-weight: bolder;
         line-height: clamp(2.7625rem, -0.875rem + 8.333vw, 4.775rem);
         margin-bottom: 30px;
+        // color: #fff;
       }
       h2 {
         // font-size: 20px;
         font-size: clamp(0.7625rem, -0.875rem + 8.333vw, 1.05rem);
-        line-height: 35px;
         color: #000;
       }
     }
   }
 
   @media (max-width: $lg-breakpoint) {
-    // background: var(--brand);
-    // background-image: url('https://res.cloudinary.com/mytipster/image/upload/f_webp,q_auto:low/v1721182259/Fiery_Kick_-_Soccer_Player_in_Action_1_1_y3kcwr.jpg');
-    background: #fff;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
     height: auto;
     padding: 70px 0 27px;
     flex-direction: column-reverse;
@@ -249,25 +247,17 @@
     }
     .content {
       flex-direction: column-reverse;
+      padding: 2rem 0 3rem;
       .content-text {
         width: 100%;
-        // color: #fff;
-        align-items: center;
-        text-align: center;
         h2 {
           width: fit-content;
-          max-width: 500px;
-          margin: 0 auto;
-          text-align: center;
-          // color: #fff;
+          margin: 0;
         }
       }
       .content-cta {
         flex-direction: column;
         justify-content: center;
-        .type-button {
-          // border: 1px solid #fff;
-        }
       }
     }
   }
@@ -687,11 +677,11 @@
 
 .animated-highlight {
   background: linear-gradient(to right, #ff9a9e, #fad0c4, #ff9a9e);
-  background-size: 200% auto;
-  color: white;
-  padding: 2px 4px;
+  background-size: 100% auto;
+  color: #000;
+  padding: 0;
   border-radius: 4px;
-  animation: highlight-animation 2s linear infinite;
+  // animation: highlight-animation 2s linear infinite;
 }
 
 @keyframes highlight-animation {

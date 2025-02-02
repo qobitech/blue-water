@@ -1,11 +1,9 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react'
 import Header from './header'
-import SideMenu, { adminMenuData, menuData } from './side-menu'
+import SideMenu, { menuData } from './side-menu'
 import {
   IOrderSummaryProps,
   IPaymentDetails,
-  GETISBUYER,
-  GETISSELLER,
   UNDER_CONSTRUCTION,
   betChannelTabEnum,
   betTipsTabEnum,
@@ -26,14 +24,10 @@ import { useModal } from '../utils/modal'
 import axios from 'axios'
 import GlobalRightSection from './global-right-section'
 import { IMultiBetTicketResponse } from '../../interface/IBet'
-import PaymentFrame from '../page-components/payment/payment-frame'
-import { usePayment } from '../../api/payment'
-import { usePaymentConfirmation } from '../page-components/payment/post-payment/hooks'
 import { IShareProps } from '../utils/share'
 import { useTabSection } from '../utils/reusable'
 import { useCopy } from '../utils/hooks'
 import { useGlobalBetChannelQuery } from '../../api/channels'
-import { useGlobalStateActions } from '../../api/globalStateActions'
 import ScrollIntoViewController from './scroll-into-view-controller'
 import { useGetUserProfile } from '../../api/user'
 import { IDefaultGETTemplate } from '../../api'
@@ -46,13 +40,12 @@ import {
 } from '../utils/helper'
 import './style.scss'
 import Confetti from '../utils/confetti'
-import FeedbackWidget from './feed-back'
+// import FeedbackWidget from './feed-back'
 import UnderConstruction from '../../pages/underconstruction'
 import ConsentBanner from '../../pages/public/consent-banner'
 import CookiePreferencesModal from '../../pages/public/consent-banner/modal'
 import WaitingListModal from '../../pages/public/waiting-list'
 import SubscribeModal from '../../pages/public/subscribe'
-import { LoginModalForm } from '../../pages/auth/login'
 import { GlobalContext } from './context'
 import NotificationCard from './notification-card'
 import { IComponentState } from './global-schema'
@@ -110,7 +103,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
   const [joinWaitingList, setJoinWaitingList] = useState<boolean>(false)
   const [subscribe, setSubscribe] = useState<boolean>(false)
   const [shareProps, setShareProps] = useState<IShareProps | null>(null)
-  const [paymentLink, setPaymentLink] = useState<string | null>(null)
   const [confetti, setConfetti] = useState<boolean>(false)
   const [orderSummaryProps, setOrderSummaryProps] =
     useState<IOrderSummaryProps | null>(null)
@@ -121,10 +113,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
     useState<transactionItemType | null>(null)
 
   const useNotificationProps = useModal()
-
-  const handlePaymentLink = (paymentLink: string | null) => {
-    setPaymentLink(paymentLink)
-  }
 
   const closeSessionHandle = () => {
     useNotificationProps.handleCloseModal()
@@ -193,8 +181,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
     return <UnderConstruction />
   }
 
-  const globalStateActions = useGlobalStateActions()
-
   const onUserProfileSuccess = (data: IDefaultGETTemplate<{ user: IUser }>) => {
     const userData = data.data.user
     const userRole = getUserRole(userData.role as typeRoleId)
@@ -210,29 +196,10 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
   useEffect(() => {
     if (getUserData()?.user?._id) {
       refreshUserData()
-      globalStateActions.walletProps.mutate({
-        query: `?walletId=${getUserData().user.wallet}`
-      })
-      // if (!globalStateActions.cartProps?.data?.data?.carts?.length) {
-      //   globalStateActions.cartProps.mutate({
-      //     query: `?userId=${userData?.user?._id}`
-      //   })
-      // }
-      if (
-        !globalStateActions.notificationProps.data.data.notifications.length
-      ) {
-        globalStateActions.notificationProps.mutate({
-          query: `?receiverId=${getUserData()?.user?._id}`
-        })
-      }
     }
   }, [])
 
-  const refreshNotificationMessages = () => {
-    globalStateActions.notificationProps.mutate({
-      query: `?receiverId=${getUserData().user._id}`
-    })
-  }
+  const refreshNotificationMessages = () => {}
 
   // const refreshCartItems = () => {
   //   globalStateActions.cartProps.mutate({
@@ -245,22 +212,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
   }
 
   const rsProps = useRightSection()
-
-  const paymentProps = usePayment(paymentItemType)
-
-  const onPaymentSuccess = (data: any) => {
-    if (!data?.message) {
-      const paymentLink = data.data.link
-      handlePaymentLink?.(paymentLink)
-    }
-  }
-
-  const makePayment = paymentProps((data) => {
-    onPaymentSuccess(data)
-  })
-
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const paymentConfirmationProps = usePaymentConfirmation()
 
   const handleShareProps = (shareProps: IShareProps) => {
     setShareProps(shareProps)
@@ -303,11 +254,7 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
   const copyProps = useCopy()
 
   const getMenu = () => {
-    if (GETISBUYER() || GETISSELLER()) {
-      return menuData
-    } else {
-      return adminMenuData
-    }
+    return menuData
   }
 
   const [toggle, setToggle] = useState<boolean>(() => !_isMobile())
@@ -342,9 +289,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
         rsProps,
         handleSetPrediction,
         prediction,
-        handlePaymentLink,
-        makePayment,
-        paymentConfirmationProps,
         setShareProps: handleShareProps,
         shareProps,
         orderSummaryProps,
@@ -357,7 +301,6 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
         betChannelTabProps,
         betChannelProps,
         copyProps,
-        globalStateActions,
         refreshUserData,
         setPaymentItemType,
         triggerConfetti: setConfetti,
@@ -386,14 +329,8 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
         isVisible={showConsentBanner}
         setIsVisible={setShowConsentBanner}
       />
-      <FeedbackWidget />
+      {/* <FeedbackWidget /> */}
       <Confetti isConfetti={confetti} />
-      <PaymentFrame
-        paymentLink={paymentLink}
-        key={paymentLink}
-        handlePaymentLink={handlePaymentLink}
-        paymentConfirmationProps={paymentConfirmationProps}
-      />
       <GlobalRightSection />
       <div className="main-container">
         <HideShow>
@@ -419,25 +356,15 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
             </div>
           </div>
         </HideShow>
-        {isNotLogged && (
-          <Footer
-            hideTopFooter={route === 'auth'}
-            showConsentBanner={() => {
-              setShowConsentBanner(true)
-            }}
-            setSubscribe={setSubscribe}
-            setJoinWaitingList={setJoinWaitingList}
-          />
-        )}
+        {isNotLogged && <Footer />}
         {menuOpen ? <div className="over-lay" onClick={setMenu} /> : null}
       </div>
-      <LoginModalForm useNotificationProps={useNotificationProps} />
     </GlobalContext.Provider>
   )
 }
 
 const HideShow = ({ children }: { children?: any }) => {
-  const isUser = GETISBUYER() || GETISSELLER() || getIsAdminLogged()
+  const isUser = true
   return (
     <>
       {!isUser ? (

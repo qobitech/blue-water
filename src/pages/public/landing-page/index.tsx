@@ -4,12 +4,15 @@ import { TypeButton } from '../../../components/utils/button'
 import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
-import { content, faqdata } from './data'
-import { LogoAnimated } from '../../../components/utils/hooks'
-import designedforyou from '../../../assets/images/designed-for-you.jpg'
-import { FeedBackCard } from './feedback-card'
+import { faqdata } from './data'
+import designedforyou from '../../../assets/images/Modern Minimalist Interior with Ocean View.jpeg'
 import { SubReveal } from './sub-reveal'
 import Lenis from 'lenis'
+import {
+  LocationSVG,
+  OpportunitySVG,
+  PartnerSVG
+} from '../../../components/utils/svgs'
 
 const LandingPage = () => {
   const { rsProps } = useGlobalContext()
@@ -35,29 +38,9 @@ const LandingPage = () => {
     }
   }, [])
 
-  const howItWorksList = [
-    'Create a Feedback Campaign',
-    `Share with Your Audience`,
-    `Receive Responses (feedback)`,
-    `Transform feedback into Actionable Insights`
-  ]
-  // how it works tabs and lists ends
-
-  const howitworksRef = useRef(null)
   const faqRef = useRef(null)
 
   const [openAccordion, setOpenAccordion] = useState(0)
-
-  const onFeedback = (slug: string | undefined) => () => {
-    if (!slug) return
-    rsProps?.callSection({
-      action: 'view',
-      component: 'send-feedback',
-      title: 'Give Feedback',
-      slug,
-      max: true
-    })
-  }
 
   const createFeedback = () => {
     rsProps?.callSection({
@@ -68,33 +51,55 @@ const LandingPage = () => {
     })
   }
 
+  const keyFeatures = [
+    {
+      icon: <OpportunitySVG />,
+      label: 'A Unique Opportunity',
+      value: `With 3 hectares of land surrounded by serene waters, the
+            possibilities for resorts, luxury housing, or eco-friendly
+            development are endless.`
+    },
+    {
+      icon: <LocationSVG />,
+      label: 'Strategic Location',
+      value: `Easily accessible and ideal for premium projects that merge beauty
+            with practicality.`
+    },
+    {
+      icon: <PartnerSVG />,
+      label: 'Flexible Partnership',
+      value: `We are seeking visionary developers to help bring this land’s
+            potential to life.`
+    }
+  ]
+
   return (
     <div className="landing-page-wrapper bg-white">
-      {/* jumbotron */}
-      <section className="video-background d-none">
+      <section className="video-background">
         <div className="content container">
           <div className="f-column-43 text-center">
-            {/* lottie */}
-            <div className="content-text text-center px-4">
-              <div className="pb-3">
-                <LogoAnimated />
-              </div>
-              <h1>
-                Feedback Campaigns with{' '}
-                <span className="outline-text gradient-stroke fancy-underline">
-                  bluewater
-                </span>
-              </h1>
-              <h2>
-                Gather actionable insights to shape better products and
-                experiences
+            <div className="content-text text-left px-4 f-column-33">
+              <h2 className="">
+                Discover Prime Waterfront property for Visionary developers
               </h2>
+              <h1>Your Gateway to Transformative Waterfront Development</h1>
             </div>
-            {/* button */}
-            <Reveal className="cta-wrapper container f-row jcc">
+            <Reveal className="cta-wrapper container f-row">
               <TypeButton
-                title="Create a Feedback Campaign"
+                title="Explore the property"
                 buttonSize="large"
+                buttonType="outlined"
+                buttonShape="square"
+                aria-label="Proceed to Sign up oor Sign in"
+                onClick={createFeedback}
+              />
+              <TypeButton
+                title="Partner with Us"
+                buttonSize="large"
+                buttonType="outlined"
+                buttonShape="square"
+                className="text-white"
+                style={{ background: 'none' }}
                 aria-label="Proceed to Sign up oor Sign in"
                 onClick={createFeedback}
               />
@@ -102,77 +107,71 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      {/* feedback cards */}
-      <section className="f-column-53 pt-4 pb-5 d-none">
-        <div className="f-row-18 ais pb-5 pl-3" style={{ overflow: 'auto' }}>
-          {content.map((i, index) => (
-            <FeedBackCard
-              subject={i.subject}
-              requester={i.requester}
-              title={i.title}
-              company={i.company}
-              key={index}
-              createdAt={i.createdAt}
-              totalFeedback={i.totalFeedback}
-              onFeedback={onFeedback(i.slug)}
-              location={i.location}
-              purpose={i.purpose}
-              category={i.category}
-              color={i.color}
-              supportEmail={i.supportEmail}
-            />
-          ))}
-        </div>
+      <section className="grid-wrapper-30 gap-30 py-5 container">
+        {keyFeatures.map((i, index) => (
+          <div className="p-5 f-column-15 shadow-sm" key={index}>
+            <div
+              className="f-row aic jcc border-label"
+              style={{
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                minWidth: '50px',
+                minHeight: '50px'
+              }}
+            >
+              {i.icon}
+            </div>
+            <h4 className="m-0">
+              <b>{i.label}</b>
+            </h4>
+            <h6 className="m-0" style={{ lineHeight: '1.7rem' }}>
+              {i.value}
+            </h6>
+          </div>
+        ))}
       </section>
-      {/* specialization */}
-      <section className="py-5 f-column-33 px-3 mb-5 d-none">
+      <section className="py-5 f-column-33 px-3 mb-5">
         <div className="section-text text-center f-column-20 header-text-content">
-          <LogoAnimated />
-          <h2>Designed for You</h2>
+          <h2>Why Choose Us?</h2>
         </div>
         <SubReveal
           className="container grid-wrapper-40 gap-33 mt-3 rounded-25"
           hidden={{ opacity: 0, x: '-50%' }}
           visible={{ opacity: 1, x: 0 }}
         >
-          {/* {specialization.map((i, index) => (
-              <div className="f-row-23 ais py-2" key={index}>
-                <div
-                  style={{
-                    width: '20px',
-                    minWidth: '20px',
-                    height: '20px',
-                    minHeight: '20px'
-                  }}
-                >
-                  <LogoSVG color={BUTTON_PRIMARY} />
-                </div>
-                <div className="f-column-7">
-                  <h4 className="m-0 ff-bold">{i.title}</h4>
-                  <p>{i.body}</p>
-                </div>
-              </div>
-            ))} */}
           <img
             src={designedforyou}
             alt="Designed for you"
             style={{ width: '100%', borderRadius: '20px' }}
           />
-          <div className="f-column-35 jcc">
-            <div className="f-column-13 pt-2 designed-for-you">
-              <h2>Transform Customer Feedback into Actionable Insights</h2>
+          <div className="f-column-45 jcc">
+            <div className="f-column-13 designed-for-you">
+              <h2>
+                <span className="fancy-underline">BlueWater Realty</span> is
+                your trusted partner in sustainable and innovative land
+                development with clear, transparent processes and support from
+                start to finish
+              </h2>
               <p className="m-0" style={{ lineHeight: '1.69rem' }}>
-                With bluewater you can transform raw customer feedback into
-                meaningful data that can be used to understand customer needs,
-                identify areas for improvement, and make informed business
-                decisions.
+                Take the first step toward transforming this unique property.
+                Let’s build something extraordinary together
               </p>
             </div>
-            <Reveal className="cta-wrapper container">
+            <Reveal className="cta-wrapper container p-0">
               <TypeButton
                 buttonSize="large"
                 buttonType="bold"
-                title="Create a Feedback Campaign"
+                buttonShape="square"
+                title="Explore the property"
+                aria-label="Collect Audio Feedback"
+                onClick={createFeedback}
+              />
+              <TypeButton
+                buttonSize="large"
+                buttonType="outlined"
+                buttonShape="square"
+                title="Partner with Us"
                 aria-label="Collect Audio Feedback"
                 onClick={createFeedback}
               />
@@ -180,54 +179,9 @@ const LandingPage = () => {
           </div>
         </SubReveal>
       </section>
-      {/* how it works */}
-      <section
-        className="three-section how-it-works py-5 mt-0 d-none"
-        ref={howitworksRef}
-      >
-        <div className="f-column-30 m-0">
-          {/* text and tab section */}
-          <div className="section-text text-center f-column-20 container header-text-content">
-            <LogoAnimated />
-            {/* text */}
-            <h2>How It Works</h2>
-          </div>
-          {/* list-media */}
-          <div className="list-media container">
-            <div className="list-container f-column-70 p-4">
-              {/* list */}
-              <ol className="p-0 m-0 px-4 pt-3">
-                {howItWorksList.map((i, index) => (
-                  <li key={index}>{i}</li>
-                ))}
-              </ol>
-              <div className="f-row-20 flex-wrap cta-wrapper pb-4">
-                <TypeButton
-                  buttonSize="large"
-                  buttonType="bold"
-                  title="Start Collecting Feedback"
-                  aria-label="Subscribe for $2/Month"
-                  onClick={createFeedback}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* other benefits */}
-      <section className="three-section how-it-works py-5 mt-0 container f-column aic d-none">
-        <p>
-          We have also made it easy for you to analyze feedbacks collected with
-          AI
-        </p>
-      </section>
-      {/* faq */}
       <section className="faq section-text" ref={faqRef}>
         <div className="container f-column-40">
           <div className="container text-center">
-            <div className="pb-3">
-              <LogoAnimated />
-            </div>
             <h2>
               Frequently asked <br />
               questions
@@ -249,6 +203,24 @@ const LandingPage = () => {
               ))}
             </div>
           </div>
+          <Reveal className="cta-wrapper container p-0 jcc">
+            <TypeButton
+              buttonSize="large"
+              buttonType="bold"
+              buttonShape="square"
+              title="Explore the property"
+              aria-label="Collect Audio Feedback"
+              onClick={createFeedback}
+            />
+            <TypeButton
+              buttonSize="large"
+              buttonType="outlined"
+              buttonShape="square"
+              title="Partner with Us"
+              aria-label="Collect Audio Feedback"
+              onClick={createFeedback}
+            />
+          </Reveal>
         </div>
       </section>
     </div>

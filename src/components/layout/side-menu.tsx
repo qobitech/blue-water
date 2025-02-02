@@ -14,7 +14,6 @@ import {
   TransactionsSVG,
   ReportSVG,
   VerificationRequestSVG,
-  AchievementsRewardsSVG,
   FeedbackSVG,
   CookiesSVG,
   OpportunitySVG,
@@ -22,7 +21,7 @@ import {
 } from '../utils/svgs'
 import { gallery } from '../../assets'
 import './style.scss'
-import { GETDASHBOARDURL, GETISBUYER } from '../../constants/global'
+import { GETDASHBOARDURL } from '../../constants/global'
 import { useLogout } from '../../api/logout'
 
 export const getResultTabs = (url: string) => {
@@ -62,12 +61,6 @@ export const menuData: IMenuItem[] = [
     icon: <ChannelMenuSVG />,
     title: 'Channels',
     pageUrl: pageurl.BETCHANNEL
-  },
-  {
-    icon: <AchievementsRewardsSVG />,
-    title: 'Achievements',
-    pageUrl: pageurl.ACHIEVEMENTS,
-    hide: GETISBUYER()
   },
   {
     icon: <CommunitySVG />,

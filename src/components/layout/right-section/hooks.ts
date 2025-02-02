@@ -6,8 +6,7 @@ import {
   IRightSection,
   IRightSectionHistory,
   IRSAction,
-  IRsPropsCTA,
-  clearTransRef
+  IRsPropsCTA
 } from './utils'
 import { paymentStatusType } from '../../../interface/ITransaction'
 import { optionType } from '../../page-components/send-feedback'
@@ -124,7 +123,6 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     setAction({ component: null, type: null, id: null })
     setOpenSection(false)
     setSectionHistories(null)
-    clearTransRef()
     setSlug('')
     setMediaURL('')
     setMax(false)

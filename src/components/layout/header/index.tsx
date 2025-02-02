@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react'
 import './style.scss'
-// import { pageurl } from '../../../constants/pageurl'
 import {
   getIsOnboarding,
   getUserData,
@@ -8,19 +7,14 @@ import {
 } from '../../../constants/global'
 import {
   ActionComponent,
-  // ActionComponent,
   DropDownMenu,
   IOptionAction,
-  // IOptionAction,
   SeparatorComponent
 } from '../../utils/reusable'
-// import { useNavigate } from 'react-router-dom'
 import NotificationWidget from './notification'
-// import { useLogout } from '../../../api/logout'
 import HeaderBrand from './brand'
 import Profile from './profile'
 import { HVC } from '../../utils/hvc'
-// import { useNavigate } from 'react-router-dom'
 import { HamburgerSVG } from '../../utils/svgs'
 import { NavItems } from './nav-items'
 
@@ -66,13 +60,13 @@ const Header = memo(({ setMenu, route, toggle, setSubscribe }: IHeader) => {
 
   const actions: IOptionAction[] = [
     {
-      label: 'Create Account',
+      label: 'Explore the Property',
       action: () => {
         // navigate(pageurl.REGISTER)
       }
     },
     {
-      label: 'Login',
+      label: 'Partner with Us',
       action: () => {
         // navigate(pageurl.LOGIN)
       }

@@ -1,6 +1,5 @@
-import SideContentComponent from '../../page-components/side-content'
 import './style.scss'
-import { GETISBUYER, GETISSELLER, getIsLogged } from '../../../constants/global'
+import { getIsLogged } from '../../../constants/global'
 
 const DashboardWrapper = ({ children }: { children?: any }) => {
   return (
@@ -10,11 +9,6 @@ const DashboardWrapper = ({ children }: { children?: any }) => {
       >
         {children}
       </div>
-      {GETISBUYER() || GETISSELLER() ? (
-        <div className="side-content-main-wrapper">
-          <SideContentComponent />
-        </div>
-      ) : null}
     </div>
   )
 }

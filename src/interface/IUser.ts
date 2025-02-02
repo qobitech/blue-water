@@ -1,5 +1,4 @@
 import { membershipType, roleType, adminLevel } from '../constants/global'
-import { avatarType } from '../pages/dashboard/overview/avatars'
 import { IGetDatasType } from './IOther'
 import { verificationRequestEnumType } from './IVerificationRequest'
 
@@ -120,7 +119,6 @@ export interface IUser {
   linkedin: string
   facebook: string
   tiktok: string
-  avatar: avatarType
 }
 
 export interface IUserResponse {

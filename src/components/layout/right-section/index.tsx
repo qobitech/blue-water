@@ -3,16 +3,14 @@ import { TypeButton } from '../../utils/button'
 import { Loader2, LogoAnimated } from '../../utils/hooks'
 import TextPrompt from '../../utils/text-prompt'
 import { BellBoldSVG, BellOutlineSVG, VerifiedSVG } from '../../utils/svgs'
-import { IUseBetMultiBetTicket } from '../../../api/multi-prediction'
 import { IBetChannelResponse } from '../../../interface/IBet'
-import { useChannelSubscriptions } from '../../../api/subscriptions'
 import './index.scss'
 import { HVC, HVCLoad } from '../../utils/hvc'
 import { LeftAngleSVG } from '../../utils/svgs/f-awesome'
 import { IconWrapper } from '../../utils/info-txt'
 import { ActionComponent } from '../../utils/reusable'
 import { AudioRecordController } from '../../page-components/send-feedback/audio-record-controller'
-import { clearTransRef, IRSection } from './utils'
+import { IRSection } from './utils'
 
 const RightSection = <T extends {}>({
   children,
@@ -68,7 +66,6 @@ const RightSection = <T extends {}>({
           <div
             className="mt-auto py-3 cursor-pointer f-row-7 aic"
             onClick={() => {
-              clearTransRef()
               rsProps.removeRightSectionHistory()
             }}
           >
@@ -138,38 +135,22 @@ export default RightSection
 export const ChannelTitle = ({
   title,
   verified,
-  channel,
-  multiBetProps
+  channel
 }: {
   title: string
   verified: boolean
   channel: IBetChannelResponse
-  multiBetProps: IUseBetMultiBetTicket
 }) => {
-  const query = `?status=Published`
-  const channelSubscriptionProps = useChannelSubscriptions(() => {
-    multiBetProps?.getMultiBets(query)
-  })
-
   return (
-    <div
-      className="f-row-7 aic cursor-pointer"
-      onClick={() =>
-        channelSubscriptionProps.handleChannelSubscription(channel)
-      }
-    >
+    <div className="f-row-7 aic cursor-pointer">
       <h3 className="m-0">{title}</h3>
       {verified ? <VerifiedSVG /> : null}
-      <HVCLoad
-        removeDOM
-        load={channelSubscriptionProps.subChannelLoading}
-        view={!!channelSubscriptionProps.isSubscribed(channel)}
-      >
+      <HVCLoad removeDOM view>
         <IconWrapper>
           <BellBoldSVG />
         </IconWrapper>
       </HVCLoad>
-      <HVC removeDOM view={!channelSubscriptionProps.isSubscribed(channel)}>
+      <HVC removeDOM view>
         <IconWrapper>
           <BellOutlineSVG />
         </IconWrapper>

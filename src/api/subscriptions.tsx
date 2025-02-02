@@ -2,7 +2,6 @@ import { ISubscriptionResponse } from '../interface/ISubscription'
 import { useState } from 'react'
 import { apiFeatures, useAPIPATCH } from '.'
 import { IBetChannelResponse } from '../interface/IBet'
-import { btnType } from '../components/tables/public-bet-channel'
 
 export const getSubscriptions = async <T extends {}>(query?: string) => {
   const route = `subscription${query || ''}`
@@ -11,7 +10,6 @@ export const getSubscriptions = async <T extends {}>(query?: string) => {
 
 interface ISubProps {
   text: string
-  buttonType: btnType
   icon: string
   load: boolean
   action: () => void
@@ -76,7 +74,7 @@ export const useChannelSubscriptions = (
     if (!i)
       return {
         text: 'Follow',
-        buttonType: 'disabled' as btnType,
+        buttonType: 'disabled',
         icon: '',
         load: false,
         action: () => {}
@@ -85,7 +83,7 @@ export const useChannelSubscriptions = (
     const text = isSubscribed(i)
     return {
       text,
-      buttonType: isSub ? 'outlined' : ('bold' as btnType),
+      buttonType: isSub ? 'outlined' : 'bold',
       icon: '',
       load: subChannelLoading && selectedChannel === i._id,
       action: () => {

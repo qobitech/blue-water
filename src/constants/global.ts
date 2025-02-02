@@ -2,10 +2,8 @@ import { IToken } from '../interface/IAuth'
 import Cookies from 'js-cookie'
 import jwtDecode from 'jwt-decode'
 import jwtEncode from 'jwt-encode'
-import { roleEnum } from '../pages/auth/register/data'
 import { handleError } from '../components/utils/helper'
 import { actionComponent } from '../components/layout/right-section/utils'
-import { SNART_XER } from '../components/page-components/payment/payment-status'
 import moment from 'moment'
 import { pageurl } from './pageurl'
 
@@ -126,7 +124,6 @@ export const TOKENEXPIRED = expiryDate
 export const onLogout = () => {
   Cookies.remove(USERDATACOOKIE)
   Cookies.remove(TOKENEXPIRATIONDATECOOKIE)
-  localStorage.removeItem(SNART_XER)
 }
 
 export const encodeData = (data: any, role: roleType) => {
@@ -660,13 +657,6 @@ export const MINHEIGHT = '86vh'
 
 export const SUBSCRIBERS = 0
 
-export const GETISSELLER = () => getUserData().role === roleEnum.seller
-export const GETISBUYER = () => getUserData().role === roleEnum.buyer
-export const GETISADMIN = () => getUserData().role === roleEnum.admin
-
-export const GETISUSERLOGGED = () =>
-  GETISSELLER() || GETISBUYER() || GETISADMIN()
-
 export const GETDASHBOARDURL = () => {
   switch (true) {
     case getIsAdminLogged():
@@ -707,8 +697,6 @@ export type subscriptionType =
 
 export const BASEURL = process.env.REACT_APP_BASEURL
 export const BASEURLFE = process.env.REACT_APP_BASEURLFE
-
-export const getTxRef = () => localStorage.getItem(SNART_XER) as string
 
 export const BG = 'bg-mytipster'
 
