@@ -55,7 +55,7 @@ const LandingPage = () => {
     {
       icon: <OpportunitySVG />,
       label: 'A Unique Opportunity',
-      value: `With 3 hectares of land surrounded by serene waters, the
+      value: `With 10,000 square metres of land surrounded by serene waters, the
             possibilities for resorts, luxury housing, or eco-friendly
             development are endless.`
     },

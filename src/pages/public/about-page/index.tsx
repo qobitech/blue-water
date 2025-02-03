@@ -40,8 +40,8 @@ const AboutPage = () => {
                 property.
               </h1>
               <p className="AnalyticsHeaderDescription">
-                Our 3-hectare property is surrounded by breathtaking water views
-                and is primed for transformative projects.
+                Our 10,000 square metres property is surrounded by breathtaking
+                water views and is primed for transformative projects.
               </p>
               <Reveal className="cta-wrapper container f-row px-0">
                 <TypeButton
