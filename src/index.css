@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'Didot';
-  /* font-weight: normal;
-  font-display: inherit;
-  font-style: normal; */
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
   src: url('./assets/fonts/Kugile_Demo.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Outfit_Bold';
   font-weight: normal;
-  font-display: inherit;
+  font-display: swap;
   font-style: normal;
   src: url('./assets/fonts/cairo/Cairo-Bold.ttf') format('truetype');
 }
