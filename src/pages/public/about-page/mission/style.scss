@@ -71,10 +71,11 @@
   flex-direction: column;
   // justify-content: center;
   align-items: flex-start;
-  border: 1px solid #d3d3d3;
+  // border: 1px solid #d3d3d3;
   text-align: left;
   @media (max-width: $lg-breakpoint) {
     text-align: center;
+    align-items: center;
   }
   @media (max-width: $sm-breakpoint) {
     padding: 2.75rem 2.44rem;

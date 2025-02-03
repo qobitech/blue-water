@@ -21,7 +21,10 @@ const AboutPage = () => {
     <>
       <div className="AnalyticsContainer">
         <PageContainer>
-          <div className="container grid-wrapper-40">
+          <div className="container grid-wrapper-40 gap-40">
+            <div className="AnalyticsIllustration">
+              <img src={staffing} alt="risk" className="w-100 h-100" />
+            </div>
             <div className="f-column jcc analytics-content">
               <p className="m-0 mb-4 header-txt-landing">About Us</p>
               <h1 className="AnalyticsHeader">
@@ -53,14 +56,6 @@ const AboutPage = () => {
                   onClick={createFeedback}
                 />
               </Reveal>
-            </div>
-            <div className="AnalyticsIllustration">
-              <img
-                src={staffing}
-                alt="risk"
-                className="w-100"
-                style={{ height: '550px' }}
-              />
             </div>
           </div>
         </PageContainer>

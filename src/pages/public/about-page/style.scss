@@ -57,8 +57,10 @@
 }
 
 .AnalyticsIllustration {
+  height: 550px;
+  overflow: hidden;
   @media (max-width: $lg-breakpoint) {
-    display: none;
+    height: 400px;
   }
 }
 
