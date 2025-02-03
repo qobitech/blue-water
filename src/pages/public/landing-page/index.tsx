@@ -82,9 +82,9 @@ const LandingPage = () => {
           <div className="f-column-43 text-center">
             <div className="content-text text-left px-4 f-column-33">
               <div className="f-row-17 aic">
-                <h2 className="m-0">
+                <p className="m-0">
                   Discover Prime Waterfront property for Visionary developers
-                </h2>
+                </p>
               </div>
               <h1>
                 <span style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
