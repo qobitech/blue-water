@@ -145,8 +145,8 @@ body {
     font-feature-settings: 'kern';
     backface-visibility: hidden;
     text-anchor: middle;
-    /* -webkit-text-stroke-width: -300px !important; */
-    /* letter-spacing: -50rem !important; */
+    /* -webkit-text-stroke-width: -300px ; */
+    /* letter-spacing: -50rem ; */
   }
 }
 
@@ -160,7 +160,7 @@ select::-ms-expand {
 }
 
 table {
-  font-family: 'Outfit_Regular' !important;
+  font-family: 'Outfit_Regular';
 }
 
 code {
@@ -169,11 +169,11 @@ code {
 }
 
 .MuiOutlinedInput-notchedOutline {
-  border-color: var(--primary-color) !important;
+  border-color: var(--primary-color);
 }
 
 .Mui-focused {
-  color: var(--primary-color) !important;
+  color: var(--primary-color);
 }
 
 /* Pagination Starts */
@@ -228,7 +228,7 @@ code {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 3;
-  color: #fff !important;
+  color: #fff;
   cursor: default;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -247,7 +247,7 @@ code {
 .pagination-lg > li > a,
 .pagination-lg > li > span {
   padding: 10px 16px;
-  font-size: 11px !important;
+  font-size: 11px;
   line-height: 1.3333333;
 }
 .pagination-lg > li:first-child > a,
@@ -279,13 +279,13 @@ code {
 /* Pagination Ends */
 
 .modal-content {
-  background: none !important;
-  border: none !important;
+  background: none;
+  border: none;
 }
 
 .modal-header,
 .modal-body {
-  background: #fff !important;
+  background: #fff;
 }
 
 .modal-body {
@@ -340,11 +340,11 @@ code {
 }
 
 .color-primary {
-  color: var(--primary-color) !important;
+  color: var(--primary-color);
 }
 
 .color-bg-primary {
-  background: var(--primary-color) !important;
+  background: var(--primary-color);
 }
 
 .cursor-pointer {
@@ -361,20 +361,20 @@ code {
 }
 
 .bg-hover:hover {
-  background: #e8fff8 !important;
-  /* color: #fff !important; */
+  background: #e8fff8;
+  /* color: #fff ; */
   transition: 0.1s ease;
 }
 
 .react-pdf__Document {
-  height: 770px !important;
+  height: 770px;
 }
 
 .react-pdf__Page {
-  min-width: auto !important;
-  min-height: auto !important;
-  width: 100% !important;
-  height: 770px !important;
+  min-width: auto;
+  min-height: auto;
+  width: 100%;
+  height: 770px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -382,36 +382,36 @@ code {
 
 .document-pdf-container {
   position: relative;
-  height: 770px !important;
+  height: 770px;
 }
 
 .document-pdf {
-  width: 100% !important;
-  height: 770px !important;
+  width: 100%;
+  height: 770px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20px !important;
-  position: absolute !important;
+  padding-bottom: 20px;
+  position: absolute;
   top: 0;
 }
 
 canvas {
-  width: 100% !important;
+  width: 100%;
 }
 
 .react-pdf__Page__annotations {
-  width: auto !important;
-  height: auto !important;
+  width: auto;
+  height: auto;
 }
 
 .annotationLayer {
-  width: auto !important;
-  height: auto !important;
+  width: auto;
+  height: auto;
 }
 
 .dropdown-toggle::after {
-  display: none !important;
+  display: none;
 }
 
 .raphael-group-dVmSSiHz {
@@ -419,19 +419,19 @@ canvas {
 }
 
 .modal-open .modal {
-  background: #fff !important;
+  background: #fff;
 }
 
 .wide-modal .modal-dialog {
-  max-width: 1600px !important;
-  margin: 20px auto 0 !important;
-  padding: 0 !important;
+  max-width: 1600px;
+  margin: 20px auto 0;
+  padding: 0;
 }
 
 .medium-modal .modal-dialog {
-  max-width: 800px !important;
-  margin: 20px auto 0 !important;
-  padding: 0 !important;
+  max-width: 800px;
+  margin: 20px auto 0;
+  padding: 0;
 }
 
 .bs {
@@ -444,30 +444,30 @@ canvas {
 }
 
 .dm-menu {
-  transform: translate3d(-130px, 60px, 0px) !important ;
+  transform: translate3d(-130px, 60px, 0px);
 }
 
 @media only screen and (max-width: 599px) {
   .dm-menu {
-    transform: translate3d(-115px, 60px, 0px) !important ;
+    transform: translate3d(-115px, 60px, 0px);
   }
 }
 
 .dm {
-  transform: translate3d(-140px, 49px, 0px) !important ;
+  transform: translate3d(-140px, 49px, 0px);
 }
 
 .dm-bet-ticket {
-  transform: translate3d(-167px, -110px, 0px) !important ;
+  transform: translate3d(-167px, -110px, 0px);
 }
 
 .dm-button {
-  transform: translate3d(0px, 33px, 0px) !important ;
+  transform: translate3d(0px, 33px, 0px);
 }
 
 .dropdown-item:active {
-  background-color: var(--primary-color-light) !important;
-  color: var(--primary-color) !important;
+  background-color: var(--primary-color-light);
+  color: var(--primary-color);
 }
 
 .fa-rotate-45 {
@@ -479,7 +479,7 @@ canvas {
 }
 
 .react-tel-input .form-control {
-  width: 100% !important;
+  width: 100%;
   height: 43px;
 }
 
@@ -494,8 +494,8 @@ input {
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px #fff inset !important; /* Override white background */
-  -webkit-text-fill-color: #000 !important; /* Set text color to override autofill styling */
+  -webkit-box-shadow: 0 0 0 1000px #fff inset; /* Override white background */
+  -webkit-text-fill-color: #000; /* Set text color to override autofill styling */
 }
 
 input[type='date']::-webkit-calendar-picker-indicator,
@@ -599,23 +599,23 @@ input[type='datetime-local']::-webkit-calendar-picker-indicator {
 }
 
 .border-label {
-  border: 1px solid #f0f0f0 !important;
+  border: 1px solid #f0f0f0;
 }
 
 .border-label-top {
-  border-top: 1px solid #f0f0f0 !important;
+  border-top: 1px solid #f0f0f0;
 }
 
 .border-label-bottom {
-  border-bottom: 1px solid #f0f0f0 !important;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .border-label-right {
-  border-right: 1px solid #f0f0f0 !important;
+  border-right: 1px solid #f0f0f0;
 }
 
 .border-label-left {
-  border-left: 1px solid #f0f0f0 !important;
+  border-left: 1px solid #f0f0f0;
 }
 
 .card-success {
@@ -623,11 +623,11 @@ input[type='datetime-local']::-webkit-calendar-picker-indicator {
 }
 
 .ql-toolbar {
-  display: none !important;
+  display: none;
 }
 
 .ql-container.ql-snow {
-  border: 1px solid #ccc !important;
+  border: 1px solid #ccc;
 }
 
 .ql-editor {
@@ -645,7 +645,7 @@ input[type='datetime-local']::-webkit-calendar-picker-indicator {
 }
 
 input[type='file'] {
-  color: transparent !important;
+  color: transparent;
 }
 
 input[type='file']::before {
@@ -668,7 +668,7 @@ input::file-selector-button {
 }
 
 .anychart-credits {
-  display: none !important;
+  display: none;
 }
 
 .pin_container {
@@ -710,7 +710,7 @@ input::file-selector-button {
 }
 
 .cursor-default {
-  cursor: default !important;
+  cursor: default;
 }
 
 .add_banner_card {
@@ -781,7 +781,7 @@ html.lenis body {
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+  scroll-behavior: auto;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
