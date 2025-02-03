@@ -109,11 +109,7 @@ const TitleComp = ({
       {!onlyIcon && (
         <span
           className={
-            icon && mobileOnlyIcon
-              ? 'd-none d-md-inline ff-bold'
-              : icon
-              ? 'ff-bold'
-              : 'ff-bold'
+            icon && mobileOnlyIcon ? 'd-none d-md-inline' : icon ? '' : ''
           }
         >
           {icon && iconPosition !== 'right' && <span>&nbsp;&nbsp;&nbsp;</span>}
