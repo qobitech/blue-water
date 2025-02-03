@@ -25,8 +25,8 @@ const CreateFeedback = () => {
   }
 
   useEffect(() => {
-    notificationProps.handleOpenModal(`${stage} - BlueWater Shores`)
-  }, [stage])
+    notificationProps.handleOpenModal(`Contact Us - BlueWater Shores`)
+  }, [])
 
   return (
     <div className="f-column-17 w-100">

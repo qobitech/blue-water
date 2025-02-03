@@ -231,6 +231,9 @@
   .phone {
     display: none;
   }
+  svg {
+    width: 190px;
+  }
   @media (max-width: $lg-breakpoint) {
     .desktop {
       display: none;
@@ -238,9 +241,7 @@
     .phone {
       display: block;
     }
-    svg {
-      width: 190px;
-    }
+
     // svg path {
     //   fill: #fff;
     // }

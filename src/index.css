@@ -285,7 +285,7 @@ code {
 
 .modal-content {
   background: none;
-  border: none;
+  border: none !important;
 }
 
 .modal-header,
@@ -416,7 +416,7 @@ canvas {
 }
 
 .dropdown-toggle::after {
-  display: none;
+  display: none !important;
 }
 
 .raphael-group-dVmSSiHz {
