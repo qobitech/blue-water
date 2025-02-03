@@ -41,9 +41,7 @@ const MissionSection = () => {
     <div className="DIContainer">
       <PageContainer>
         <div className="DI f-column-20">
-          <p className="mx-auto m-0 header-txt-landing">
-            <b>Mission</b>
-          </p>
+          <p className="mx-auto m-0 header-txt-landing">Mission</p>
           <p className="DIHeader">
             To collaborate with leading developers to build sustainable, iconic
             projects that enhance communities and deliver exceptional returns.
