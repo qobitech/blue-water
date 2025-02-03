@@ -93,6 +93,7 @@ const LandingPage = () => {
                 title="Explore the property"
                 buttonSize="large"
                 buttonType="outlined"
+                className="border-0"
                 buttonShape="square"
                 aria-label="Proceed to Sign up oor Sign in"
                 onClick={createFeedback}
