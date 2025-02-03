@@ -5,7 +5,7 @@ import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
 import { faqdata } from './data'
-import designedforyou from '../../../assets/images/Modern Minimalist Interior with Ocean View.jpeg'
+import designedforyou from '../../../assets/images/Modern Minimalist Interior with Ocean View.webp'
 import { SubReveal } from './sub-reveal'
 import Lenis from 'lenis'
 import {

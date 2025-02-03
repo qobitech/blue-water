@@ -1,7 +1,7 @@
 import { PageContainer } from '../../../components/utils/reusable'
 import { TypeButton } from '../../../components/utils/button'
 
-import staffing from '../../../assets/images/Lakeside Cityscape with Palm Trees.jpeg'
+import staffing from '../../../assets/images/Lakeside Cityscape with Palm Trees.webp'
 import './style.scss'
 import { Reveal } from '../landing-page/utils'
 import MissionSection from './mission'
