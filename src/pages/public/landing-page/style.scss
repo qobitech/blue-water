@@ -222,6 +222,7 @@
   }
 
   @media (max-width: $lg-breakpoint) {
+    background-position: left;
     height: auto;
     padding: 70px 0 27px;
     flex-direction: column-reverse;

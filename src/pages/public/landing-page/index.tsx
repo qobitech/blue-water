@@ -126,9 +126,7 @@ const LandingPage = () => {
             >
               {i.icon}
             </div>
-            <h4 className="m-0 header-txt-landing">
-              <b>{i.label}</b>
-            </h4>
+            <h4 className="m-0 header-txt-landing">{i.label}</h4>
             <h6 className="m-0" style={{ lineHeight: '1.7rem' }}>
               {i.value}
             </h6>

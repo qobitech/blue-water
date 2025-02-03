@@ -121,7 +121,7 @@ const Header = memo(
             </div>
             <div className="profile-container-mobile gap-20">
               <div className="cursor-pointer hw-mx">
-                <HamburgerSVG color="#fff" />
+                <HamburgerSVG />
               </div>
             </div>
           </HVC>
