@@ -3,14 +3,14 @@
   font-weight: normal;
   font-display: inherit;
   font-style: normal;
-  src: url('./assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+  src: url('./assets/fonts/futstat/Fustat-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Didot';
   font-weight: normal;
   font-display: inherit;
   font-style: normal;
-  src: url('./assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+  src: url('./assets/fonts/Kugile_Demo.ttf') format('truetype');
 }
 
 @font-face {
@@ -18,7 +18,7 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
+  src: url('./assets/fonts/futstat/Fustat-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -26,14 +26,14 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/open-sans/OpenSans-Light.ttf') format('truetype');
+  src: url('./assets/fonts/futstat/Fustat-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Outfit_SemiBold';
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/open-sans/OpenSans-SemiBold.ttf') format('truetype');
+  src: url('./assets/fonts/futstat/Fustat-SemiBold.ttf') format('truetype');
 }
 
 h1,

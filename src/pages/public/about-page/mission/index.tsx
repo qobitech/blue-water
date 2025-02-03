@@ -57,7 +57,12 @@ const MissionSection = () => {
               {diContents.map((i, index) => (
                 <div className="DISection border-label gap-11" key={index}>
                   <div>{i.icon}</div>
-                  <h1 className="DISectionHeader">{i.header}</h1>
+                  <h1
+                    className="DISectionHeader"
+                    style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}
+                  >
+                    {i.header}
+                  </h1>
                   <p className="DISectionDescription">{i.description}</p>
                 </div>
               ))}

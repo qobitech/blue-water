@@ -162,8 +162,13 @@ const LandingPage = () => {
           <div className="f-column-55 jcc">
             <div className="f-column-23 designed-for-you">
               <h2 className="m-0">
-                <span className="fancy-underline">BlueWater Shores</span> is
-                your trusted partner in sustainable and innovative land
+                <span
+                  className="fancy-underline"
+                  style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}
+                >
+                  BlueWater Shores
+                </span>{' '}
+                is your trusted partner in sustainable and innovative land
                 development with clear, transparent processes and support from
                 start to finish
               </h2>
