@@ -113,19 +113,8 @@ const LandingPage = () => {
       </section>
       <section className="grid-wrapper-30 gap-30 py-5 container">
         {keyFeatures.map((i, index) => (
-          <div className="p-5 f-column-15 shadow-sm" key={index}>
-            <div
-              className="f-row aic jcc border-label"
-              style={{
-                borderRadius: '50%',
-                width: '50px',
-                height: '50px',
-                minWidth: '50px',
-                minHeight: '50px'
-              }}
-            >
-              {i.icon}
-            </div>
+          <div className="p-5 f-column-17 shadow-sm" key={index}>
+            <div className="f-row aic jcc icon-card-container">{i.icon}</div>
             <h4 className="m-0 header-txt-landing">{i.label}</h4>
             <h6 className="m-0" style={{ lineHeight: '1.7rem' }}>
               {i.value}

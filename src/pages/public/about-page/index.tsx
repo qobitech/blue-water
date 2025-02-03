@@ -26,7 +26,9 @@ const AboutPage = () => {
               <img src={staffing} alt="risk" className="w-100 h-100" />
             </div>
             <div className="f-column jcc analytics-content">
-              <p className="m-0 mb-4 header-txt-landing">About Us</p>
+              <p className="m-0 mb-4 header-txt-landing about-header-title">
+                About Us
+              </p>
               <h1 className="AnalyticsHeader">
                 BlueWater Shores Realty Ltd was founded with a vision to create
                 timeless developments on Nigeria’s most exclusive waterfront
