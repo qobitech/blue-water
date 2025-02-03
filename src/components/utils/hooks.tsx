@@ -22,8 +22,6 @@ import {
 } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-// import Lottie from 'react-lottie'
-// import wave from '../../assets/animation/audio.json'
 
 import axios from 'axios'
 import { HVC, HVCLoad } from './hvc'

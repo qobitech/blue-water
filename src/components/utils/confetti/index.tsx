@@ -1,6 +1,4 @@
 import { memo, useEffect, useState } from 'react'
-import Lottie from 'react-lottie'
-import confetti from '../../../assets/animation/74659-confetti-day.json'
 import { HVC } from '../../utils/hvc'
 
 interface IConfetti {
@@ -22,15 +20,6 @@ const Confetti = memo(({ isConfetti }: IConfetti) => {
     }
   }, [isConfetti])
 
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: confetti,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  }
-
   return (
     <HVC
       view={confettiTimer}
@@ -41,9 +30,7 @@ const Confetti = memo(({ isConfetti }: IConfetti) => {
         zIndex: 8000,
         width: '100%'
       }}
-    >
-      <Lottie options={defaultOptions} />
-    </HVC>
+    ></HVC>
   )
 })
 

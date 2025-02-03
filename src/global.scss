@@ -395,23 +395,6 @@
   -webkit-backdrop-filter: blur(2px); /* For Safari */
 }
 
-.lottie-ball-container {
-  position: relative;
-  height: 60px;
-  .svg-wrapper {
-    position: absolute;
-    bottom: 11px;
-    width: 100%;
-    padding-left: 4px;
-  }
-}
-.lottie-ball {
-  width: 30px;
-  @media (max-width: $lg-breakpoint) {
-    margin: 0 auto 10px;
-  }
-}
-
 .sports-filter-suggestions {
   height: 100%;
   max-height: 200px;

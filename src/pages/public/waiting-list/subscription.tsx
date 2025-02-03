@@ -13,9 +13,6 @@ import { TypeButton, TypeSmallButton } from '../../../components/utils/button'
 import { useCreateWaitingList } from '../../../api/waiting-list'
 import RequestStatus from '../../../components/utils/request-status'
 import { ICPM } from '.'
-// lottie
-import Lottie from 'react-lottie'
-import football from '../../../assets/animation/17378-soccer-loading.json'
 import { _isMobile } from '../../../components/utils/helper'
 import { MailSVG } from '../../../components/utils/svgs'
 
@@ -51,15 +48,6 @@ const fc: IFormComponent[] = [
 const schema = {
   email: yup.string().required('Email is required'),
   role: yup.string().required('Role is required')
-}
-
-const mobileOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: football,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
 }
 
 const MonthlySubWaitingList: React.FC<ICPM> = ({ isVisible, setIsVisible }) => {
@@ -103,10 +91,6 @@ const MonthlySubWaitingList: React.FC<ICPM> = ({ isVisible, setIsVisible }) => {
               />
             </div>
             <div className="py-3 f-column-13">
-              {/* lottie */}
-              <div className="lottie-ball mx-auto">
-                <Lottie options={mobileOptions} />
-              </div>
               <div className="py-3 f-column-10">
                 <h4 className="ff-bold m-0">
                   Betting Tips Straight to your Inbox!

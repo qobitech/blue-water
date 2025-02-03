@@ -191,7 +191,6 @@
   overflow: hidden;
   background: #fff;
   padding: 80px 0;
-  background: var(--brand);
   background-image: url('../../../assets/images/Modern\ Waterfront\ House.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -234,7 +233,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      // background-color: rgba(0, 0, 0, 0.8);
       z-index: 1;
     }
     video,
@@ -318,11 +316,6 @@
       margin: 0 auto;
       text-align: center;
     }
-  }
-  .lottie-solution {
-    top: -480px;
-    height: auto;
-    max-height: 830px;
   }
   .list-media-container {
     // position: absolute;
@@ -439,15 +432,9 @@
         margin-bottom: 60px;
       }
     }
-    .lottie-container {
-      display: none;
-    }
     .list-media-container {
       // position: relative;
       // bottom: 0;
-    }
-    .lottie-solution {
-      top: 0;
     }
   }
 }
