@@ -86,8 +86,10 @@ const LandingPage = () => {
                   Discover Prime Waterfront property for Visionary developers
                 </h2>
               </div>
-              <h1 style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
-                Your Gateway to Transformative Waterfront Development
+              <h1>
+                <span style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
+                  Your Gateway to Transformative Waterfront Development
+                </span>
               </h1>
             </div>
             <Reveal className="cta-wrapper container f-row">
