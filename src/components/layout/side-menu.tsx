@@ -19,7 +19,6 @@ import {
   OpportunitySVG,
   MailSVG
 } from '../utils/svgs'
-import { gallery } from '../../assets'
 import './style.scss'
 import { GETDASHBOARDURL } from '../../constants/global'
 import { useLogout } from '../../api/logout'
@@ -185,8 +184,6 @@ const SideMenu: FC<ISideMenu> = ({
 }) => {
   const { logout } = useLogout()
 
-  const navigate = useNavigate()
-
   const handleToggle = () => {
     setToggle(!toggle)
   }
@@ -197,12 +194,6 @@ const SideMenu: FC<ISideMenu> = ({
     <div className={`menu-container ${toggleClass}`}>
       <nav>
         <div className="f-row-15 nav-brand aic">
-          <img
-            src={gallery.logoIcon.src}
-            alt=""
-            style={{ width: '30px' }}
-            onClick={() => navigate(GETDASHBOARDURL())}
-          />
           <p className="m-0">
             <b>My Tipster</b>
           </p>
