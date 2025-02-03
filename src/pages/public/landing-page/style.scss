@@ -213,7 +213,7 @@
       color: var(--brand);
       h1 {
         // font-size: 70px;
-        font-family: 'Didot' !important;
+        font-family: 'Didot';
         font-size: clamp(2.2625rem, -0.875rem + 8.333vw, 3.785rem);
         font-weight: bolder;
         line-height: clamp(3.3625rem, -0.875rem + 8.333vw, 4.775rem);
@@ -222,7 +222,7 @@
         // color: #fff;
       }
       h2 {
-        font-family: 'Didot' !important;
+        font-family: 'Didot';
         font-size: clamp(0.7625rem, -0.875rem + 8.333vw, 1.05rem);
         color: #000;
       }

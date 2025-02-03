@@ -1,16 +1,17 @@
 @font-face {
-  font-family: 'Outfit_Bold';
-  font-weight: normal;
-  font-display: inherit;
-  font-style: normal;
-  src: url('./assets/fonts/cairo/Cairo-Bold.ttf') format('truetype');
-}
-@font-face {
   font-family: 'Didot';
   font-weight: normal;
   font-display: inherit;
   font-style: normal;
   src: url('./assets/fonts/Kugile_Demo.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Outfit_Bold';
+  font-weight: normal;
+  font-display: inherit;
+  font-style: normal;
+  src: url('./assets/fonts/cairo/Cairo-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -114,13 +115,13 @@ body {
 
 .bg-mytipster,
 .bg-gray {
-  background: #f7f7f7 !important;
+  background: #f7f7f7;
 }
 
 @media only screen and (max-width: 1024px) {
   .bg-mytipster,
   .bg-gray {
-    background: #fff !important;
+    background: #fff;
   }
 }
 
@@ -134,12 +135,12 @@ body {
     font-weight: 900;
     -webkit-font-smoothing: antialiased; /* For Safari */
     -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
-    -webkit-letter-spacing: 0.5px !important;
-    -moz-letter-spacing: 0.5px !important;
-    letter-spacing: 0.5px !important;
+    -webkit-letter-spacing: 0.5px;
+    -moz-letter-spacing: 0.5px;
+    letter-spacing: 0.5px;
     -webkit-text-stroke: thin;
-    -webkit-font-smoothing: subpixel-antialiased !important;
-    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
     font-synthesis: none;
     font-feature-settings: 'kern';
     backface-visibility: hidden;

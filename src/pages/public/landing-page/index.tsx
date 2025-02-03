@@ -13,7 +13,6 @@ import {
   OpportunitySVG,
   PartnerSVG
 } from '../../../components/utils/svgs'
-import { LogoSVG } from '../../../components/utils/svgs/f-awesome'
 import { BRANDCOLOR } from '../../../constants/global'
 
 const LandingPage = () => {
@@ -140,9 +139,6 @@ const LandingPage = () => {
       </section>
       <section className="py-5 f-column-33 px-3 mb-5">
         <div className="section-text text-center header-text-content">
-          <div className="text-center">
-            <LogoSVG />
-          </div>
           <h2 style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
             Why Choose Us?
           </h2>
@@ -199,9 +195,6 @@ const LandingPage = () => {
       <section className="faq section-text" ref={faqRef}>
         <div className="container f-column-40">
           <div className="container text-center">
-            <div className="text-center">
-              <LogoSVG />
-            </div>
             <h2 style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}>
               Frequently asked <br />
               questions

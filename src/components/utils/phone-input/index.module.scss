@@ -5,46 +5,37 @@
     text-align: left;
     align-items: flex-start;
     flex: 1;
-    // margin-bottom: 2.06rem;
   }
-  // label {
-  //   color: #544c50;
-  //   font-family: Outfit_Regular !important;
-  //   font-size: 16px;
-  //   font-style: normal;
-  //   font-weight: 400;
-  //   line-height: normal;
-  //   margin: 0 0 0.81rem;
-  // }
+
   input {
-    width: 100% !important;
-    height: 50px !important;
-    border: 1px solid #e4e4e4 !important;
-    border-radius: 3 !important;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e4e4e4;
+    border-radius: 3;
     padding: 0 1.24rem;
-    font-family: Outfit_Regular !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
+    font-family: Outfit_Regular;
+    box-shadow: none;
+    box-sizing: border-box;
     outline: none;
     &::placeholder {
-      color: #a1a1a1 !important;
-      font-family: Outfit_Regular !important;
-      font-size: 0.8125rem !important;
-      font-style: normal !important;
-      // font-weight: 300 !important;
-      line-height: normal !important;
+      color: #a1a1a1;
+      font-family: Outfit_Regular;
+      font-size: 0.8125rem;
+      font-style: normal;
+      // font-weight: 300 ;
+      line-height: normal;
     }
     &:focus {
-      border: 1px solid #6a8dc3 !important;
+      border: 1px solid #6a8dc3;
       &.is-error {
-        border: 1px solid red !important;
+        border: 1px solid red;
       }
     }
     &.iserror {
-      border: 1px solid red !important;
+      border: 1px solid red;
     }
   }
   .diverror {
-    margin-top: 0.81rem !important;
+    margin-top: 0.81rem;
   }
 }
