@@ -1,7 +1,7 @@
 import { PageContainer } from '../../../components/utils/reusable'
 import { TypeButton } from '../../../components/utils/button'
 
-import staffing from '../../../assets/images/staffing.jpg'
+import staffing from '../../../assets/images/Lakeside Cityscape with Palm Trees.jpeg'
 import './style.scss'
 import { Reveal } from '../landing-page/utils'
 import MissionSection from './mission'
@@ -23,7 +23,12 @@ const AboutPage = () => {
         <PageContainer>
           <div className="container grid-wrapper-40 gap-40">
             <div className="AnalyticsIllustration">
-              <img src={staffing} alt="risk" className="w-100 h-100" />
+              <img
+                src={staffing}
+                alt="risk"
+                className="w-100 h-100"
+                style={{ objectFit: 'cover', objectPosition: 'left' }}
+              />
             </div>
             <div className="f-column jcc analytics-content">
               <p className="m-0 mb-4 header-txt-landing about-header-title">
