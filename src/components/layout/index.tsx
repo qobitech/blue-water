@@ -321,6 +321,7 @@ const Dashboard: React.FC<IDashboard> = ({ route, children, global }) => {
                 route={route}
                 toggle={toggle}
                 setSubscribe={setJoinWaitingList}
+                rsProps={rsProps}
               />
               {children}
             </div>
