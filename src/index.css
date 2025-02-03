@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Didot';
-  font-weight: normal;
+  /* font-weight: normal;
   font-display: inherit;
-  font-style: normal;
+  font-style: normal; */
   src: url('./assets/fonts/Kugile_Demo.ttf') format('truetype');
 }
 
@@ -54,6 +54,11 @@ a {
   font-family: 'Outfit_Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
+}
+
+.header-txt-landing {
+  font-family: 'Didot' !important;
+  color: #05254c !important;
 }
 
 input[type='radio'],

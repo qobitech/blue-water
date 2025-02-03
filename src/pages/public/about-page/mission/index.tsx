@@ -7,7 +7,6 @@ import {
   IntegritySVG,
   SustainabilitySVG
 } from '../../../../components/utils/svgs'
-import { BRANDCOLOR } from '../../../../constants/global'
 import { useGlobalContext } from '../../../../components/layout/context'
 
 const MissionSection = () => {
@@ -42,10 +41,7 @@ const MissionSection = () => {
     <div className="DIContainer">
       <PageContainer>
         <div className="DI f-column-20">
-          <p
-            className="mx-auto m-0"
-            style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}
-          >
+          <p className="mx-auto m-0 header-txt-landing">
             <b>Mission</b>
           </p>
           <p className="DIHeader">
@@ -57,10 +53,7 @@ const MissionSection = () => {
               {diContents.map((i, index) => (
                 <div className="DISection border-label gap-11" key={index}>
                   <div>{i.icon}</div>
-                  <h1
-                    className="DISectionHeader"
-                    style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}
-                  >
+                  <h1 className="DISectionHeader header-txt-landing">
                     {i.header}
                   </h1>
                   <p className="DISectionDescription">{i.description}</p>

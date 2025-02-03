@@ -5,7 +5,6 @@ import staffing from '../../../assets/images/staffing.jpg'
 import './style.scss'
 import { Reveal } from '../landing-page/utils'
 import MissionSection from './mission'
-import { BRANDCOLOR } from '../../../constants/global'
 import { useGlobalContext } from '../../../components/layout/context'
 
 const AboutPage = () => {
@@ -24,10 +23,7 @@ const AboutPage = () => {
         <PageContainer>
           <div className="container grid-wrapper-40">
             <div className="f-column jcc analytics-content">
-              <p
-                className="m-0 mb-4"
-                style={{ color: BRANDCOLOR, fontFamily: 'Didot' }}
-              >
+              <p className="m-0 mb-4 header-txt-landing">
                 <b>About Us</b>
               </p>
               <h1 className="AnalyticsHeader">
