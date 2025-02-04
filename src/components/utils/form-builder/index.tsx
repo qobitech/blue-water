@@ -13,6 +13,7 @@ import { HVC } from '../hvc'
 import BoxCheck, { IBCItem } from '../box-check'
 import { ICardListItem } from '../card-list/utils'
 import CardList from '../card-list'
+import TextPrompt from '../text-prompt'
 
 export type typecomponent =
   | 'input'
@@ -65,6 +66,7 @@ export interface IFormComponent {
   }
   cardLists?: ICardListItem[]
   autoresize?: boolean
+  checkboxGroup?: string[]
 }
 
 interface IFormBuilder<T extends FieldValues> {
@@ -78,6 +80,8 @@ const FormBuilder = <T extends FieldValues>({
   hookForm,
   size
 }: IFormBuilder<T>) => {
+  const err = (i: IFormComponent) =>
+    hookForm.formState.errors?.[i.id as Path<T>]?.message as string
   return (
     <>
       {formComponent.map((i) => (
@@ -88,9 +92,7 @@ const FormBuilder = <T extends FieldValues>({
               label={i.label}
               placeholder={i.placeHolder}
               type={i.type}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               customwidth={'100%'}
               isonlyview={i.isonlyview}
               disabled={i.disabled || i.isonlyview}
@@ -110,9 +112,7 @@ const FormBuilder = <T extends FieldValues>({
               type={i.type}
               min={i.min}
               max={i.max}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               customwidth={'100%'}
               isonlyview={i.isonlyview}
               disabled={i.disabled || i.isonlyview}
@@ -134,9 +134,7 @@ const FormBuilder = <T extends FieldValues>({
               }}
               options={i.boxCheckOptions}
               moreOption={i.moreOption}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
             />
           )}
           {i.component === 'password' && (
@@ -145,9 +143,7 @@ const FormBuilder = <T extends FieldValues>({
               label={i.label}
               placeholder={i.placeHolder}
               type={i.type}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               customwidth={'100%'}
               style={{
                 height: size === 'small' ? '40px' : '',
@@ -167,9 +163,7 @@ const FormBuilder = <T extends FieldValues>({
                 )
               }}
               type={i.type}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               customwidth={'100%'}
               value={hookForm.watch(i.id as Path<T>) || i.value}
               style={{
@@ -185,9 +179,7 @@ const FormBuilder = <T extends FieldValues>({
               optionsdata={i.optionData as ISelectOptions[]}
               customwidth={'100%'}
               label={i.label}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               style={{
                 height: size === 'small' ? '40px' : '',
                 fontSize: size === 'small' ? '13px' : ''
@@ -199,9 +191,7 @@ const FormBuilder = <T extends FieldValues>({
               {...hookForm.register(i.id as Path<T>)}
               placeholder={i.placeHolder}
               label={i.label}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               style={{
                 fontSize: size === 'small' ? '13px' : ''
               }}
@@ -218,22 +208,45 @@ const FormBuilder = <T extends FieldValues>({
               }}
               editorHtml={hookForm.watch(i.id as Path<T>)}
               label={i.label}
-              error={
-                hookForm.formState.errors?.[i.id as Path<T>]?.message as string
-              }
+              error={err(i)}
               placeholder={i.placeHolder}
             />
           )}
           {i.component === 'check-box' && (
-            <div className="f-row-15 aic">
-              <TypeCheckbox
-                {...hookForm.register(i.id as Path<T>)}
-                error={
-                  hookForm.formState.errors?.[i.id as Path<T>]
-                    ?.message as string
-                }
-              />
-              <p className="m-0 text-small">{i.label}</p>
+            <div className="f-column-13">
+              <div className="f-row-11 align-items-center">
+                <label htmlFor={i?.id} className="m-0 input-label-component">
+                  {i?.label}
+                </label>
+              </div>
+              <div className="border-label rounded p-3 f-column-17">
+                {i.checkboxGroup?.map((checkBoxItem, jnx) => (
+                  <div className="f-row-15 aic" key={jnx}>
+                    <TypeCheckbox
+                      onChange={(e) => {
+                        const checks: string[] =
+                          hookForm.watch(i?.id as Path<T>) || [] // Store initial value in a variable
+                        const updatedChecks = e.currentTarget.checked
+                          ? [
+                              ...checks, // Remove existing entry with the same label
+                              checkBoxItem // Add the new entry
+                            ]
+                          : checks.filter((p) => p !== checkBoxItem) // Remove the unchecked entry
+
+                        hookForm.setValue(
+                          i?.id as Path<T>,
+                          updatedChecks as any
+                        ) // Update the value
+                      }}
+                      checked={hookForm
+                        ?.watch(i?.id as Path<T>)
+                        ?.includes?.(checkBoxItem)}
+                    />
+                    <p className="m-0 text-small">{checkBoxItem}</p>
+                  </div>
+                ))}
+              </div>
+              {err(i) && <TextPrompt prompt={err(i)} status={false} />}
             </div>
           )}
           {i.component === 'radio' && (

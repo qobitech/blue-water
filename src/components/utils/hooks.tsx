@@ -12,6 +12,7 @@ import queryString from 'query-string'
 import { PRIMARY_COLOR, PRIMARY_COLOR_LIGHT } from '../../constants/global'
 
 import {
+  DefaultValues,
   FieldValues,
   Path,
   PathValue,
@@ -142,13 +143,15 @@ export const useUploadFileHook = <T extends HTMLElement, S extends FieldValues>(
   ]
 }
 
-export const useFormHook = <T extends {}>(objSchema: {}): [
-  UseFormReturn<T, any>
-] => {
+export const useFormHook = <T extends {}>(
+  objSchema: {},
+  defaultValues?: DefaultValues<T> | undefined
+): [UseFormReturn<T, any>] => {
   const schema = yup.object().shape(objSchema)
   const formMethods = useForm<T>({
     resolver: yupResolver(schema),
-    mode: 'onChange'
+    mode: 'onChange',
+    defaultValues
   })
 
   return [formMethods]

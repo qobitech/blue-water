@@ -1,52 +1,43 @@
-import { CheckSVG } from '../../utils/svgs'
-import { createFeedbackStage, IStageArray } from './utils'
+import { createFeedbackStage, stages } from './utils'
 
 export const ProgressData = ({ stage }: { stage: createFeedbackStage }) => {
-  const stageArray: IStageArray[] = [
-    { stage: 'Contact Us', isComplete: false },
-    { stage: 'Response Status', isComplete: false }
-  ]
-
-  const pClass = (i: string) =>
-    `m-0 text-tiny ${
-      stage === i ? 'text-success fw-bold' : 'fw-light color-label'
-    }`
-
   const numberStyle = { borderRadius: '50%', width: '20px', height: '20px' }
+
+  const currentIndex = stages.findIndex((i) => i === stage)
+
+  const lineStyle = { flexGrow: 1, flexShrink: 0 }
 
   return (
     <div className="w-100 pb-3">
+      <div className="w-100 pb-3 text-center">
+        <p className="m-0 text-tiny font-11">
+          {currentIndex + 1} of {stages.length}
+        </p>
+      </div>
       <div className="f-row-17 aic jcsb">
-        {stageArray.map((i, index) => {
-          const isLast = index + 1 === stageArray.length
-          return (
-            <div
-              key={index}
-              className={`f-row-17 align-items-center`}
-              style={{ flexShrink: 0, flexGrow: isLast ? 0 : 1 }}
-            >
-              <div className="f-row-7 align-items-center hw-mx">
-                {i.isComplete ? (
-                  <CheckSVG width="15" height="15" color="green" />
-                ) : (
+        {stages
+          .filter((i) => i === stage)
+          .map((i, index) => {
+            return (
+              <div
+                key={index}
+                className={`f-row-17 align-items-center`}
+                style={lineStyle}
+              >
+                <div className="border-label-bottom f-row" style={lineStyle} />
+                <div className="f-row-7 align-items-center hw-mx">
                   <div
                     style={numberStyle}
                     className="border p-2 f-row align-items-center justify-content-center"
                   >
-                    <p className="m-0 text-tiny font-9">{index + 1}</p>
+                    <p className="m-0 text-tiny font-9">{currentIndex + 1}</p>
                   </div>
-                )}
-                <p className={pClass(i.stage)}>{i.stage}</p>
+                  <p className="m-0 text-tiny text-success fw-bold">{i}</p>
+                </div>
+                <div className="border-label-bottom f-row" style={lineStyle} />
               </div>
-              {!isLast ? (
-                <div
-                  className="border-label-bottom f-row"
-                  style={{ flexGrow: 1, flexShrink: 0 }}
-                />
-              ) : null}
-            </div>
-          )
-        })}
+            )
+          })}
       </div>
     </div>
   )

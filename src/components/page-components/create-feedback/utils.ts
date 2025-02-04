@@ -2,7 +2,12 @@ import * as yup from 'yup'
 import { UseFormReturn } from 'react-hook-form'
 import { IColorGradient } from '../../../constants/global'
 
-export type createFeedbackStage = 'Contact Us' | 'Response Status'
+export type createFeedbackStage =
+  | 'Basic Information'
+  | 'Developer Experience'
+  | 'Project Vision'
+  | 'Compliance & Certification'
+  | 'Next Steps'
 
 export interface IUserEmail {
   email: string
@@ -88,14 +93,6 @@ export const defaultFeedbackDetails: IFeedbackDetails = {
   company: ''
 }
 
-export const userProfileSchema = {
-  name: yup.string().required('Name is required'),
-  email: yup.string().required('Email is required'),
-  company: yup.string().required('Company / Organization is required'),
-  companyUrl: yup.string(),
-  jobTitle: yup.string().required('Job Title is required')
-}
-
 export const feedbackCampaignSchema = {
   category: yup.string().required('Category is required'),
   subject: yup.string().required('Subject is required'),
@@ -103,14 +100,78 @@ export const feedbackCampaignSchema = {
   demoPresentation: yup.string()
 }
 
-export interface IUserProfile {
+export interface IBasicInformation {
   name: string
+  company: string
   email: string
   phone: string
-  message: string
-  // company: string
-  // companyUrl: string
-  // jobTitle: string
+  website: string
+}
+
+export interface IDeveloperExperience {
+  experience: string
+  projects: string
+  projectsDeveloped: string[]
+  projectSize: string
+  projectsDevelopedOthers: string
+}
+
+export interface IProjectVision {
+  estimatedBudget: string
+  financingMethod: string
+  proposedDevelopment: string
+  proposedDevelopmentOther: string
+  waterfrontExperience: string
+}
+
+export interface IComplianceCertification {
+  developerLicense: string
+  legalIssues: string
+}
+
+export interface INextSteps {
+  discoveryMeeting: string
+  communicationMethod: string[]
+}
+
+export const nextStepsSchema = {
+  discoveryMeeting: yup.string().required('input is required'),
+  communicationMethod: yup.array().of(yup.string()).min(1, 'input is required')
+}
+
+export const complianceCertificationSchema = {
+  developerLicense: yup.string().required('input is required'),
+  legalIssues: yup.string().required('input is required')
+}
+
+export const projectVisionSchema = {
+  estimatedBudget: yup.string().required('Estimated Budget is required'),
+  financingMethod: yup
+    .string()
+    .required('Preferred Financing Method is required'),
+  proposedDevelopment: yup
+    .string()
+    .required('Proposed Development Type is required'),
+  waterfrontExperience: yup.string().required('input is required')
+}
+
+export const basicInfoSchema = {
+  name: yup.string().required('Name is required'),
+  company: yup.string().required('Company is required'),
+  email: yup.string().required('Email is required'),
+  phone: yup.string().required('Phone is required'),
+  website: yup.string().required('Website is required')
+}
+
+export const developerExperienceSchema = {
+  experience: yup.string().required('Experience is required'),
+  projects: yup.string().required('Projects is required'),
+  projectsDeveloped: yup
+    .array()
+    .of(yup.string())
+    .min(1, 'input is required')
+    .required('input is required'),
+  projectSize: yup.string().required('Project Size is required')
 }
 
 export interface IFeedbackCampaign {
@@ -125,10 +186,20 @@ export interface IFeedbackCampaignFormProps {
   handleFeedback: () => void
 }
 
-export interface IRegisterForm {
-  hookForm: UseFormReturn<IUserProfile, any>
-  handleRegister: () => void
-  btnTitle: string
+export interface IBasicInformationForm {
+  hookForm: UseFormReturn<IBasicInformation, any>
+}
+export interface IDeveloperExperienceForm {
+  hookForm: UseFormReturn<IDeveloperExperience, any>
+}
+export interface IProjectVisionForm {
+  hookForm: UseFormReturn<IProjectVision, any>
+}
+export interface IComplianceCertificationForm {
+  hookForm: UseFormReturn<IComplianceCertification, any>
+}
+export interface INextStepsForm {
+  hookForm: UseFormReturn<INextSteps, any>
 }
 
 export interface IFeedBackCard {
@@ -144,3 +215,11 @@ export interface IFeedBackCard {
   companyWebsite?: string
   isFeedbackLink: boolean
 }
+
+export const stages: createFeedbackStage[] = [
+  'Basic Information',
+  'Developer Experience',
+  'Project Vision',
+  'Compliance & Certification',
+  'Next Steps'
+]
