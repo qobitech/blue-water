@@ -11,11 +11,11 @@ import { useGlobalContext } from '../../../../components/layout/context'
 
 const MissionSection = () => {
   const { rsProps } = useGlobalContext()
-  const createFeedback = () => {
+  const createFeedback = (title: string) => {
     rsProps?.callSection({
       action: 'create',
       component: 'feedback',
-      title: 'Create Feedback Link',
+      title,
       max: true
     })
   }
@@ -63,22 +63,20 @@ const MissionSection = () => {
           </div>
           <Reveal className="cta-wrapper container f-row px-0 jcc pt-5 mt-4">
             <TypeButton
-              title="Explore the property"
               buttonSize="large"
-              // buttonType="outlined"
+              buttonType="bold"
               buttonShape="square"
-              aria-label="Proceed to Sign up oor Sign in"
-              onClick={createFeedback}
+              title="Explore the property"
+              aria-label="Explore the Property - BlueWater Shores"
+              onClick={() => createFeedback('Explore the Property')}
             />
             <TypeButton
-              title="Partner with Us"
               buttonSize="large"
               buttonType="outlined"
               buttonShape="square"
-              // className="border-0"
-              // style={{ background: 'none' }}
-              aria-label="Proceed to Sign up oor Sign in"
-              onClick={createFeedback}
+              title="Partner with Us"
+              aria-label="Partner with Us - BlueWater Shores"
+              onClick={() => createFeedback('Partner with Us')}
             />
           </Reveal>
         </div>

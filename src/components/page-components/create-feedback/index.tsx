@@ -27,9 +27,11 @@ import ComplianceCertificationForm from './compliance-certification-form'
 import NextStepsForm from './next-steps-form.tsx'
 import { ISendEmail, sendEmail } from '../../../api'
 import TextPrompt from '../../utils/text-prompt'
+import { Notice } from './notice'
 
 const CreateFeedback = () => {
   const { rsProps } = useGlobalContext()
+  const [tandc, setTandC] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const [err, setErr] = useState<string>('')
@@ -132,7 +134,7 @@ const CreateFeedback = () => {
   }
 
   useEffect(() => {
-    notificationProps.handleOpenModal(`Contact Us - BlueWater Shores`)
+    notificationProps.handleOpenModal(rsProps?.title as string)
   }, [])
 
   return (
@@ -145,73 +147,93 @@ const CreateFeedback = () => {
         }}
         disableClose={loading}
       >
-        {!success && <ProgressData stage={stage} />}
-        <div className="f-column-33 py-4">
-          <HVC view={stage === 'Basic Information'} removeDOM>
-            <BasicInformationForm hookForm={basicInfoHookForm} />
-          </HVC>
-          <HVC view={stage === 'Developer Experience'} removeDOM>
-            <DeveloperExperienceForm hookForm={devExpHookForm} />
-          </HVC>
-          <HVC view={stage === 'Project Vision'} removeDOM>
-            <ProjectVisionForm hookForm={projectVisionHookForm} />
-          </HVC>
-          <HVC view={stage === 'Compliance & Certification'} removeDOM>
-            <ComplianceCertificationForm
-              hookForm={complianceCertificationHookForm}
-            />
-          </HVC>
-          <HVC view={stage === 'Next Steps'} removeDOM>
-            {!success ? (
-              <NextStepsForm hookForm={nextStepsHookForm} />
-            ) : (
-              <div className="text-center f-column-25 aic py-5">
-                <div className="text-center f-column-23 aic py-5">
-                  <h3>Thank you for your interest!</h3>
-                  <p>
-                    We&apos;ll review your application and get back to you
-                    shortly
-                  </p>
+        <HVC view={!tandc}>
+          <Notice
+            proceed={() => {
+              setTandC(true)
+              notificationProps.handleOpenModal(
+                `Partnership & Property Exploration Form - BlueWater Shores`
+              )
+            }}
+            cancel={handleClose}
+            cta="explore property"
+          />
+        </HVC>
+        <HVC view={tandc}>
+          {!success && <ProgressData stage={stage} />}
+          <div className="f-column-33 py-4">
+            <HVC view={stage === 'Basic Information'} removeDOM>
+              <BasicInformationForm hookForm={basicInfoHookForm} />
+            </HVC>
+            <HVC view={stage === 'Developer Experience'} removeDOM>
+              <DeveloperExperienceForm hookForm={devExpHookForm} />
+            </HVC>
+            <HVC view={stage === 'Project Vision'} removeDOM>
+              <ProjectVisionForm hookForm={projectVisionHookForm} />
+            </HVC>
+            <HVC view={stage === 'Compliance & Certification'} removeDOM>
+              <ComplianceCertificationForm
+                hookForm={complianceCertificationHookForm}
+              />
+            </HVC>
+            <HVC view={stage === 'Next Steps'} removeDOM>
+              {!success ? (
+                <NextStepsForm hookForm={nextStepsHookForm} />
+              ) : (
+                <div className="text-center f-column-25 aic py-5">
+                  <div className="text-center f-column-23 aic py-5">
+                    <h3>Thank you for your interest!</h3>
+                    <p>
+                      We&apos;ll review your application and get back to you
+                      shortly
+                    </p>
+                  </div>
+                  <TypeButton
+                    title="Close"
+                    buttonShape="square"
+                    buttonType="danger"
+                    onClick={handleClose}
+                  />
                 </div>
+              )}
+            </HVC>
+            {!success && (
+              <div className="f-column-13">
                 <TypeButton
-                  title="Close"
+                  title={stage === 'Next Steps' ? 'Submit' : 'Next'}
+                  buttonSize="large"
                   buttonShape="square"
-                  buttonType="danger"
-                  onClick={handleClose}
+                  buttonType={
+                    loading
+                      ? 'disabled'
+                      : stage === 'Next Steps'
+                      ? 'black'
+                      : 'bold'
+                  }
+                  load={loading}
+                  onClick={
+                    loading
+                      ? undefined
+                      : stage === 'Next Steps'
+                      ? handleSubmit
+                      : handleValidation
+                  }
                 />
+                {stage !== 'Basic Information' && !loading && (
+                  <TypeButton
+                    title="Previous"
+                    buttonSize="medium"
+                    buttonShape="square"
+                    buttonType="outlined"
+                    className="border-0 p-0"
+                    onClick={handlePrev}
+                  />
+                )}
               </div>
             )}
-          </HVC>
-          {!success && (
-            <div className="f-column-13">
-              <TypeButton
-                title={stage === 'Next Steps' ? 'Submit' : 'Next'}
-                buttonSize="large"
-                buttonShape="square"
-                buttonType={loading ? 'disabled' : 'bold'}
-                load={loading}
-                onClick={
-                  loading
-                    ? undefined
-                    : stage === 'Next Steps'
-                    ? handleSubmit
-                    : handleValidation
-                }
-              />
-              {stage !== 'Basic Information' && !loading && (
-                <TypeButton
-                  title="Previous"
-                  buttonSize="medium"
-                  buttonShape="square"
-                  buttonType="outlined"
-                  className="border-0 p-0"
-                  onClick={handlePrev}
-                />
-              )}
-            </div>
-          )}
-          {err && <TextPrompt prompt={err} status={false} />}
-        </div>
+            {err && <TextPrompt prompt={err} status={false} />}
+          </div>
+        </HVC>
       </NotificationModal>
     </div>
   )

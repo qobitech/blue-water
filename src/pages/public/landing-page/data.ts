@@ -154,7 +154,7 @@ export const content: IFeedBack[] = [
 export const faqdata = [
   {
     id: 1,
-    header: 'What kind of partnerships are you looking for?',
+    header: 'What kind of partnership is BlueWater Shores looking for?',
     answer: `We’re seeking developers interested in creating high-value, sustainable projects like luxury homes, resorts, or marinas.`
   },
   {
@@ -171,7 +171,7 @@ export const faqdata = [
   {
     id: 4,
     header: 'Can I schedule a visit to view the property?',
-    answer: `Absolutely. Contact us, and we’ll arrange a site visit.`
+    answer: `Absolutely. Click the button titled 'Explore the Property', and we’ll arrange a site visit.`
   },
   {
     id: 5,
@@ -181,6 +181,6 @@ export const faqdata = [
   {
     id: 6,
     header: 'How do I start a partnership?',
-    answer: `Simply reach out to us through the Contact Us page, and we’ll walk you through the next steps.`
+    answer: `Simply click the button titled 'Partner with Us', and we’ll walk you through the next steps.`
   }
 ]

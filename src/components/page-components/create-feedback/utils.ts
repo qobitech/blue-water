@@ -160,7 +160,7 @@ export const basicInfoSchema = {
   company: yup.string().required('Company is required'),
   email: yup.string().required('Email is required'),
   phone: yup.string().required('Phone is required'),
-  website: yup.string().required('Website is required')
+  website: yup.string()
 }
 
 export const developerExperienceSchema = {

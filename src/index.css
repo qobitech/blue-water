@@ -61,6 +61,10 @@ a {
   color: #05254c !important;
 }
 
+.header-txt-color {
+  color: #05254c !important;
+}
+
 input[type='radio'],
 input[type='checkbox'] {
   accent-color: #02835b;

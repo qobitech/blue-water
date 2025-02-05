@@ -24,7 +24,7 @@ export const ProgressData = ({ stage }: { stage: createFeedbackStage }) => {
                 className={`f-row-17 align-items-center`}
                 style={lineStyle}
               >
-                <div className="border-label-bottom f-row" style={lineStyle} />
+                <div className=" f-row" style={lineStyle} />
                 <div className="f-row-7 align-items-center hw-mx">
                   <div
                     style={numberStyle}
@@ -34,7 +34,7 @@ export const ProgressData = ({ stage }: { stage: createFeedbackStage }) => {
                   </div>
                   <p className="m-0 text-tiny text-success fw-bold">{i}</p>
                 </div>
-                <div className="border-label-bottom f-row" style={lineStyle} />
+                <div className=" f-row" style={lineStyle} />
               </div>
             )
           })}

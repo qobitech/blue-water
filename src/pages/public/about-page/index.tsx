@@ -9,11 +9,11 @@ import { useGlobalContext } from '../../../components/layout/context'
 
 const AboutPage = () => {
   const { rsProps } = useGlobalContext()
-  const createFeedback = () => {
+  const createFeedback = (title: string) => {
     rsProps?.callSection({
       action: 'create',
       component: 'feedback',
-      title: 'Create Feedback Link',
+      title,
       max: true
     })
   }
@@ -45,22 +45,21 @@ const AboutPage = () => {
               </p>
               <Reveal className="cta-wrapper container f-row px-0">
                 <TypeButton
-                  title="Explore the property"
                   buttonSize="large"
-                  // buttonType="outlined"
+                  buttonType="bold"
                   buttonShape="square"
-                  aria-label="Proceed to Sign up oor Sign in"
-                  onClick={createFeedback}
+                  title="Explore the property"
+                  aria-label="Explore the Property - BlueWater Shores"
+                  onClick={() => createFeedback('Explore the Property')}
                 />
                 <TypeButton
-                  title="Partner with Us"
                   buttonSize="large"
                   buttonType="outlined"
                   buttonShape="square"
+                  title="Partner with Us"
+                  aria-label="Partner with Us - BlueWater Shores"
+                  onClick={() => createFeedback('Partner with Us')}
                   className="border-0"
-                  // style={{ background: 'none' }}
-                  aria-label="Proceed to Sign up oor Sign in"
-                  onClick={createFeedback}
                 />
               </Reveal>
             </div>

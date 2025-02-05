@@ -38,15 +38,13 @@ const LandingPage = () => {
     }
   }, [])
 
-  const faqRef = useRef(null)
-
   const [openAccordion, setOpenAccordion] = useState(0)
 
-  const createFeedback = () => {
+  const createFeedback = (title: string) => {
     rsProps?.callSection({
       action: 'create',
       component: 'feedback',
-      title: 'Create Feedback Link',
+      title,
       max: true
     })
   }
@@ -73,6 +71,14 @@ const LandingPage = () => {
     }
   ]
 
+  const faqRef = useRef<HTMLDivElement>(null)
+
+  const handleScrollRightSection = () => {
+    if (faqRef.current) {
+      faqRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <div className="landing-page-wrapper bg-white">
       <section className="video-background">
@@ -95,18 +101,18 @@ const LandingPage = () => {
                 buttonType="outlined"
                 className="border-0"
                 buttonShape="square"
-                aria-label="Proceed to Sign up oor Sign in"
-                onClick={createFeedback}
+                aria-label="Explore the Property - BlueWater Shores"
+                onClick={() => createFeedback('Explore the Property')}
               />
               <TypeButton
-                title="Partner with Us"
+                title="Read FAQ"
                 buttonSize="large"
                 buttonType="outlined"
                 buttonShape="square"
                 className="text-white"
                 style={{ background: 'none' }}
-                aria-label="Proceed to Sign up oor Sign in"
-                onClick={createFeedback}
+                aria-label="Read FAQ - BlueWater Shores"
+                onClick={handleScrollRightSection}
               />
             </Reveal>
           </div>
@@ -158,16 +164,16 @@ const LandingPage = () => {
                 buttonType="bold"
                 buttonShape="square"
                 title="Explore the property"
-                aria-label="Collect Audio Feedback"
-                onClick={createFeedback}
+                aria-label="Explore the Property - BlueWater Shores"
+                onClick={() => createFeedback('Explore the Property')}
               />
               <TypeButton
                 buttonSize="large"
                 buttonType="outlined"
                 buttonShape="square"
                 title="Partner with Us"
-                aria-label="Collect Audio Feedback"
-                onClick={createFeedback}
+                aria-label="Partner with Us - BlueWater Shores"
+                onClick={() => createFeedback('Partner with Us')}
               />
             </Reveal>
           </div>
@@ -203,16 +209,16 @@ const LandingPage = () => {
               buttonType="bold"
               buttonShape="square"
               title="Explore the property"
-              aria-label="Collect Audio Feedback"
-              onClick={createFeedback}
+              aria-label="Explore the Property - BlueWater Shores"
+              onClick={() => createFeedback('Explore the Property')}
             />
             <TypeButton
               buttonSize="large"
               buttonType="outlined"
               buttonShape="square"
               title="Partner with Us"
-              aria-label="Collect Audio Feedback"
-              onClick={createFeedback}
+              aria-label="Partner with Us - BlueWater Shores"
+              onClick={() => createFeedback('Partner with Us')}
             />
           </Reveal>
         </div>
