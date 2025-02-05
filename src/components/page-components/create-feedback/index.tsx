@@ -152,7 +152,7 @@ const CreateFeedback = () => {
             proceed={() => {
               setTandC(true)
               notificationProps.handleOpenModal(
-                `Partnership & Property Exploration Form - BlueWater Shores`
+                `Partnership & Property Exploration Form`
               )
             }}
             cancel={handleClose}
