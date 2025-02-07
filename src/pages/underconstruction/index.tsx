@@ -1,19 +1,11 @@
-import { useState } from 'react'
-
 import { PageContainer } from '../../components/utils/reusable'
 import { gallery } from '../../assets'
 import './style.scss'
 import { TypeButton } from '../../components/utils/button'
-import WaitingListModal from '../public/waiting-list/launch'
 
 const UnderConstruction = () => {
-  const [joinWaitingList, setJoinWaitingList] = useState<boolean>(false)
   return (
     <>
-      <WaitingListModal
-        isVisible={joinWaitingList}
-        setIsVisible={setJoinWaitingList}
-      />
       <div className={`PageWrapper`}>
         <div className="ContentWrapper pb-4">
           <PageContainer>
@@ -44,7 +36,6 @@ const UnderConstruction = () => {
                     title="Get notified when we launch"
                     buttonSize="medium"
                     buttonShape="curve"
-                    onClick={() => setJoinWaitingList?.(true)}
                   />
                 </div>
               </div>

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { pageurl } from './constants/pageurl'
 import { Loader } from './components/utils/hooks'
 import { publicPage } from './routes/roles/public'
-import SuspendedPage from './pages/suspended'
 import './assets/style/main.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './global.scss'
@@ -33,7 +32,6 @@ function App() {
                 return <Route path={i.url} element={<Page />} key={index} />
               })}
             </Route>
-            <Route path={pageurl.SUSPENDED} element={<SuspendedPage />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </Suspense>

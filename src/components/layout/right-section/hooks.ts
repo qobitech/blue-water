@@ -8,8 +8,6 @@ import {
   IRSAction,
   IRsPropsCTA
 } from './utils'
-import { paymentStatusType } from '../../../interface/ITransaction'
-import { optionType } from '../../page-components/send-feedback'
 
 export const useRightSection = <K extends {}>(): IRightSection<K> => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,9 +25,6 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
   const [onRefresh, setOnRefresh] = useState<(() => void) | undefined>(
     undefined
   )
-  const [paymentStatus, setPaymentStatus] = useState<paymentStatusType | null>(
-    null
-  )
   const [max, setMax] = useState<boolean>(false)
   const [action, setAction] = useState<IRSAction>({
     type: null,
@@ -40,7 +35,6 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
   const [dataById, setDataById] = useState<any>(null)
   const [cta, setCTA] = useState<IRsPropsCTA[]>([])
   const [audioProps, setAudioProps] = useState<boolean>(false)
-  const [feedbackOption, setFeedbackOption] = useState<optionType>()
 
   function updateData(data: K | null) {
     setData(data)
@@ -61,7 +55,6 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
       status,
       max,
       additionalAmountNeeded,
-      paymentStatus,
       onRefresh
     } = arg
     setAction({ type: action, component, id })
@@ -72,7 +65,6 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     setStatus(status || false)
     setMax((prev) => max || prev)
     setAdditionalAmountNeeded((prev) => additionalAmountNeeded || prev)
-    setPaymentStatus(paymentStatus || null)
     setOnRefresh((prev) => onRefresh || prev)
   }
 
@@ -127,7 +119,6 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     setMediaURL('')
     setMax(false)
     setAdditionalAmountNeeded('')
-    setPaymentStatus(null)
     setOnRefresh(undefined)
     setCTA([])
     setAudioProps(false)
@@ -160,13 +151,10 @@ export const useRightSection = <K extends {}>(): IRightSection<K> => {
     max,
     setAdditionalAmountNeeded,
     additionalAmountNeeded,
-    paymentStatus,
     onRefresh,
     audioProps,
     setAudioProps,
     cta,
-    setCTA,
-    setFeedbackOption,
-    feedbackOption
+    setCTA
   }
 }

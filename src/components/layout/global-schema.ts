@@ -1,47 +1,10 @@
-import {
-  filterQueryType,
-  IOrderSummaryProps,
-  IPaymentDetails,
-  transactionItemType
-} from '../../constants/global'
-import {
-  IBetChannelResponses,
-  IMultiBetTicketResponses,
-  ISellerStats
-} from '../../interface/IBet'
-import { IGETCommunityForums } from '../../interface/ICommunityForum'
-import {
-  IAchievements,
-  IBookies,
-  INotification,
-  ISports,
-  IUserTasks
-} from '../../interface/IOther'
+import { filterQueryType } from '../../constants/global'
 import { IShareProps } from '../utils/share'
 
 export type IComponentStateKey = keyof typeof initComponentState
 
-interface IComponentAPIState {
-  getCommunityForum: IGETCommunityForums
-  getCommunityForumByID: IGETCommunityForums
-  getUserTasks: IUserTasks
-  getSellerMultiPredictionStats: ISellerStats
-  getMyMultiPrediction: IMultiBetTicketResponses
-  getPublicMultiPrediction: IMultiBetTicketResponses
-  getMultiPrediction: IMultiBetTicketResponses
-  getMyChannels: IBetChannelResponses
-  getAllChannels: IBetChannelResponses
-  getPublicChannels: IBetChannelResponses
-  getSubscribedChannels: IBetChannelResponses
-  getUserAchievements: IAchievements
-  getSports: ISports
-  getBookies: IBookies
-}
-
-export interface IComponentState extends IComponentAPIState {
-  // prediction: IMultiBetTicketResponse
+export interface IComponentState {
   tokenExpired: boolean
-  notification: INotification
   menuOpen: boolean
   filters: {
     [key: string]: string
@@ -51,13 +14,6 @@ export interface IComponentState extends IComponentAPIState {
   joinWaitingList: boolean
   subscribe: boolean
   shareProps: IShareProps | null
-  paymentLink: string | null
-  confetti: boolean
-  orderSummaryProps: IOrderSummaryProps | null
-  paymentDetails: IPaymentDetails[] | null
-  paymentItemType: transactionItemType
-  betCodeFilter: Array<{ param: string; value: string }>
-  isBetCodeFilter: boolean
 }
 
 const apigetObj = {

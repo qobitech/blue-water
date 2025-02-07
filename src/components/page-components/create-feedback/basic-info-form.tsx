@@ -25,7 +25,7 @@ const BasicInformationForm: FC<IBasicInformationForm> = ({ hookForm }) => {
     {
       label: 'Phone Number',
       id: 'phone',
-      component: 'input',
+      component: 'phone',
       placeHolder: `Enter your phone number`
     },
     {

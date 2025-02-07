@@ -2,14 +2,9 @@ import { Children } from 'react'
 import { TypeButton } from '../../utils/button'
 import { Loader2, LogoAnimated } from '../../utils/hooks'
 import TextPrompt from '../../utils/text-prompt'
-import { BellBoldSVG, BellOutlineSVG, VerifiedSVG } from '../../utils/svgs'
-import { IBetChannelResponse } from '../../../interface/IBet'
 import './index.scss'
-import { HVC, HVCLoad } from '../../utils/hvc'
 import { LeftAngleSVG } from '../../utils/svgs/f-awesome'
-import { IconWrapper } from '../../utils/info-txt'
 import { ActionComponent } from '../../utils/reusable'
-import { AudioRecordController } from '../../page-components/send-feedback/audio-record-controller'
 import { IRSection } from './utils'
 
 const RightSection = <T extends {}>({
@@ -107,7 +102,6 @@ const RightSection = <T extends {}>({
                     )}
                   </>
                 ))}
-                {rsProps?.audioProps ? <AudioRecordController /> : null}
               </div>
               {/* <div>
                 <RefreshComponent load={ctaLoad.status} text={ctaLoad.text} />
@@ -131,30 +125,3 @@ const RightSection = <T extends {}>({
 }
 
 export default RightSection
-
-export const ChannelTitle = ({
-  title,
-  verified,
-  channel
-}: {
-  title: string
-  verified: boolean
-  channel: IBetChannelResponse
-}) => {
-  return (
-    <div className="f-row-7 aic cursor-pointer">
-      <h3 className="m-0">{title}</h3>
-      {verified ? <VerifiedSVG /> : null}
-      <HVCLoad removeDOM view>
-        <IconWrapper>
-          <BellBoldSVG />
-        </IconWrapper>
-      </HVCLoad>
-      <HVC removeDOM view>
-        <IconWrapper>
-          <BellOutlineSVG />
-        </IconWrapper>
-      </HVC>
-    </div>
-  )
-}

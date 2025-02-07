@@ -1,12 +1,5 @@
 import { Location } from 'react-router-dom'
-import {
-  IPaymentDetails,
-  VAT,
-  monthEnum,
-  getUserData
-} from '../../constants/global'
-import { IBetTicketStatus } from '../../interface/IBet'
-import { statusType } from './reusable'
+import { monthEnum } from '../../constants/global'
 import moment from 'moment'
 export const _handleTh = (amount: string) => {
   if (amount) {
@@ -123,13 +116,6 @@ export const reverseSlug = (title: string) => {
   return title.trim().split('-').join(' ').toLowerCase()
 }
 
-export const isSubscribed = (
-  subscribers: Array<{
-    id: string
-    date: string
-  }> | null
-) => subscribers?.map((j) => j.id).includes(getUserData()?.user?._id)
-
 export const getMonth = (date: number) => {
   switch (date) {
     case 0:
@@ -221,69 +207,6 @@ export const monthsFull = [
   'November',
   'December'
 ]
-
-export const getTicketStatus = (
-  betTicketStatus: IBetTicketStatus[] | null,
-  status: statusType,
-  datanumber?: number
-) => {
-  let bts = betTicketStatus || []
-  const currentMonth = getMonth(new Date().getMonth())
-  const currentYear = new Date().getFullYear()
-  const isCurrentMonth =
-    bts?.filter((i) => i.month === currentMonth && i.year === currentYear)
-      ?.length > 0
-  if (isCurrentMonth) {
-    bts = bts.map((i) => ({
-      ...i,
-      status:
-        i.month === currentMonth && i.year === currentYear
-          ? {
-              ...i.status,
-              Pending:
-                status === 'Pending'
-                  ? i.status.Pending + (datanumber || 1)
-                  : status === 'Published'
-                  ? i.status.Pending - (datanumber || 1)
-                  : i.status.Pending,
-              Published:
-                status === 'Published'
-                  ? i.status.Published + (datanumber || 1)
-                  : i.status.Published,
-              Expired:
-                status === 'Archived'
-                  ? i.status.Archived + (datanumber || 1)
-                  : i.status.Archived
-            }
-          : i.status
-    }))
-  } else {
-    bts.push({
-      month: getMonth(new Date().getMonth()),
-      year: new Date().getFullYear(),
-      status: {
-        Published: status === 'Published' ? 1 : 0,
-        Archived: status === 'Archived' ? 1 : 0,
-        Pending: status === 'Pending' ? datanumber || 1 : 0
-      }
-    })
-  }
-  return bts
-}
-
-// eslint-disable-next-line n/handle-callback-err
-export const handleError = (err: any) => {
-  // if (process.env.NODE_ENV === 'production') return
-  // console.error(err)
-}
-
-// 5/2 = 2.5
-//  5
-//  0 - 1 - 2 - 3 - 4
-//  1               1
-
-// 7/4 = 1.75
-// 9/4 = 2.25
 
 export const calcExpectedDropPerWeek = (drop: number, weekIndex: number) => {
   if (drop % 4 === 0) return drop / 4
@@ -588,14 +511,6 @@ export const getMonthlySubCost = (
     ) / 10
   )
 }
-
-export const getSubAmount = (i: IPaymentDetails) => i.amount * i.quantity
-
-export const getVATAmount = (i: IPaymentDetails) =>
-  getSubAmount(i) * (VAT / 100)
-
-export const getTotalAmount = (i: IPaymentDetails) =>
-  getVATAmount(i) + getSubAmount(i)
 
 export const getDayMonth = (date: string | number | Date) =>
   new Date(date).toLocaleDateString(undefined, {

@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react'
-import { paymentStatusType } from '../../../interface/ITransaction'
 import { buttonSize, buttonType } from '../../utils/button'
 import { IOptionAction } from '../../utils/reusable'
 import { IGlobalContext } from '../context'
@@ -107,7 +105,6 @@ export interface ICallSection<T> {
   slug?: string
   onRefresh?: () => void
   status?: boolean
-  paymentStatus?: paymentStatusType
   max?: boolean
   additionalAmountNeeded?: string
 }
@@ -150,7 +147,6 @@ export interface IRightSection<K> {
   setDataById: React.Dispatch<any>
   dataById: any
   status: boolean
-  paymentStatus: paymentStatusType | null
   max: boolean
   additionalAmountNeeded: string
   setAdditionalAmountNeeded: React.Dispatch<React.SetStateAction<string>>
@@ -159,8 +155,6 @@ export interface IRightSection<K> {
   setCTA: (value: React.SetStateAction<IRsPropsCTA[]>) => void
   audioProps: boolean
   setAudioProps: (value: React.SetStateAction<boolean>) => void
-  setFeedbackOption: Dispatch<SetStateAction<optionType>>
-  feedbackOption: optionType
 }
 
 export interface IRightSectionHistory {

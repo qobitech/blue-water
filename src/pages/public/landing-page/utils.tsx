@@ -1,48 +1,5 @@
-import { CheckCircleSVG } from '../../../components/utils/svgs'
-import { BUTTON_PRIMARY } from '../../../constants/global'
-import { pageurl } from '../../../constants/pageurl'
-import { TypeButton } from '../../../components/utils/button'
-import { useNavigate } from 'react-router-dom'
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { FC, useEffect, useRef } from 'react'
-
-export const ListComponent = ({ points }: { points: string[] }) => {
-  return (
-    <ul
-      className="ml-3 pl-0 mr-3 mr-lg-0 ml-lg-0 f-column-20 h-100"
-      style={{ maxWidth: '400px' }}
-    >
-      {points.map((i, index) => (
-        <li
-          style={{ listStyleType: 'none' }}
-          className="f-row-20 ais"
-          key={index}
-        >
-          <div style={{ minWidth: '17px', minHeight: '15px' }}>
-            <CheckCircleSVG color={BUTTON_PRIMARY} />
-          </div>
-          <span>{i}</span>
-        </li>
-      ))}
-      <CTASection url={pageurl.REGISTER} />
-    </ul>
-  )
-}
-
-const CTASection = ({ url }: { url: string }) => {
-  const navigate = useNavigate()
-  return (
-    <div className="w-100 f-row jcc mt-auto">
-      <TypeButton
-        title="CREATE AN ACCOUNT"
-        className="mt-auto"
-        buttonSize="large"
-        mtauto="true"
-        onClick={() => navigate(url)}
-      />
-    </div>
-  )
-}
 
 export const transition1 = {
   duration: 1.4,

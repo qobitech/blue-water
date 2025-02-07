@@ -1,6 +1,5 @@
 import * as yup from 'yup'
 import { UseFormReturn } from 'react-hook-form'
-import { IColorGradient } from '../../../constants/global'
 
 export type createFeedbackStage =
   | 'Basic Information'
@@ -43,34 +42,6 @@ export interface IFeedbackDetailsProps {
 
 export interface IUserEmailProps {
   hookForm: UseFormReturn<IUserEmail, any>
-}
-
-export interface IFeedbackCardProps {
-  feedbackDetails: IFeedbackDetails
-  color: IColorGradient
-  handleColor: (color: IColorGradient) => void
-  hidePallette?: boolean
-}
-
-export interface IColorSelectionProps {
-  handleColor: (color: IColorGradient) => void
-  selectedColor: IColorGradient
-}
-
-export interface IColorItemProps {
-  color: IColorGradient
-  isSelected: boolean
-  handleColor: (color: IColorGradient) => void
-}
-
-export const defaultDetails: IFeedbackDetails = {
-  name: 'Your Name',
-  companyUrl: '',
-  category: 'Category',
-  purpose: 'What is the feedback for?',
-  subject: 'What do you want to talk about?',
-  jobTitle: 'Your job title',
-  company: 'the Company where you work'
 }
 
 export interface IStageArray {
@@ -158,7 +129,7 @@ export const projectVisionSchema = {
 export const basicInfoSchema = {
   name: yup.string().required('Name is required'),
   company: yup.string().required('Company is required'),
-  email: yup.string().required('Email is required'),
+  email: yup.string().email().required('Email is required'),
   phone: yup.string().required('Phone is required'),
   website: yup.string()
 }
@@ -200,20 +171,6 @@ export interface IComplianceCertificationForm {
 }
 export interface INextStepsForm {
   hookForm: UseFormReturn<INextSteps, any>
-}
-
-export interface IFeedBackCard {
-  subject: string
-  requester: string
-  company: string
-  category: string
-  onGenerateLink: () => void
-  onNewFeedback: () => void
-  onClose: () => void
-  onEdit: () => void
-  color: IColorGradient
-  companyWebsite?: string
-  isFeedbackLink: boolean
 }
 
 export const stages: createFeedbackStage[] = [
