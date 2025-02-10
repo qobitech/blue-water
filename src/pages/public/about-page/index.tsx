@@ -36,21 +36,23 @@ const AboutPage = () => {
               </p>
               <h1 className="AnalyticsHeader">
                 BlueWater Shores Realty Ltd was founded with a vision to create
-                timeless developments on Nigeria’s most exclusive waterfront
-                property.
+                timeless developments on Nigeria’s most exclusive properties.
               </h1>
               <p className="AnalyticsHeaderDescription">
-                Our 10,000 square metres property is surrounded by breathtaking
-                water views and is primed for transformative projects.
+                We are dedicated to transforming prime locations into iconic
+                spaces that blend elegance, innovation, and lasting value. Our
+                vision is to redefine real estate by crafting developments that
+                stand the test of time while delivering unmatched quality and
+                luxury.
               </p>
               <Reveal className="cta-wrapper container f-row px-0">
                 <TypeButton
                   buttonSize="large"
                   buttonType="bold"
                   buttonShape="square"
-                  title="Explore the property"
-                  aria-label="Explore the Property - BlueWater Shores"
-                  onClick={() => createFeedback('Explore the Property')}
+                  title="Contact Us"
+                  aria-label="Contact Us - BlueWater Shores"
+                  onClick={() => createFeedback('Contact Us')}
                 />
                 <TypeButton
                   buttonSize="large"

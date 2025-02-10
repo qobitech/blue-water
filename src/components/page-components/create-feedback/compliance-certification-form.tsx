@@ -15,17 +15,17 @@ const ComplianceCertificationForm: FC<IComplianceCertificationForm> = ({
         { id: 2, label: 'Yes', value: 'Yes' },
         { id: 3, label: 'No', value: 'No' }
       ]
-    },
-    {
-      label: 'Have You Faced Any Legal Issues in Past Projects?',
-      id: 'legalIssues',
-      component: 'select',
-      initOptions: { id: 1, label: 'Select', value: '' },
-      optionData: [
-        { id: 2, label: 'Yes', value: 'Yes' },
-        { id: 3, label: 'No', value: 'No' }
-      ]
     }
+    // {
+    //   label: 'Have You Faced Any Legal Issues in Past Projects?',
+    //   id: 'legalIssues',
+    //   component: 'select',
+    //   initOptions: { id: 1, label: 'Select', value: '' },
+    //   optionData: [
+    //     { id: 2, label: 'Yes', value: 'Yes' },
+    //     { id: 3, label: 'No', value: 'No' }
+    //   ]
+    // }
   ]
   return (
     <div className="f-column-23">

@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import './style.scss'
 import { ActionComponent, IOptionAction } from '../../utils/reusable'
-import { HamburgerSVG } from '../../utils/svgs'
+// import { HamburgerSVG } from '../../utils/svgs'
 import { NavItems } from './nav-items'
 import { IRightSection } from '../right-section/utils'
 import { LogoTextSVG } from '../../utils/svgs/f-awesome'
@@ -53,9 +53,7 @@ const Header = memo(({ rsProps }: IHeader) => {
             />
           </div>
           <div className="profile-container-mobile gap-20">
-            <div className="cursor-pointer hw-mx">
-              <HamburgerSVG />
-            </div>
+            <div className="cursor-pointer hw-mx">{/* <HamburgerSVG /> */}</div>
           </div>
         </div>
       </div>

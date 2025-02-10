@@ -56,15 +56,15 @@
 }
 
 .designed-for-you {
-  h2 {
+  h3 {
     font-size: 27px;
     line-height: 3rem;
   }
   @media (max-width: $lg-breakpoint) {
     align-items: center;
     text-align: center;
-    h2 {
-      font-size: clamp(1.3625rem, -0.875rem + 8.333vw, 0.7065rem);
+    h3 {
+      font-size: clamp(1.2625rem, -0.875rem + 8.333vw, 0.7065rem);
       line-height: 2.4rem;
     }
     p {
@@ -167,11 +167,11 @@
 
 .section-text {
   h2 {
-    font-size: clamp(2.0625rem, -0.875rem + 8.333vw, 3.663rem);
+    font-size: clamp(1.9625rem, -0.875rem + 8.333vw, 2.763rem);
   }
   h3 {
     // font-size: 24px;
-    font-size: clamp(0.7625rem, -0.875rem + 8.333vw, 1.5rem);
+    font-size: clamp(0.6625rem, -0.875rem + 8.333vw, 1.5rem);
     line-height: clamp(1.9625rem, -0.875rem + 8.333vw, 40px);
   }
 
