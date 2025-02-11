@@ -238,7 +238,10 @@ const LandingPage = () => {
             <div className="p-5 f-column-19 border-label rounded" key={index}>
               <div className="f-row aic jcc icon-card-container">{i.icon}</div>
               <h4 className="m-0 header-txt-landing">{i.label}</h4>
-              <h6 className="m-0" style={{ lineHeight: '1.7rem' }}>
+              <h6
+                className="m-0 font-16"
+                style={{ lineHeight: '1.7rem', color: '#2f2f2f' }}
+              >
                 {i.value}
               </h6>
             </div>
