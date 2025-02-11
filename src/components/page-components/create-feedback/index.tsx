@@ -90,7 +90,10 @@ const CreateFeedback = () => {
       basicInformation,
       developmentExperience,
       projectVision,
-      complianceCertification,
+      complianceCertification: {
+        ...complianceCertification,
+        legalIssues: ''
+      },
       nextSteps
     }
     sendEmail(

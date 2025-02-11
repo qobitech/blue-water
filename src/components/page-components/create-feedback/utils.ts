@@ -112,7 +112,7 @@ export const nextStepsSchema = {
 
 export const complianceCertificationSchema = {
   developerLicense: yup.string().required('input is required'),
-  legalIssues: yup.string().required('input is required')
+  legalIssues: yup.string()
 }
 
 export const projectVisionSchema = {

@@ -203,10 +203,9 @@ const LandingPage = () => {
             className="mx-auto font-19"
             style={{ maxWidth: '600px', lineHeight: '2rem' }}
           >
-            Imagine owning a sprawling 10,000 square metres of prime property,
-            surrounded by breathtaking water views in a strategic location, in a
-            serene environment, making it perfect for investors looking to
-            maximize returns while creating a legacy.
+            Imagine owning 10,000 square metres of prime property, surrounded by
+            breathtaking water views in a strategic location, making it perfect
+            for investors looking to maximize returns while creating a legacy.
           </p>
         </div>
         <Reveal className="cta-wrapper container p-0 jcc pt-3 pb-5">
