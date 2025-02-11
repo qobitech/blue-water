@@ -291,7 +291,7 @@ const LandingPage = () => {
       </section>
       <section
         className="section-text py-5 f-column-33 aic"
-        style={{ background: '#05254c' }}
+        style={{ background: '#0f4485' }}
       >
         <div className="section-text text-center header-text-content pt-5">
           <h2 className="header-txt-landing text-white">
