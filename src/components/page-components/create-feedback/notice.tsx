@@ -16,7 +16,7 @@ export const Notice: FC<INotice> = ({ cta, proceed, cancel }) => {
     >
       <LogoTextSVG />
       <div className="text-center">
-        <h3 className="header-txt-landing">
+        <h3 className="font-21" style={{ lineHeight: '2rem' }}>
           To move forward, it&apos;s essential that we align with your
           objectives. Please click the button below to proceed.
         </h3>
