@@ -13,7 +13,7 @@ const Footer = memo(() => {
         <div className="pt-4 pb-5 footer border-label-top w-100">
           <div className="footer-left f-row-10 aic">
             <p className="m-0 text-little">
-              &#169; BlueWater Shores, {new Date().getFullYear()}
+              &#169; BlueWater Shores Realty, {new Date().getFullYear()}
             </p>
           </div>
           <div className="footer-right">

@@ -5,7 +5,7 @@ import { Reveal } from './utils'
 import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
 import { faqdata } from './data'
-import designedforyou from '../../../assets/images/pexels-e-photography-1475938 2.webp'
+import designedforyou from '../../../assets/images/pexels-zachtheshoota-1838640 2.webp'
 import opportunity from '../../../assets/images/pexels-jess-vide-4602249 2.webp'
 import { SubReveal } from './sub-reveal'
 import Lenis from 'lenis'
@@ -15,8 +15,11 @@ import {
   ConsultingSVG,
   NoticeSVG
 } from '../../../components/utils/svgs'
+import { useNavigate } from 'react-router-dom'
+import { pageurl } from '../../../constants/pageurl'
 
 const LandingPage = () => {
+  const navigate = useNavigate()
   const { rsProps } = useGlobalContext()
 
   useEffect(() => {
@@ -131,17 +134,17 @@ const LandingPage = () => {
             alt="Designed for you"
             style={{
               width: '100%',
-              // height: '500px',
+              maxHeight: '500px',
               objectFit: 'cover',
               borderRadius: '20px'
             }}
             className=""
           />
-          <div className="f-column-55 jcc">
-            <div className="f-column-23 designed-for-you">
+          <div className="f-column-65 jcc">
+            <div className="f-column-27 designed-for-you">
               <h3 className="m-0">
                 <span className="fancy-underline header-txt-landing">
-                  BlueWater Shores
+                  BlueWater Shores Realty
                 </span>{' '}
                 is your trusted partner in sustainable and innovative real
                 estate investment with clear, transparent processes and support
@@ -157,9 +160,9 @@ const LandingPage = () => {
                 buttonSize="large"
                 buttonType="bold"
                 buttonShape="square"
-                title="Get Started"
-                aria-label="Explore the Property - BlueWater Shores"
-                onClick={() => createFeedback('Explore the Property')}
+                title="About Us"
+                aria-label="About Us - BlueWater Shores"
+                onClick={() => navigate(pageurl.ABOUT)}
               />
               <TypeButton
                 buttonSize="large"
@@ -186,8 +189,8 @@ const LandingPage = () => {
           </h2>
         </div>
         <div className="text-center container">
-          <p className="font-18 m-0">
-            <b>Discover 10,000 Square Metres of Potential</b>
+          <p className="font-16 m-0">
+            Discover 10,000 Square Metres of Potential
           </p>
         </div>
         <div>
@@ -198,10 +201,10 @@ const LandingPage = () => {
             className="w-100 rounded"
           />
         </div>
-        <div className="text-center container">
+        <div className="text-center container pt-3">
           <p
-            className="mx-auto font-19"
-            style={{ maxWidth: '600px', lineHeight: '2rem' }}
+            className="mx-auto font-23"
+            style={{ maxWidth: '600px', lineHeight: '2.75rem' }}
           >
             Imagine owning 10,000 square metres of prime property, surrounded by
             breathtaking water views in a strategic location, making it perfect
@@ -235,11 +238,11 @@ const LandingPage = () => {
         </div>
         <div className="grid-wrapper-30 gap-21 container">
           {keyFeatures.map((i, index) => (
-            <div className="p-5 f-column-19 border-label rounded" key={index}>
+            <div className="p-5 f-column-23" key={index}>
               <div className="f-row aic jcc icon-card-container">{i.icon}</div>
               <h4 className="m-0 header-txt-landing">{i.label}</h4>
               <h6
-                className="m-0 font-16"
+                className="m-0 font-14"
                 style={{ lineHeight: '1.7rem', color: '#2f2f2f' }}
               >
                 {i.value}
@@ -303,7 +306,7 @@ const LandingPage = () => {
         </div>
         <div className="text-center mb-4 container">
           <h4
-            className="text-white mx-auto my-0 font-20"
+            className="text-white mx-auto my-0 font-17"
             style={{ maxWidth: '600px', lineHeight: '2.5rem' }}
           >
             Find the perfect property or partner with us to shape the future of

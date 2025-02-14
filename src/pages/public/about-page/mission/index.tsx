@@ -49,7 +49,7 @@ const MissionSection = () => {
           <div style={{ maxWidth: '69.375rem' }} className="mx-auto w-100">
             <div className="grid-wrapper-30 gap-20">
               {diContents.map((i, index) => (
-                <div className="DISection border-label gap-13" key={index}>
+                <div className="DISection gap-17" key={index}>
                   <div className="icon-card-container f-row aic jcc">
                     {i.icon}
                   </div>
