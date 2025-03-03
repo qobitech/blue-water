@@ -3,7 +3,7 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/253284aad0869828-s.p.otf') format('truetype');
+  src: url('./assets/fonts/253284aad0869828-s.p.otf') format('opentype');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('truetype');
+  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('woff2');
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('truetype');
+  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('woff2');
 }
 
 @font-face {
@@ -27,14 +27,14 @@
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('truetype');
+  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Outfit_SemiBold';
   font-weight: normal;
   font-display: swap;
   font-style: normal;
-  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('truetype');
+  src: url('./assets/fonts/929e51294205acbf-s.p.woff2') format('woff2');
 }
 
 h1,
