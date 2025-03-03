@@ -19,9 +19,9 @@ export interface ISubMenuTray {
   setSubMenuId: (value: SetStateAction<subMenuIdType>) => void
 }
 
-export const menuItems: IMenuItem[] = [
+export const menuItems = (isHome: boolean): IMenuItem[] => [
   {
-    title: 'About Us',
+    title: isHome ? 'About Us' : 'Home',
     url: ''
   }
 ]
