@@ -28,7 +28,7 @@ export const AccordionPageSection = ({
         onClick={() => setOpenAccordion(isId ? 0 : id)}
       >
         <div className="f-row aic">
-          <h1 className="accordion-header-text">{header}</h1>
+          <h1 className="accordion-header-text font-18">{header}</h1>
         </div>
         <div className="accordion-control">
           {isId ? <MinusSVG /> : <PlusSVG />}
@@ -36,7 +36,10 @@ export const AccordionPageSection = ({
       </div>
       {isId && (
         <div className="accordion-row-body">
-          <p className="m-0 ff-regular font-14" style={{ lineHeight: '24px' }}>
+          <p
+            className="m-0 ff-regular font-14 color-label"
+            style={{ lineHeight: '24px' }}
+          >
             {answer}
           </p>
         </div>

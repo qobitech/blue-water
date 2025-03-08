@@ -134,7 +134,7 @@ const LandingPage = () => {
             alt="Designed for you"
             style={{
               width: '100%',
-              maxHeight: '500px',
+              maxHeight: '400px',
               objectFit: 'cover',
               borderRadius: '20px'
             }}
@@ -150,7 +150,7 @@ const LandingPage = () => {
                 estate investment with clear, transparent processes and support
                 from start to finish
               </h3>
-              <p className="m-0" style={{ lineHeight: '1.69rem' }}>
+              <p className="m-0 font-18" style={{ lineHeight: '1.69rem' }}>
                 Take the first step. Let’s build something extraordinary
                 together
               </p>
@@ -189,7 +189,7 @@ const LandingPage = () => {
           </h2>
         </div>
         <div className="text-center container">
-          <p className="font-16 m-0">
+          <p className="font-18 m-0">
             Discover 10,000 Square Metres of Potential
           </p>
         </div>
@@ -203,7 +203,7 @@ const LandingPage = () => {
         </div>
         <div className="text-center container pt-3">
           <p
-            className="mx-auto font-23"
+            className="mx-auto font-18"
             style={{ maxWidth: '600px', lineHeight: '2.75rem' }}
           >
             Imagine owning 10,000 square metres of prime property, surrounded by
@@ -236,13 +236,13 @@ const LandingPage = () => {
         <div className="section-text text-center header-text-content pt-5">
           <h2 className="header-txt-landing">Services We Offer</h2>
         </div>
-        <div className="grid-wrapper-30 gap-21 container">
+        <div className="grid-wrapper-30 gap-16 container">
           {keyFeatures.map((i, index) => (
             <div className="p-5 f-column-23" key={index}>
               <div className="f-row aic jcc icon-card-container">{i.icon}</div>
               <h4 className="m-0 header-txt-landing">{i.label}</h4>
               <h6
-                className="m-0 font-14"
+                className="m-0 font-18"
                 style={{ lineHeight: '1.7rem', color: '#2f2f2f' }}
               >
                 {i.value}
@@ -250,6 +250,24 @@ const LandingPage = () => {
             </div>
           ))}
         </div>
+        <Reveal className="cta-wrapper container p-0 jcc pt-3 pb-5">
+          <TypeButton
+            buttonSize="large"
+            buttonType="bold"
+            buttonShape="square"
+            title="Contact Us"
+            aria-label="Explore The Property - BlueWater Shores"
+            onClick={() => createFeedback('Explore The Property')}
+          />
+          <TypeButton
+            buttonSize="large"
+            buttonType="outlined"
+            buttonShape="square"
+            title="Partner with Us"
+            aria-label="Partner with Us - BlueWater Shores"
+            onClick={() => createFeedback('Partner with Us')}
+          />
+        </Reveal>
       </section>
       <section className="faq section-text">
         <div className="container f-column-40">
@@ -306,7 +324,7 @@ const LandingPage = () => {
         </div>
         <div className="text-center mb-4 container">
           <h4
-            className="text-white mx-auto my-0 font-17"
+            className="text-white mx-auto my-0 font-18"
             style={{ maxWidth: '600px', lineHeight: '2.5rem' }}
           >
             Find the perfect property or partner with us to shape the future of
