@@ -7,12 +7,9 @@ import { TypeCheckbox } from '../checkbox'
 import { TypePassword } from '../password'
 import Review from '../review'
 import Rating from '../rating'
-import WYSIWYG from '../wysiwyg'
 import { TypeRadio } from '../radio'
 import { HVC } from '../hvc'
 import BoxCheck, { IBCItem } from '../box-check'
-import { ICardListItem } from '../card-list/utils'
-import CardList from '../card-list'
 import TextPrompt from '../text-prompt'
 
 export type typecomponent =
@@ -64,7 +61,6 @@ export interface IFormComponent {
     text: string
     action: () => void
   }
-  cardLists?: ICardListItem[]
   autoresize?: boolean
   checkboxGroup?: string[]
 }
@@ -198,20 +194,6 @@ const FormBuilder = <T extends FieldValues>({
               autoresize={i.autoresize}
             />
           )}
-          {i.component === 'wysiwyg' && (
-            <WYSIWYG
-              setEditorHtml={(html) => {
-                hookForm.setValue(
-                  i.id as Path<T>,
-                  html as PathValue<T, Path<T>>
-                )
-              }}
-              editorHtml={hookForm.watch(i.id as Path<T>)}
-              label={i.label}
-              error={err(i)}
-              placeholder={i.placeHolder}
-            />
-          )}
           {i.component === 'check-box' && (
             <div className="f-column-13">
               <div className="f-row-11 align-items-center">
@@ -280,17 +262,6 @@ const FormBuilder = <T extends FieldValues>({
           )}
           {i.component === 'rating' && (
             <Rating rating={hookForm.getValues(i.id as Path<T>)} />
-          )}
-          {i.component === 'card-list' && (
-            <CardList
-              cardLists={i.cardLists}
-              onAction={(card) => {
-                hookForm?.setValue?.(
-                  i.id as Path<T>,
-                  card.value as PathValue<T, Path<T>>
-                )
-              }}
-            />
           )}
         </HVC>
       ))}

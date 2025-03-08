@@ -26,13 +26,10 @@ import * as yup from 'yup'
 
 import axios from 'axios'
 import { HVC, HVCLoad } from './hvc'
-import TabToggler, { IUseTabToggler } from './tab-toggler'
-import { isAdmin } from '../../constants/pageurl'
 import { SeparatorComponent } from './reusable'
 import {
   LogoNoWaveSVG,
   PreviewSVG,
-  RefreshSVG,
   RemoveSVG,
   TeaVapourSVG,
   UploadSVG
@@ -472,51 +469,6 @@ export const useImageSize = (
   }, [imageUrl])
 
   return imageProps
-}
-
-interface IHTS {
-  isView: boolean
-  eventNumber?: number
-  tabTogglerProps: IUseTabToggler
-  load?: boolean
-  onRefresh?: () => void
-}
-
-export const HeaderToggleSection: FC<IHTS> = ({
-  isView,
-  eventNumber,
-  tabTogglerProps,
-  load,
-  onRefresh
-}) => {
-  const isMgmt = isAdmin
-  const isRefresh = typeof onRefresh === 'function'
-  return (
-    <>
-      {isView ? (
-        <div className="f-row-30 aic jcs" style={{ height: '45px' }}>
-          {eventNumber ? (
-            <p className="text-small m-0 color-label">{eventNumber} Events</p>
-          ) : null}
-          {isMgmt ? (
-            <>
-              <SeparatorComponent />
-              <TabToggler tabTogglerProps={tabTogglerProps} />
-            </>
-          ) : null}
-          <HVCLoad
-            removeDOM
-            view={isRefresh}
-            load={load}
-            className="mx-wh-fit cursor-pointer"
-            onClick={onRefresh}
-          >
-            <RefreshSVG />
-          </HVCLoad>
-        </div>
-      ) : null}
-    </>
-  )
 }
 
 export interface IMUC {

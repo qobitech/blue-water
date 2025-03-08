@@ -1,16 +1,17 @@
-import { PageContainer } from '../../../../components/utils/reusable'
-import { TypeButton } from '../../../../components/utils/button'
+import { PageContainer } from '../../../components/utils/reusable'
+import { TypeButton } from '../../../components/utils/button'
 import './style.scss'
-import { Reveal } from '../../landing-page/reveal'
+import { Reveal } from '../landing-page/reveal'
 import {
   ExcellenceSVG,
   IntegritySVG,
   SustainabilitySVG
-} from '../../../../components/utils/svgs'
-import { useGlobalContext } from '../../../../components/layout/context'
+} from '../../../components/utils/svgs'
+import { useGlobalContext } from '../../../components/layout/context'
 
 const MissionSection = () => {
   const { rsProps } = useGlobalContext()
+
   const createFeedback = (title: string) => {
     rsProps?.callSection({
       action: 'create',
@@ -19,6 +20,7 @@ const MissionSection = () => {
       max: true
     })
   }
+
   const diContents = [
     {
       header: 'Sustainability',
@@ -36,7 +38,7 @@ const MissionSection = () => {
       icon: <ExcellenceSVG />
     }
   ]
-  // const navigate = useNavigate()
+
   return (
     <div className="DIContainer">
       <PageContainer>
