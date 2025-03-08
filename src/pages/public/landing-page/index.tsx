@@ -6,14 +6,12 @@ import { useGlobalContext } from '../../../components/layout/context'
 import { AccordionPageSection } from '../faq'
 import { faqdata } from './data'
 import designedforyou from '../../../assets/images/pexels-zachtheshoota-1838640+2_batcheditor_fotor.webp'
-import opportunity from '../../../assets/images/pexels-jess-vide-4602249 2.webp'
 import { SubReveal } from './sub-reveal'
 import Lenis from 'lenis'
 import {
   DevelopmentSVG,
   OpportunitySVG,
-  ConsultingSVG,
-  NoticeSVG
+  ConsultingSVG
 } from '../../../components/utils/svgs'
 import { useNavigate } from 'react-router-dom'
 import { pageurl } from '../../../constants/pageurl'
@@ -81,7 +79,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className="landing-page-wrapper bg-white f-column gap-65">
+    <div className="landing-page-wrapper bg-white f-column">
       <section className="video-background">
         <div className="content container">
           <div className="f-column-43 text-center">
@@ -120,8 +118,8 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="mt-5 py-5 f-column-33 px-3 mb-5">
-        <div className="section-text text-center header-text-content">
+      <section className="py-5 f-column-33 px-3 mb-5">
+        <div className="section-text text-center header-text-content mt-5">
           <h2 className="header-txt-landing">Why Choose Us?</h2>
         </div>
         <SubReveal
@@ -177,41 +175,24 @@ const LandingPage = () => {
         </SubReveal>
       </section>
 
-      <section
-        className="f-column-33 px-3 py-5"
-        style={{ background: '#BCE8F4' }}
-        ref={faqRef}
-      >
-        <div className="section-text text-center header-text-content pt-5">
-          <NoticeSVG color="black" />
+      <section className="f-column-33 px-3 py-5 opportunity" ref={faqRef}>
+        <div className="section-text text-center header-text-content pt-4">
+          {/* <NoticeSVG color="black" /> */}
           <h2 className="header-txt-landing m-0 mt-3">
             New Investment Opportunity
           </h2>
         </div>
         <div className="text-center container">
-          <p className="font-18 m-0">
-            Discover 10,000 Square Metres of Potential
-          </p>
-        </div>
-        <div>
-          <img
-            src={opportunity}
-            alt=""
-            style={{ height: '350px', objectFit: 'cover' }}
-            className="w-100 rounded"
-          />
-        </div>
-        <div className="text-center container pt-3">
           <p
             className="mx-auto font-18"
             style={{ maxWidth: '600px', lineHeight: '2.75rem' }}
           >
-            Imagine owning 10,000 square metres of prime property, surrounded by
-            breathtaking water views in a strategic location, making it perfect
-            for investors looking to maximize returns while creating a legacy.
+            10,000 square metres of prime property, surrounded by breathtaking
+            water views, making it perfect for investors looking to maximize
+            returns while creating a legacy
           </p>
         </div>
-        <Reveal className="cta-wrapper container p-0 jcc pt-3 pb-5">
+        <Reveal className="cta-wrapper container p-0 jcc pb-5">
           <TypeButton
             buttonSize="large"
             buttonType="bold"
@@ -232,7 +213,7 @@ const LandingPage = () => {
         </Reveal>
       </section>
 
-      <section className="f-column-33 px-3">
+      <section className="f-column-13 px-3 py-5 services">
         <div className="section-text text-center header-text-content pt-5">
           <h2 className="header-txt-landing">Services We Offer</h2>
         </div>
@@ -264,6 +245,7 @@ const LandingPage = () => {
             buttonType="outlined"
             buttonShape="square"
             title="Partner with Us"
+            className="border-0"
             aria-label="Partner with Us - BlueWater Shores"
             onClick={() => createFeedback('Partner with Us')}
           />

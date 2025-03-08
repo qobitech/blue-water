@@ -432,10 +432,6 @@
         margin-bottom: 60px;
       }
     }
-    .list-media-container {
-      // position: relative;
-      // bottom: 0;
-    }
   }
 }
 
@@ -696,9 +692,20 @@
   height: 50px;
   min-width: 50px;
   min-height: 50px;
-  // border: 0.1px solid #c8e1ff;
-  background: #f1f7ff;
+  border: 0.1px solid #c8e1ff;
+  // background: #f1f7ff;
   svg path {
     fill: #05254c;
   }
+}
+
+.opportunity {
+  background-image: url('../../../assets/images/Group\ 64291-min\ 2.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.services {
+  background: #edf7f1;
 }
