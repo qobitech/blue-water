@@ -2,7 +2,6 @@ import { createContext, useContext } from 'react'
 import { filterQueryType, themeType } from '../../constants/global'
 
 import { IRightSection } from '../layout/right-section/utils'
-import { IShareProps } from '../utils/share'
 import { IUseTab } from '../utils/reusable'
 import { ICopyProps } from '../utils/hooks'
 import { IComponentState, initComponentState } from './global-schema'
@@ -24,8 +23,6 @@ export interface IGlobalContext {
   closeSessionHandle?: () => void
   refreshNotificationMessages?: () => void
   rsProps?: IRightSection<{}>
-  shareProps?: IShareProps | null
-  setShareProps?: (shareProps: IShareProps) => void
   filters?: { [key: string]: string } | null
   setFilters?: (
     filters: { [key: string]: string },

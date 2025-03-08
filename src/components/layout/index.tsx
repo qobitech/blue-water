@@ -4,7 +4,6 @@ import { UNDER_CONSTRUCTION, filterQueryType } from '../../constants/global'
 import Footer from './footer'
 import { useModal } from '../utils/modal'
 import GlobalRightSection from './global-right-section'
-import { IShareProps } from '../utils/share'
 import ScrollIntoViewController from './scroll-into-view-controller'
 
 import './style.scss'
@@ -28,7 +27,6 @@ const Dashboard: React.FC<IDashboard> = ({ children, global }) => {
   const [showConsentBanner, setShowConsentBanner] = useState<boolean>(false)
   const [joinWaitingList, setJoinWaitingList] = useState<boolean>(false)
   const [subscribe, setSubscribe] = useState<boolean>(false)
-  const [shareProps, setShareProps] = useState<IShareProps | null>(null)
   const useNotificationProps = useModal()
 
   const closeSessionHandle = () => {
@@ -42,15 +40,6 @@ const Dashboard: React.FC<IDashboard> = ({ children, global }) => {
   const refreshNotificationMessages = () => {}
 
   const rsProps = useRightSection()
-
-  const handleShareProps = (shareProps: IShareProps) => {
-    setShareProps(shareProps)
-    rsProps.callSection({
-      action: 'view',
-      component: 'share',
-      title: 'Share'
-    })
-  }
 
   const handleFilters = (
     filters: { [key: string]: string },
@@ -77,8 +66,6 @@ const Dashboard: React.FC<IDashboard> = ({ children, global }) => {
         closeSessionHandle,
         refreshNotificationMessages,
         rsProps,
-        setShareProps: handleShareProps,
-        shareProps,
         filters,
         setFilters: handleFilters,
         setFilterQuery,

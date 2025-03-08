@@ -1,5 +1,4 @@
 import { filterQueryType } from '../../constants/global'
-import { IShareProps } from '../utils/share'
 
 export type IComponentStateKey = keyof typeof initComponentState
 
@@ -13,7 +12,6 @@ export interface IComponentState {
   showConsentBanner: boolean
   joinWaitingList: boolean
   subscribe: boolean
-  shareProps: IShareProps | null
 }
 
 const apigetObj = {
