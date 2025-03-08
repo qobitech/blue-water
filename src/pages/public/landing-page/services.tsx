@@ -39,7 +39,7 @@ export const Services: FC<IServices> = ({ createFeedback }) => {
             <h4 className="m-0 header-txt-landing">{i.label}</h4>
             <h6
               className="m-0 font-18"
-              style={{ lineHeight: '1.7rem', color: '#2f2f2f' }}
+              style={{ lineHeight: '2rem', color: '#2f2f2f' }}
             >
               {i.value}
             </h6>
