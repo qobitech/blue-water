@@ -3,7 +3,7 @@ import { TypeButton } from '../../../components/utils/button'
 
 import staffing from '../../../assets/images/Lakeside Cityscape with Palm Trees.webp'
 import './style.scss'
-import { Reveal } from '../landing-page/utils'
+import { Reveal } from '../landing-page/reveal'
 import MissionSection from './mission'
 import { useGlobalContext } from '../../../components/layout/context'
 

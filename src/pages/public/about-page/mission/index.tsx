@@ -1,7 +1,7 @@
 import { PageContainer } from '../../../../components/utils/reusable'
 import { TypeButton } from '../../../../components/utils/button'
 import './style.scss'
-import { Reveal } from '../../landing-page/utils'
+import { Reveal } from '../../landing-page/reveal'
 import {
   ExcellenceSVG,
   IntegritySVG,
